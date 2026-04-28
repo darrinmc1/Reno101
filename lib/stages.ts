@@ -31,6 +31,11 @@ export interface StageStep {
   components: StageComponent[]
 }
 
+export interface StageQuote {
+  text: string
+  author?: string
+}
+
 export interface Stage {
   slug: string
   name: string
@@ -40,8 +45,16 @@ export interface Stage {
   difficulty: Difficulty
   icon: string
   accent: string
+  /** Optional Tailwind gradient classes for the hero banner — e.g. "from-purple-500 via-purple-600 to-fuchsia-700". Falls back to a phase-based gradient. */
+  hero?: string
+  /** Optional EmailCapture theme key — "orange" | "emerald" | "blue". Falls back to phase. */
+  emailTheme?: "orange" | "emerald" | "blue"
   tagline: string
   summary: string
+  /** Optional time-to-complete estimate, e.g. "1-2 weeks". */
+  timeEstimate?: string
+  /** Optional real-reno quote shown on the stage page. */
+  quote?: StageQuote
   resourceCount: number
   steps?: StageStep[]
   resources?: StageResource[]
@@ -82,6 +95,7 @@ export const STAGES: Stage[] = [
     difficulty: "basic",
     icon: "💡",
     accent: "bg-sky-100 text-sky-700",
+    hero: "from-cyan-500 via-sky-600 to-blue-700",
     tagline: "Research, mood boards, samples, open homes.",
     summary:
       "Before a single hammer swings, the Ideas stage is where you figure out what you actually want — not what Instagram wants, not what your sister-in-law wants, and not what a single dramatic magazine cover wants. Collect inspiration, pressure-test your taste, and talk to people who've survived a reno recently.",
@@ -157,6 +171,7 @@ export const STAGES: Stage[] = [
     difficulty: "basic",
     icon: "📐",
     accent: "bg-sky-100 text-sky-800",
+    hero: "from-blue-500 via-indigo-600 to-violet-700",
     tagline: "Costs, contractors, quotes, permits, materials.",
     summary:
       "The unsexy stage where the project is actually won or lost. Going over-time and over-budget is almost inevitable — but how badly is almost entirely decided here. Most of this is paperwork, phone calls, and asking awkward questions before they become expensive ones.",
@@ -252,10 +267,53 @@ export const STAGES: Stage[] = [
     order: 3,
     difficulty: "intermediate",
     icon: "🔨",
-    accent: "bg-sky-100 text-sky-700",
-    tagline: "Make safe, salvage, strip out, clean up.",
-    summary: "Before you build, you un-build. Make the site safe, save what's worth saving, then strip it back with more discipline than enthusiasm.",
+    accent: "bg-purple-100 text-purple-700",
+    hero: "from-purple-500 via-violet-600 to-fuchsia-700",
+    tagline: "Tear down the old, make room for the new — and dispose of it properly.",
+    summary: "Before you build, you un-build. Make the site safe, save what's worth saving, then strip it back with more discipline than enthusiasm. Demolition feels destructive, but it's also where most asbestos, structural and insurance surprises surface.",
     resourceCount: 14,
+    steps: [
+      {
+        title: "Urgent required repairs",
+        emoji: "🛠️",
+        components: [
+          { label: "Make the site weather-tight", hint: "If the roof's coming off later, tarp anything below it before the first storm reminds you why this matters.", materials: "Heavy-duty tarps, roofing nails, sandbags", skill: "Intermediate" },
+          { label: "Brace anything structural before stripping", hint: "Walls, ceilings, lintels — anything you'll lean on later. Cheaper than discovering a cracked beam mid-demo.", skill: "Advanced" },
+          { label: "Secure doors and windows", hint: "If you're moving out during the reno, board up any opening a person could fit through.", materials: "Plywood sheets, screws", skill: "Basic" },
+        ],
+      },
+      {
+        title: "Move or cover what stays",
+        emoji: "📦",
+        components: [
+          { label: "Empty the room completely", hint: "Anything left in the room WILL get covered in plaster dust. Treat it as already lost.", skill: "Basic" },
+          { label: "Cover floors that are staying", hint: "Builder's paper or thick plastic sheeting, taped down. Drop sheets are for paint, not demolition.", materials: "Builder's paper, masking tape", skill: "Basic" },
+          { label: "Mask off air-con, smoke alarms, fixed appliances", hint: "Demolition dust kills smoke alarm sensors and AC filters. Plastic bags + tape for the day.", materials: "Plastic bags, painter's tape", skill: "Basic" },
+          { label: "Photograph everything before strip", hint: "For insurance, dispute resolution with tradies, and your own sanity in month four when you can't remember what was there.", skill: "Basic" },
+        ],
+      },
+      {
+        title: "Make plumbing, electrical & gas safe",
+        emoji: "⚡",
+        components: [
+          { label: "Isolate the circuit at the board", hint: "Don't trust the light switch — switch off at the main board AND test with a multimeter before you cut anything.", materials: "Multimeter, voltage tester", skill: "Advanced" },
+          { label: "Cap or isolate water lines", hint: "A licensed plumber should cap any line you're not using. DIY caps fail at the worst possible moment.", skill: "Mastery" },
+          { label: "Disconnect gas (licensed gas fitter only)", hint: "There is no DIY-and-google way to do this safely. Pay the gas fitter.", skill: "Mastery" },
+          { label: "Lock-out / tag-out anything that can be turned back on", hint: "If multiple trades are on site, label every isolated circuit and valve so nobody flips it 'just to check'.", materials: "Lock-out tags, padlocks", skill: "Intermediate" },
+        ],
+      },
+      {
+        title: "Strip and clean up",
+        emoji: "🧹",
+        components: [
+          { label: "Save anything reusable", hint: "Vintage door handles, hardwood timbers, quality fixtures — Gumtree pays for skip bins.", skill: "Basic" },
+          { label: "Sort waste by type", hint: "Construction waste centres charge less for sorted skips. Asbestos, treated timber and metal go in different bins.", skill: "Basic" },
+          { label: "Asbestos awareness", hint: "Anything pre-1990 — vinyl tiles, eaves, wall sheeting, fences — could contain asbestos. Test before you cut.", materials: "Asbestos test kit, P2 mask", skill: "Mastery" },
+          { label: "Skip bin order", hint: "Order one size bigger than you think. The 'we'll just stack it' plan never holds.", skill: "Basic" },
+          { label: "Sweep, vacuum, repeat", hint: "Demo dust gets into hinges and electrical outlets. A shop-vac with a HEPA filter pays for itself in saved fittings.", materials: "Shop-vac, HEPA filter, broom", skill: "Basic" },
+        ],
+      },
+    ],
   },
   {
     slug: "landscaping",
@@ -266,9 +324,50 @@ export const STAGES: Stage[] = [
     difficulty: "intermediate",
     icon: "🌳",
     accent: "bg-emerald-100 text-emerald-700",
+    hero: "from-green-500 via-emerald-600 to-teal-700",
     tagline: "Trees, excavation, paving, planting, grass.",
-    summary: "Outside first — it's much easier to run machinery before the external walls are pretty.",
+    summary: "Outside first — it's much easier to run machinery before the external walls are pretty. Anything that needs an excavator, a stump grinder, or a Bobcat happens now.",
     resourceCount: 11,
+    steps: [
+      {
+        title: "Trees & vegetation",
+        emoji: "🌳",
+        components: [
+          { label: "Check for protected trees", hint: "Most councils have tree preservation orders. Cutting down the wrong tree is a five-figure fine in some councils.", skill: "Intermediate" },
+          { label: "Remove what's coming out", hint: "Stump-grinding adds days. Book it the same week as the tree removal.", materials: "Stump grinder hire, chainsaw", skill: "Advanced" },
+          { label: "Protect what's staying", hint: "Mark protected zones with bright fencing before machinery arrives. Drivers respect tape, not promises.", materials: "Hi-vis fencing, star pickets", skill: "Basic" },
+        ],
+      },
+      {
+        title: "Excavation & earthworks",
+        emoji: "⛏️",
+        components: [
+          { label: "Locate underground services", hint: "Dial Before You Dig (1100). Free, mandatory, and has saved countless excavator buckets from a sewer line.", skill: "Intermediate" },
+          { label: "Set finished levels", hint: "Sloping AWAY from the house, always. A 1:50 minimum fall is the rule of thumb.", materials: "Laser level, string lines", skill: "Advanced" },
+          { label: "Excavate for paths, slabs, retaining walls", hint: "Get the spoil off-site as you go. It will not get smaller if it sits in the front yard for a fortnight.", skill: "Advanced" },
+        ],
+      },
+      {
+        title: "Paving, paths, retaining",
+        emoji: "🧱",
+        components: [
+          { label: "Compacted base", hint: "Whatever the surface, the base does the work. Skimping here is the most common landscaping regret.", materials: "Road base, plate compactor", skill: "Intermediate" },
+          { label: "Drainage falls", hint: "Build drainage in from the start. Retrofitting is the most expensive water lesson there is.", skill: "Advanced" },
+          { label: "Pavers, concrete, or pebble", skill: "Intermediate" },
+          { label: "Retaining walls (over 1m: engineer required)", hint: "Anything over 1m typically needs an engineered design and council approval. Don't ask the landscaper to certify it.", skill: "Mastery" },
+        ],
+      },
+      {
+        title: "Planting & grass",
+        emoji: "🌱",
+        components: [
+          { label: "Soil prep", hint: "Cheap soil = expensive plants that die. Topsoil with compost beats raw clay every time.", materials: "Topsoil, compost, mulch", skill: "Basic" },
+          { label: "Choose climate-appropriate plants", hint: "Whatever's thriving in your neighbours' gardens is a safer bet than what looked great at the nursery in spring.", skill: "Basic" },
+          { label: "Lay turf or seed", hint: "Turf is instant gratification at 5× the price. Seed needs babysitting for six weeks.", materials: "Turf rolls or grass seed", skill: "Basic" },
+          { label: "Irrigation, if you want plants to live", hint: "A drip system on a timer pays for itself in plant survival. Manual watering forgets you exist on the third hot day.", materials: "Drip irrigation kit, timer", skill: "Intermediate" },
+        ],
+      },
+    ],
   },
   {
     slug: "external",
@@ -279,9 +378,49 @@ export const STAGES: Stage[] = [
     difficulty: "mastery",
     icon: "🏠",
     accent: "bg-emerald-100 text-emerald-800",
+    hero: "from-emerald-700 via-green-800 to-emerald-900",
     tagline: "Roofing, gutters, drainage, foundations, cladding.",
     summary: "The weather-tight envelope. Mostly a call-a-pro stage — the mistakes here leak for years and find you in bed at 3am.",
     resourceCount: 16,
+    steps: [
+      {
+        title: "Roofing",
+        emoji: "🏠",
+        components: [
+          { label: "Inspect existing roof", hint: "Cracked tiles, loose flashings, rusted valleys, sagging ridge — note them all before you decide repair vs replace.", skill: "Advanced" },
+          { label: "Repair vs full replace", hint: "If more than 15–20% of tiles are damaged, replacement is usually cheaper over 5 years than repeated repairs.", skill: "Advanced" },
+          { label: "Re-pointing (tile roofs)", hint: "Flexible re-pointing every 15–20 years. Looks cosmetic, isn't — it's what stops water tracking under the tiles.", materials: "Flexible pointing compound", skill: "Advanced" },
+          { label: "Sarking & insulation", hint: "If the roof's off, sark and insulate. The next time it's off is in 30 years.", materials: "Reflective sarking, batts", skill: "Advanced" },
+        ],
+      },
+      {
+        title: "Gutters & downpipes",
+        emoji: "🌧️",
+        components: [
+          { label: "Replace, don't patch", hint: "Patched gutters look fine until the first proper storm. A new run with proper falls saves four phone calls a year.", materials: "Colorbond gutter, brackets, downpipes", skill: "Intermediate" },
+          { label: "Set the right fall", hint: "Minimum 1:500 toward downpipes. Eyeballing it never works.", materials: "Spirit level, string line", skill: "Intermediate" },
+          { label: "Leaf guards if treed", hint: "Cheaper than annual gutter cleans, and the bushfire-rated ones earn insurance discounts.", materials: "Mesh leaf guard", skill: "Basic" },
+        ],
+      },
+      {
+        title: "Drainage",
+        emoji: "💧",
+        components: [
+          { label: "Stormwater connections", hint: "Downpipes must connect to legal stormwater — not just spill onto pavers. Councils check this on inspections.", skill: "Advanced" },
+          { label: "Subsoil & ag drains where needed", hint: "If the yard pools after rain, you need ag pipe and gravel under the surface, not more topsoil.", materials: "Ag pipe, gravel, geotextile", skill: "Advanced" },
+          { label: "Pit and grate access", hint: "Every change of direction needs a cleanable pit. The day a tree root blocks the line, you'll thank past-you.", skill: "Advanced" },
+        ],
+      },
+      {
+        title: "Cladding & external walls",
+        emoji: "🧱",
+        components: [
+          { label: "Render, paint, or re-clad", hint: "Brick can be rendered or bagged. Weatherboards can be re-painted or replaced. Don't mix decisions across walls.", skill: "Advanced" },
+          { label: "Address rising damp first", hint: "If there's damp at the base of the walls, fix it before any new cladding. Otherwise you're wrapping the problem.", skill: "Mastery" },
+          { label: "Window flashings", hint: "Window leaks usually aren't the window — they're the flashing above. Get this right while the wall is open.", skill: "Advanced" },
+        ],
+      },
+    ],
   },
   {
     slug: "construction",
@@ -292,9 +431,47 @@ export const STAGES: Stage[] = [
     difficulty: "advanced",
     icon: "🏗️",
     accent: "bg-stone-100 text-stone-700",
-    tagline: "Flooring, windows, framing, stairs.",
-    summary: "Putting the skeleton back together. The part that makes the site look like progress is actually being made.",
+    hero: "from-stone-500 via-amber-700 to-stone-800",
+    tagline: "Repairs, framing, windows, doors, stairs.",
+    summary: "Putting the skeleton back together. The part that makes the site look like progress is finally being made — but it's also where engineering, certifications, and order-lead-times start ruling your week.",
     resourceCount: 13,
+    steps: [
+      {
+        title: "Structural repairs",
+        emoji: "🔧",
+        components: [
+          { label: "Termite damage", hint: "Suspect timber? Get an inspection before you build anything new on top. Treatment + rebuild is the only honest path.", materials: "Termite inspection report", skill: "Mastery" },
+          { label: "Rotten or failed framing", hint: "Replace, don't sister. Sistered timber rarely matches the load path the original was designed for.", skill: "Advanced" },
+          { label: "Lintels & beams", hint: "Anything spanning over 1.2m carrying load needs an engineer's sign-off, not a tradie's gut feel.", skill: "Mastery" },
+        ],
+      },
+      {
+        title: "New framing",
+        emoji: "🪚",
+        components: [
+          { label: "Wall framing", hint: "Stud spacing matters for plaster sheet sizes. 450mm or 600mm centres — pick one and stay with it.", materials: "Pine framing timber, framing nails", skill: "Advanced" },
+          { label: "Floor framing", hint: "Joists at correct spacing for the flooring above. Hardwood floor needs different spans to particleboard.", skill: "Advanced" },
+          { label: "Roof framing", hint: "Trusses come pre-built and craned on. Cut-and-pitched roofs need a carpenter who knows what they're doing.", skill: "Mastery" },
+        ],
+      },
+      {
+        title: "Windows & doors",
+        emoji: "🪟",
+        components: [
+          { label: "Order windows early", hint: "Custom windows are 6–12 week lead times. The carpenter standing around waiting is on your tab.", skill: "Advanced" },
+          { label: "Install with correct flashings", hint: "Sill flashing first, then sides, then head. Reverse this order and the window leaks.", materials: "Flashing tape, sill flashing", skill: "Advanced" },
+          { label: "Square, level, plumb — check all three", hint: "A door installed out of square will look fine until you try to close it next winter.", materials: "Spirit level, square", skill: "Intermediate" },
+        ],
+      },
+      {
+        title: "Stairs (if applicable)",
+        emoji: "🪜",
+        components: [
+          { label: "Compliant rise & run", hint: "Building code dictates max riser height and minimum tread depth. The inspector will measure.", skill: "Mastery" },
+          { label: "Handrails", hint: "Required on any flight of more than 4 steps. Height and graspability are both regulated.", skill: "Advanced" },
+        ],
+      },
+    ],
   },
   {
     slug: "rough-in",
@@ -304,10 +481,68 @@ export const STAGES: Stage[] = [
     order: 7,
     difficulty: "mastery",
     icon: "🚰",
-    accent: "bg-stone-100 text-stone-700",
-    tagline: "Plumbing, electrics, gas, HVAC, insulation.",
-    summary: "Everything that hides behind the walls. Licensed trades only — doing this yourself voids your insurance and possibly your marriage.",
+    accent: "bg-slate-100 text-slate-700",
+    hero: "from-slate-600 via-zinc-700 to-stone-800",
+    tagline: "Plumbing, electrics, gas, HVAC, drainage, insulation.",
+    summary: "Everything that hides behind the walls. Licensed trades only — doing this yourself voids your insurance and possibly your marriage. The decisions made here are the ones you can't easily reverse later.",
     resourceCount: 22,
+    steps: [
+      {
+        title: "Plumbing rough-in",
+        emoji: "🚰",
+        components: [
+          { label: "Hot/cold water lines", hint: "PEX over copper for new work in most cases — faster, fewer joints, less likely to burst in a cold snap.", materials: "PEX pipe, fittings, manifold", skill: "Mastery" },
+          { label: "Waste & soil pipes", hint: "Falls are sacred: 1:60 minimum on toilet runs, 1:40 on basin/shower. Getting this wrong creates blockages forever.", materials: "PVC pipe, fittings, glue", skill: "Mastery" },
+          { label: "Pressure test before plastering", hint: "Test under full pressure with everything capped. Find leaks now, not after the plasterer's been in.", skill: "Mastery" },
+        ],
+      },
+      {
+        title: "Electrical rough-in",
+        emoji: "⚡",
+        components: [
+          { label: "Sub-board & circuits", hint: "Plan circuits per room, not per appliance. Kitchen needs 3–4 circuits minimum (lights, GPOs, oven, fridge).", skill: "Mastery" },
+          { label: "Run cables, install boxes", hint: "Mark switch and GPO heights with tape on the studs before pulling cable. Easier to move tape than cable.", materials: "TPS cable, switch boxes, GPOs", skill: "Mastery" },
+          { label: "Data & comms cabling", hint: "Cat6 to every room while the walls are open. Wireless coverage is great until it isn't.", materials: "Cat6 cable, RJ45 sockets", skill: "Advanced" },
+          { label: "Lighting plan", hint: "Sketch the lighting plan before any cable goes in. Switching arrangements are a nightmare to retrofit.", skill: "Advanced" },
+        ],
+      },
+      {
+        title: "Gas lines",
+        emoji: "🔥",
+        components: [
+          { label: "Plan appliance locations", hint: "Cooktop, hot water, ducted heater — all need gas lines and clearances. Confirm before plastering.", skill: "Mastery" },
+          { label: "Run gas lines (licensed gas fitter)", hint: "Not negotiable. Gas work without a licence voids insurance and can prosecute.", materials: "Copper gas pipe, fittings", skill: "Mastery" },
+          { label: "Pressure test & certificate", hint: "Keep the gas certificate. The conveyancer for the next sale will ask for it.", skill: "Mastery" },
+        ],
+      },
+      {
+        title: "HVAC",
+        emoji: "❄️",
+        components: [
+          { label: "Choose system type", hint: "Split, ducted, hydronic — each has a use case. Ducted is best for whole-house if the ceiling has room.", skill: "Advanced" },
+          { label: "Install ducting / lines", hint: "Plan duct runs around the structural framing. Trying to bend ducts around joists later costs a wall.", materials: "Insulated duct, refrigerant lines", skill: "Mastery" },
+          { label: "Outdoor unit position", hint: "Not under a bedroom window, not where the neighbour will hate you, not where it can't be serviced.", skill: "Intermediate" },
+        ],
+      },
+      {
+        title: "Drainage & sewerage",
+        emoji: "🚽",
+        components: [
+          { label: "Connection to mains", hint: "Sewer connection point is dictated by the council and the boundary trap. Get this surveyed.", skill: "Mastery" },
+          { label: "Internal stack", hint: "AAVs (air admittance valves) can replace some vent stacks but not all. Check local requirements.", skill: "Mastery" },
+          { label: "Stormwater plan", hint: "Stormwater and sewer never mix. They go in different pipes to different places. Inspectors will check.", skill: "Mastery" },
+        ],
+      },
+      {
+        title: "Insulation",
+        emoji: "🧊",
+        components: [
+          { label: "Wall insulation (R-value)", hint: "R2.0 minimum in new walls. R2.5 in cooler climates. Acoustic batts in any wall around bathrooms or bedrooms.", materials: "Wall batts, acoustic batts", skill: "Basic" },
+          { label: "Ceiling insulation", hint: "R5.0 in cold climates, R4.0 minimum elsewhere. Easy DIY if the ceiling's open.", materials: "Ceiling batts", skill: "Basic" },
+          { label: "Underfloor (if suspended)", hint: "Often forgotten. Underfloor insulation is the cheapest cold-floor fix there is.", materials: "Underfloor batts, ties", skill: "Intermediate" },
+        ],
+      },
+    ],
   },
   {
     slug: "plastering",
@@ -318,9 +553,53 @@ export const STAGES: Stage[] = [
     difficulty: "advanced",
     icon: "🧱",
     accent: "bg-amber-50 text-amber-700",
-    tagline: "Sheeting, plaster, cornice, sanding, patching.",
-    summary: "Where the walls stop looking like a construction site and start looking like walls. Harder than the internet makes it look.",
+    hero: "from-amber-400 via-orange-500 to-amber-600",
+    tagline: "Sheeting, plaster, cornice, sanding, patching, prime.",
+    summary: "Where the walls stop looking like a construction site and start looking like walls. Harder than the internet makes it look — Level 4 finishing is the difference between 'painted' and 'professional'.",
     resourceCount: 9,
+    steps: [
+      {
+        title: "Fix sheeting",
+        emoji: "🧱",
+        components: [
+          { label: "Standard plasterboard", hint: "10mm for ceilings, 13mm for walls. Wet-area sheets in any bathroom, kitchen splashback or laundry wall.", materials: "Plasterboard, plaster screws", skill: "Advanced" },
+          { label: "Stagger joints, screw at correct centres", hint: "Don't line up vertical joints between sheets — stagger them like brickwork. 200mm screw centres on edges, 300mm in the field.", skill: "Intermediate" },
+          { label: "Cut openings cleanly", hint: "GPOs, downlights, vents — measure twice, score, snap. A jagged opening = a wider cover plate.", materials: "Stanley knife, square", skill: "Intermediate" },
+        ],
+      },
+      {
+        title: "Plaster joints & set",
+        emoji: "🥄",
+        components: [
+          { label: "Tape & first coat", hint: "Paper tape for flat joints, metal tape for external corners. Bed it firmly into the first coat.", materials: "Paper tape, metal corner tape, base coat", skill: "Advanced" },
+          { label: "Second & finishing coats", hint: "Three coats minimum on a Level 4 finish, five for Level 5 (the gloss-paint-ready finish). Each must dry fully.", materials: "Topping compound, hawk and trowel", skill: "Mastery" },
+          { label: "Cornice (if any)", hint: "Cove cornice is the Aussie default. Nail and glue both. Don't trust just glue, don't trust just nails.", materials: "Cornice, cornice cement, nails", skill: "Advanced" },
+        ],
+      },
+      {
+        title: "Caulk & gap-fill",
+        emoji: "🔌",
+        components: [
+          { label: "Caulk cornices, skirtings, architraves", hint: "Acrylic gap-filler, not silicone. Silicone won't paint. This step is the difference between 'painted' and 'finished'.", materials: "Paintable acrylic caulk", skill: "Basic" },
+          { label: "Inspect under cross-light", hint: "Take a torch and run it sideways along every wall. What you don't catch now, the paint will showcase forever.", skill: "Intermediate" },
+        ],
+      },
+      {
+        title: "Sand back",
+        emoji: "🪶",
+        components: [
+          { label: "Sand all joints flush", hint: "120-grit on a pole sander. Run a torch sideways across the wall after — every shadow is something the paint will magnify.", materials: "Pole sander, 120-grit paper", skill: "Intermediate" },
+          { label: "Dust extraction", hint: "Plaster dust is the worst dust. A vacuum-attached sander pays for itself in your lungs.", materials: "Vac-extraction sander", skill: "Basic" },
+        ],
+      },
+      {
+        title: "Prime",
+        emoji: "🎨",
+        components: [
+          { label: "Plaster sealer / undercoat", hint: "Bare plaster drinks paint. A dedicated plaster sealer first means top coats go further and look more even.", materials: "Plaster sealer / acrylic undercoat", skill: "Basic" },
+        ],
+      },
+    ],
   },
   {
     slug: "flooring",
@@ -331,9 +610,56 @@ export const STAGES: Stage[] = [
     difficulty: "intermediate",
     icon: "🪵",
     accent: "bg-amber-100 text-amber-800",
+    hero: "from-amber-600 via-orange-700 to-amber-800",
     tagline: "Prep, waterproofing, tile, carpet, timber.",
     summary: "Underfoot choices — the thing you'll literally feel every day. Prep badly and you'll hear about it every time someone walks across the room.",
     resourceCount: 15,
+    steps: [
+      {
+        title: "Preparation",
+        emoji: "📏",
+        components: [
+          { label: "Check substrate is flat", hint: "3mm tolerance over 2m for tile, 5mm for timber. Out-of-flat substrate = uneven floor that will haunt you.", materials: "Long straightedge, self-levelling compound", skill: "Intermediate" },
+          { label: "Moisture test concrete slabs", hint: "RH probe or calcium chloride test. Glue-down floors fail catastrophically over wet slabs.", materials: "Moisture meter / RH test kit", skill: "Advanced" },
+          { label: "Acoustic underlay", hint: "Strata buildings often require certified acoustic underlay. Check the by-laws before ordering.", materials: "Acoustic underlay", skill: "Basic" },
+        ],
+      },
+      {
+        title: "Waterproofing (wet areas)",
+        emoji: "💧",
+        components: [
+          { label: "Bond breaker at junctions", hint: "Floor/wall junctions move. A bond breaker stops the membrane tearing as the building flexes.", materials: "Bond breaker tape", skill: "Advanced" },
+          { label: "Two coats of membrane", hint: "Different colours per coat so you can see missed spots. Up the wall 150mm minimum, 1800mm in the shower.", materials: "Waterproof membrane, brushes", skill: "Mastery" },
+          { label: "Inspection & certificate", hint: "Required by code in most states. Keep the certificate; it's transferable to the next owner.", skill: "Mastery" },
+        ],
+      },
+      {
+        title: "Tiling",
+        emoji: "🟫",
+        components: [
+          { label: "Set out the room", hint: "Find the room's centre, dry-lay a row each way. Aim for cuts > 50mm at the edges. No tiny slivers under the door.", materials: "Chalk line, spacers, rubber mallet", skill: "Advanced" },
+          { label: "Notched trowel & even bed", hint: "Right notch size for the tile size. Tap each tile in. Hollow tiles will pop within a year.", materials: "Notched trowel, levelling clips", skill: "Advanced" },
+          { label: "Grout & seal", hint: "Wait the full grout cure (24–72 hrs). Seal cement-based grout. Epoxy grout if it's a kitchen splashback or shower floor.", materials: "Grout, grout sealer", skill: "Intermediate" },
+        ],
+      },
+      {
+        title: "Timber & laminate",
+        emoji: "🪵",
+        components: [
+          { label: "Acclimatise the boards", hint: "48–72 hours in the room. Skipping this is why floors cup or gap a month later.", skill: "Basic" },
+          { label: "Expansion gap at perimeter", hint: "10–12mm around every wall. Skirting covers it. Without the gap, the floor buckles in summer.", skill: "Intermediate" },
+          { label: "Stagger joints, click-lock or glue-down", skill: "Intermediate" },
+        ],
+      },
+      {
+        title: "Carpet & soft finishes",
+        emoji: "🧶",
+        components: [
+          { label: "Underlay matters", hint: "10–12mm rebond underlay for residential. The carpet will feel and last 2–3× better than with the cheap stuff.", materials: "Underlay, gripper rod", skill: "Basic" },
+          { label: "Professional install", hint: "Stretch-fitting carpet without a knee-kicker is a recipe for ripples in 18 months. Pay the installer.", skill: "Advanced" },
+        ],
+      },
+    ],
   },
   {
     slug: "finishing-timberwork",
@@ -344,9 +670,38 @@ export const STAGES: Stage[] = [
     difficulty: "intermediate",
     icon: "🚪",
     accent: "bg-amber-100 text-amber-900",
-    tagline: "Doors, furniture, skirting, architraves, trim.",
-    summary: "The detail work that tells a room it's almost done. The difference between 'renovated' and 'rented-looking' lives here.",
+    hero: "from-amber-700 via-orange-800 to-amber-900",
+    tagline: "Doors, skirting, architraves, trim.",
+    summary: "The detail work that tells a room it's almost done. The difference between 'renovated' and 'rented-looking' lives here — in the mitres, the gap-fill, and the time spent fitting hardware properly.",
     resourceCount: 12,
+    steps: [
+      {
+        title: "Doors",
+        emoji: "🚪",
+        components: [
+          { label: "Hang on plumb jambs", hint: "Plumb the jamb first, hang the door second. Out-of-plumb jamb = door that swings open or closed by itself.", materials: "Spirit level, packers, hinges", skill: "Advanced" },
+          { label: "Hardware install", hint: "Mortice locks need careful chiselling. A jig is cheap and saves a ruined door.", materials: "Mortice jig, sharp chisel", skill: "Advanced" },
+          { label: "Door stops & buffers", hint: "Always fit door stops. Cheaper than re-painting the wall every time the door slams.", materials: "Door stops", skill: "Basic" },
+        ],
+      },
+      {
+        title: "Skirting",
+        emoji: "📏",
+        components: [
+          { label: "Choose profile to match era", hint: "1920s house with a modern square skirting reads off. Profile-match the era of the house, not the year of the reno.", skill: "Basic" },
+          { label: "Mitre or scribe internal corners", hint: "Mitres are quick but open over time. Scribed (coped) corners stay tight as the house moves.", materials: "Mitre saw, coping saw", skill: "Intermediate" },
+          { label: "Pin nail, glue, fill", hint: "Construction adhesive + brad nails. Fill the holes before the painter does, or pay them to.", materials: "Brad nailer, construction adhesive, filler", skill: "Intermediate" },
+        ],
+      },
+      {
+        title: "Architraves",
+        emoji: "🪟",
+        components: [
+          { label: "Match skirting profile", hint: "Architraves and skirting from the same range read as one finish. Mixing brands rarely works.", skill: "Basic" },
+          { label: "45° mitres at corners", hint: "Tight mitres need a sharp blade and a stable saw. Cheap saw + tired blade = visible gap.", materials: "Mitre saw with sharp blade", skill: "Intermediate" },
+        ],
+      },
+    ],
   },
   {
     slug: "painting",
@@ -357,6 +712,7 @@ export const STAGES: Stage[] = [
     difficulty: "basic",
     icon: "🎨",
     accent: "bg-orange-100 text-orange-700",
+    hero: "from-orange-500 via-red-500 to-rose-700",
     tagline: "Prep, ceilings, walls, trims, staining, outside.",
     summary:
       "The most DIY-able finishing stage — if you have the patience for masking tape and the honesty to do three coats when you wanted to do one. 80% of a good paint job happens before the paint goes on the wall.",
@@ -453,9 +809,47 @@ export const STAGES: Stage[] = [
     difficulty: "intermediate",
     icon: "🗄️",
     accent: "bg-orange-100 text-orange-800",
+    hero: "from-orange-600 via-red-600 to-rose-700",
     tagline: "Kitchens, vanities, appliances, robes, mirrors.",
-    summary: "The big-ticket items that make a room feel finished, and where the budget finally stops pretending.",
+    summary: "The big-ticket items that make a room feel finished, and where the budget finally stops pretending. Most of this stage is somebody else's lead time becoming your scheduling problem.",
     resourceCount: 19,
+    steps: [
+      {
+        title: "Kitchen cabinetry",
+        emoji: "🗄️",
+        components: [
+          { label: "Install base cabinets first, level them", hint: "Level base cabinets across the run before fixing. The benchtop is unforgiving; tweak the boxes, not the bench.", materials: "Long spirit level, packers, screws", skill: "Advanced" },
+          { label: "Wall cabinets at the right height", hint: "450mm above the bench is standard. 600mm if there's a rangehood underneath. Check before you screw.", skill: "Advanced" },
+          { label: "Door alignment", hint: "Doors take time. Adjust the hinges in 3 directions until faces line up. Not rushing this is the difference between flatpack and bespoke-looking.", skill: "Intermediate" },
+        ],
+      },
+      {
+        title: "Benchtops & splashbacks",
+        emoji: "🪨",
+        components: [
+          { label: "Template, cut, install", hint: "Stone/quartz: the supplier templates and installs. Don't try to template yourself for stone — corner radii and overhangs are unforgiving.", skill: "Mastery" },
+          { label: "Sink & tap cutouts", hint: "Cutouts must be made before stone install. Once the bench is on, you're not cutting it in place.", skill: "Mastery" },
+          { label: "Splashback (tile or glass)", hint: "Glass splashback is a single panel installed last, after the cabinets. Tile splashback goes in at tiling stage.", materials: "Tiles or glass panel, sealant", skill: "Advanced" },
+        ],
+      },
+      {
+        title: "Bathroom vanities",
+        emoji: "🚿",
+        components: [
+          { label: "Wall-hung vs floor-standing", hint: "Wall-hung looks lighter, easier to clean under, but needs blocking in the wall during framing. Decide early.", skill: "Advanced" },
+          { label: "Plumbing rough-in alignment", hint: "Confirm the plumber's rough-in matches the vanity drain location BEFORE you order the vanity.", skill: "Advanced" },
+        ],
+      },
+      {
+        title: "Mirrors, robes & fittings",
+        emoji: "🪞",
+        components: [
+          { label: "Mirrors: silicone-fixed", hint: "Mirror adhesive, not regular silicone. Wrong silicone causes 'mirror disease' (black spots from edge) within months.", materials: "Mirror adhesive", skill: "Basic" },
+          { label: "Robes & wardrobes", hint: "Custom built-ins use ceiling-to-floor space. Modular robes are 30% cheaper but waste the top 200mm.", skill: "Intermediate" },
+          { label: "Towel rails, hooks, accessories", hint: "Find the studs, or use proper toggle anchors. Tile-only mounting fails when wet towels keep loading the rail.", materials: "Stud finder, toggle anchors", skill: "Basic" },
+        ],
+      },
+    ],
   },
   {
     slug: "fit-off",
@@ -465,10 +859,49 @@ export const STAGES: Stage[] = [
     order: 13,
     difficulty: "advanced",
     icon: "🔧",
-    accent: "bg-orange-100 text-orange-900",
+    accent: "bg-rose-100 text-rose-700",
+    hero: "from-rose-500 via-red-600 to-orange-700",
     tagline: "Plumbing, electrical, AC, fixtures, fire alarms.",
     summary: "Final connections. Licensed trades return for sign-off and Certificates of Compliance — keep the paperwork, the next buyer's conveyancer will ask.",
     resourceCount: 14,
+    steps: [
+      {
+        title: "Plumbing fit-off",
+        emoji: "🚿",
+        components: [
+          { label: "Tap & mixer install", hint: "Always use new tap washers and supplied seals. Don't reuse old ones — leaks at fit-off are almost always old seals.", skill: "Advanced" },
+          { label: "Toilet & cistern", hint: "Cistern bolts hand-tight + a quarter turn. Over-torque cracks the porcelain. The crack appears two weeks later.", skill: "Intermediate" },
+          { label: "Shower head & arm", hint: "Teflon tape on the threads, 4–6 wraps clockwise (looking at the open end). Tighten by hand, not by spanner.", materials: "Teflon tape", skill: "Basic" },
+          { label: "Pressure test", hint: "Run every fitting under full pressure for 15 minutes. Find drips before the customer (or you) does.", skill: "Intermediate" },
+        ],
+      },
+      {
+        title: "Electrical fit-off",
+        emoji: "💡",
+        components: [
+          { label: "Switch, GPO, downlight install", hint: "Done by the electrician at the end. Don't install yourself — at minimum, a fit-off inspection will fail the unlicensed work.", skill: "Mastery" },
+          { label: "Test & tag (RCD trip test)", hint: "Every circuit gets push-button tested before sign-off. Required for the Certificate of Compliance.", skill: "Mastery" },
+          { label: "Smoke alarms", hint: "Hard-wired and interconnected for new work in most states. Battery-only alarms aren't compliant any more.", materials: "Hard-wired smoke alarms", skill: "Mastery" },
+        ],
+      },
+      {
+        title: "Fixtures & accessories",
+        emoji: "🔩",
+        components: [
+          { label: "Door handles, locks, latches", hint: "Match all hardware finishes across the house. Mixed brass and chrome reads like a slow renovation.", skill: "Basic" },
+          { label: "Curtain tracks, blind brackets", hint: "Find the studs or use cavity anchors rated for the curtain weight. Curtains are heavier than they look when wet.", skill: "Basic" },
+        ],
+      },
+      {
+        title: "AC commissioning",
+        emoji: "❄️",
+        components: [
+          { label: "Refrigerant charge", hint: "Done by the licensed AC technician. DIY refrigerant work is illegal under refrigerant handling laws.", skill: "Mastery" },
+          { label: "Run cycle & temperature check", hint: "Run heat and cool cycles. A 5°C delta between intake and supply is the minimum sanity check.", skill: "Intermediate" },
+          { label: "Remote / controller install", hint: "Centralised wall controllers go in at fit-off. Make sure the house wifi reaches if it's smart-home enabled.", skill: "Basic" },
+        ],
+      },
+    ],
   },
   {
     slug: "punch-list",
@@ -479,24 +912,66 @@ export const STAGES: Stage[] = [
     difficulty: "basic",
     icon: "📋",
     accent: "bg-red-50 text-red-700",
+    hero: "from-red-500 via-rose-600 to-pink-700",
     tagline: "Clean up and final checks across every trade.",
-    summary: "The nitpicking pass — the unglamorous difference between 'nearly finished' and 'actually finished'.",
+    summary: "The nitpicking pass — the unglamorous difference between 'nearly finished' and 'actually finished'. Bring a torch, a pad of sticky notes, and the willingness to be that person.",
     resourceCount: 8,
+    steps: [
+      {
+        title: "Whole-house walk-through",
+        emoji: "🚶",
+        components: [
+          { label: "Bring a torch and a sticky-note pad", hint: "A torch held flat to a wall reveals every paint imperfection. Note them, don't try to remember.", materials: "Torch, sticky notes, painter's tape", skill: "Basic" },
+          { label: "Open and close everything", hint: "Every door, drawer, window, and tap. Half the punch list lives in 'this doesn't quite work right'.", skill: "Basic" },
+          { label: "Photograph defects", hint: "A photo with a sticky note next to it, sent to the tradie, is a thousand times faster than describing it on the phone.", skill: "Basic" },
+        ],
+      },
+      {
+        title: "Trade-by-trade fixes",
+        emoji: "🔧",
+        components: [
+          { label: "Group defects per tradie", hint: "Don't make 6 phone calls — group all the painter's items in one list, all the carpenter's in another.", skill: "Basic" },
+          { label: "Set a single return-visit date", hint: "Every tradie back on the same day means you're not living in a series of half-finished returns.", skill: "Intermediate" },
+          { label: "Check off as fixed, not as promised", hint: "The 'fixed' column on your sheet only ticks when YOU have inspected it.", skill: "Basic" },
+        ],
+      },
+      {
+        title: "Final clean",
+        emoji: "🧼",
+        components: [
+          { label: "Builders' clean (professional)", hint: "Worth paying for. Removes plaster dust, paint specks, sticker residue from windows. DIY rarely matches the result.", skill: "Basic" },
+          { label: "Replace HVAC and rangehood filters", hint: "Construction dust kills filters. Fresh ones at handover make the system run quieter and longer.", materials: "AC filter, rangehood filter", skill: "Basic" },
+        ],
+      },
+      {
+        title: "Documents & handover",
+        emoji: "📁",
+        components: [
+          { label: "Compliance certificates", hint: "Plumbing, electrical, gas, waterproofing, AC. File them all. The next sale will need every one.", skill: "Basic" },
+          { label: "Warranties & receipts", hint: "Keep originals. Photograph each in case the paper version vanishes.", skill: "Basic" },
+          { label: "Tradie contact list", hint: "Save every tradie's mobile in a single 'house' contact group. The leaking tap in 2 years will thank you.", skill: "Basic" },
+        ],
+      },
+    ],
   },
   {
     slug: "party",
     name: "Party!",
     phase: "finish",
     phaseLabel: "Finale",
-    order: 15,
+    order: 16,
     difficulty: "basic",
     icon: "🎉",
     accent: "bg-gradient-to-br from-red-500 to-primary text-white",
+    hero: "from-fuchsia-500 via-pink-500 to-rose-500",
     tagline: "You made it. Throw the housewarming you earned.",
     summary: "The most important stage. Invite the people who believed in your project when the site was a hole in the ground. Quietly don't invite the ones who said it would never happen.",
     resourceCount: 1,
   },
 ]
+
+/** Total stages in the renovation journey, including the celebratory Party stage at #16. */
+export const TOTAL_STAGES = 16
 
 export const PHASES: Phase[] = ["plan", "structure", "finish"]
 
@@ -525,4 +1000,97 @@ export function formatPrice(r: StageResource): string {
   if (r.free) return "Free"
   if (typeof r.priceAUD === "number") return `AU$${r.priceAUD.toFixed(2)}`
   return ""
+}
+
+/** Hero gradient classes — uses stage.hero if set, otherwise picks one based on phase. */
+export function getHeroGradient(stage: Stage): string {
+  if (stage.hero) return stage.hero
+  switch (stage.phase) {
+    case "plan":
+      return "from-sky-500 via-sky-600 to-indigo-700"
+    case "structure":
+      return "from-amber-500 via-orange-600 to-amber-700"
+    case "finish":
+      return "from-orange-500 via-red-500 to-rose-700"
+  }
+}
+
+/** EmailCapture theme key — uses stage.emailTheme if set, otherwise picks one based on phase. */
+export function getEmailTheme(stage: Stage): "orange" | "emerald" | "blue" {
+  if (stage.emailTheme) return stage.emailTheme
+  switch (stage.phase) {
+    case "plan":
+      return "blue"
+    case "structure":
+      return "emerald"
+    case "finish":
+      return "orange"
+  }
+}
+
+/** Sum of resources of each kind across all stages. Used by the /resources hub. */
+export function getResourceCounts(): Record<ResourceKind, number> {
+  const counts: Record<ResourceKind, number> = {
+    ebook: 0,
+    template: 0,
+    checklist: 0,
+    tool: 0,
+    tip: 0,
+  }
+  for (const stage of STAGES) {
+    if (!stage.resources) continue
+    for (const r of stage.resources) {
+      counts[r.kind] += 1
+    }
+  }
+  return counts
+}
+
+/** A StageResource enriched with its parent stage's slug, name, phase and difficulty. */
+export interface ResourceWithStage extends StageResource {
+  stageSlug: string
+  stageName: string
+  stagePhase: Phase
+  stageDifficulty: Difficulty
+  stageOrder: number
+}
+
+/** Flatten all resources across every stage, preserving stage context for filtering. */
+export function getAllResources(): ResourceWithStage[] {
+  const out: ResourceWithStage[] = []
+  for (const stage of STAGES) {
+    if (!stage.resources) continue
+    for (const r of stage.resources) {
+      out.push({
+        ...r,
+        stageSlug: stage.slug,
+        stageName: stage.name,
+        stagePhase: stage.phase,
+        stageDifficulty: stage.difficulty,
+        stageOrder: stage.order,
+      })
+    }
+  }
+  return out
+}
+
+/** All resources of a given kind, in stage order. */
+export function getResourcesByKind(kind: ResourceKind): ResourceWithStage[] {
+  return getAllResources().filter((r) => r.kind === kind)
+}
+
+/** URL slug used at /resources/<slug> for each kind, e.g. "ebooks" → "ebook". */
+export const RESOURCE_KIND_SLUGS: Record<ResourceKind, string> = {
+  ebook: "ebooks",
+  template: "templates",
+  checklist: "checklists",
+  tool: "tools",
+  tip: "tips",
+}
+
+/** Reverse of RESOURCE_KIND_SLUGS — resolve a URL slug to a ResourceKind, or undefined. */
+export function kindFromSlug(slug: string): ResourceKind | undefined {
+  const entry = (Object.entries(RESOURCE_KIND_SLUGS) as [ResourceKind, string][])
+    .find(([, s]) => s === slug)
+  return entry?.[0]
 }

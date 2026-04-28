@@ -6,12 +6,13 @@ import { Badge } from "@/components/ui/badge"
 import { EmailCapture } from "@/components/email-capture"
 import FeaturedBlogs from "@/components/featured-blogs"
 import { PriceDisclaimer } from "@/components/price-disclaimer"
-import { STAGES, PHASES, PHASE_META, DIFFICULTY_META, getStagesByPhase } from "@/lib/stages"
+import { STAGES, PHASES, PHASE_META, DIFFICULTY_META, getStagesByPhase, getResourceCounts } from "@/lib/stages"
 
 // The first 5 stages, with a richer color/accent palette for the hero journey visual
 const JOURNEY_PREVIEW = STAGES.slice(0, 5)
 
 export default function Home() {
+  const resourceCounts = getResourceCounts()
   return (
     <main className="flex-1">
       {/* ============ HERO ============ */}
@@ -178,13 +179,19 @@ export default function Home() {
             <p className="mt-3 text-muted-foreground">Browse resources by type, or find them attached to the stage they belong to.</p>
           </div>
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            <ResourceCard icon={<BookOpen className="h-5 w-5" />} label="Ebooks" count="14 titles" blurb="Deep-dive guides. Fewer words than a forum, more words than a tweet." tint="from-orange-50 to-background border-orange-200" dot="bg-orange-500" />
-            <ResourceCard icon={<FileText className="h-5 w-5" />} label="Templates" count="22 templates" blurb="Quote comparisons, budgets, scope docs. Pre-filled so you're not staring at a blank cell." tint="from-sky-50 to-background border-sky-200" dot="bg-sky-600" />
-            <ResourceCard icon={<CheckSquare className="h-5 w-5" />} label="Checklists" count="48 checklists" blurb="Print, tick, panic slightly less. One per stage, plus edge cases." tint="from-stone-50 to-background border-stone-300" dot="bg-stone-700" />
-            <ResourceCard icon={<Wrench className="h-5 w-5" />} label="Tools" count="9 tools" blurb="Cost calculators and material estimators for when 'from $X' is doing the talking." tint="from-indigo-50 to-background border-indigo-200" dot="bg-indigo-600" />
-            <ResourceCard icon={<Lightbulb className="h-5 w-5" />} label="Tips &amp; Tricks" count="60+ tips" blurb="The stuff tradies say once and then assume you heard. Save time, save money." tint="from-emerald-50 to-background border-emerald-200" dot="bg-emerald-600" />
+            <ResourceCard href="/resources/ebooks"     icon={<BookOpen    className="h-5 w-5" />} label="Ebooks"          count={`${resourceCounts.ebook} ${resourceCounts.ebook === 1 ? "title" : "titles"}`}          blurb="Deep-dive guides. Fewer words than a forum, more words than a tweet."                            tint="from-orange-50 to-background border-orange-200" dot="bg-orange-500" />
+            <ResourceCard href="/resources/templates"  icon={<FileText    className="h-5 w-5" />} label="Templates"       count={`${resourceCounts.template} ${resourceCounts.template === 1 ? "template" : "templates"}`}    blurb="Quote comparisons, budgets, scope docs. Pre-filled so you're not staring at a blank cell."        tint="from-sky-50 to-background border-sky-200"        dot="bg-sky-600" />
+            <ResourceCard href="/resources/checklists" icon={<CheckSquare className="h-5 w-5" />} label="Checklists"      count={`${resourceCounts.checklist} ${resourceCounts.checklist === 1 ? "checklist" : "checklists"}`} blurb="Print, tick, panic slightly less. One per stage, plus edge cases."                                tint="from-stone-50 to-background border-stone-300"    dot="bg-stone-700" />
+            <ResourceCard href="/resources/tools"      icon={<Wrench      className="h-5 w-5" />} label="Tools"           count={`${resourceCounts.tool} ${resourceCounts.tool === 1 ? "tool" : "tools"}`}                   blurb="Cost calculators and material estimators for when 'from $X' is doing the talking."               tint="from-violet-50 to-background border-violet-200"  dot="bg-violet-600" />
+            <ResourceCard href="/resources/tips"       icon={<Lightbulb   className="h-5 w-5" />} label="Tips &amp; Tricks" count={`${resourceCounts.tip} ${resourceCounts.tip === 1 ? "tip" : "tips"}`}                       blurb="The stuff tradies say once and then assume you heard. Save time, save money."                    tint="from-teal-50 to-background border-teal-200"      dot="bg-teal-600" />
           </div>
           <div className="mt-8 flex flex-wrap items-center justify-center gap-3 text-sm">
+            <Button asChild className="rounded-xl">
+              <Link href="/resources">
+                Browse all resources
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
             <Button asChild variant="outline" className="rounded-xl">
               <Link href="/tools/material-tracker">
                 <Wrench className="mr-2 h-4 w-4" />
@@ -396,6 +403,7 @@ function ResourceCard({
   blurb,
   tint,
   dot,
+  href,
 }: {
   icon: React.ReactNode
   label: string
@@ -403,10 +411,11 @@ function ResourceCard({
   blurb: string
   tint: string
   dot: string
+  href: string
 }) {
   return (
     <Link
-      href="#subscribe"
+      href={href}
       className={`group block rounded-2xl border bg-gradient-to-br p-6 shadow-sm transition hover:shadow-md ${tint}`}
     >
       <div className={`mb-4 grid h-12 w-12 place-items-center rounded-xl text-white shadow-sm ${dot}`}>{icon}</div>

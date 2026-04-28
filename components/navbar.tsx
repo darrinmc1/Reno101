@@ -98,6 +98,11 @@ export default function Navbar() {
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
+                <Link href="/resources" legacyBehavior passHref>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>Resources</NavigationMenuLink>
+                </Link>
+              </NavigationMenuItem>
+              <NavigationMenuItem>
                 <Link href="/research" legacyBehavior passHref>
                   <NavigationMenuLink className={navigationMenuTriggerStyle()}>Research</NavigationMenuLink>
                 </Link>
@@ -150,6 +155,7 @@ export default function Navbar() {
                 <nav className="flex flex-col gap-3 py-6">
                   <NavButton href="/blogs" label="Read The Guides" sublabel="Advice with fewer beige opinions" onClick={() => setIsOpen(false)} />
                   <NavButton href="/design-tools" label="Use The Tools" sublabel="Mood boards and planning surfaces" onClick={() => setIsOpen(false)} />
+                  <NavButton href="/resources" label="Resources Library" sublabel="Ebooks, templates, checklists, tools, tips" onClick={() => setIsOpen(false)} />
                   <NavButton href="/research" label="Ask Research" sublabel="For suspicious walls and pricing mysteries" onClick={() => setIsOpen(false)} />
                   <NavButton href="/pricing" label="See Pricing" sublabel="Choose your level of renovation supervision" onClick={() => setIsOpen(false)} />
                 </nav>
