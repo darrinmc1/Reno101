@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
             <div>
-              <h3 className="text-lg font-semibold">RenovationsHelper</h3>
+              <h3 className="text-lg font-semibold">Reno101</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 Warm advice, better tools, and fewer renovation decisions made while standing in fluorescent lighting.
               </p>
@@ -74,7 +74,7 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border/60 pt-8 md:flex-row">
           <p className="text-sm text-muted-foreground">
-            (c) {new Date().getFullYear()} RenovationsHelper. Built for ambitious plans and cautious measurements.
+            (c) {new Date().getFullYear()} Reno101. Built for ambitious plans and cautious measurements.
           </p>
           <div className="flex flex-wrap items-center gap-4">
             <Link href="/terms" className="text-sm text-muted-foreground transition hover:text-primary">

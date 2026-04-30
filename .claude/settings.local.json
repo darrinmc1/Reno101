@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(git -C C:/Users/Client/Desktop/Projects/Renovations/Reno101 diff lib/stages.ts)",
+      "Bash(npx tsc *)",
+      "Bash(git *)",
+      "Bash(npm install *)"
+    ]
+  }
+}

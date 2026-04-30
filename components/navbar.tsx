@@ -26,15 +26,15 @@ export default function Navbar() {
         <div className="flex items-center gap-6 md:gap-10">
           <Link href="/" className="flex items-center gap-3">
             <div className="relative h-10 w-10 overflow-hidden rounded-2xl bg-primary/10 p-1 shadow-sm">
-              <Image 
-                src="/logo.png" 
-                alt="Renovations Helper Logo" 
+              <Image
+                src="/logo.png"
+                alt="Reno101 Logo"
                 fill
                 className="object-contain"
               />
             </div>
             <div className="leading-tight">
-              <div className="text-lg font-black tracking-tight text-foreground">RenovationsHelper</div>
+              <div className="text-lg font-black tracking-tight text-foreground">Reno101</div>
               <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Plans, prices, fewer regrets</div>
             </div>
           </Link>
@@ -143,7 +143,7 @@ export default function Navbar() {
                         <PaintBucket className="h-5 w-5" />
                       </span>
                       <div className="leading-tight">
-                        <div className="font-black tracking-tight">RenovationsHelper</div>
+                        <div className="font-black tracking-tight">Reno101</div>
                         <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Tools with taste</div>
                       </div>
                     </Link>

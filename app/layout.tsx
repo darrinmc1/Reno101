@@ -6,14 +6,29 @@ import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { FeedbackWidget } from "@/components/feedback-widget"
 import { TooltipProvider } from "@/components/ui/tooltip"
+import { WaitlistPopup } from "@/components/waitlist-popup"
+
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://renos101.com"),
   title: {
-    default: "Renovation Helper",
-    template: "%s | Renovation Helper",
+    default: "Reno101",
+    template: "%s | Reno101",
   },
-  description: "Expert guides, tools, and personalized advice for your home renovation projects",
-  generator: "Renovation Helper",
+  description: "Plans, prices, fewer regrets — guides, tools, and templates for every stage of your renovation.",
+  generator: "Reno101",
+  openGraph: {
+    title: "Reno101",
+    description: "From first idea to finished — 16 stages of renovation, mapped.",
+    url: "https://renos101.com",
+    siteName: "Reno101",
+    type: "website",
+  },
+}
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
 }
 
 export default function RootLayout({
@@ -37,6 +52,7 @@ export default function RootLayout({
               <Footer />
               <FeedbackWidget />
             </div>
+            <WaitlistPopup />
           </TooltipProvider>
         </ThemeProvider>
       </body>
