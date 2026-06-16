@@ -3,6 +3,7 @@
 import React, { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
+import { Show, SignInButton, SignUpButton, UserButton } from "@clerk/nextjs"
 import { Button } from "@/components/ui/button"
 import {
   NavigationMenu,
@@ -117,16 +118,23 @@ export default function Navbar() {
         </div>
         <div className="flex items-center gap-3">
           <div className="hidden items-center gap-2 rounded-full border border-white/50 bg-white/55 p-1 shadow-sm md:flex">
-            <Link href="/login">
-              <Button variant="ghost" className="rounded-full">
-                Log in
-              </Button>
-            </Link>
-            <Link href="/signup">
-              <Button className="rounded-full bg-primary px-5 text-primary-foreground shadow-sm hover:bg-primary/90">
-                Start Free Trial
-              </Button>
-            </Link>
+            <Show when="signed-out">
+              <SignInButton mode="modal">
+                <Button variant="ghost" className="rounded-full">
+                  Log in
+                </Button>
+              </SignInButton>
+              <SignUpButton mode="modal">
+                <Button className="rounded-full bg-primary px-5 text-primary-foreground shadow-sm hover:bg-primary/90">
+                  Start Free Trial
+                </Button>
+              </SignUpButton>
+            </Show>
+            <Show when="signed-in">
+              <div className="px-2">
+                <UserButton />
+              </div>
+            </Show>
           </div>
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild className="md:hidden">
@@ -164,14 +172,24 @@ export default function Navbar() {
                     Start with a guide, a tool, or one carefully worded panic message. All are valid entry points.
                   </p>
                   <div className="mt-4 flex flex-col gap-2">
-                    <Link href="/login" onClick={() => setIsOpen(false)}>
-                      <Button variant="outline" className="w-full rounded-full">
-                        Log in
-                      </Button>
-                    </Link>
-                    <Link href="/signup" onClick={() => setIsOpen(false)}>
-                      <Button className="w-full rounded-full">Start Free Trial</Button>
-                    </Link>
+                    <Show when="signed-out">
+                      <SignInButton mode="modal">
+                        <Button variant="outline" className="w-full rounded-full" onClick={() => setIsOpen(false)}>
+                          Log in
+                        </Button>
+                      </SignInButton>
+                      <SignUpButton mode="modal">
+                        <Button className="w-full rounded-full" onClick={() => setIsOpen(false)}>
+                          Start Free Trial
+                        </Button>
+                      </SignUpButton>
+                    </Show>
+                    <Show when="signed-in">
+                      <div className="flex items-center gap-3 rounded-full border border-border/60 bg-white/80 px-3 py-2">
+                        <UserButton />
+                        <span className="text-sm text-muted-foreground">Signed in</span>
+                      </div>
+                    </Show>
                   </div>
                 </div>
               </div>

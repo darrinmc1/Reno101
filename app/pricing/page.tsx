@@ -52,13 +52,23 @@ export const metadata = {
 export default async function PricingPage({
   searchParams,
 }: {
-  searchParams: Promise<{ promo?: string }>
+  searchParams: Promise<{ promo?: string; subscribe?: string }>
 }) {
-  const { promo: promoParam } = await searchParams
+  const { promo: promoParam, subscribe } = await searchParams
   const promo: Promo = resolvePromo(promoParam)
+  const gated = subscribe === "required"
 
   return (
     <main className="flex-1">
+      {gated && (
+        <div className="border-b border-amber-200 bg-amber-50">
+          <div className="container px-4 py-3 text-sm text-amber-900 md:px-6">
+            <strong>Sorry mate — site's members only.</strong>{" "}
+            Pick a plan and you're back through the gate. No hard hat required.
+          </div>
+        </div>
+      )}
+
       {/* ============ Discount banner (top) ============ */}
       <DiscountBanner promo={promo} />
 

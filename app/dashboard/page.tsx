@@ -12,8 +12,7 @@ export default function DashboardPage() {
         <div>
           <h1 className="text-3xl font-bold tracking-tight">Dashboard</h1>
           <p className="text-muted-foreground">
-            Your command center for saved ideas, research requests, and the gentle illusion that everything is under
-            control.
+            Your command centre for saved ideas, research requests, and the gentle illusion everything's under control.
           </p>
         </div>
         <div className="flex gap-2">
@@ -137,18 +136,19 @@ export default function DashboardPage() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             <Card>
               <CardHeader>
-                <CardTitle>Saved Items Will Live Here</CardTitle>
+                <CardTitle>Nothing saved yet — pristine, like the day before demo.</CardTitle>
               </CardHeader>
               <CardContent>
                 <p>
-                  This is where bookmarked guides, tool states, and reference material will eventually gather in one
-                  organized place instead of existing across seventeen browser tabs like startled pigeons.
+                  Bookmarked guides, tool states, and reference material will gather here once you start saving them — instead of living across seventeen browser tabs like startled pigeons.
                 </p>
               </CardContent>
               <CardFooter>
-                <Button variant="ghost" size="sm">
-                  Preview
-                </Button>
+                <Link href="/blogs">
+                  <Button variant="ghost" size="sm">
+                    Find something to save
+                  </Button>
+                </Link>
               </CardFooter>
             </Card>
             <Card>

@@ -135,10 +135,10 @@ export const blogPosts: BlogPost[] = [
     authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "Paint is the cheapest way to transform a room and the fastest way to regret everything. The difference between success and disaster is usually testing samples properly, which means painting actual patches on actual walls and not just imagining what 'Sage Serenity' looks like.",
-      "Natural light changes everything. The color you fell in love with at noon will not be the same color at 4 PM when the room starts looking like a cave with opinions.",
+      "Natural light changes everything. The colour you fell in love with at noon will not be the same colour at 4 PM when the room starts looking like a cave with opinions.",
       "Test in multiple spots on the wall. Paint reacts differently to corners, ceilings, and whatever is happening near the light switch. One sample patch is not a sample. It is a trap.",
-      "Commit to a color for at least a week before panicking. Paint looks different wet, different when it first dries, and different after your furniture moves back in. Give it time to stop being dramatic.",
-      "If you are choosing between three colors that all look the same to you, they are not the same. Look again. One has more gray, one has more warmth, and one is definitely 'Sea Salt' which is a lie because the sea does not smell like that.",
+      "Commit to a colour for at least a week before panicking. Paint looks different wet, different when it first dries, and different after your furniture moves back in. Give it time to stop being dramatic.",
+      "If you are choosing between three colours that all look the same to you, they are not the same. Look again. One has more grey, one has more warmth, and one is definitely 'Sea Salt' which is a lie because the sea does not smell like that.",
     ],
   },
   {

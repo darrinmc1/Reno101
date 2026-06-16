@@ -42,7 +42,7 @@ export default function DesignToolsPage() {
             description="Use this section to define asset uploads, collections, annotations, and shareable project boards."
             points={[
               "Upload your own inspiration images",
-              "Create color palettes for your project",
+              "Create colour palettes for your project",
               "Add material and texture samples",
               "Share your mood boards with contractors",
             ]}
@@ -54,10 +54,10 @@ export default function DesignToolsPage() {
             title="Color Picker"
             description="Keep this route in place while you decide how to store palettes, sample rooms, and brand integrations."
             points={[
-              "Browse curated color collections",
-              "Generate complementary color schemes",
-              "See colors applied to sample rooms",
-              "Save and share favorite combinations",
+              "Browse curated colour collections",
+              "Generate complementary colour schemes",
+              "See colours applied to sample rooms",
+              "Save and share favourite combinations",
             ]}
             ctaLabel="Plan Color Picker"
           />

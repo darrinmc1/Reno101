@@ -4,7 +4,17 @@
       "Bash(git -C C:/Users/Client/Desktop/Projects/Renovations/Reno101 diff lib/stages.ts)",
       "Bash(npx tsc *)",
       "Bash(git *)",
-      "Bash(npm install *)"
+      "Bash(npm install *)",
+      "Bash(curl -s \"http://localhost:3001/login\")",
+      "Bash(kill bx5ig4m8j *)",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(echo \"exit=$?\")",
+      "Bash(PORT=3001 npm run dev)",
+      "Bash(curl -s \"http://localhost:3001/pricing?subscribe=required\")",
+      "Bash(curl -s \"http://localhost:3001/this-page-does-not-exist\")",
+      "Bash(PORT=3002 npm run dev)",
+      "Bash(PORT=3003 npm run dev)",
+      "PowerShell(Get-NetTCPConnection *)"
     ]
   }
 }
