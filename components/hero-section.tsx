@@ -8,11 +8,10 @@ export default function HeroSection() {
         <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
           <div>
             <h1 className="mb-4 text-4xl font-bold tracking-tight md:text-5xl">
-              Renovate Smarter, Panic Less, and Avoid Buying the Wrong Tile in Bulk
+              Your Complete Home Renovation Roadmap
             </h1>
             <p className="mb-8 max-w-lg text-xl text-muted-foreground">
-              Renovation Helper is for homeowners who want clear advice, useful tools, and fewer midnight arguments
-              with a spreadsheet titled `final-budget-v7-actual-final`.
+              From first idea to finished project — checklists, tools, cost guides and contractor tips for every stage of your reno.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
               <Link href="/pricing">
