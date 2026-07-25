@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge"
 import { EmailCapture } from "@/components/email-capture"
 import FeaturedBlogs from "@/components/featured-blogs"
 import { PriceDisclaimer } from "@/components/price-disclaimer"
+import HeroSection from "@/components/hero-section"
 import { STAGES, PHASES, PHASE_META, DIFFICULTY_META, getStagesByPhase, getResourceCounts } from "@/lib/stages"
 
 // The first 5 stages, with a richer color/accent palette for the hero journey visual
@@ -16,95 +17,7 @@ export default function Home() {
   return (
     <main className="flex-1">
       {/* ============ HERO ============ */}
-      <section className="relative overflow-hidden">
-        <div className="container relative px-4 py-16 md:py-24 md:px-6">
-          <div className="grid items-center gap-12 lg:grid-cols-2">
-            <div>
-              <Badge variant="secondary" className="mb-5 inline-flex items-center gap-2 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide">
-                <Sparkles className="h-3.5 w-3.5" />
-                The whole reno, one map
-              </Badge>
-              <h1 className="flex flex-col gap-3 text-4xl font-extrabold tracking-tight text-balance sm:text-5xl lg:text-6xl xl:text-7xl">
-                <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-                  <span>From</span>
-                  <span className="flex items-center gap-3 sm:gap-4 text-primary">
-                    First idea <Lightbulb className="h-8 w-8 text-amber-500 sm:h-10 sm:w-10 lg:h-12 lg:w-12" />
-                  </span>
-                </div>
-                <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
-                  <span>To</span>
-                  <span className="flex items-center gap-3 sm:gap-4 text-primary">
-                    Finished <PartyPopper className="h-8 w-8 text-orange-600 sm:h-10 sm:w-10 lg:h-12 lg:w-12" />
-                  </span>
-                </div>
-              </h1>
-              <p className="mt-5 max-w-xl text-lg text-muted-foreground">
-                16 stages. Dozens of checklists, templates, tools and tips that have already saved someone else's Sunday. Find exactly what you need for <em>your</em> stage — or grab a project bundle for the kitchen or bathroom reno you swore would be quick.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Button asChild size="lg" className="rounded-xl">
-                  <Link href="#stages">
-                    Explore the stages
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="rounded-xl">
-                  <Link href="#subscribe">Free starter pack</Link>
-                </Button>
-              </div>
-              <div className="mt-8 flex flex-wrap items-center gap-5 text-sm text-muted-foreground">
-                {(Object.keys(DIFFICULTY_META) as Array<keyof typeof DIFFICULTY_META>).map((key) => {
-                  const meta = DIFFICULTY_META[key]
-                  return (
-                    <div key={key} className="flex items-center gap-2">
-                      <span className={`h-3 w-3 rounded-sm ${meta.dot}`} aria-hidden />
-                      <span>{meta.label}</span>
-                    </div>
-                  )
-                })}
-              </div>
-            </div>
-
-            {/* ---- Renovation journey card ---- */}
-            <div className="relative">
-              <div className="absolute -inset-6 -z-10 rounded-[2rem] bg-gradient-to-tr from-primary/10 via-secondary to-accent/40" />
-              <div className="relative rounded-3xl border border-border/60 bg-card/80 p-6 shadow-sm backdrop-blur sm:p-8">
-                <div className="mb-6 flex items-center justify-between">
-                  <div className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-                    Your renovation journey
-                  </div>
-                  <div className="rounded-full bg-primary/10 px-2.5 py-1 text-xs font-bold text-primary">
-                    Phase 1
-                  </div>
-                </div>
-
-                <ol className="relative space-y-3">
-                  <span aria-hidden className="absolute left-5 top-4 bottom-4 w-px border-l-2 border-dashed border-border" />
-
-                  {JOURNEY_PREVIEW.map((stage, idx) => (
-                    <JourneyStep key={stage.slug} stage={stage} index={idx + 1} />
-                  ))}
-                </ol>
-
-                <div className="mt-6 flex items-center justify-between rounded-xl border border-dashed border-border bg-background/50 px-4 py-3">
-                  <div className="flex items-center gap-3">
-                    <div className="grid h-9 w-9 place-items-center rounded-lg bg-gradient-to-br from-primary to-red-500 text-sm font-bold text-white">
-                      +11
-                    </div>
-                    <div className="text-sm">
-                      <div className="font-semibold text-foreground">More stages await</div>
-                      <div className="text-xs text-muted-foreground">All the way through to Party! 🎉</div>
-                    </div>
-                  </div>
-                  <Link href="#stages" className="text-xs font-semibold text-primary hover:underline">
-                    See all →
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* ============ HOW IT WORKS ============ */}
       <section className="border-t border-border/70 bg-background/40">
