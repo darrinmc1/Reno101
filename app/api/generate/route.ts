@@ -4,7 +4,8 @@
 import { NextRequest, NextResponse } from "next/server"
 
 const GEMINI_API_KEY = process.env.GOOGLE_API_KEY
-const GEMINI_API_URL =
+const N8N_WEBHOOK = process.env.N8N_AI_WEBHOOK_URL
+const GEMINI_URL =
   "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent"
 
 export async function POST(req: NextRequest) {
@@ -32,6 +33,42 @@ export async function POST(req: NextRequest) {
   const userPrompt = buildUserPrompt(tool, answers)
 
   try {
+    // Route through n8n AI gateway if configured
+    if (N8N_WEBHOOK) {
+      const res = await fetch(N8N_WEBHOOK, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          docName: doc?.name,
+          prompt,
+          questions,
+          answers,
+        }),
+      })
+
+      if (!res.ok) {
+        const err = await res.text()
+        console.error("n8n gateway error:", res.status, err)
+        return NextResponse.json(
+          { error: `AI generation failed (${res.status}). Please try again.` },
+          { status: 502 },
+        )
+      }
+
+      const data = await res.json()
+      const text = data?.draft
+
+      if (!text) {
+        return NextResponse.json(
+          { error: "AI returned an empty response. Try rephrasing your answers." },
+          { status: 502 },
+        )
+      }
+
+      return NextResponse.json({ draft: text })
+    }
+
+    // Fallback: call Gemini directly
     const response = await fetch(`${GEMINI_API_URL}?key=${GEMINI_API_KEY}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
