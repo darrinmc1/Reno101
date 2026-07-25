@@ -1,3 +1,5 @@
+"use client"
+
 import { Mail, MessageSquare, Clock, ArrowRight } from "lucide-react"
 import Link from "next/link"
 
