@@ -6,6 +6,11 @@ import {
   Wallet,
   Download,
   ArrowRight,
+  ClipboardCheck,
+  LayoutGrid,
+  Scale,
+  Shield,
+  Phone,
 } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -53,12 +58,52 @@ const TEMPLATES = [
       "Keep your renovation budget on track. Track budgeted vs. actual spending across design, materials, labour, permits, contingency, and miscellaneous categories.",
     fields: 6,
   },
+  {
+    slug: "permit-checklist-template.pdf",
+    icon: ClipboardCheck,
+    title: "Permit Checklist",
+    description:
+      "Track every permit required for your renovation from application to approval. Building, electrical, plumbing, zoning, occupancy -- log jurisdiction, costs, dates, and status.",
+    fields: 8,
+  },
+  {
+    slug: "room-by-room-planner.pdf",
+    icon: LayoutGrid,
+    title: "Room-by-Room Planner",
+    description:
+      "Plan every room in detail so nothing is left to chance. Room dimensions, purpose, finishes, lighting, fixtures, paint colour, budget, and priority for 8+ rooms.",
+    fields: 10,
+  },
+  {
+    slug: "contractor-quote-comparison.pdf",
+    icon: Scale,
+    title: "Contractor Quote Comparison",
+    description:
+      "Compare 4 contractor quotes side-by-side -- scope, exclusions, payment schedule, insurance, warranty, and start dates. Includes a pre-hire checklist.",
+    fields: 8,
+  },
+  {
+    slug: "warranty-tracker-template.pdf",
+    icon: Shield,
+    title: "Warranty Tracker",
+    description:
+      "Never miss a warranty claim. Track appliances, fixtures, and systems with brand, model, install date, warranty period, provider contact, and receipt status.",
+    fields: 8,
+  },
+  {
+    slug: "emergency-contact-sheet.pdf",
+    icon: Phone,
+    title: "Emergency Contact Sheet",
+    description:
+      "Keep plumber, electrician, roofer, locksmith, HVAC, handyman, architect, and structural engineer contacts close. Emergency-ready with phone, email, and after-hours notes.",
+    fields: 6,
+  },
 ]
 
 export const metadata = {
   title: "Downloads",
   description:
-    "Download free Renos101 renovation planning templates — renovation brief, material estimator, contractor comparison, timeline, and budget tracker.",
+    "Download free Renos101 renovation planning templates — renovation brief, material estimator, contractor comparison, timeline, budget tracker, permit checklist, room planner, quote comparison, warranty tracker, and emergency contact sheet.",
 }
 
 export default function DownloadsPage() {
