@@ -24,6 +24,7 @@ import {
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { RenoWisdom } from "@/components/reno-wisdom"
 
 // Interactive presets for room cost & risk navigator
 const ROOM_PRESETS = [
@@ -165,6 +166,11 @@ export default function HeroSection() {
                 <FileText className="h-4 w-4 text-amber-400 shrink-0" />
                 <span>Printable Checklists</span>
               </div>
+            </div>
+
+            {/* Reno Reality Check Quote Box */}
+            <div className="pt-2">
+              <RenoWisdom />
             </div>
 
           </div>
