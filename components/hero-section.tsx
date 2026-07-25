@@ -289,17 +289,17 @@ export default function HeroSection() {
               <Link href="/stages/ideas" className="rounded-lg bg-slate-800 px-3 py-1.5 text-slate-300 hover:bg-amber-500 hover:text-slate-950 transition-colors">
                 💡 01. Ideas
               </Link>
-              <Link href="/stages/budgeting" className="rounded-lg bg-slate-800 px-3 py-1.5 text-slate-300 hover:bg-amber-500 hover:text-slate-950 transition-colors">
-                💰 02. Budget
-              </Link>
-              <Link href="/stages/quotes" className="rounded-lg bg-slate-800 px-3 py-1.5 text-slate-300 hover:bg-amber-500 hover:text-slate-950 transition-colors">
-                📋 03. Quotes
+              <Link href="/stages/planning" className="rounded-lg bg-slate-800 px-3 py-1.5 text-slate-300 hover:bg-amber-500 hover:text-slate-950 transition-colors">
+                📐 02. Planning
               </Link>
               <Link href="/stages/demolition" className="rounded-lg bg-slate-800 px-3 py-1.5 text-slate-300 hover:bg-amber-500 hover:text-slate-950 transition-colors">
-                🔨 06. Demo
+                🔨 03. Demo
               </Link>
-              <Link href="/stages/tiling" className="rounded-lg bg-slate-800 px-3 py-1.5 text-slate-300 hover:bg-amber-500 hover:text-slate-950 transition-colors">
-                🧱 12. Tiling
+              <Link href="/stages/rough-in" className="rounded-lg bg-slate-800 px-3 py-1.5 text-slate-300 hover:bg-amber-500 hover:text-slate-950 transition-colors">
+                🔌 07. Rough-In
+              </Link>
+              <Link href="/stages/cabinets-fixtures" className="rounded-lg bg-slate-800 px-3 py-1.5 text-slate-300 hover:bg-amber-500 hover:text-slate-950 transition-colors">
+                🗄️ 12. Cabinets
               </Link>
               <Link href="#stages" className="rounded-lg bg-amber-500/20 text-amber-300 px-3 py-1.5 font-bold hover:bg-amber-500 hover:text-slate-950 transition-colors">
                 All 16 →
