@@ -1,4 +1,4 @@
-// app/api/generate/route.ts — Gemini-powered AI document generation
+// app/api/generate/route.ts - Gemini-powered AI document generation
 // Uses Google Gemini Flash model via REST API. Requires GOOGLE_API_KEY env var.
 
 import { NextRequest, NextResponse } from "next/server"
@@ -40,7 +40,7 @@ export async function POST(req: NextRequest) {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           model: 'free',
-          docName: doc?.name,
+          docName: tool,
           prompt,
           questions,
           answers,
