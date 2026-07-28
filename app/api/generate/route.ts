@@ -41,8 +41,7 @@ export async function POST(req: NextRequest) {
         body: JSON.stringify({
           model: 'free',
           docName: tool,
-          prompt,
-          questions,
+          prompt: systemPrompt + '\n\n' + userPrompt,
           answers,
         }),
       })
