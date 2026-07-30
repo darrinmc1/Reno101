@@ -78,13 +78,16 @@ export default function Footer() {
           </p>
           <div className="flex flex-wrap items-center gap-4">
             <Link href="/terms" className="text-sm text-muted-foreground transition hover:text-primary">
-              Terms of Service
+              Terms
             </Link>
             <Link href="/privacy" className="text-sm text-muted-foreground transition hover:text-primary">
-              Privacy Policy
+              Privacy
+            </Link>
+            <Link href="/cookies" className="text-sm text-muted-foreground transition hover:text-primary">
+              Cookies
             </Link>
             <Link href="/contact" className="text-sm text-muted-foreground transition hover:text-primary">
-              Contact Us
+              Contact
             </Link>
           </div>
         </div>
