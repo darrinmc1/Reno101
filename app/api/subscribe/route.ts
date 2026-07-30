@@ -1,59 +1,84 @@
-﻿import { NextRequest, NextResponse } from "next/server";
-import { supabaseAdmin } from "@/lib/supabase";
-import { addToMailchimp } from "@/lib/mailchimp";
-import { sendWelcome, sendAdminNotification } from "@/lib/email";
+﻿import { NextResponse } from "next/server"
+import { Resend } from "resend"
 
-const SITE_KEY = process.env.SITE_KEY ?? "unknown";
-const rateLimit = new Map<string, { count: number; reset: number }>();
-const WINDOW_MS = 60_000;
-const MAX_PER_WINDOW = 5;
+const resendApiKey = process.env.RESEND_API_KEY
+const resend = resendApiKey ? new Resend(resendApiKey) : null
 
-function rateLimited(ip: string) {
-  const now = Date.now();
-  const e = rateLimit.get(ip);
-  if (!e || now > e.reset) {
-    rateLimit.set(ip, { count: 1, reset: now + WINDOW_MS });
-    return false;
-  }
-  e.count += 1;
-  return e.count > MAX_PER_WINDOW;
+if (!resendApiKey) {
+  console.warn("[subscribe] RESEND_API_KEY is not set. Subscriptions will not send confirmation emails.")
 }
 
-const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID
 
-export async function POST(req: NextRequest) {
-  const ip = req.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? req.headers.get("x-real-ip") ?? "unknown";
-  if (rateLimited(ip)) {
-    return NextResponse.json({ error: "Too many requests" }, { status: 429 });
+export async function POST(request: Request) {
+  try {
+    const { email, firstName, lastName } = await request.json()
+
+    if (!email) {
+      return NextResponse.json(
+        { error: "Email is required" },
+        { status: 400 },
+      )
+    }
+
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { error: "Invalid email address" },
+        { status: 400 },
+      )
+    }
+
+    // If Resend is configured, add to audience
+    if (resend && AUDIENCE_ID) {
+      const { error } = await resend.contacts.create({
+        email,
+        firstName: firstName || "",
+        lastName: lastName || "",
+        audienceId: AUDIENCE_ID,
+      })
+
+      if (error) {
+        console.error("[subscribe] Resend contact error:", error)
+        return NextResponse.json({ error: error.message }, { status: 500 })
+      }
+    } else if (!AUDIENCE_ID) {
+      console.warn("[subscribe] RESEND_AUDIENCE_ID is not set. Contact not added to audience.")
+    }
+
+    // Send confirmation email if Resend is configured
+    if (resend) {
+      const { error: emailError } = await resend.emails.send({
+        from: "Reno101 <noreply@renos101.com>",
+        to: email,
+        subject: "Welcome to Reno101!",
+        html: `
+          <div style="font-family: sans-serif; max-width: 480px; margin: 0 auto;">
+            <h1 style="color: #1a1a2e;">Welcome to Reno101</h1>
+            <p>Thanks for subscribing${firstName ? `, ${firstName}` : ""}!</p>
+            <p>You'll receive renovation tips, guides, and tools straight to your inbox.</p>
+            <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 24px 0;" />
+            <p style="color: #64748b; font-size: 12px;">
+              Reno101 &middot; renos101.com<br/>
+              <a href="*|UNSUB|*" style="color: #64748b;">Unsubscribe</a>
+            </p>
+          </div>
+        `,
+      })
+
+      if (emailError) {
+        console.error("[subscribe] Confirmation email error:", emailError)
+        // Don't fail the request — the contact was saved
+      }
+    }
+
+    return NextResponse.json({ success: true, message: "Successfully subscribed!" })
+  } catch (err) {
+    console.error("[subscribe] Unexpected error:", err)
+    return NextResponse.json(
+      { error: "Internal server error" },
+      { status: 500 },
+    )
   }
-
-  const body = await req.json().catch(() => ({}));
-  const { email, name, source, website } = body as { email?: string; name?: string; source?: string; website?: string };
-  
-  if (website && website !== '') {
-    return NextResponse.json({ ok: true });
-  }
-
-  if (!email || !emailRe.test(email)) {
-    return NextResponse.json({ error: "Invalid email" }, { status: 400 });
-  }
-
-  let dbWrote = false;
-  if (supabaseAdmin) {
-    const { error } = await supabaseAdmin.from("subscribers").upsert(
-      { site: SITE_KEY, email, name: name ?? null, source: source ?? null },
-      { onConflict: "site,email" }
-    );
-    if (error) console.error("[subscribe] error", error);
-    else dbWrote = true;
-  }
-
-  const mc = await addToMailchimp({ email, name, tags: source ? [source] : [] });
-
-  await Promise.allSettled([
-    sendWelcome({ email, name }),
-    sendAdminNotification({ kind: "subscribe", payload: { site: SITE_KEY, email, name, source, ip, dbWrote, mc: mc.ok } }),
-  ]);
-
-  return NextResponse.json({ ok: true });
 }
