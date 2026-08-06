@@ -1,8 +1,8 @@
 import { Hammer, Users, Lightbulb, Sparkles } from "lucide-react"
 
 const VALUES = [
-  { icon: Hammer, title: "Practical over pretty", desc: "We care about what works, not what looks good on Instagram. Your renovation should survive real life — muddy boots, spilled wine, and all." },
-  { icon: Users, title: "Built for decision-makers", desc: "Not architects, not designers — you. The person standing in a hardware store at 8 PM wondering if 'eggshell' and 'ivory' are different enough to matter. (They are. We'll explain.)" },
+  { icon: Hammer, title: "Practical over pretty", desc: "We care about what works, not what looks good on Instagram. Your renovation should survive real life - muddy boots, spilled wine, and all." },
+  { icon: Users, title: "Built for decision-makers", desc: "Not architects, not designers - you. The person standing in a hardware store at 8 PM wondering if 'eggshell' and 'ivory' are different enough to matter. (They are. We'll explain.)" },
   { icon: Lightbulb, title: "Honest about costs", desc: "Every guide includes realistic budgets. No 'you can renovate a kitchen for $5,000' energy. We'll tell you what things actually cost, including the things you forgot about." },
   { icon: Sparkles, title: "A little bit funny", desc: "Renovations are stressful enough without reading dry content that reads like an instruction manual for a product nobody bought. We add jokes. You're welcome." },
 ]

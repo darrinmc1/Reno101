@@ -136,11 +136,11 @@ export default function DashboardPage() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
             <Card>
               <CardHeader>
-                <CardTitle>Nothing saved yet — pristine, like the day before demo.</CardTitle>
+                <CardTitle>Nothing saved yet - pristine, like the day before demo.</CardTitle>
               </CardHeader>
               <CardContent>
                 <p>
-                  Bookmarked guides, tool states, and reference material will gather here once you start saving them — instead of living across seventeen browser tabs like startled pigeons.
+                  Bookmarked guides, tool states, and reference material will gather here once you start saving them - instead of living across seventeen browser tabs like startled pigeons.
                 </p>
               </CardContent>
               <CardFooter>

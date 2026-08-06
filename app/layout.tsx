@@ -16,11 +16,11 @@ export const metadata: Metadata = {
     default: "Reno101",
     template: "%s | Reno101",
   },
-  description: "Plans, prices, fewer regrets — guides, tools, and templates for every stage of your renovation.",
+  description: "Plans, prices, fewer regrets - guides, tools, and templates for every stage of your renovation.",
   generator: "Reno101",
   openGraph: {
     title: "Reno101",
-    description: "From first idea to finished — 16 stages of renovation, mapped.",
+    description: "From first idea to finished - 16 stages of renovation, mapped.",
     url: "https://renos101.com",
     siteName: "Reno101",
     type: "website",

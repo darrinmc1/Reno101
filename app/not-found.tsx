@@ -18,7 +18,7 @@ export default function NotFound() {
           Wrong site, mate.
         </h1>
         <p className="text-muted-foreground">
-          This page either doesn't exist or someone's run off with it. Either way — back to the front, grab a coffee, try again.
+          This page either doesn't exist or someone's run off with it. Either way - back to the front, grab a coffee, try again.
         </p>
       </div>
       <div className="flex flex-wrap items-center justify-center gap-3">

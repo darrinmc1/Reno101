@@ -39,9 +39,18 @@ export default function Footer() {
             links={[
               { href: "/blogs", label: "Renovation Guides" },
               { href: "/design-tools", label: "Design Tools" },
-              { href: "/research", label: "Research Service" },
               { href: "/pricing", label: "Pricing" },
               { href: "/about", label: "About Us" },
+            ]}
+          />
+
+          <FooterList
+            title="Empire Network"
+            links={[
+              { href: "https://landscapedesign.com", label: "Landscape Design" },
+              { href: "https://freelancepro.com", label: "FreelancePro" },
+              { href: "https://moneymastery.com", label: "Money Mastery" },
+              { href: "https://aitraining.com", label: "AI Training" },
             ]}
           />
 

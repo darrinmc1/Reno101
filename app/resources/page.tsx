@@ -86,7 +86,7 @@ const TYPES: TypeCard[] = [
     kind: "tip",
     title: "Tips & Tricks",
     blurb:
-      "20-tip collections per trade — the stuff someone else already learned the hard way.",
+      "20-tip collections per trade - the stuff someone else already learned the hard way.",
     href: "/resources/tips",
     icon: <Lightbulb className="h-7 w-7" />,
     cardClass:
@@ -101,7 +101,7 @@ const ACCESS_LEGEND: { label: string; badge: string; note: string; icon: React.R
   {
     label: "Free",
     badge: "bg-emerald-100 text-emerald-800 border-emerald-200",
-    note: "In the Starter Pack — drop your email and they're yours.",
+    note: "In the Starter Pack - drop your email and they're yours.",
     icon: <Sparkles className="h-3.5 w-3.5" />,
   },
   {
@@ -174,7 +174,7 @@ export default function ResourcesPage() {
               </span>
             </h1>
             <p className="mt-4 text-lg text-muted-foreground">
-              Everything you need at every stage. Ebooks, templates, checklists, tools, and 20-tip cheat-sheets — organised by the order you'll actually need them.
+              Everything you need at every stage. Ebooks, templates, checklists, tools, and 20-tip cheat-sheets - organised by the order you'll actually need them.
             </p>
           </div>
         </div>
@@ -223,7 +223,7 @@ export default function ResourcesPage() {
               Project bundles
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-foreground/70">
-              Grab everything for a kitchen, bathroom, paint job, or the whole reno in one go — cheaper than buying each piece alone.
+              Grab everything for a kitchen, bathroom, paint job, or the whole reno in one go - cheaper than buying each piece alone.
             </p>
             <div className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-transform group-hover:translate-x-1">
               See the bundles
@@ -240,7 +240,7 @@ export default function ResourcesPage() {
             <div>
               <h2 className="text-xl font-extrabold tracking-tight">How access works</h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                Every resource carries a badge so you know how to unlock it before you click.
+                Every resource carries a badge so you know how to enable it before you click.
               </p>
             </div>
           </div>
@@ -276,7 +276,7 @@ export default function ResourcesPage() {
         <div className="rounded-2xl border-2 border-dashed border-border bg-secondary/30 p-6 text-center md:p-10">
           <h2 className="text-2xl font-extrabold tracking-tight">Looking for something specific?</h2>
           <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground">
-            Resources are also surfaced inside each stage — jump to the part of the reno you're actually doing right now.
+            Resources are also surfaced inside each stage - jump to the part of the reno you're actually doing right now.
           </p>
           <div className="mt-5">
             <Button asChild variant="ghost" className="rounded-lg">

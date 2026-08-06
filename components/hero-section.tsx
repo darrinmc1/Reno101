@@ -129,7 +129,7 @@ export default function HeroSection() {
 
             {/* Subtitle */}
             <p className="max-w-2xl text-base text-slate-300 sm:text-lg md:text-xl leading-relaxed">
-              Step-by-step checklists, trade-inspected budget templates, and real AUD cost guides for every phase — so you never cut a load-bearing wall or panic over grout colors at 11 PM.
+              Step-by-step checklists, trade-inspected budget templates, and real AUD cost guides for every phase - so you never cut a load-bearing wall or panic over grout colors at 11 PM.
             </p>
 
             {/* Action Buttons */}

@@ -1,6 +1,6 @@
 # Reno101
 
-Next.js app for `renos101.com` — a renovation guidance platform with stage guides, design tools, pricing, and a research request flow. Subscription-gated for members.
+Next.js app for `renos101.com` - a renovation guidance platform with stage guides, design tools, pricing, and a research request flow. Subscription-gated for members.
 
 ## Tech Stack
 

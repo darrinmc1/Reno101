@@ -30,7 +30,7 @@ type KindStyle = {
   hoverShadow: string
   cta: string
   label: string
-  /** Tailwind gradient classes for the top stripe — without "bg-gradient-to-r ". */
+  /** Tailwind gradient classes for the top stripe - without "bg-gradient-to-r ". */
   stripe: string
   /** Soft gradient applied to the card surface on hover. */
   surfaceHover: string
@@ -145,7 +145,7 @@ export function ResourceCard({ r }: { r: ResourceWithStage }) {
                   Free
                 </span>
               </TooltipTrigger>
-              <TooltipContent>In the Starter Pack — drop your email and it's yours.</TooltipContent>
+              <TooltipContent>In the Starter Pack - drop your email and it's yours.</TooltipContent>
             </Tooltip>
           )}
           {!r.free && priceLabel && (

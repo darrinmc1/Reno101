@@ -3,7 +3,7 @@ import { supabaseUrl, supabaseServiceRoleKey } from "./env"
 
 if (!supabaseUrl || !supabaseServiceRoleKey) {
   console.warn(
-    "[supabase/admin] NEXT_PUBLIC_SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY not set — admin writes disabled.",
+    "[supabase/admin] NEXT_PUBLIC_SUPABASE_URL or SUPABASE_SERVICE_ROLE_KEY not set - admin writes disabled.",
   )
 }
 

@@ -29,7 +29,7 @@ export function PricingCard({
     <article className={`relative flex flex-col rounded-3xl p-6 transition hover:shadow-lg md:p-8 ${cardTone}`}>
       {tier.primary && (
         <div className="absolute -top-3 left-1/2 -translate-x-1/2">
-          <Badge className="rounded-full bg-primary text-primary-foreground hover:bg-primary">
+          <Badge className="rounded-full bg-primary text-primary-foreground active:scale-[0.96] transition-transform hover:bg-primary">
             <Star className="mr-1 h-3 w-3" />
             Most popular
           </Badge>
@@ -37,12 +37,12 @@ export function PricingCard({
       )}
 
       <header>
-        <h3 className="text-xl font-extrabold tracking-tight md:text-2xl">{tier.title}</h3>
+        <h3 className="text-xl font-extrabold tracking-tight md:text-2xl tabular-nums">{tier.title}</h3>
         <p className="mt-1 text-sm text-muted-foreground">{tier.tagline}</p>
       </header>
 
       <div className="mt-5 flex items-end gap-3">
-        <div className="text-4xl font-extrabold tracking-tight md:text-5xl">{formatAUD(current)}</div>
+        <div className="text-4xl font-extrabold tracking-tight md:text-5xl tabular-nums">{formatAUD(current)}</div>
         {showStrike && (
           <div className="pb-1 text-base text-muted-foreground line-through">{formatAUD(regular)}</div>
         )}
@@ -91,7 +91,7 @@ export function PricingCard({
         <Button
           asChild
           size="lg"
-          className={`w-full rounded-xl ${tier.primary ? "" : "bg-foreground text-background hover:bg-foreground/90"}`}
+          className={`w-full rounded-xl ${tier.primary ? "" : "bg-foreground text-background active:scale-[0.96] transition-transform hover:bg-foreground/90"}`}
         >
           <Link href={tier.href}>
             {tier.cta}

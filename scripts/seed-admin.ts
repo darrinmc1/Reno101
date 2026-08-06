@@ -28,7 +28,7 @@ function loadEnvLocal() {
       if (!(key in process.env)) process.env[key] = val
     }
   } catch {
-    // no .env.local — fall through, env may already be set
+    // no .env.local - fall through, env may already be set
   }
 }
 

@@ -46,7 +46,7 @@ import {
 export const metadata = {
   title: "Pricing",
   description:
-    "Plan your renovation. Buy once, use forever. Complete renovation guides for any project — one-time payment, monthly content updates included.",
+    "Plan your renovation. Buy once, use forever. Complete renovation guides for any project - one-time payment, monthly content updates included.",
 }
 
 export default async function PricingPage({
@@ -63,7 +63,7 @@ export default async function PricingPage({
       {gated && (
         <div className="border-b border-amber-200 bg-amber-50">
           <div className="container px-4 py-3 text-sm text-amber-900 md:px-6">
-            <strong>Sorry mate — site's members only.</strong>{" "}
+            <strong>Sorry mate - site's members only.</strong>{" "}
             Pick a plan and you're back through the gate. No hard hat required.
           </div>
         </div>
@@ -93,13 +93,13 @@ export default async function PricingPage({
               <Tag className="h-3.5 w-3.5 text-amber-500" />
               One-time purchase · No subscriptions
             </div>
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
+            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl tabular-nums">
               Plan your renovation.{" "}
               <span className="bg-gradient-to-r from-orange-500 via-rose-500 to-violet-600 bg-clip-text text-transparent">
                 Buy once, use forever.
               </span>
             </h1>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground tabular-nums">
               Complete guides for any project. Updates included. One-time payment.
             </p>
             {promo !== "regular" && (
@@ -114,9 +114,9 @@ export default async function PricingPage({
       {/* ============ Tier cards ============ */}
       <section id="tiers" className="container px-4 pb-12 md:px-6">
         <div className="mb-8 max-w-2xl">
-          <h2 className="text-3xl font-extrabold tracking-tight">Get everything you need</h2>
+          <h2 className="text-3xl font-extrabold tracking-tight tabular-nums">Get everything you need</h2>
           <p className="mt-2 text-muted-foreground">
-            The Complete Renovation Guide covers every step, every room, every decision — from
+            The Complete Renovation Guide covers every step, every room, every decision - from
             Ideas to Punch List. Plus monthly updates with new content. Most renovations cost
             <span className="font-semibold text-foreground"> $50K–$200K</span>. Spending {formatAUD(WHOLE_HOUSE.price.regular)} (or {formatAUD(WHOLE_HOUSE.price.waitlist)} for early adopters)
             on a complete planning guide is the best ROI you'll get.
@@ -134,7 +134,7 @@ export default async function PricingPage({
       <section className="container px-4 pb-16 md:px-6">
         <div className="mb-6 flex flex-wrap items-end justify-between gap-3">
           <div>
-            <h2 className="text-2xl font-extrabold tracking-tight">Side-by-side</h2>
+            <h2 className="text-2xl font-extrabold tracking-tight tabular-nums">Side-by-side</h2>
             <p className="mt-1 max-w-xl text-sm text-muted-foreground">
               Whole-house gets you everything. Single-room and Phase bundles are scoped down so
               you only pay for what you're doing right now.
@@ -153,11 +153,11 @@ export default async function PricingPage({
               </TableRow>
             </TableHeader>
             <TableBody>
-              <ComparisonRow label="Full 16-stage guide" w sr="—" pb="—" />
+              <ComparisonRow label="Full 16-stage guide" w sr=" - " pb=" - " />
               <ComparisonRow label="All ebooks (14+)" w sr="Room only" pb="Phase only" />
               <ComparisonRow label="All templates & checklists" w sr="Room only" pb="Phase only" />
               <ComparisonRow label="Cost calculators" w="All" sr="Room scoped" pb="Phase scoped" />
-              <ComparisonRow label="All rooms (kitchen, bath, bed, etc.)" w sr="Pick one" pb="—" />
+              <ComparisonRow label="All rooms (kitchen, bath, bed, etc.)" w sr="Pick one" pb=" - " />
               <ComparisonRow label="Landscaping & external" w sr="If picked" pb="If in phase" />
               <ComparisonRow label="Monthly content updates" w sr pb />
               <ComparisonRow label="Email + Google Drive delivery" w sr pb />
@@ -196,10 +196,10 @@ export default async function PricingPage({
                 <PackagePlus className="h-3.5 w-3.5" />
                 Add-on packages
               </div>
-              <h2 className="mt-3 text-3xl font-extrabold tracking-tight">Bolt on what you need</h2>
+              <h2 className="mt-3 text-3xl font-extrabold tracking-tight tabular-nums">Bolt on what you need</h2>
               <p className="mt-2 max-w-2xl text-muted-foreground">
                 Optional packs for power users, contractors, and budget hawks. Add any of these
-                on top of a base purchase — bought separately, no subscription.
+                on top of a base purchase - bought separately, no subscription.
               </p>
             </div>
           </div>
@@ -220,7 +220,7 @@ export default async function PricingPage({
               <RefreshCw className="h-3.5 w-3.5 text-emerald-600" />
               Updates included for life
             </div>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight">
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight tabular-nums">
               Buy once. Updated every month.
             </h2>
             <p className="mt-3 max-w-xl text-foreground/80">
@@ -233,7 +233,7 @@ export default async function PricingPage({
               <UpdateLine>Updated material &amp; appliance pricing</UpdateLine>
               <UpdateLine>New checklists for edge cases</UpdateLine>
               <UpdateLine>Real-reno case studies</UpdateLine>
-              <UpdateLine>Notified by email — re-download anytime</UpdateLine>
+              <UpdateLine>Notified by email - re-download anytime</UpdateLine>
             </ul>
             <div className="mt-7 flex flex-wrap gap-3">
               <Button asChild className="rounded-xl">
@@ -286,7 +286,7 @@ export default async function PricingPage({
               <HelpCircle className="h-3.5 w-3.5" />
               FAQ
             </div>
-            <h2 className="mt-3 text-3xl font-extrabold tracking-tight">Common questions</h2>
+            <h2 className="mt-3 text-3xl font-extrabold tracking-tight tabular-nums">Common questions</h2>
           </div>
 
           <Accordion type="single" collapsible className="rounded-2xl border border-border bg-card px-4 shadow-sm">
@@ -308,7 +308,7 @@ export default async function PricingPage({
       <section className="container px-4 pb-16 md:px-6">
         <div className="rounded-3xl border-2 border-primary/40 bg-primary/5 p-8 text-center md:p-12">
           <Sparkles className="mx-auto h-8 w-8 text-primary" />
-          <h2 className="mt-4 text-3xl font-extrabold tracking-tight md:text-4xl">
+          <h2 className="mt-4 text-3xl font-extrabold tracking-tight md:text-4xl tabular-nums">
             One payment. Lifetime access. No surprises.
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
@@ -319,7 +319,7 @@ export default async function PricingPage({
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Button asChild size="lg" className="rounded-xl">
               <Link href={WHOLE_HOUSE.href}>
-                {WHOLE_HOUSE.cta} — {formatAUD(priceFor(WHOLE_HOUSE.price, promo))}
+                {WHOLE_HOUSE.cta} - {formatAUD(priceFor(WHOLE_HOUSE.price, promo))}
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
@@ -358,7 +358,7 @@ function ComparisonRow({
 
 function cell(v: boolean | string | undefined) {
   if (v === true) return <CheckCircle2 className="mx-auto h-5 w-5 text-emerald-600" />
-  if (v === undefined || v === false || v === "—") return <span className="text-muted-foreground">—</span>
+  if (v === undefined || v === false || v === " - ") return <span className="text-muted-foreground"> - </span>
   return <span className="text-xs font-semibold text-foreground/70">{v}</span>
 }
 
@@ -376,14 +376,14 @@ function UpdateLine({ children }: { children: React.ReactNode }) {
 const FAQ: { q: string; a: React.ReactNode }[] = [
   {
     q: "Can I really download everything?",
-    a: "Yes. PDFs, Excel files, Word templates — all yours to download once and use forever. Print them, email them to your partner, share them with your contractor.",
+    a: "Yes. PDFs, Excel files, Word templates - all yours to download once and use forever. Print them, email them to your partner, share them with your contractor.",
   },
   {
     q: "What's the difference between Whole House and a Phase Bundle?",
     a: (
       <>
         Whole House covers all 16 stages and every room (kitchen, bathroom, bedroom, etc.).
-        A Phase Bundle covers just one phase — for example, Phase 2 (Rough-In + Construction +
+        A Phase Bundle covers just one phase - for example, Phase 2 (Rough-In + Construction +
         Landscaping). Phase Bundles are cheaper if you're only tackling one part of the reno.
       </>
     ),
@@ -392,7 +392,7 @@ const FAQ: { q: string; a: React.ReactNode }[] = [
     q: "What if I only need a kitchen reno?",
     a: (
       <>
-        Buy a <span className="font-semibold">Single Room Guide — Kitchen</span> for {formatAUD(ROOM_GUIDES.price.regular)}, or
+        Buy a <span className="font-semibold">Single Room Guide - Kitchen</span> for {formatAUD(ROOM_GUIDES.price.regular)}, or
         the <span className="font-semibold">Whole House</span> for {formatAUD(WHOLE_HOUSE.price.regular)} if you might tackle
         more rooms later. Whole House includes everything, so you're not paying twice.
       </>
@@ -403,7 +403,7 @@ const FAQ: { q: string; a: React.ReactNode }[] = [
     a: (
       <>
         Yes. Buy a Single Room Guide today, upgrade to Whole House later for the difference. We
-        credit what you've already paid against the higher tier — so you never pay for the same
+        credit what you've already paid against the higher tier - so you never pay for the same
         thing twice.
       </>
     ),
@@ -416,7 +416,7 @@ const FAQ: { q: string; a: React.ReactNode }[] = [
     q: "How do monthly updates work?",
     a: (
       <>
-        We email you when there's new content — usually 4–5 new ebooks, 5+ new templates, and
+        We email you when there's new content - usually 4–5 new ebooks, 5+ new templates, and
         any pricing-data refresh. You re-download the latest version of your guide from the same
         link. All previous downloads stay valid; this just gives you the newest copy.
       </>

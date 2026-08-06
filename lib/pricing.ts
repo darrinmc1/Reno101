@@ -1,5 +1,5 @@
 // Single source of truth for Reno101 pricing.
-// One-time purchase model — no subscriptions.
+// One-time purchase model - no subscriptions.
 //
 // Three tier types: whole_house | room_guide | phase_bundle
 // Plus add-on packages bought separately.
@@ -9,9 +9,9 @@
 //   - Waitlist promo: 50% off, applied via ?promo=waitlist URL parameter
 //   (Both percentages are applied off the regular list price for that tier;
 //    actual displayed numbers below match the user-supplied spec exactly,
-//    not derived arithmetic — they're the canonical headline prices.)
+//    not derived arithmetic - they're the canonical headline prices.)
 
-/** Launch date — adjust this when you cut over from waitlist to public. */
+/** Launch date - adjust this when you cut over from waitlist to public. */
 export const LAUNCH_DATE = new Date("2026-05-01T00:00:00Z")
 
 /** Length of the early-bird discount window after launch, in days. */
@@ -22,11 +22,11 @@ export type Promo = "regular" | "launch" | "waitlist"
 export type TierKind = "whole_house" | "room_guide" | "phase_bundle"
 
 export interface Price {
-  /** Regular list price (post-launch, no promo) — in AUD cents. */
+  /** Regular list price (post-launch, no promo) - in AUD cents. */
   regular: number
-  /** Auto-applied price during the launch window — in AUD cents. */
+  /** Auto-applied price during the launch window - in AUD cents. */
   launch: number
-  /** Waitlist member price — in AUD cents. */
+  /** Waitlist member price - in AUD cents. */
   waitlist: number
 }
 
@@ -45,7 +45,7 @@ export interface PricingTier {
   excludes?: string[]
   /** Card CTA copy. */
   cta: string
-  /** "/#subscribe?source=pricing-..." or — once Stripe is live — "/checkout?product=...". */
+  /** "/#subscribe?source=pricing-..." or - once Stripe is live - "/checkout?product=...". */
   href: string
   /** Highlight the card with extra emphasis (true for the primary tier). */
   primary?: boolean
@@ -100,7 +100,7 @@ export const WHOLE_HOUSE: PricingTier = {
   title: "Complete Renovation Guide",
   tagline: "Every stage. Every room. Buy once, use forever.",
   blurb:
-    "The full Reno101 catalogue — all 16 stages, every ebook, every template, every checklist, every calculator, every room. Monthly content updates included for life.",
+    "The full Reno101 catalogue - all 16 stages, every ebook, every template, every checklist, every calculator, every room. Monthly content updates included for life.",
   price: { regular: 7999, launch: 5999, waitlist: 3999 },
   includes: [
     "All 16 renovation stages (Ideas → Party)",
@@ -108,7 +108,7 @@ export const WHOLE_HOUSE: PricingTier = {
     "20+ templates (Excel & Word)",
     "All checklists (PDF)",
     "Cost calculators & planning tools",
-    "All rooms — kitchen, bathroom, bedroom, lounge, laundry, garage",
+    "All rooms - kitchen, bathroom, bedroom, lounge, laundry, garage",
     "Landscaping & external works",
     "Email delivery + Google Drive access",
     "Monthly content updates for life",
@@ -131,7 +131,7 @@ export const ROOM_GUIDES: PricingTier = {
     "Room-specific templates (cost, scope, layout)",
     "Room-specific checklists",
     "Cost calculator scoped to that room",
-    "Lifetime access — buy once",
+    "Lifetime access - buy once",
   ],
   excludes: ["Other rooms", "Whole-house calculators", "All-room templates"],
   cta: "Buy a Room Guide",
@@ -159,15 +159,15 @@ export const PHASE_BUNDLES: PricingTier = {
     "All stages in that phase",
     "Phase-specific templates & checklists",
     "Phase-specific cost calculator",
-    "Lifetime access — buy once",
+    "Lifetime access - buy once",
   ],
   excludes: ["Other phases", "Whole-house calculators"],
   cta: "Buy a Phase Bundle",
   href: "/#subscribe?source=pricing-phase-bundle",
   options: [
-    { id: "phase-1", label: "Phase 1 — Plan & Prep", description: "Ideas + Planning + Demolition." },
-    { id: "phase-2", label: "Phase 2 — Structure & Rough-In", description: "Rough-In + Construction + Landscaping." },
-    { id: "phase-3", label: "Phase 3 — Finish & Hand-Over", description: "Finishing + Painting + Fit-Off + Punch List." },
+    { id: "phase-1", label: "Phase 1 - Plan & Prep", description: "Ideas + Planning + Demolition." },
+    { id: "phase-2", label: "Phase 2 - Structure & Rough-In", description: "Rough-In + Construction + Landscaping." },
+    { id: "phase-3", label: "Phase 3 - Finish & Hand-Over", description: "Finishing + Painting + Fit-Off + Punch List." },
   ],
 }
 
@@ -242,7 +242,7 @@ export const ADD_ONS: AddOn[] = [
     accent: "rose",
     includes: [
       "Anonymised real reno fails",
-      "What went wrong — and why",
+      "What went wrong - and why",
       "How to avoid the same fate",
       "Case studies you can read in one sitting",
     ],

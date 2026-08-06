@@ -304,7 +304,7 @@ export default async function StagePage({ params }: { params: Promise<{ slug: st
                 </div>
                 <h2 className="text-2xl font-extrabold tracking-tight">We're still writing this stage.</h2>
                 <p className="mt-2 text-muted-foreground">
-                  The full step-by-step guide for <span className="font-semibold text-foreground">{stage.name}</span> is coming soon. Join the starter pack list and we'll email you when it's live — before the tradies start asking when you'll make a decision.
+                  The full step-by-step guide for <span className="font-semibold text-foreground">{stage.name}</span> is coming soon. Join the starter pack list and we'll email you when it's live - before the tradies start asking when you'll make a decision.
                 </p>
                 <div className="mt-6">
                   <Button asChild className="rounded-lg">
@@ -325,7 +325,7 @@ export default async function StagePage({ params }: { params: Promise<{ slug: st
             theme={emailTheme}
             source={`stage-${stage.slug}`}
             heading={`Get tips for ${stage.name}`}
-            subheading={`Join the Blueprint Club — ${stage.name.toLowerCase()} tips, templates, and 'we wish someone had told us' notes from people who've been there.`}
+            subheading={`Join the Blueprint Club - ${stage.name.toLowerCase()} tips, templates, and 'we wish someone had told us' notes from people who've been there.`}
           />
         </section>
       )}
@@ -346,7 +346,7 @@ export default async function StagePage({ params }: { params: Promise<{ slug: st
                   <Button asChild variant="default" className="rounded-xl">
                     <Link href="/pricing#bundles">
                       <Package className="mr-2 h-4 w-4" />
-                      Get the {bundleName} — AU$49
+                      Get the {bundleName} - AU$49
                     </Link>
                   </Button>
                 )}
@@ -477,11 +477,11 @@ function StageQuickJump({ current }: { current: string }) {
                       ? "border-foreground bg-foreground text-background shadow-sm"
                       : "border-border bg-card text-foreground hover:border-foreground/40"
                   }`}
-                  title={`${s.name} — ${s.tagline}`}
+                  title={`${s.name} - ${s.tagline}`}
                 >
                   <span
                     className={`grid h-5 w-5 place-items-center rounded-full bg-gradient-to-br text-[11px] ${
-                      // tiny color dot — derived from hero gradient
+                      // tiny color dot - derived from hero gradient
                       stageDotGradient(s)
                     } ${active ? "ring-2 ring-background" : ""}`}
                   >
@@ -501,7 +501,7 @@ function StageQuickJump({ current }: { current: string }) {
 
 /** Pick a tiny 2-stop gradient to colour the quick-jump dot, sampled from the stage hero. */
 function stageDotGradient(s: Stage): string {
-  // hero looks like "from-x via-y to-z" — strip "via-..." for a cleaner 2-stop dot
+  // hero looks like "from-x via-y to-z" - strip "via-..." for a cleaner 2-stop dot
   if (!s.hero) {
     // phase fallback
     if (s.phase === "plan") return "from-sky-400 to-indigo-500"
@@ -599,7 +599,7 @@ function PartySection({ stage }: { stage: Stage }) {
           From a hole in the ground to here
         </h3>
         <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground">
-          Every house has its story. We hope yours has fewer regrets than most. If we helped — even a little — drop us a line. We collect happy endings.
+          Every house has its story. We hope yours has fewer regrets than most. If we helped - even a little - drop us a line. We collect happy endings.
         </p>
         <div className="mt-5 flex flex-wrap justify-center gap-3">
           <Button asChild className="rounded-xl">

@@ -47,7 +47,7 @@ export default function Home() {
           <div>
             <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">The 16 stages of a renovation</h2>
             <p className="mt-2 max-w-2xl text-muted-foreground">
-              Every card is a full guide with steps, materials, hints &amp; tips, and the resources that actually help. The dot tells you how DIY-friendly the stage is — green is "go for it", red is "let someone with a licence do that".
+              Every card is a full guide with steps, materials, hints &amp; tips, and the resources that actually help. The dot tells you how DIY-friendly the stage is - green is "go for it", red is "let someone with a licence do that".
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
@@ -176,7 +176,7 @@ export default function Home() {
               "Every stage, every resource, every bundle",
               "New content added every month",
               "Unlimited AI reno-advisor questions",
-              "Early access to new stages — cancel renewal anytime",
+              "Early access to new stages - cancel renewal anytime",
             ]}
             cta="Notify me at launch"
             ctaHref="#subscribe"
@@ -191,7 +191,7 @@ export default function Home() {
             </Link>
           </Button>
           <p className="text-xs text-muted-foreground">
-            Prices in AUD. Stripe integration targeted July 2026 — the free Starter Pack is live now.
+            Prices in AUD. Stripe integration targeted July 2026 - the free Starter Pack is live now.
           </p>
         </div>
 
@@ -210,7 +210,7 @@ export default function Home() {
             variant="hero"
             theme="orange"
             heading="Get the free Renovation Starter Pack"
-            subheading="The Ideas and Planning stage checklists, a quote comparison template, and a budget tracker — delivered to your inbox. No spam, no man named Gary."
+            subheading="The Ideas and Planning stage checklists, a quote comparison template, and a budget tracker - delivered to your inbox. No spam, no man named Gary."
             source="homepage-starter-pack"
             showName
           />
@@ -231,7 +231,7 @@ export default function Home() {
         </Badge>
         <h3 className="mt-3 text-2xl font-extrabold tracking-tight">Don't know what an architrave is?</h3>
         <p className="mx-auto mt-2 max-w-xl text-muted-foreground">
-          The glossary decodes every bit of tradie jargon you'll run into — from <em>cornice</em> to <em>batten</em> to <em>fit-off</em> — so you can hold a conversation with the builder without nodding politely and Googling it later.
+          The glossary decodes every bit of tradie jargon you'll run into - from <em>cornice</em> to <em>batten</em> to <em>fit-off</em> - so you can hold a conversation with the builder without nodding politely and Googling it later.
         </p>
         <Button asChild variant="link" className="mt-3 text-primary">
           <Link href="/blogs">

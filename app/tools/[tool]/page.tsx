@@ -1,4 +1,4 @@
-// app/tools/[tool]/page.tsx — Dynamic tool page for AI document generators
+// app/tools/[tool]/page.tsx - Dynamic tool page for AI document generators
 
 import { notFound } from "next/navigation"
 import Link from "next/link"

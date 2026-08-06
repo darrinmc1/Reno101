@@ -78,9 +78,9 @@ function SubscribeWall({ onBack }: { onBack: () => void }) {
           <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
             <Lock className="h-8 w-8 text-primary" />
           </div>
-          <CardTitle className="text-2xl">Unlock unlimited AI renovation tools</CardTitle>
+          <CardTitle className="text-2xl tabular-nums">enable unlimited AI renovation tools</CardTitle>
           <CardDescription className="mt-2 text-base">
-            Get AI-powered renovation briefs, material estimates, and design briefs —
+            Get AI-powered renovation briefs, material estimates, and design briefs -
             generated in seconds.
           </CardDescription>
         </CardHeader>
@@ -91,7 +91,7 @@ function SubscribeWall({ onBack }: { onBack: () => void }) {
               Free tier
             </h4>
             <p className="text-sm text-muted-foreground">
-              One free generation with Gemini Flash — try it out before you commit.
+              One free generation with Gemini Flash - try it out before you commit.
             </p>
           </div>
           <div className="rounded-xl border border-primary/10 bg-primary/[0.03] p-4">
@@ -101,7 +101,7 @@ function SubscribeWall({ onBack }: { onBack: () => void }) {
             </h4>
             <p className="text-sm text-muted-foreground">
               Unlocks advanced AI models for detailed material estimates and design briefs
-              — unlimited generations.
+              - unlimited generations.
             </p>
           </div>
         </CardContent>
@@ -159,21 +159,21 @@ function MarkdownContent({ content }: { content: string }) {
     if (trimmed.startsWith("### ")) {
       flushList()
       elements.push(
-        <h3 key={`h3-${i}`} className="mb-2 mt-5 text-lg font-semibold">
+        <h3 key={`h3-${i}`} className="mb-2 mt-5 text-lg font-semibold tabular-nums">
           {trimmed.slice(4)}
         </h3>,
       )
     } else if (trimmed.startsWith("## ")) {
       flushList()
       elements.push(
-        <h2 key={`h2-${i}`} className="mb-2 mt-6 text-xl font-bold">
+        <h2 key={`h2-${i}`} className="mb-2 mt-6 text-xl font-bold tabular-nums">
           {trimmed.slice(3)}
         </h2>,
       )
     } else if (trimmed.startsWith("# ")) {
       flushList()
       elements.push(
-        <h1 key={`h1-${i}`} className="mb-3 mt-6 text-2xl font-bold">
+        <h1 key={`h1-${i}`} className="mb-3 mt-6 text-2xl font-bold tabular-nums">
           {trimmed.slice(2)}
         </h1>,
       )
@@ -354,7 +354,7 @@ export function RenoWizard({ tool }: RenoWizardProps) {
           <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
             {tool.icon}
           </div>
-          <CardTitle className="text-2xl">{tool.title}</CardTitle>
+          <CardTitle className="text-2xl tabular-nums">{tool.title}</CardTitle>
           <CardDescription className="mt-2 text-base">{tool.description}</CardDescription>
         </CardHeader>
         <CardContent className="text-center">
@@ -366,7 +366,7 @@ export function RenoWizard({ tool }: RenoWizardProps) {
           ) : (
             <div className="inline-flex items-center gap-2 rounded-full bg-amber-50 px-4 py-2 text-sm font-medium text-amber-700">
               <Lock className="h-4 w-4" />
-              Free trial used — upgrade for unlimited access
+              Free trial used - upgrade for unlimited access
             </div>
           )}
         </CardContent>
@@ -461,9 +461,9 @@ export function RenoWizard({ tool }: RenoWizardProps) {
       <Card className="mx-auto max-w-2xl border-primary/15 shadow-sm">
         <CardContent className="flex flex-col items-center justify-center py-16">
           <Loader2 className="mb-4 h-10 w-10 animate-spin text-primary" />
-          <p className="text-lg font-medium">Generating your document…</p>
+          <p className="text-lg font-medium tabular-nums">Generating your document…</p>
           <p className="mt-1 text-sm text-muted-foreground">
-            Using Gemini Flash AI — this should only take a moment.
+            Using Gemini Flash AI - this should only take a moment.
           </p>
         </CardContent>
       </Card>
@@ -480,7 +480,7 @@ export function RenoWizard({ tool }: RenoWizardProps) {
               <CheckCircle2 className="h-3.5 w-3.5" />
               Generated
             </div>
-            <CardTitle className="mt-2 text-2xl">Your {tool.title}</CardTitle>
+            <CardTitle className="mt-2 text-2xl tabular-nums">Your {tool.title}</CardTitle>
             <CardDescription>
               Generated with Gemini Flash AI. Review and share with your team or contractor.
             </CardDescription>

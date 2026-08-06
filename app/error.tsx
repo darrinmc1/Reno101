@@ -19,7 +19,7 @@ export default function GlobalError({ error, reset }: { error: Error & { digest?
           Something fell off the back of the ute.
         </h1>
         <p className="text-muted-foreground">
-          Page didn't load properly. Give it another go — usually that sorts it.
+          Page didn't load properly. Give it another go - usually that sorts it.
         </p>
       </div>
       <Button onClick={reset} className="rounded-xl">

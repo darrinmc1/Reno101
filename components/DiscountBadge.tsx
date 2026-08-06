@@ -3,7 +3,7 @@ import type { Promo } from "@/lib/pricing"
 
 const PROMO_COPY: Record<Exclude<Promo, "regular">, { label: string; sub: string; bg: string; text: string; border: string; icon: React.ReactNode }> = {
   launch: {
-    label: "Early Bird — 25% off",
+    label: "Early Bird - 25% off",
     sub: "Auto-applied for the first 90 days after launch.",
     bg: "bg-amber-100",
     text: "text-amber-900",
@@ -11,8 +11,8 @@ const PROMO_COPY: Record<Exclude<Promo, "regular">, { label: string; sub: string
     icon: <Tag className="h-3.5 w-3.5" />,
   },
   waitlist: {
-    label: "Waitlist Member — 50% off",
-    sub: "Locked-in price. Buy now or any time after — same rate.",
+    label: "Waitlist Member - 50% off",
+    sub: "Locked-in price. Buy now or any time after - same rate.",
     bg: "bg-violet-100",
     text: "text-violet-900",
     border: "border-violet-200",
@@ -49,7 +49,7 @@ export function DiscountBanner({ promo }: { promo: Promo }) {
         {meta.icon}
         {meta.label}
       </span>
-      <span className="text-foreground/70 font-medium">— {meta.sub}</span>
+      <span className="text-foreground/70 font-medium">- {meta.sub}</span>
     </div>
   )
 }

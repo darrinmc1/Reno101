@@ -21,7 +21,7 @@ import {
 export const metadata = {
   title: "Tools",
   description:
-    "Renovation tools — material price tracker, AI document generators, and more to help you plan your project.",
+    "Renovation tools - material price tracker, AI document generators, and more to help you plan your project.",
 }
 
 export default function ToolsPage() {
@@ -39,7 +39,7 @@ export default function ToolsPage() {
           </h1>
           <p className="mt-3 max-w-3xl text-lg text-muted-foreground">
             Compare material prices, generate professional project briefs with AI, estimate
-            materials, and capture your design vision — all in one place.
+            materials, and capture your design vision - all in one place.
           </p>
         </div>
 
@@ -52,7 +52,7 @@ export default function ToolsPage() {
             <div>
               <h2 className="text-2xl font-bold tracking-tight">AI Document Generators</h2>
               <p className="text-sm text-muted-foreground">
-                Powered by Gemini Flash AI — generate professional renovation documents in seconds
+                Powered by Gemini Flash AI - generate professional renovation documents in seconds
               </p>
             </div>
           </div>

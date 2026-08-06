@@ -103,7 +103,7 @@ const TEMPLATES = [
 export const metadata = {
   title: "Downloads",
   description:
-    "Download free Renos101 renovation planning templates — renovation brief, material estimator, contractor comparison, timeline, budget tracker, permit checklist, room planner, quote comparison, warranty tracker, and emergency contact sheet.",
+    "Download free Renos101 renovation planning templates - renovation brief, material estimator, contractor comparison, timeline, budget tracker, permit checklist, room planner, quote comparison, warranty tracker, and emergency contact sheet.",
 }
 
 export default function DownloadsPage() {
@@ -198,7 +198,7 @@ export default function DownloadsPage() {
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
             These templates are a taste. The Complete Renovation Guide includes every template,
-            checklist, and calculator in editable formats — plus 16 stages of expert guidance
+            checklist, and calculator in editable formats - plus 16 stages of expert guidance
             from Ideas to Punch List.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">

@@ -75,7 +75,7 @@ const TYPE_META: Record<ResourceKind, TypeMeta> = {
     plural: "checklists",
     blurb: "Print, tick, panic slightly less. One per stage, plus the edge cases.",
     longBlurb:
-      "Single-sheet things to take on site, or to a quote, or to your kitchen designer. Most are AU$9.90 individually — Starter Pack ones are free with email signup.",
+      "Single-sheet things to take on site, or to a quote, or to your kitchen designer. Most are AU$9.90 individually - Starter Pack ones are free with email signup.",
     heroImage:
       "https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=2000&q=70",
     imageCredit: "Photo: Aaron Burden / Unsplash",
@@ -91,7 +91,7 @@ const TYPE_META: Record<ResourceKind, TypeMeta> = {
     blurb:
       "Cost calculators and material estimators for when 'from $X' is doing the talking.",
     longBlurb:
-      "Interactive calculators, estimators and planners. Most are free — paid versions cover the heavier-lift workbooks (full reno spreadsheet, Gantt, schedules).",
+      "Interactive calculators, estimators and planners. Most are free - paid versions cover the heavier-lift workbooks (full reno spreadsheet, Gantt, schedules).",
     heroImage:
       "https://images.unsplash.com/photo-1581244277943-fe4a9c777189?auto=format&fit=crop&w=2000&q=70",
     imageCredit: "Photo: Theme Photos / Unsplash",
@@ -106,7 +106,7 @@ const TYPE_META: Record<ResourceKind, TypeMeta> = {
     plural: "tips",
     blurb: "The stuff tradies say once and then assume you heard. Save time, save money.",
     longBlurb:
-      "Short, actionable advice — usually a single page or a 20-tip cheat-sheet for a specific trade. Most are free; the trade-by-trade collections are AU$4.90.",
+      "Short, actionable advice - usually a single page or a 20-tip cheat-sheet for a specific trade. Most are free; the trade-by-trade collections are AU$4.90.",
     heroImage:
       "https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=2000&q=70",
     imageCredit: "Photo: Riccardo Annandale / Unsplash",
