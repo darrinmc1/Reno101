@@ -116,7 +116,7 @@ export default function HeroSection() {
             {/* Pill Badge */}
             <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/40 bg-amber-500/10 px-3.5 py-1.5 text-xs font-semibold uppercase tracking-wider text-amber-300 shadow-inner">
               <Hammer className="h-3.5 w-3.5 text-amber-400" />
-              <span>16-Stage Master Renovation Blueprint</span>
+              <span>Home Renovation Guides &amp; Cost Tools</span>
             </div>
 
             {/* Headline */}
