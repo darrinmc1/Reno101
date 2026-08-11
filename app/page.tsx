@@ -9,6 +9,8 @@ import { PriceDisclaimer } from "@/components/price-disclaimer"
 import HeroSection from "@/components/hero-section"
 import { RenoWisdom } from "@/components/reno-wisdom"
 import { STAGES, PHASES, PHASE_META, DIFFICULTY_META, getStagesByPhase, getResourceCounts } from "@/lib/stages"
+import WhatsNew from "@/components/whats-new"
+
 
 // The first 5 stages, with a richer color/accent palette for the hero journey visual
 const JOURNEY_PREVIEW = STAGES.slice(0, 5)
@@ -19,6 +21,7 @@ export default function Home() {
     <main className="flex-1">
       {/* ============ HERO ============ */}
       <HeroSection />
+      <WhatsNew />
 
       {/* ============ HOW IT WORKS ============ */}
       <section className="border-t border-border/70 bg-background/40">
