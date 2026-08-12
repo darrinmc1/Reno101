@@ -129,17 +129,17 @@ export default function Home() {
       <section id="bundles" className="container px-4 py-16 md:px-6">
         <div className="mb-10 text-center">
           <Badge className="inline-flex items-center gap-2 rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-amber-800 hover:bg-amber-100">
-            Coming soon
+            Paid packs on the waitlist
           </Badge>
-          <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">Simple pricing for complicated renovation feelings</h2>
+          <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">Start free. Paid packs when checkout&apos;s actually live.</h2>
           <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-            Free for scoping. One room's worth for one room. All the rooms for a year if you're clearly in over your head and honest about it.
+            The Starter Pack is yours now — drop your email. Project and all-access packs are priced below so you know what&apos;s coming; we&apos;ll email you when you can buy them for real. No fake checkout.
           </p>
         </div>
 
         <div className="grid gap-6 lg:grid-cols-3">
           <PricingCard
-            kind="Free forever"
+            kind="Live now"
             price="Free"
             unit=""
             tagline="Enough to figure out if you're actually doing this."
@@ -149,29 +149,30 @@ export default function Home() {
               "Weekly renovation tip email",
               "Full access to the blog",
             ]}
-            cta="Get the starter pack"
+            cta="Get the free Starter Pack"
             ctaHref="#subscribe"
+            highlighted
+            flag="Start here"
           />
 
           <PricingCard
-            kind="Project Bundle"
+            kind="Project Bundle · soon"
             price="AU$49"
             unit=" one-off"
-            tagline="Renovating one room? Get everything for that job. Pay once, keep the files."
+            tagline="Renovating one room? Everything for that job — when checkout lands."
             features={[
               "Kitchen, Bathroom, Laundry or Outdoor pack",
               "All ebooks, templates, checklists & tools for that project",
               "Printable project tracker PDF",
               "Lifetime access + one year of free updates",
             ]}
-            cta="Notify me at launch"
+            cta="Join the waitlist"
             ctaHref="#subscribe"
-            highlighted
             flag="Best for one room"
           />
 
           <PricingCard
-            kind="All-Access Annual"
+            kind="All-Access · soon"
             price="AU$149"
             unit=" / year"
             tagline="For multi-room renos and chaos managers with receipts."
@@ -181,20 +182,20 @@ export default function Home() {
               "Unlimited AI reno-advisor questions",
               "Early access to new stages — cancel renewal anytime",
             ]}
-            cta="Notify me at launch"
+            cta="Join the waitlist"
             ctaHref="#subscribe"
-            footnote="Monthly option (AU$19/mo) available on the full pricing page."
+            footnote="We'll email when Stripe checkout is live. No charge until then."
           />
         </div>
         <div className="mt-6 flex flex-col items-center gap-2">
           <Button asChild variant="link" className="text-primary">
-            <Link href="/pricing">
-              See full pricing, à la carte items &amp; 1:1 services
+            <Link href="#subscribe">
+              Get the free Starter Pack
               <ArrowRight className="ml-1 h-4 w-4" />
             </Link>
           </Button>
           <p className="text-xs text-muted-foreground">
-            Prices in AUD. Stripe integration targeted July 2026 — the free Starter Pack is live now.
+            Prices in AUD. Checkout isn&apos;t live yet — free Starter Pack and waitlist only for now.
           </p>
         </div>
 
@@ -383,8 +384,14 @@ function PricingCard({
           : "border-2"
         }`}
     >
-      {highlighted && flag && (
-        <div className="absolute -top-3 right-4 rounded-full bg-background px-3 py-1 text-xs font-bold text-primary shadow">
+      {flag && (
+        <div
+          className={`absolute -top-3 right-4 rounded-full px-3 py-1 text-xs font-bold shadow ${
+            highlighted
+              ? "bg-background text-primary"
+              : "border border-border bg-background text-muted-foreground"
+          }`}
+        >
           {flag}
         </div>
       )}
