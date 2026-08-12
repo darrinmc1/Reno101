@@ -133,18 +133,18 @@ export default function HeroSection() {
               Step-by-step checklists, trade-inspected budget templates, and real AUD cost guides for every phase — so you never cut a load-bearing wall or panic over grout colors at 11 PM.
             </p>
 
-            {/* Action Buttons */}
+            {/* Action Buttons — email capture first for cold traffic; stages secondary */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Button asChild size="lg" className="rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 text-slate-950 font-bold hover:from-amber-400 hover:to-orange-500 shadow-lg shadow-amber-500/20 px-7 py-6 text-base">
-                <Link href="#stages">
-                  Explore All 16 Stages
+                <Link href="#subscribe">
+                  Get the free Starter Pack
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
 
               <Button asChild size="lg" variant="outline" className="rounded-xl border-slate-700 bg-slate-800/80 text-slate-200 hover:bg-slate-700 hover:text-white px-6 py-6 text-base">
-                <Link href="#subscribe">
-                  Free Starter Pack
+                <Link href="#stages">
+                  Explore 16 Stages
                 </Link>
               </Button>
             </div>

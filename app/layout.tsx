@@ -14,16 +14,16 @@ import { WaitlistPopup } from "@/components/waitlist-popup"
 export const metadata: Metadata = {
   metadataBase: new URL("https://renos101.com"),
   title: {
-    default: "Reno101",
-    template: "%s | Reno101",
+    default: "Renos101",
+    template: "%s | Renos101",
   },
   description: "Plans, prices, fewer regrets — guides, tools, and templates for every stage of your renovation.",
-  generator: "Reno101",
+  generator: "Renos101",
   openGraph: {
-    title: "Reno101",
+    title: "Renos101",
     description: "From first idea to finished — 16 stages of renovation, mapped.",
     url: "https://renos101.com",
-    siteName: "Reno101",
+    siteName: "Renos101",
     type: "website",
   },
 }
