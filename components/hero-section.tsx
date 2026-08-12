@@ -91,6 +91,7 @@ export default function HeroSection() {
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-stone-900 via-slate-900 to-stone-950 text-white py-16 md:py-24">
+        <div className="absolute inset-0 bg-[url('/images/hero-renos101.jpg')] bg-cover bg-center opacity-25" aria-hidden="true" />
       {/* Background Architectural Blueprint Grid Lines */}
       <div
         className="absolute inset-0 opacity-15 pointer-events-none"
