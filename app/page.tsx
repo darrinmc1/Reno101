@@ -384,8 +384,14 @@ function PricingCard({
           : "border-2"
         }`}
     >
-      {highlighted && flag && (
-        <div className="absolute -top-3 right-4 rounded-full bg-background px-3 py-1 text-xs font-bold text-primary shadow">
+      {flag && (
+        <div
+          className={`absolute -top-3 right-4 rounded-full px-3 py-1 text-xs font-bold shadow ${
+            highlighted
+              ? "bg-background text-primary"
+              : "border border-border bg-background text-muted-foreground"
+          }`}
+        >
           {flag}
         </div>
       )}
