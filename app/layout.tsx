@@ -19,6 +19,14 @@ export const metadata: Metadata = {
   },
   description: "Plans, prices, fewer regrets — guides, tools, and templates for every stage of your renovation.",
   generator: "Renos101",
+  icons: {
+    icon: [
+      { url: "/favicon.svg", type: "image/svg+xml", sizes: "any" },
+      { url: "/icon.svg", type: "image/svg+xml", sizes: "any" },
+    ],
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
   openGraph: {
     title: "Renos101",
     description: "From first idea to finished — 16 stages of renovation, mapped.",
