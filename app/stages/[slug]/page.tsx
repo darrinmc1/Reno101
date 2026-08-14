@@ -338,7 +338,7 @@ export default async function StagePage({ params }: { params: Promise<{ slug: st
               <div>
                 <h2 className="text-2xl font-extrabold tracking-tight">Resources for this stage</h2>
                 <p className="mt-1 max-w-xl text-sm text-muted-foreground">
-                  Pay per item, or get the whole {bundleName ?? "bundle"} in one go. Starter Pack items free with email signup.
+                  Starter Pack items are free with email. The {bundleName ?? "Project Bundle"} (AU$49) is on the waitlist — we&apos;ll email when Stripe is live.
                 </p>
               </div>
               <div className="flex flex-wrap items-center gap-3">
@@ -346,7 +346,7 @@ export default async function StagePage({ params }: { params: Promise<{ slug: st
                   <Button asChild variant="default" className="rounded-xl">
                     <Link href="/pricing#bundles">
                       <Package className="mr-2 h-4 w-4" />
-                      Get the {bundleName} — AU$49
+                      Email when Stripe is live — AU$49
                     </Link>
                   </Button>
                 )}

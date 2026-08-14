@@ -287,7 +287,7 @@ export default async function ResourceTypePage({
           </Button>
           <Button asChild variant="default" className="rounded-lg">
             <Link href="/pricing#bundles">
-              See project bundles
+              See packs &amp; waitlist
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>

@@ -169,6 +169,7 @@ export default function Home() {
             cta="Join the waitlist"
             ctaHref="#subscribe"
             flag="Best for one room"
+            footnote="We'll email when Stripe checkout is live. No charge until then."
           />
 
           <PricingCard

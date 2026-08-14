@@ -16,7 +16,7 @@ import { getResourceCounts, type ResourceKind } from "@/lib/stages"
 export const metadata = {
   title: "Resources",
   description:
-    "Ebooks, templates, checklists, tools and tips for every stage of your renovation. Free with the Starter Pack, included in project bundles, or unlocked with a Premium subscription.",
+    "Ebooks, templates, checklists, tools and tips for every stage of your renovation. Free Starter Pack now; Project Bundle AU$49 and All-Access AU$149/year on the waitlist until Stripe checkout is live.",
 }
 
 type TypeCard = {
@@ -111,9 +111,9 @@ const ACCESS_LEGEND: { label: string; badge: string; note: string; icon: React.R
     icon: <Package className="h-3.5 w-3.5" />,
   },
   {
-    label: "Premium",
+    label: "All-Access",
     badge: "bg-violet-100 text-violet-800 border-violet-200",
-    note: "Unlocked with a monthly or annual subscription.",
+    note: "AU$149/year when checkout lands — we'll email when Stripe is live.",
     icon: <Lock className="h-3.5 w-3.5" />,
   },
 ]
@@ -223,10 +223,10 @@ export default function ResourcesPage() {
               Project bundles
             </h2>
             <p className="mt-2 text-sm leading-relaxed text-foreground/70">
-              Grab everything for a kitchen, bathroom, paint job, or the whole reno in one go — cheaper than buying each piece alone.
+              Project Bundle AU$49 one-off, or All-Access AU$149/year. Priced on the waitlist — we&apos;ll email when Stripe checkout is live.
             </p>
             <div className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-transform group-hover:translate-x-1">
-              See the bundles
+              See packs &amp; waitlist
               <ArrowRight className="h-4 w-4" />
             </div>
           </Link>
@@ -265,7 +265,7 @@ export default function ResourcesPage() {
               </Link>
             </Button>
             <Button asChild variant="outline" className="rounded-lg">
-              <Link href="/pricing">See subscription &amp; bundles</Link>
+              <Link href="/pricing#bundles">See packs &amp; waitlist</Link>
             </Button>
           </div>
         </div>

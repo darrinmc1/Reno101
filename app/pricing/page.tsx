@@ -1,107 +1,192 @@
 import Link from "next/link"
-import { CheckCircle, ArrowRight } from "lucide-react"
+import { ArrowRight, Check } from "lucide-react"
+import { Badge } from "@/components/ui/badge"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { EmailCapture } from "@/components/email-capture"
+import { PriceDisclaimer } from "@/components/price-disclaimer"
+
+export const metadata = {
+  title: "Pricing",
+  description:
+    "Free Starter Pack now. Project Bundle AU$49 one-off and All-Access AU$149/year on the waitlist — we'll email when Stripe checkout is live.",
+}
 
 const plans = [
   {
-    name: "Free",
-    price: "$0",
-    period: "forever",
-    description: "Get started with courses and basic tools. No credit card needed.",
+    name: "Starter Pack",
+    kind: "Live now",
+    price: "Free",
+    unit: "",
+    tagline: "Enough to figure out if you're actually doing this.",
     features: [
-      "All courses & lessons",
-      "Basic tools access",
-      "Community access",
+      "Free Renovation Starter Pack",
+      "Any individual free checklist",
+      "Weekly renovation tip email",
+      "Full access to the blog",
     ],
-    cta: "Get Started Free",
-    href: "/learn",
-    highlighted: false,
-  },
-  {
-    name: "Early Adopter",
-    price: "$5",
-    period: "/month",
-    description: "Lock in early adopter pricing forever — never pay more.",
-    features: [
-      "Everything in Free",
-      "All Pro template packs",
-      "All interactive tools",
-      "30-day refund guarantee",
-      "Price locked forever",
-    ],
-    cta: "Lock in $5/mo",
-    href: "/improvements",
+    cta: "Get the free Starter Pack",
+    href: "#subscribe",
     highlighted: true,
+    flag: "Start here",
   },
   {
-    name: "Pro",
-    price: "$10",
-    period: "/month",
-    description: "Full access when it launches. More features coming.",
+    name: "Project Bundle",
+    kind: "Project Bundle · soon",
+    price: "AU$49",
+    unit: " one-off",
+    tagline: "Renovating one room? Everything for that job — when checkout lands.",
     features: [
-      "Everything in Early Adopter",
-      "Advanced features & AI tools",
-      "New content priority",
-      "Priority support",
+      "Kitchen, Bathroom, Laundry or Outdoor pack",
+      "All ebooks, templates, checklists & tools for that project",
+      "Printable project tracker PDF",
+      "Lifetime access + one year of free updates",
     ],
-    cta: "Coming Soon",
-    href: "/improvements",
+    cta: "Join the waitlist",
+    href: "#subscribe",
     highlighted: false,
+    flag: "Best for one room",
+    footnote: "We'll email when Stripe checkout is live. No charge until then.",
+  },
+  {
+    name: "All-Access",
+    kind: "All-Access · soon",
+    price: "AU$149",
+    unit: " / year",
+    tagline: "For multi-room renos and chaos managers with receipts.",
+    features: [
+      "Every stage, every resource, every bundle",
+      "New content added every month",
+      "Unlimited AI reno-advisor questions",
+      "Early access to new stages — cancel renewal anytime",
+    ],
+    cta: "Join the waitlist",
+    href: "#subscribe",
+    highlighted: false,
+    footnote: "We'll email when Stripe checkout is live. No charge until then.",
   },
 ]
 
 export default function PricingPage() {
   return (
-    <div className="min-h-screen bg-slate-50">
-      <section className="border-b bg-white py-16 text-center">
-        <div className="mx-auto max-w-6xl px-4 md:px-6">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-orange-700 mb-3">Pricing</p>
-          <h1 className="text-4xl font-bold tracking-tight md:text-5xl mb-4">Simple pricing. No surprises.</h1>
-          <p className="text-lg text-slate-600 max-w-2xl mx-auto">
-            Start free. Lock in early adopter pricing. Upgrade when you&apos;re ready.
+    <div className="min-h-screen">
+      <section className="border-b border-border/70 bg-background/40 py-16 text-center">
+        <div className="container px-4 md:px-6">
+          <Badge className="inline-flex items-center gap-2 rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-amber-800 hover:bg-amber-100">
+            Paid packs on the waitlist
+          </Badge>
+          <h1 className="mt-3 text-4xl font-extrabold tracking-tight md:text-5xl">
+            Start free. Paid packs when checkout&apos;s actually live.
+          </h1>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+            The Starter Pack is yours now — drop your email. Project Bundle AU$49 one-off and All-Access AU$149/year
+            stay listed so you know what&apos;s coming. We&apos;ll email when Stripe checkout is live. No fake checkout.
           </p>
         </div>
       </section>
-      <section className="mx-auto max-w-6xl px-4 md:px-6 py-12">
-        <div className="grid gap-6 md:grid-cols-3 items-start">
+
+      <section id="bundles" className="container scroll-mt-24 px-4 py-16 md:px-6">
+        <div className="grid gap-6 lg:grid-cols-3">
           {plans.map((plan) => (
-            <div key={plan.name} className={`rounded-xl border p-6 md:p-8 ${
-              plan.highlighted
-                ? "border-orange-500 bg-white shadow-lg ring-1 ring-orange-500 scale-105"
-                : "border-slate-200 bg-white"
-            }`}>
-              <h3 className="font-bold text-xl mb-2">{plan.name}</h3>
-              <div className="mb-4">
-                <span className="text-4xl font-bold">{plan.price}</span>
-                <span className="text-sm text-slate-500">{plan.period}</span>
-              </div>
-              <p className="text-sm text-slate-600 mb-6">{plan.description}</p>
-              {plan.name === "Early Adopter" && (
-                <p className="text-xs font-semibold uppercase tracking-wider text-orange-600 mb-4">
-                  🎯 Early Adopter — Lock In Forever
-                </p>
+            <Card
+              key={plan.name}
+              className={`relative flex h-full flex-col rounded-2xl ${
+                plan.highlighted
+                  ? "border-0 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground shadow-xl"
+                  : "border-2"
+              }`}
+            >
+              {plan.flag && (
+                <div
+                  className={`absolute -top-3 right-4 rounded-full px-3 py-1 text-xs font-bold shadow ${
+                    plan.highlighted
+                      ? "bg-background text-primary"
+                      : "border border-border bg-background text-muted-foreground"
+                  }`}
+                >
+                  {plan.flag}
+                </div>
               )}
-              <Link
-                href={plan.href}
-                className={`flex items-center justify-center gap-2 rounded-lg px-4 py-3 text-sm font-semibold transition-colors mb-8 ${
-                  plan.highlighted
-                    ? "bg-orange-500 text-white hover:bg-orange-700"
-                    : "border border-slate-300 text-slate-700 hover:bg-slate-50"
-                }`}
-              >
-                {plan.cta} <ArrowRight className="h-4 w-4" />
-              </Link>
-              <ul className="space-y-3">
-                {plan.features.map((f) => (
-                  <li key={f} className="flex items-start gap-3 text-sm text-slate-600">
-                    <CheckCircle className={`h-4 w-4 mt-0.5 shrink-0 ${
-                      plan.highlighted ? "text-orange-500" : "text-slate-400"
-                    }`} />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-            </div>
+              <CardHeader>
+                <div
+                  className={`text-xs font-semibold uppercase tracking-widest ${
+                    plan.highlighted ? "opacity-90" : "text-muted-foreground"
+                  }`}
+                >
+                  {plan.kind}
+                </div>
+                <CardTitle className="mt-2 flex items-baseline gap-1">
+                  <span className={`text-4xl font-extrabold ${plan.highlighted ? "" : "text-foreground"}`}>
+                    {plan.price}
+                  </span>
+                  <span className={`text-sm ${plan.highlighted ? "opacity-90" : "text-muted-foreground"}`}>
+                    {plan.unit}
+                  </span>
+                </CardTitle>
+                <p className={`mt-3 text-sm ${plan.highlighted ? "opacity-90" : "text-muted-foreground"}`}>
+                  {plan.tagline}
+                </p>
+              </CardHeader>
+              <CardContent className="flex-1">
+                <ul className="space-y-2.5 text-sm">
+                  {plan.features.map((feature) => (
+                    <li key={feature} className="flex items-start gap-2">
+                      <Check
+                        className={`mt-0.5 h-4 w-4 flex-shrink-0 ${
+                          plan.highlighted ? "text-primary-foreground" : "text-primary"
+                        }`}
+                        aria-hidden
+                      />
+                      <span className={plan.highlighted ? "" : "text-foreground"}>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                {plan.footnote && (
+                  <p className={`mt-4 text-xs ${plan.highlighted ? "opacity-80" : "text-muted-foreground"}`}>
+                    {plan.footnote}
+                  </p>
+                )}
+              </CardContent>
+              <CardFooter>
+                <Button
+                  asChild
+                  variant={plan.highlighted ? "secondary" : "outline"}
+                  className={`w-full rounded-lg ${
+                    plan.highlighted ? "bg-background text-primary hover:bg-background/90" : ""
+                  }`}
+                >
+                  <Link href={plan.href}>{plan.cta}</Link>
+                </Button>
+              </CardFooter>
+            </Card>
           ))}
+        </div>
+        <p className="mt-6 text-center text-xs text-muted-foreground">
+          Prices in AUD. Checkout isn&apos;t live yet — free Starter Pack and waitlist only for now.
+        </p>
+        <div className="mt-10">
+          <PriceDisclaimer />
+        </div>
+      </section>
+
+      <section id="subscribe" className="container px-4 pb-16 md:px-6">
+        <div className="mx-auto max-w-4xl">
+          <EmailCapture
+            variant="hero"
+            theme="orange"
+            heading="Get the free Starter Pack — or join the paid waitlist"
+            subheading="We'll email when Stripe checkout is live for the Project Bundle (AU$49) and All-Access (AU$149/year). No charge until then."
+            source="pricing-waitlist"
+            showName
+          />
+        </div>
+        <div className="mt-6 text-center">
+          <Button asChild variant="link" className="text-primary">
+            <Link href="/#bundles">
+              See the same packs on the homepage
+              <ArrowRight className="ml-1 h-4 w-4" />
+            </Link>
+          </Button>
         </div>
       </section>
     </div>
