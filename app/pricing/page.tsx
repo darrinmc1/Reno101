@@ -57,7 +57,7 @@ const plans = [
     features: [
       "Every stage, every resource, every bundle",
       "New content added every month",
-      "Unlimited AI reno-advisor questions",
+      "Reno Advisor — one cited answer from the 16-stage guides",
       "Early access to new stages — cancel renewal anytime",
     ],
     cta: "Join the waitlist",
