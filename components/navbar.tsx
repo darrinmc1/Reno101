@@ -17,6 +17,7 @@ import {
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Hammer, Menu, NotebookPen, PaintBucket, X } from "lucide-react"
 import { cn } from "@/lib/utils"
+import HumorToggle from "@/components/humor-toggle"
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -119,7 +120,8 @@ export default function Navbar() {
         <div className="flex items-center gap-3">
           <div className="hidden items-center gap-2 rounded-full border border-white/50 bg-white/55 p-1 shadow-sm md:flex">
             <Show when="signed-out">
-              <SignInButton mode="modal">
+              <HumorToggle />
+          <SignInButton mode="modal">
                 <Button variant="ghost" className="rounded-full">
                   Log in
                 </Button>
