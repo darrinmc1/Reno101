@@ -118,10 +118,10 @@ export default function Navbar() {
           </NavigationMenu>
         </div>
         <div className="flex items-center gap-3">
+          <HumorToggle />
           <div className="hidden items-center gap-2 rounded-full border border-white/50 bg-white/55 p-1 shadow-sm md:flex">
             <Show when="signed-out">
-              <HumorToggle />
-          <SignInButton mode="modal">
+              <SignInButton mode="modal">
                 <Button variant="ghost" className="rounded-full">
                   Log in
                 </Button>
