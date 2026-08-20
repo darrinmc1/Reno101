@@ -29,8 +29,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         <div className="mb-8">
           <div className="mb-4 flex items-center gap-2 text-sm text-muted-foreground">
             <span className="font-medium text-primary">{post.category}</span>
-            <span>&bull;
-import HumorBreak from "@/components/humor-break"</span>
+            <span>&bull;</span>
             <span>{post.date}</span>
             <span>&bull;</span>
             <div className="flex items-center">
@@ -40,22 +39,13 @@ import HumorBreak from "@/components/humor-break"</span>
           </div>
           <h1 className="mb-4 text-4xl font-bold tracking-tight">{post.title}</h1>
           <p className="mb-6 text-xl text-muted-foreground">{post.excerpt}</p>
-          <div className="flex items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <img src={post.authorImage} alt={post.author} className="h-10 w-10 rounded-full object-cover" />
-              <div>
-                <div className="font-medium">{post.author}</div>
-                <div className="text-sm text-muted-foreground">{post.authorTitle}</div>
-              </div>
-            </div>
-            <div className="flex gap-2">
-              <Button variant="ghost" size="icon" aria-label="Save article">
-                <Bookmark className="h-5 w-5" />
-              </Button>
-              <Button variant="ghost" size="icon" aria-label="Share article">
-                <Share2 className="h-5 w-5" />
-              </Button>
-            </div>
+          <div className="flex items-center justify-end gap-2">
+            <Button variant="ghost" size="icon" aria-label="Save article">
+              <Bookmark className="h-5 w-5" />
+            </Button>
+            <Button variant="ghost" size="icon" aria-label="Share article">
+              <Share2 className="h-5 w-5" />
+            </Button>
           </div>
         </div>
 

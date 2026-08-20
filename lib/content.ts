@@ -6,9 +6,6 @@ export type BlogPost = {
   date: string
   readTime: string
   image: string
-  author: string
-  authorTitle: string
-  authorImage: string
   content: string[]
 }
 
@@ -21,9 +18,6 @@ export const blogPosts: BlogPost[] = [
     date: "August 8, 2026",
     readTime: "8 min read",
     image: "/images/bathroom-budget.png",
-    author: "Sarah Johnson",
-    authorTitle: "Interior Designer",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "Ask five renovators how much a bathroom costs and you will get five answers, none of which will match the quote you eventually receive. That is not incompetence. It is the industry's way of preparing you for the fact that a bathroom is a small room with the financial appetite of a yacht.",
       "Labor is where the money actually goes, and it is not close. Waterproofing, tiling, plumbing, and the electrician's cameo appearance all add up faster than the fixtures. The tiles you fell in love with are a rounding error compared to the person who has to cut them around a pipe at 7 a.m.",
@@ -43,9 +37,6 @@ export const blogPosts: BlogPost[] = [
     date: "August 6, 2026",
     readTime: "7 min read",
     image: "/images/eco-friendly.png",
-    author: "Sarah Johnson",
-    authorTitle: "Interior Designer",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "Sustainable renovation has an image problem. It sounds like something that costs more, takes longer, and results in a house that looks like a very principled cardboard box. The truth is the opposite: the most eco-friendly upgrades are usually the ones that pay you back first.",
       "Insulation is the heavyweight champion of green renovations. It keeps heat in during winter and out during summer, which means your heating and cooling systems get to work less and retire later. Nobody photographs insulation for Instagram, but it is the gift that keeps giving on every single bill.",
@@ -64,9 +55,6 @@ export const blogPosts: BlogPost[] = [
     date: "August 4, 2026",
     readTime: "7 min read",
     image: "/images/kitchen-mistakes.png",
-    author: "Sarah Johnson",
-    authorTitle: "Interior Designer",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "The kitchen island is the most requested feature in renovation history and the most misunderstood. In magazines it hosts beautiful people sipping coffee. In real life it hosts the mail, the homework, the takeaway containers, and one very tired parent leaning on it.",
       "The first question is not 'do I want an island' but 'does my kitchen have the space for one.' The rule of thumb is about 900 to 1200 millimeters of clearance on every side. If you cannot achieve that, the island stops being a feature and becomes an obstacle course.",
@@ -85,9 +73,6 @@ export const blogPosts: BlogPost[] = [
     date: "August 2, 2026",
     readTime: "8 min read",
     image: "/images/hero-renos101.jpg",
-    author: "Sarah Johnson",
-    authorTitle: "Interior Designer",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "Every renovation timeline has three versions: the one the contractor quotes, the one the contractor means, and the one your partner repeats to guests with increasing bitterness. This guide is about reconciling all three before you start.",
       "The stages are predictable: design and planning, approvals, quoting, demolition, rough-in of services, and finishes. Each stage has its own pace, and each stage is capable of taking twice as long as the optimistic version printed on the back of a napkin.",
@@ -107,9 +92,6 @@ export const blogPosts: BlogPost[] = [
     date: "July 30, 2026",
     readTime: "6 min read",
     image: "/images/hero-renos101.jpg",
-    author: "Sarah Johnson",
-    authorTitle: "Interior Designer",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "Paint versus wallpaper is the oldest argument in decorating, and the answer is the same as most renovation questions: it depends on the room, the wall, and how much you enjoy future regret. This is the decision tree that settles it.",
       "Paint is the sensible option: affordable, forgiving, and endlessly redoable. It covers mistakes, suits almost every wall, and can be changed on a whim without a therapist. Its only real flaw is that it can be a little predictable, which is exactly what some rooms need.",
@@ -127,9 +109,6 @@ export const blogPosts: BlogPost[] = [
     date: "April 2, 2025",
     readTime: "8 min read",
     image: "/images/kitchen-mistakes.png",
-    author: "Sarah Johnson",
-    authorTitle: "Interior Designer",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "Kitchen renovations are popular because everybody wants a beautiful kitchen. They are terrifying because the kitchen is also where the coffee lives, and removing the coffee zone turns ordinary adults into Victorian ghosts by day three.",
       "Mistake one is setting a fantasy budget. If your spreadsheet assumes nothing hidden is broken behind the wall, your spreadsheet is not a plan. It is historical fiction.",
@@ -146,9 +125,6 @@ export const blogPosts: BlogPost[] = [
     date: "March 28, 2025",
     readTime: "6 min read",
     image: "/images/bathroom-budget.png",
-    author: "Marcus Lee",
-    authorTitle: "Renovation Planner",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "A tight bathroom budget does not mean the room has to feel sad. It does mean every decision should work hard, because bathrooms are tiny spaces with the financial appetite of a much larger building.",
       "Keeping the plumbing layout in place is still the biggest saver. Moving a toilet sounds simple until you realize the floor, the waste line, and your bank account all have strong feelings about it.",
@@ -164,9 +140,6 @@ export const blogPosts: BlogPost[] = [
     date: "March 25, 2025",
     readTime: "7 min read",
     image: "/images/eco-friendly.png",
-    author: "Priya Nair",
-    authorTitle: "Sustainable Design Consultant",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "Sustainable renovation starts with keeping good things out of the skip. The greenest cabinet is often the one you did not unnecessarily replace because it lacked 'main character energy.'",
       "The biggest wins usually come from insulation, sealing drafts, improving glazing, and upgrading heating or cooling. These are less glamorous than artisanal tiles, but they keep paying rent long after the tiles stop being exciting.",
@@ -182,9 +155,6 @@ export const blogPosts: BlogPost[] = [
     date: "March 20, 2025",
     readTime: "9 min read",
     image: "/placeholder.svg?height=600&width=1200",
-    author: "Daniel Brooks",
-    authorTitle: "Project Manager",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "Home additions go wrong when people fall in love with a floor plan before checking whether the site, budget, or local rules are prepared to support that love.",
       "Confirm setbacks, easements, and planning constraints first. It is far cheaper to redraw a concept than to discover the dream room is legally allowed only if it becomes six percent smaller and emotionally disappointing.",
@@ -200,9 +170,6 @@ export const blogPosts: BlogPost[] = [
     date: "March 15, 2025",
     readTime: "5 min read",
     image: "/placeholder.svg?height=600&width=1200",
-    author: "Elena Cruz",
-    authorTitle: "Materials Specialist",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "Flooring choices should be based on moisture, impact, cleaning requirements, and your household's proven commitment to walking indoors like a herd of decorative buffalo.",
       "Bathrooms and laundries need water tolerance first. Kitchens need something that handles spills, foot traffic, and the emotional violence of dropping a full jar of passata.",
@@ -218,9 +185,6 @@ export const blogPosts: BlogPost[] = [
     date: "March 10, 2025",
     readTime: "6 min read",
     image: "/placeholder.svg?height=600&width=1200",
-    author: "Tom Wheeler",
-    authorTitle: "Licensed Builder",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "DIY works best when the task is low-risk, repetitive, and inspectable. Painting, prep, demolition planning, and simple install work are often reasonable. Rewiring a switchboard because you watched three confident videos at midnight is less reasonable.",
       "Bring in licensed trades for waterproofing, structure, gas, and regulated electrical work. These are not the categories where you want to discover your hidden talent for consequences.",
@@ -236,9 +200,6 @@ export const blogPosts: BlogPost[] = [
     date: "March 5, 2025",
     readTime: "7 min read",
     image: "/placeholder.svg?height=600&width=1200",
-    author: "Rachel Torres",
-    authorTitle: "Color Consultant",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "Paint is the cheapest way to transform a room and the fastest way to regret everything. The difference between success and disaster is usually testing samples properly, which means painting actual patches on actual walls and not just imagining what 'Sage Serenity' looks like.",
       "Natural light changes everything. The colour you fell in love with at noon will not be the same colour at 4 PM when the room starts looking like a cave with opinions.",
@@ -255,9 +216,6 @@ export const blogPosts: BlogPost[] = [
     date: "February 28, 2025",
     readTime: "8 min read",
     image: "/placeholder.svg?height=600&width=1200",
-    author: "James Chen",
-    authorTitle: "Electrical Designer",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "Good lighting is invisible. You notice it only when it is missing or when you walk into someone else's house and everything looks annoyingly good.",
       "Three layers work better than one. Task lighting for work surfaces, ambient lighting for general visibility, and accent lighting for the things you want to look intentional.",
@@ -274,9 +232,6 @@ export const blogPosts: BlogPost[] = [
     date: "February 22, 2025",
     readTime: "9 min read",
     image: "/placeholder.svg?height=600&width=1200",
-    author: "Sarah Johnson",
-    authorTitle: "Interior Designer",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "Cabinets are the most expensive decision in most kitchens. The gap between a good cabinet and a foolish one is usually about four thousand dollars and one argument about shaker doors.",
       "IKEA cabinets are underrated and also correctly rated. The hardware is annoying. The price is real. The finished result is frequently indistinguishable from cabinets that cost three times more.",
@@ -293,9 +248,6 @@ export const blogPosts: BlogPost[] = [
     date: "February 18, 2025",
     readTime: "7 min read",
     image: "/placeholder.svg?height=600&width=1200",
-    author: "Michael Park",
-    authorTitle: "Window Specialist",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "Windows are sold on performance metrics that require a engineering degree to decode. U-value measures heat transfer. SHGC measures solar heat gain. Together they tell you whether your windows will perform or just performatively look expensive.",
       "Double glazing is standard. Triple glazing is for people in cold climates or people who have strong feelings about their heating bills. Double is usually enough unless you live somewhere with actual winters.",
@@ -312,9 +264,6 @@ export const blogPosts: BlogPost[] = [
     date: "February 12, 2025",
     readTime: "10 min read",
     image: "/placeholder.svg?height=600&width=1200",
-    author: "Roberto Silva",
-    authorTitle: "HVAC Technician",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "HVAC is complicated in proportion to how much you rely on it. If you live somewhere temperate, you might not need to think about it much. If you live somewhere with actual seasons, you need to think about it seriously.",
       "Sizing matters more than brand. An oversized unit short-cycles, wastes energy, and fails faster. An undersized unit runs constantly and still cannot keep up. Manual J calculations exist for a reason. Use them.",
@@ -331,9 +280,6 @@ export const blogPosts: BlogPost[] = [
     date: "February 5, 2025",
     readTime: "6 min read",
     image: "/placeholder.svg?height=600&width=1200",
-    author: "Lisa Chen",
-    authorTitle: "Landscape Designer",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "Outdoor living is not just about furniture. It is about creating zones, shade, and purpose so that the outdoor space does something for the household instead of just existing and judging everyone from the other side of the sliding door.",
       "Define the zones before buying furniture. Lounge area, cooking area, dining area. Each zone needs a reason to exist and enough space to actually function. Cramming a six-seater dining set onto a patio meant for four is how relationships get tested.",
@@ -350,9 +296,6 @@ export const blogPosts: BlogPost[] = [
     date: "January 28, 2025",
     readTime: "7 min read",
     image: "/placeholder.svg?height=600&width=1200",
-    author: "Nina Patel",
-    authorTitle: "Bathroom Specialist",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "Small bathrooms are not small problems. They require the same plumbing, the same ventilation, and the same desire to not feel cramped, all in less space. The challenge is real and the solutions are specific.",
       "Wall-mounted fixtures create visual space. A floating vanity or a wall-hung toilet does not actually add square footage, but they make the floor more visible, which makes the room feel larger.",
@@ -369,9 +312,6 @@ export const blogPosts: BlogPost[] = [
     date: "January 20, 2025",
     readTime: "6 min read",
     image: "/placeholder.svg?height=600&width=1200",
-    author: "Amanda Foster",
-    authorTitle: "Organization Consultant",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "Storage is never enough. This is a fact of life that renovation can address but never fully solve. The goal is to build enough storage that the stuff has a home and the home does not feel like a storage unit with a sofa.",
       "Vertical space is underutilized. Tall shelving units, overhead storage in garages, and wall-mounted organization systems all take advantage of height that most rooms waste.",
@@ -388,9 +328,6 @@ export const blogPosts: BlogPost[] = [
     date: "January 15, 2025",
     readTime: "8 min read",
     image: "/placeholder.svg?height=600&width=1200",
-    author: "David Wright",
-    authorTitle: "Energy Auditor",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "Energy efficiency retrofits are the highest-return renovation investment most people ignore. The payback periods are clear, the comfort improvements are real, and the environmental benefit is genuine. Yet most people prioritize a new kitchen over sealing their drafty old windows.",
       "Air sealing is usually the first move. Finding where air leaks in a house takes an energy audit or a cold day and a candle. The common leak points are around windows, doors, ceiling penetrations, and wherever something was installed by someone who was in a hurry.",
@@ -407,9 +344,6 @@ export const blogPosts: BlogPost[] = [
     date: "January 8, 2025",
     readTime: "6 min read",
     image: "/placeholder.svg?height=600&width=1200",
-    author: "Chris Martinez",
-    authorTitle: "Laundry Room Evangelist",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "The laundry room is the room nobody renovates until it becomes a room that needs renovating. Then it becomes the most important room in the house because nobody can agree on what constitutes a 'delicates' cycle.",
       "Location matters. If your laundry room is on the second floor near the bedrooms, you are winning the location lottery. If it is in the basement next to the boiler, you are living in a house that was designed by someone who hated laundry.",
@@ -426,9 +360,6 @@ export const blogPosts: BlogPost[] = [
     date: "January 3, 2025",
     readTime: "7 min read",
     image: "/placeholder.svg?height=600&width=1200",
-    author: "Tom Wheeler",
-    authorTitle: "Licensed Builder",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "Garages are the most underutilized spaces in most houses. They hold the car (sometimes), the stuff (always), and the promise of a future workshop (rarely realized). Converting a garage to living space is not a small decision, but it is sometimes the right one.",
       "Conversion requires treating the space like a real room. That means insulation, climate control, proper flooring, and lighting that does not make the space feel like a place where cars go to be sad.",
@@ -445,9 +376,6 @@ export const blogPosts: BlogPost[] = [
     date: "December 28, 2024",
     readTime: "7 min read",
     image: "/placeholder.svg?height=600&width=1200",
-    author: "Rachel Torres",
-    authorTitle: "Color Consultant",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "The pandemic proved that home offices are necessary and that a corner of a bedroom is not a home office. The market has not fully absorbed this lesson, but renovated homes with dedicated workspaces are increasingly valuable.",
       "Location and quiet matter more than size. A small room with a door that closes is infinitely better than a large open plan space where every household noise becomes your background track.",
@@ -464,9 +392,6 @@ export const blogPosts: BlogPost[] = [
     date: "December 20, 2024",
     readTime: "6 min read",
     image: "/placeholder.svg?height=600&width=1200",
-    author: "Roberto Silva",
-    authorTitle: "HVAC Technician",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "HVAC systems have two seasons: heating season and cooling season. Each season ends with a breakdown that could have been prevented with two hours of maintenance in the shoulder season. The shoulder season is now. Please do not wait until January to think about this.",
       "Filters are the single most important maintenance item. Change them every 1-3 months depending on usage and environment. A dirty filter makes your system work harder, costs more to run, and produces air quality that is technically breathable in the same way that cave water is technically hydration.",
@@ -483,9 +408,6 @@ export const blogPosts: BlogPost[] = [
     date: "December 15, 2024",
     readTime: "7 min read",
     image: "/placeholder.svg?height=600&width=1200",
-    author: "Mike Torres",
-    authorTitle: "Master Plumber",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "Every homeowner should know where their main water shutoff is. This knowledge becomes important during bursts, emergencies, and when you want to avoid a small leak becoming a large bill. Write the location on a sticky note. Put it somewhere visible. Test that it actually shuts off because some valves have opinions about being exercised.",
       "The difference between a plumbing emergency and a plumbing inconvenience is often time. A running toilet is inconvenient. A burst pipe is an emergency. Both get worse if ignored. The toilet will increase your water bill. The burst pipe will increase your insurance claim.",
@@ -502,9 +424,6 @@ export const blogPosts: BlogPost[] = [
     date: "December 10, 2024",
     readTime: "6 min read",
     image: "/placeholder.svg?height=600&width=1200",
-    author: "David Chen",
-    authorTitle: "Licensed Electrician",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "Electrical work has one rule: when in doubt, stop. Electricity is not the place for confident guesses. The consequences of being wrong are not repair costs. They are structural damage and insurance claims that get denied.",
       "Changing outlets and switches is generally within DIY reach if you turn off the breaker, test with a voltage tester, and follow basic safety practices. Replacing a light fixture is usually fine. Running new circuits is not.",
@@ -521,9 +440,6 @@ export const blogPosts: BlogPost[] = [
     date: "December 5, 2024",
     readTime: "8 min read",
     image: "/placeholder.svg?height=600&width=1200",
-    author: "Sarah Johnson",
-    authorTitle: "Interior Designer",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "Attic conversions are appealing because they use existing structure. No foundation needed. No adding to the building footprint. Just making the forgotten space above your ceiling into something useful.",
       "The critical questions: ceiling height, floor structure, and access. Building codes usually require at least half the floor area to have ceiling heights of at least 7 feet. If your attic was designed as storage, the floor structure may not support living loads. And stairs are not optional if you expect regular use.",
@@ -540,9 +456,6 @@ export const blogPosts: BlogPost[] = [
     date: "November 28, 2024",
     readTime: "7 min read",
     image: "/placeholder.svg?height=600&width=1200",
-    author: "Tom Wheeler",
-    authorTitle: "Licensed Builder",
-    authorImage: "/placeholder.svg?height=100&width=100",
     content: [
       "Basements are either damp or will be damp eventually. This is not pessimism. It is physics. Water vapor moves through concrete. Groundwater pressure pushes against foundations. Basements are habitably damp in ways that upstairs rooms are not.",
       "Moisture management is the first job. Not finishing job number one. Moisture management job number one. If you finish a basement without addressing moisture, you will finish a basement that develops mold, warped walls, and a smell that no air purifier will fix.",
