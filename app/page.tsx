@@ -110,6 +110,12 @@ export default function Home() {
               </Link>
             </Button>
             <Button asChild variant="outline" className="rounded-xl">
+              <Link href="/tools/reno-advisor">
+                <Compass className="mr-2 h-4 w-4" />
+                Ask the Reno Advisor
+              </Link>
+            </Button>
+            <Button asChild variant="outline" className="rounded-xl">
               <Link href="/tools/material-tracker">
                 <Wrench className="mr-2 h-4 w-4" />
                 Try the Material Price Tracker
@@ -169,6 +175,7 @@ export default function Home() {
             cta="Join the waitlist"
             ctaHref="#subscribe"
             flag="Best for one room"
+            footnote="We'll email when Stripe checkout is live. No charge until then."
           />
 
           <PricingCard
@@ -179,7 +186,7 @@ export default function Home() {
             features={[
               "Every stage, every resource, every bundle",
               "New content added every month",
-              "Unlimited AI reno-advisor questions",
+              "Reno Advisor — one cited answer from the 16-stage guides",
               "Early access to new stages — cancel renewal anytime",
             ]}
             cta="Join the waitlist"

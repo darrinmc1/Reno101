@@ -38,10 +38,48 @@ export default function ToolsPage() {
             Tools to plan, price, and brief your renovation
           </h1>
           <p className="mt-3 max-w-3xl text-lg text-muted-foreground">
-            Compare material prices, generate professional project briefs with AI, estimate
-            materials, and capture your design vision — all in one place.
+            Compare material prices, look up cited stage-guide advice, and capture a project brief.
           </p>
         </div>
+
+        <section className="mb-16">
+          <Card className="border-primary/15 shadow-sm">
+            <CardHeader>
+              <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
+                <Sparkles className="h-6 w-6 text-primary" />
+              </div>
+              <CardTitle className="text-lg">Reno Advisor</CardTitle>
+              <CardDescription>
+                One job: paste a renovation question, get quoted passages from the 16-stage guides.
+                Not a chatbot. Not unlimited AI.
+              </CardDescription>
+            </CardHeader>
+            <CardContent>
+              <ul className="space-y-1.5 text-sm text-muted-foreground">
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                  Cited excerpts with stage links
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                  Uses existing guides only — no invented chat
+                </li>
+                <li className="flex items-start gap-2">
+                  <span className="mt-1.5 h-1.5 w-1.5 flex-shrink-0 rounded-full bg-primary" />
+                  All-Access AU$149/year when Stripe is live
+                </li>
+              </ul>
+            </CardContent>
+            <CardFooter>
+              <Button asChild className="w-full">
+                <Link href="/tools/reno-advisor">
+                  Ask one question
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+            </CardFooter>
+          </Card>
+        </section>
 
         {/* ============ AI Document Generators ============ */}
         <section className="mb-16">
@@ -175,12 +213,12 @@ export default function ToolsPage() {
             <div className="flex items-start gap-3">
               <Sparkles className="mt-0.5 h-5 w-5 flex-shrink-0 text-amber-500" />
               <div className="text-sm text-muted-foreground">
-                <span className="font-medium text-foreground">Free trial:</span> One free
-                generation with Gemini Flash.{" "}
-                <Link href="/pricing" className="font-medium text-primary underline underline-offset-2">
-                  Upgrade to Pro
-                </Link>{" "}
-                for unlimited access to advanced AI models.
+                <span className="font-medium text-foreground">Need a cited answer, not a generated doc?</span>{" "}
+                Use the{" "}
+                <Link href="/tools/reno-advisor" className="font-medium text-primary underline underline-offset-2">
+                  Reno Advisor
+                </Link>
+                . Paid packs stay on the waitlist — we&apos;ll email when Stripe is live.
               </div>
             </div>
           </div>

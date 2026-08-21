@@ -87,6 +87,9 @@ export default function Navbar() {
                     <ListItem href="/design-tools" title="Design Tools">
                       Mood boards, planning surfaces, and future room tools for people with opinions.
                     </ListItem>
+                    <ListItem href="/tools/reno-advisor" title="Reno Advisor">
+                      Paste one reno question. Get cited advice from the 16-stage guides — not a chatbot.
+                    </ListItem>
                     <ListItem href="/tools/material-tracker" title="Material Tracker">
                       Price comparisons for anyone tired of discovering fittings are secretly luxury goods.
                     </ListItem>
