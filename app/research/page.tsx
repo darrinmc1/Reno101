@@ -1,183 +1,111 @@
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { CheckCircle, Clock, FileText, Search } from "lucide-react"
 import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
+import { ArrowRight, FileSearch, Lightbulb, Search, Star } from "lucide-react"
 
 export default function ResearchPage() {
   return (
     <div className="container px-4 py-12 md:px-6">
-      <div className="mx-auto mb-12 max-w-3xl text-center">
-        <h1 className="mb-4 text-4xl font-bold tracking-tight">
-          Renovation Research for Questions Too Specific for Casual Googling
+      {/* Hero */}
+      <div className="rounded-2xl bg-gradient-to-br from-slate-900 to-slate-800 px-8 py-16 text-center text-white mb-12">
+        <Badge className="mb-4 bg-white/10 text-white hover:bg-white/20">Research</Badge>
+        <h1 className="text-4xl font-bold tracking-tight mb-4 md:text-5xl">
+          Deep Research, On Demand
         </h1>
-        <p className="text-xl text-muted-foreground">
-          Ask the messy, local, technical renovation questions that appear right after you remove one innocent-looking
-          panel and regret everything.
+        <p className="text-lg text-slate-300 max-w-2xl mx-auto mb-8">
+          Get thorough, cited answers to complex questions. Our research service is currently in waitlist — join now to be among the first to access it.
         </p>
+        <Button asChild size="lg" className="bg-white text-slate-900 hover:bg-slate-100">
+          <Link href="/#waitlist">
+            Join the Waitlist <ArrowRight className="ml-2 h-4 w-4" />
+          </Link>
+        </Button>
       </div>
 
-      <div className="mb-16 grid grid-cols-1 gap-8 md:grid-cols-3">
-        <Card className="text-center">
-          <CardHeader>
-            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-              <Search className="h-6 w-6 text-primary" />
-            </div>
-            <CardTitle>Send The Question</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">
-              Permits, waterproofing, insulation, flooring, layout decisions, or that one weird wall your builder
-              keeps squinting at.
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="text-center">
-          <CardHeader>
-            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-              <Clock className="h-6 w-6 text-primary" />
-            </div>
-            <CardTitle>Fast Turnaround</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">
-              Because some decisions cannot wait while you spend six nights in an online forum called `RenoTruth247`.
-            </p>
-          </CardContent>
-        </Card>
-
-        <Card className="text-center">
-          <CardHeader>
-            <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-              <FileText className="h-6 w-6 text-primary" />
-            </div>
-            <CardTitle>Practical Response</CardTitle>
-          </CardHeader>
-          <CardContent>
-            <p className="text-muted-foreground">
-              Get a clear answer with useful context, sensible next steps, and fewer mystery phrases than a contractor
-              quote.
-            </p>
-          </CardContent>
-        </Card>
-      </div>
-
-      <Card className="mb-16">
-        <CardHeader>
-          <CardTitle className="text-2xl">How It Works</CardTitle>
-          <CardDescription>
-            The service is built for real renovation decisions, not generic advice with suspicious confidence.
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          <ol className="space-y-6">
-            <li className="flex gap-4">
-              <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-primary font-medium text-white">
-                1
-              </div>
-              <div>
-                <h3 className="mb-1 font-medium">Send the real version of the problem</h3>
-                <p className="text-muted-foreground">
-                  The more detail you provide, the better the answer. "Bathroom help" is a mood. "What waterproofing
-                  system makes sense for a second-floor bathroom over timber framing?" is a useful question.
-                </p>
-              </div>
-            </li>
-            <li className="flex gap-4">
-              <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-primary font-medium text-white">
-                2
-              </div>
-              <div>
-                <h3 className="mb-1 font-medium">We dig into the ugly bits</h3>
-                <p className="text-muted-foreground">
-                  We look at the relevant details, including local considerations, best practices, and the stuff
-                  nobody remembers until a permit officer appears.
-                </p>
-              </div>
-            </li>
-            <li className="flex gap-4">
-              <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-primary font-medium text-white">
-                3
-              </div>
-              <div>
-                <h3 className="mb-1 font-medium">We ask follow-ups if needed</h3>
-                <p className="text-muted-foreground">
-                  If your answer depends on climate, location, structure, or whether the wall is carrying the emotional
-                  burden of the whole house, we will ask.
-                </p>
-              </div>
-            </li>
-            <li className="flex gap-4">
-              <div className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full bg-primary font-medium text-white">
-                4
-              </div>
-              <div>
-                <h3 className="mb-1 font-medium">You get a response you can actually use</h3>
-                <p className="text-muted-foreground">
-                  Within 24 hours, you get practical guidance that helps you make the next decision without spinning in
-                  circles over tile adhesive forums.
-                </p>
-              </div>
-            </li>
-          </ol>
-        </CardContent>
-      </Card>
-
-      <div className="mb-16 rounded-lg bg-gray-50 p-8">
-        <div className="mx-auto max-w-3xl">
-          <h2 className="mb-6 text-center text-2xl font-bold">Questions We Were Built For</h2>
-          <ul className="space-y-4">
-            <li className="flex items-start gap-2">
-              <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
-              <span>
-                "What permits do I need for a kitchen renovation in my area, and which parts trigger actual paperwork
-                instead of confident guessing?"
-              </span>
-            </li>
-            <li className="flex items-start gap-2">
-              <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
-              <span>
-                "How do I insulate an attic conversion in a humid climate without accidentally growing a science
-                project?"
-              </span>
-            </li>
-            <li className="flex items-start gap-2">
-              <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
-              <span>"What flooring works in a basement that occasionally gets damp and occasionally gets dramatic?"</span>
-            </li>
-            <li className="flex items-start gap-2">
-              <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
-              <span>
-                "How do I size HVAC properly for a home addition instead of just buying the loudest option?"
-              </span>
-            </li>
-            <li className="flex items-start gap-2">
-              <CheckCircle className="mt-0.5 h-5 w-5 flex-shrink-0 text-primary" />
-              <span>
-                "What are realistic bathroom remodel material costs in my location, and which line items are waiting
-                to ambush me?"
-              </span>
-            </li>
-          </ul>
+      {/* What we research */}
+      <div className="mb-16">
+        <h2 className="text-2xl font-bold text-center mb-8">What We Research</h2>
+        <div className="grid gap-6 md:grid-cols-3">
+          <Card>
+            <CardHeader>
+              <Search className="h-8 w-8 text-slate-700 mb-2" />
+              <CardTitle>Market &amp; Competitive</CardTitle>
+            </CardHeader>
+            <CardContent className="text-slate-600">
+              Industry landscapes, competitor analysis, market sizing, and trend identification.
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <FileSearch className="h-8 w-8 text-slate-700 mb-2" />
+              <CardTitle>Academic &amp; Scientific</CardTitle>
+            </CardHeader>
+            <CardContent className="text-slate-600">
+              Literature reviews, study summaries, evidence synthesis, and expert consensus.
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader>
+              <Lightbulb className="h-8 w-8 text-slate-700 mb-2" />
+              <CardTitle>Strategic &amp; Decision</CardTitle>
+            </CardHeader>
+            <CardContent className="text-slate-600">
+              Due diligence, investment theses, policy analysis, and scenario planning.
+            </CardContent>
+          </Card>
         </div>
       </div>
 
-      <div className="text-center">
-        <h2 className="mb-4 text-2xl font-bold">Ready to Stop Guessing?</h2>
-        <p className="mx-auto mb-8 max-w-2xl text-muted-foreground">
-          Research requests are available on Standard and Premium plans. Use them when the stakes are too high for a
-          shrug, a hunch, or your cousin who once tiled a laundry in 2017.
+      {/* Pricing — aligned to waitlist map */}
+      <div className="mb-16">
+        <h2 className="text-2xl font-bold text-center mb-2">Waitlist Pricing</h2>
+        <p className="text-center text-slate-500 mb-8">
+          Lock in founding-member rates when you join the waitlist. Final pricing confirmed at launch.
         </p>
-        <div className="flex flex-col justify-center gap-4 sm:flex-row">
-          <Link href="/pricing">
-            <Button size="lg">See The Plans</Button>
-          </Link>
-          <Link href="/login">
-            <Button variant="outline" size="lg">
-              Open Account Area
-            </Button>
-          </Link>
+        <div className="grid gap-6 md:grid-cols-2 max-w-3xl mx-auto">
+          <Card className="border-2">
+            <CardHeader>
+              <CardTitle className="flex items-center justify-between">
+                Standard
+                <span className="text-2xl font-bold">AU$49</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3 text-slate-600">
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-start gap-2"><Star className="h-4 w-4 mt-0.5 text-slate-400 shrink-0" /> Comprehensive written report</li>
+                <li className="flex items-start gap-2"><Star className="h-4 w-4 mt-0.5 text-slate-400 shrink-0" /> Cited sources</li>
+                <li className="flex items-start gap-2"><Star className="h-4 w-4 mt-0.5 text-slate-400 shrink-0" /> One revision round</li>
+              </ul>
+              <Button asChild className="w-full mt-4" variant="outline">
+                <Link href="/#waitlist">Join Waitlist</Link>
+              </Button>
+            </CardContent>
+          </Card>
+
+          <Card className="border-2 border-slate-900">
+            <CardHeader>
+              <CardTitle className="flex items-center justify-between">
+                Premium
+                <span className="text-2xl font-bold">AU$149</span>
+              </CardTitle>
+            </CardHeader>
+            <CardContent className="space-y-3 text-slate-600">
+              <ul className="space-y-2 text-sm">
+                <li className="flex items-start gap-2"><Star className="h-4 w-4 mt-0.5 text-slate-900 shrink-0" /> Everything in Standard</li>
+                <li className="flex items-start gap-2"><Star className="h-4 w-4 mt-0.5 text-slate-900 shrink-0" /> Extended depth &amp; breadth</li>
+                <li className="flex items-start gap-2"><Star className="h-4 w-4 mt-0.5 text-slate-900 shrink-0" /> Priority queue placement</li>
+                <li className="flex items-start gap-2"><Star className="h-4 w-4 mt-0.5 text-slate-900 shrink-0" /> Unlimited revisions</li>
+              </ul>
+              <Button asChild className="w-full mt-4 bg-slate-900 text-white hover:bg-slate-700">
+                <Link href="/#waitlist">Join Waitlist</Link>
+              </Button>
+            </CardContent>
+          </Card>
         </div>
+        <p className="text-center text-xs text-slate-400 mt-4">
+          Turnaround times will be published once our human research queue is live.
+        </p>
       </div>
     </div>
   )
