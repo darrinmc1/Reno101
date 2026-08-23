@@ -1,293 +1,197 @@
 import Link from "next/link"
-import {
-  ArrowRight,
-  BookOpen,
-  CheckSquare,
-  FileText,
-  Lightbulb,
-  Lock,
-  Package,
-  Sparkles,
-  Wrench,
-} from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { getResourceCounts, type ResourceKind } from "@/lib/stages"
+import { BookOpen, FileText, Calculator, Video, Download, Lightbulb, TrendingUp, Shield, Wrench, DollarSign } from "lucide-react"
 
-export const metadata = {
-  title: "Resources",
-  description:
-    "Ebooks, templates, checklists, tools and tips for every stage of your renovation. Free with the Starter Pack, included in project bundles, or unlocked with a Premium subscription.",
-}
-
-type TypeCard = {
-  kind: ResourceKind
-  title: string
-  blurb: string
-  href: string
-  icon: React.ReactNode
-  cardClass: string
-  iconClass: string
-  ringClass: string
-  ctaClass: string
-}
-
-const TYPES: TypeCard[] = [
+const RESOURCE_CATEGORIES = [
   {
-    kind: "ebook",
-    title: "Ebooks",
-    blurb: "Deep-dive guides. Fewer words than a forum, more words than a tweet.",
-    href: "/resources/ebooks",
-    icon: <BookOpen className="h-7 w-7" />,
-    cardClass:
-      "bg-gradient-to-br from-orange-50 to-amber-50 border-orange-200/70 hover:border-orange-300",
-    iconClass: "bg-orange-500 text-white shadow-orange-500/30",
-    ringClass: "text-orange-900",
-    ctaClass: "text-orange-700 group-hover:text-orange-800",
+    icon: FileText,
+    title: "Planning Guides",
+    description: "Step-by-step guides covering every phase of your renovation — from initial budgeting to final walkthrough. Includes timelines, contractor checklists, and permit requirement overviews for common projects.",
+    count: "12 guides",
+    href: "/resources/guides",
+    color: "bg-amber-100 text-amber-600",
   },
   {
-    kind: "template",
-    title: "Templates",
-    blurb:
-      "Quote comparisons, budgets, scope docs. Pre-filled so you're not staring at a blank cell.",
+    icon: Calculator,
+    title: "Cost Estimators",
+    description: "Realistic cost breakdowns for kitchens, bathrooms, basements, and more. Based on aggregated contractor quotes and material pricing data — not the optimistic numbers you see on TV renovation shows.",
+    count: "8 calculators",
+    href: "/resources/calculators",
+    color: "bg-blue-100 text-blue-600",
+  },
+  {
+    icon: Download,
+    title: "Templates & Checklists",
+    description: "Downloadable templates for contractor bids, project timelines, material tracking, and punch lists. Print them, fill them in, and stop losing important details in a chain of text messages.",
+    count: "15 templates",
     href: "/resources/templates",
-    icon: <FileText className="h-7 w-7" />,
-    cardClass:
-      "bg-gradient-to-br from-sky-50 to-blue-50 border-sky-200/70 hover:border-sky-300",
-    iconClass: "bg-sky-600 text-white shadow-sky-600/30",
-    ringClass: "text-sky-900",
-    ctaClass: "text-sky-700 group-hover:text-sky-800",
+    color: "bg-green-100 text-green-600",
   },
   {
-    kind: "checklist",
-    title: "Checklists",
-    blurb: "Print, tick, panic slightly less. One per stage, plus the edge cases.",
-    href: "/resources/checklists",
-    icon: <CheckSquare className="h-7 w-7" />,
-    cardClass:
-      "bg-gradient-to-br from-stone-50 to-zinc-100 border-stone-300/70 hover:border-stone-400",
-    iconClass: "bg-stone-700 text-white shadow-stone-700/30",
-    ringClass: "text-stone-900",
-    ctaClass: "text-stone-700 group-hover:text-stone-900",
+    icon: Video,
+    title: "How-To Videos",
+    description: "Curated video walkthroughs for common DIY tasks — tiling, drywall patching, caulking, painting prep, and more. We link to the best instructional content so you don't have to wade through 47 mediocre YouTube tutorials.",
+    count: "20+ videos",
+    href: "/resources/videos",
+    color: "bg-purple-100 text-purple-600",
   },
   {
-    kind: "tool",
-    title: "Tools",
-    blurb:
-      "Full reno spreadsheet with 300+ steps, planning tools, schedules, timelines, Gantt charts.",
-    href: "/resources/tools",
-    icon: <Wrench className="h-7 w-7" />,
-    cardClass:
-      "bg-gradient-to-br from-violet-50 to-purple-50 border-violet-200/70 hover:border-violet-300",
-    iconClass: "bg-violet-600 text-white shadow-violet-600/30",
-    ringClass: "text-violet-900",
-    ctaClass: "text-violet-700 group-hover:text-violet-800",
+    icon: Shield,
+    title: "Contractor Vetting",
+    description: "Learn exactly what to ask before hiring anyone. Includes red-flag warning signs, sample contract clauses to insist on, and a scoring rubric for comparing multiple bids fairly.",
+    count: "6 resources",
+    href: "/resources/contractors",
+    color: "bg-red-100 text-red-600",
   },
   {
-    kind: "tip",
-    title: "Tips & Tricks",
-    blurb:
-      "20-tip collections per trade — the stuff someone else already learned the hard way.",
-    href: "/resources/tips",
-    icon: <Lightbulb className="h-7 w-7" />,
-    cardClass:
-      "bg-gradient-to-br from-teal-50 to-emerald-50 border-teal-200/70 hover:border-teal-300",
-    iconClass: "bg-teal-600 text-white shadow-teal-600/30",
-    ringClass: "text-teal-900",
-    ctaClass: "text-teal-700 group-hover:text-teal-800",
+    icon: Wrench,
+    title: "Material Comparisons",
+    description: "Side-by-side breakdowns of competing materials — LVP vs. hardwood, quartz vs. granite, fiberglass vs. tile showers. We cover durability, maintenance, cost, and the situations where each option actually wins.",
+    count: "10 comparisons",
+    href: "/resources/materials",
+    color: "bg-orange-100 text-orange-600",
   },
 ]
 
-const ACCESS_LEGEND: { label: string; badge: string; note: string; icon: React.ReactNode }[] = [
+const FEATURED_ARTICLES = [
   {
-    label: "Free",
-    badge: "bg-emerald-100 text-emerald-800 border-emerald-200",
-    note: "In the Starter Pack — drop your email and they're yours.",
-    icon: <Sparkles className="h-3.5 w-3.5" />,
+    title: "The Real Cost of a Kitchen Renovation in 2024",
+    description: "We analyzed 200+ contractor quotes to give you honest, regional cost ranges — broken down by scope, material tier, and what homeowners consistently forget to budget for.",
+    tag: "Cost Data",
+    readTime: "8 min read",
+    href: "/resources/guides",
   },
   {
-    label: "Bundle",
-    badge: "bg-amber-100 text-amber-800 border-amber-200",
-    note: "Included in a project bundle (Planning, Painting, Kitchen, etc.).",
-    icon: <Package className="h-3.5 w-3.5" />,
+    title: "10 Permit Mistakes That Delay Projects by Weeks",
+    description: "Permit issues are the #1 cause of renovation delays. Here's what triggers them, how to avoid them, and what to do if you're already in the middle of one.",
+    tag: "Planning",
+    readTime: "6 min read",
+    href: "/resources/guides",
   },
   {
-    label: "Premium",
-    badge: "bg-violet-100 text-violet-800 border-violet-200",
-    note: "Unlocked with a monthly or annual subscription.",
-    icon: <Lock className="h-3.5 w-3.5" />,
+    title: "How to Read a Contractor Quote (Without Getting Burned)",
+    description: "Line-by-line breakdown of what a legitimate quote should include, what vague language is hiding, and the three numbers that matter most when comparing bids.",
+    tag: "Contractors",
+    readTime: "7 min read",
+    href: "/resources/contractors",
   },
+]
+
+const QUICK_STATS = [
+  { icon: BookOpen, value: "70+", label: "Free Resources" },
+  { icon: TrendingUp, value: "200+", label: "Cost Data Points" },
+  { icon: DollarSign, value: "$0", label: "Cost to Access" },
+  { icon: Lightbulb, value: "Weekly", label: "New Content" },
 ]
 
 export default function ResourcesPage() {
-  const counts = getResourceCounts()
-  const total = Object.values(counts).reduce((a, b) => a + b, 0)
-
   return (
-    <main className="flex-1">
-      {/* Breadcrumb */}
-      <section className="border-b border-border/70 bg-background/60">
-        <div className="container px-4 py-6 md:px-6">
-          <nav className="flex items-center gap-2 text-sm text-muted-foreground">
-            <Link href="/" className="hover:text-foreground">Home</Link>
-            <span aria-hidden>/</span>
-            <span className="font-medium text-foreground">Resources</span>
-          </nav>
-        </div>
-      </section>
-
+    <div className="container mx-auto max-w-6xl space-y-16 px-4 py-16">
       {/* Hero */}
-      <section className="relative isolate overflow-hidden">
-        {/* coloured blobs */}
-        <div
-          className="absolute -top-32 -left-24 -z-10 h-[420px] w-[420px] rounded-full bg-gradient-to-br from-orange-300/40 via-amber-200/30 to-transparent blur-3xl"
-          aria-hidden
-        />
-        <div
-          className="absolute -bottom-40 -right-20 -z-10 h-[460px] w-[460px] rounded-full bg-gradient-to-tr from-violet-300/30 via-sky-200/30 to-transparent blur-3xl"
-          aria-hidden
-        />
-        <div
-          className="absolute top-10 right-1/3 -z-10 h-[280px] w-[280px] rounded-full bg-gradient-to-br from-teal-200/40 via-emerald-100/30 to-transparent blur-3xl"
-          aria-hidden
-        />
-        {/* dot grid */}
-        <div
-          className="absolute inset-0 -z-10 opacity-[0.08]"
-          style={{
-            backgroundImage:
-              "radial-gradient(circle at 1px 1px, hsl(var(--foreground)) 1px, transparent 0)",
-            backgroundSize: "28px 28px",
-          }}
-          aria-hidden
-        />
-
-        <div className="container px-4 py-14 md:px-6 md:py-20">
-          <div className="mx-auto max-w-3xl text-center">
-            <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-border bg-white/70 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-muted-foreground shadow-sm backdrop-blur">
-              <Sparkles className="h-3.5 w-3.5 text-amber-500" />
-              {total} resources across 5 categories
-            </div>
-            <h1 className="text-4xl font-extrabold tracking-tight sm:text-5xl md:text-6xl">
-              Resources for your{" "}
-              <span className="bg-gradient-to-r from-orange-500 via-rose-500 to-violet-600 bg-clip-text text-transparent">
-                renovation
-              </span>
-            </h1>
-            <p className="mt-4 text-lg text-muted-foreground">
-              Everything you need at every stage. Ebooks, templates, checklists, tools, and 20-tip cheat-sheets — organised by the order you'll actually need them.
-            </p>
-          </div>
+      <div className="rounded-[2rem] border border-white/50 bg-[linear-gradient(135deg,rgba(255,244,226,0.95),rgba(224,240,230,0.9))] p-8 shadow-sm md:p-12">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-sm font-medium uppercase tracking-[0.2em] text-amber-600">Resource Library</p>
+          <h1 className="mt-4 text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
+            Everything You Need to Renovate Smarter
+          </h1>
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-600">
+            Guides, calculators, templates, and data — built for homeowners who want to make informed decisions, not just
+            guess and hope the contractor is honest.
+          </p>
         </div>
-      </section>
 
-      {/* Type cards */}
-      <section className="container px-4 pb-8 md:px-6">
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {TYPES.map((t) => (
-            <Link
-              key={t.kind}
-              href={t.href}
-              className={`group relative flex flex-col rounded-2xl border-2 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg ${t.cardClass}`}
-            >
-              <div className="mb-5 flex items-start justify-between">
-                <div className={`grid h-14 w-14 place-items-center rounded-xl shadow-md ${t.iconClass}`}>
-                  {t.icon}
-                </div>
-                <span className={`rounded-full bg-white/70 px-3 py-1 text-xs font-bold tracking-wide ${t.ringClass}`}>
-                  {counts[t.kind]} {counts[t.kind] === 1 ? "item" : "items"}
-                </span>
+        {/* Quick Stats */}
+        <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
+          {QUICK_STATS.map((stat) => {
+            const Icon = stat.icon
+            return (
+              <div key={stat.label} className="rounded-2xl border border-white/60 bg-white/70 p-4 text-center shadow-sm">
+                <Icon className="mx-auto mb-2 h-5 w-5 text-amber-600" />
+                <p className="text-2xl font-bold text-slate-900">{stat.value}</p>
+                <p className="text-sm text-slate-500">{stat.label}</p>
               </div>
-              <h2 className={`text-2xl font-extrabold tracking-tight ${t.ringClass}`}>{t.title}</h2>
-              <p className="mt-2 text-sm leading-relaxed text-foreground/70">{t.blurb}</p>
-              <div className={`mt-6 inline-flex items-center gap-1.5 text-sm font-semibold transition-transform group-hover:translate-x-1 ${t.ctaClass}`}>
-                Browse {t.title.toLowerCase()}
-                <ArrowRight className="h-4 w-4" />
+            )
+          })}
+        </div>
+      </div>
+
+      {/* Resource Categories */}
+      <div>
+        <div className="mb-8 text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900">Browse by Category</h2>
+          <p className="mt-2 text-slate-600">Find exactly what you need for your current stage of the project.</p>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {RESOURCE_CATEGORIES.map((cat) => {
+            const Icon = cat.icon
+            return (
+              <Link key={cat.title} href={cat.href} className="group">
+                <div className="h-full rounded-2xl border bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+                  <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${cat.color}`}>
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <div className="mt-4 flex items-start justify-between">
+                    <h3 className="text-lg font-semibold text-slate-900">{cat.title}</h3>
+                    <span className="ml-2 shrink-0 rounded-full bg-slate-100 px-2 py-0.5 text-xs text-slate-500">
+                      {cat.count}
+                    </span>
+                  </div>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">{cat.description}</p>
+                  <p className="mt-4 text-sm font-medium text-amber-600 group-hover:underline">Browse {cat.title} →</p>
+                </div>
+              </Link>
+            )
+          })}
+        </div>
+      </div>
+
+      {/* Featured Articles */}
+      <div>
+        <div className="mb-8 text-center">
+          <h2 className="text-3xl font-bold tracking-tight text-slate-900">Featured Articles</h2>
+          <p className="mt-2 text-slate-600">Our most-read, most-useful content — picked because it actually helps.</p>
+        </div>
+        <div className="grid gap-6 md:grid-cols-3">
+          {FEATURED_ARTICLES.map((article) => (
+            <Link key={article.title} href={article.href} className="group">
+              <div className="h-full rounded-2xl border bg-white p-6 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-md">
+                <div className="mb-3 flex items-center gap-2">
+                  <span className="rounded-full bg-amber-100 px-3 py-0.5 text-xs font-medium text-amber-700">
+                    {article.tag}
+                  </span>
+                  <span className="text-xs text-slate-400">{article.readTime}</span>
+                </div>
+                <h3 className="text-base font-semibold leading-snug text-slate-900 group-hover:text-amber-700">
+                  {article.title}
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-slate-600">{article.description}</p>
               </div>
             </Link>
           ))}
+        </div>
+      </div>
 
-          {/* Bundles teaser as 6th tile */}
+      {/* CTA */}
+      <div className="rounded-2xl border bg-amber-50 p-8 text-center md:p-12">
+        <h2 className="text-2xl font-bold text-slate-900">Can&rsquo;t find what you&rsquo;re looking for?</h2>
+        <p className="mx-auto mt-3 max-w-xl text-slate-600">
+          We add new resources every week based on what homeowners are actually asking. Browse our full blog for
+          project-specific guides, or use the tools section to run your own numbers.
+        </p>
+        <div className="mt-6 flex flex-wrap justify-center gap-4">
           <Link
-            href="/pricing#bundles"
-            className="group relative flex flex-col rounded-2xl border-2 border-dashed border-primary/40 bg-primary/5 p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/70 hover:bg-primary/10 hover:shadow-lg"
+            href="/blogs"
+            className="rounded-xl bg-amber-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-amber-700"
           >
-            <div className="mb-5 flex items-start justify-between">
-              <div className="grid h-14 w-14 place-items-center rounded-xl bg-primary text-white shadow-md shadow-primary/30">
-                <Package className="h-7 w-7" />
-              </div>
-              <span className="rounded-full bg-white/70 px-3 py-1 text-xs font-bold tracking-wide text-primary">
-                Bundles
-              </span>
-            </div>
-            <h2 className="text-2xl font-extrabold tracking-tight text-foreground">
-              Project bundles
-            </h2>
-            <p className="mt-2 text-sm leading-relaxed text-foreground/70">
-              Grab everything for a kitchen, bathroom, paint job, or the whole reno in one go — cheaper than buying each piece alone.
-            </p>
-            <div className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary transition-transform group-hover:translate-x-1">
-              See the bundles
-              <ArrowRight className="h-4 w-4" />
-            </div>
+            Browse All Guides
+          </Link>
+          <Link
+            href="/tools"
+            className="rounded-xl border border-amber-200 bg-white px-6 py-3 text-sm font-semibold text-amber-700 shadow-sm hover:bg-amber-50"
+          >
+            Try Our Tools
           </Link>
         </div>
-      </section>
-
-      {/* Access legend */}
-      <section className="container px-4 py-12 md:px-6">
-        <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
-          <div className="mb-5 flex flex-wrap items-end justify-between gap-3">
-            <div>
-              <h2 className="text-xl font-extrabold tracking-tight">How access works</h2>
-              <p className="mt-1 text-sm text-muted-foreground">
-                Every resource carries a badge so you know how to unlock it before you click.
-              </p>
-            </div>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-3">
-            {ACCESS_LEGEND.map((a) => (
-              <div key={a.label} className="rounded-xl border border-border/70 bg-background/50 p-4">
-                <span
-                  className={`inline-flex items-center gap-1.5 rounded-full border px-2.5 py-1 text-xs font-bold ${a.badge}`}
-                >
-                  {a.icon}
-                  {a.label}
-                </span>
-                <p className="mt-3 text-sm text-foreground/80">{a.note}</p>
-              </div>
-            ))}
-          </div>
-          <div className="mt-6 flex flex-wrap items-center gap-3">
-            <Button asChild className="rounded-lg">
-              <Link href="/#subscribe">
-                Get the free Starter Pack
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-            <Button asChild variant="outline" className="rounded-lg">
-              <Link href="/pricing">See subscription &amp; bundles</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* Stage CTA */}
-      <section className="container px-4 pb-16 md:px-6">
-        <div className="rounded-2xl border-2 border-dashed border-border bg-secondary/30 p-6 text-center md:p-10">
-          <h2 className="text-2xl font-extrabold tracking-tight">Looking for something specific?</h2>
-          <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground">
-            Resources are also surfaced inside each stage — jump to the part of the reno you're actually doing right now.
-          </p>
-          <div className="mt-5">
-            <Button asChild variant="ghost" className="rounded-lg">
-              <Link href="/#stages">
-                Browse the 16 stages
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-    </main>
+      </div>
+    </div>
   )
 }
