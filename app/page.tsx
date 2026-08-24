@@ -7,7 +7,6 @@ import { EmailCapture } from "@/components/email-capture"
 import FeaturedBlogs from "@/components/featured-blogs"
 import { PriceDisclaimer } from "@/components/price-disclaimer"
 import HeroSection from "@/components/hero-section"
-import { RenoWisdom } from "@/components/reno-wisdom"
 import { STAGES, PHASES, PHASE_META, DIFFICULTY_META, getStagesByPhase, getResourceCounts } from "@/lib/stages"
 import WhatsNew from "@/components/whats-new"
 
@@ -218,13 +217,6 @@ export default function Home() {
             source="homepage-starter-pack"
             showName
           />
-        </div>
-      </section>
-
-      {/* ============ RENO WISDOM QUOTE SECTION ============ */}
-      <section className="container px-4 py-8 md:px-6">
-        <div className="mx-auto max-w-xl">
-          <RenoWisdom className="bg-slate-900" />
         </div>
       </section>
 

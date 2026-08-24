@@ -1,5 +1,4 @@
 import { blogPosts, getBlogPost } from "@/lib/content"
-import HumorBreak from "@/components/humor-break"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft, Bookmark, Clock, Share2, ThumbsUp } from "lucide-react"
@@ -54,10 +53,9 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
         </div>
 
         <div className="prose prose-lg mb-12 max-w-none">
-          {post.content.map((paragraph, i) => (
+          {post.content.map((paragraph) => (
             <div key={paragraph}>
               <p>{paragraph}</p>
-              {i === 1 && <HumorBreak tag="general" />}
             </div>
           ))}
         </div>
