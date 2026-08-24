@@ -1,12 +1,11 @@
 import Link from "next/link"
-import { ArrowRight, BookOpen, Check, CheckSquare, Compass, FileText, Hammer, Lightbulb, PartyPopper, Sparkles, Wrench } from "lucide-react"
+import { ArrowRight, BookOpen, CheckSquare, Compass, FileText, Hammer, Lightbulb, PartyPopper, Sparkles, Wrench } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { EmailCapture } from "@/components/email-capture"
 import FeaturedBlogs from "@/components/featured-blogs"
-import { PriceDisclaimer } from "@/components/price-disclaimer"
 import HeroSection from "@/components/hero-section"
+import { WaitlistPricingSection } from "@/components/waitlist-pricing"
 import { STAGES, PHASES, PHASE_META, DIFFICULTY_META, getStagesByPhase, getResourceCounts } from "@/lib/stages"
 import WhatsNew from "@/components/whats-new"
 
@@ -125,83 +124,7 @@ export default function Home() {
       </section>
 
       {/* ============ BUNDLES / PRICING ============ */}
-      <section id="bundles" className="container px-4 py-16 md:px-6">
-        <div className="mb-10 text-center">
-          <Badge className="inline-flex items-center gap-2 rounded-full bg-amber-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-amber-800 hover:bg-amber-100">
-            Paid packs on the waitlist
-          </Badge>
-          <h2 className="mt-3 text-3xl font-extrabold tracking-tight sm:text-4xl">Start free. Paid packs when checkout&apos;s actually live.</h2>
-          <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-            The Starter Pack is yours now — drop your email. Project and all-access packs are priced below so you know what&apos;s coming; we&apos;ll email you when you can buy them for real. No fake checkout.
-          </p>
-        </div>
-
-        <div className="grid gap-6 lg:grid-cols-3">
-          <PricingCard
-            kind="Live now"
-            price="Free"
-            unit=""
-            tagline="Enough to figure out if you're actually doing this."
-            features={[
-              "Free Renovation Starter Pack",
-              "Any individual free checklist",
-              "Weekly renovation tip email",
-              "Full access to the blog",
-            ]}
-            cta="Get the free Starter Pack"
-            ctaHref="#subscribe"
-            highlighted
-            flag="Start here"
-          />
-
-          <PricingCard
-            kind="Project Bundle · soon"
-            price="AU$49"
-            unit=" one-off"
-            tagline="Renovating one room? Everything for that job — when checkout lands."
-            features={[
-              "Kitchen, Bathroom, Laundry or Outdoor pack",
-              "All ebooks, templates, checklists & tools for that project",
-              "Printable project tracker PDF",
-              "Lifetime access + one year of free updates",
-            ]}
-            cta="Join the waitlist"
-            ctaHref="#subscribe"
-            flag="Best for one room"
-          />
-
-          <PricingCard
-            kind="All-Access · soon"
-            price="AU$149"
-            unit=" / year"
-            tagline="For multi-room renos and chaos managers with receipts."
-            features={[
-              "Every stage, every resource, every bundle",
-              "New content added every month",
-              "Unlimited AI reno-advisor questions",
-              "Early access to new stages — cancel renewal anytime",
-            ]}
-            cta="Join the waitlist"
-            ctaHref="#subscribe"
-            footnote="We'll email when Stripe checkout is live. No charge until then."
-          />
-        </div>
-        <div className="mt-6 flex flex-col items-center gap-2">
-          <Button asChild variant="link" className="text-primary">
-            <Link href="#subscribe">
-              Get the free Starter Pack
-              <ArrowRight className="ml-1 h-4 w-4" />
-            </Link>
-          </Button>
-          <p className="text-xs text-muted-foreground">
-            Prices in AUD. Checkout isn&apos;t live yet — free Starter Pack and waitlist only for now.
-          </p>
-        </div>
-
-        <div className="mt-10">
-          <PriceDisclaimer />
-        </div>
-      </section>
+      <WaitlistPricingSection />
 
       {/* ============ FEATURED BLOGS (reused) ============ */}
       <FeaturedBlogs />
@@ -346,79 +269,3 @@ function ResourceCard({
   )
 }
 
-function PricingCard({
-  kind,
-  price,
-  unit,
-  tagline,
-  features,
-  cta,
-  ctaHref,
-  highlighted = false,
-  flag,
-  footnote,
-}: {
-  kind: string
-  price: string
-  unit: string
-  tagline: string
-  features: string[]
-  cta: string
-  ctaHref: string
-  highlighted?: boolean
-  flag?: string
-  footnote?: string
-}) {
-  return (
-    <Card
-      className={`relative flex h-full flex-col rounded-2xl ${highlighted
-          ? "border-0 bg-gradient-to-br from-primary to-primary/80 text-primary-foreground shadow-xl"
-          : "border-2"
-        }`}
-    >
-      {flag && (
-        <div
-          className={`absolute -top-3 right-4 rounded-full px-3 py-1 text-xs font-bold shadow ${
-            highlighted
-              ? "bg-background text-primary"
-              : "border border-border bg-background text-muted-foreground"
-          }`}
-        >
-          {flag}
-        </div>
-      )}
-      <CardHeader>
-        <div className={`text-xs font-semibold uppercase tracking-widest ${highlighted ? "opacity-90" : "text-muted-foreground"}`}>
-          {kind}
-        </div>
-        <CardTitle className="mt-2 flex items-baseline gap-1">
-          <span className={`text-4xl font-extrabold ${highlighted ? "" : "text-foreground"}`}>{price}</span>
-          <span className={`text-sm ${highlighted ? "opacity-90" : "text-muted-foreground"}`}>{unit}</span>
-        </CardTitle>
-        <p className={`mt-3 text-sm ${highlighted ? "opacity-90" : "text-muted-foreground"}`}>{tagline}</p>
-      </CardHeader>
-      <CardContent className="flex-1">
-        <ul className="space-y-2.5 text-sm">
-          {features.map((f) => (
-            <li key={f} className="flex items-start gap-2">
-              <Check className={`mt-0.5 h-4 w-4 flex-shrink-0 ${highlighted ? "text-primary-foreground" : "text-primary"}`} aria-hidden />
-              <span className={highlighted ? "" : "text-foreground"}>{f}</span>
-            </li>
-          ))}
-        </ul>
-        {footnote && (
-          <p className={`mt-4 text-xs ${highlighted ? "opacity-80" : "text-muted-foreground"}`}>{footnote}</p>
-        )}
-      </CardContent>
-      <CardFooter>
-        <Button
-          asChild
-          variant={highlighted ? "secondary" : "outline"}
-          className={`w-full rounded-lg ${highlighted ? "bg-background text-primary hover:bg-background/90" : ""}`}
-        >
-          <Link href={ctaHref}>{cta}</Link>
-        </Button>
-      </CardFooter>
-    </Card>
-  )
-}
