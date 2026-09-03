@@ -1,26 +1,7 @@
 import Link from "next/link"
-import { IBM_Plex_Mono, IBM_Plex_Sans, Newsreader } from "next/font/google"
-import { AlertTriangle, Clock, Ruler } from "lucide-react"
+import { AlertTriangle, ArrowRight, Clock, Ruler } from "lucide-react"
+import { Button } from "@/components/ui/button"
 import { TOTAL_STAGES } from "@/lib/stages"
-
-const display = Newsreader({
-  subsets: ["latin"],
-  weight: ["500", "600", "700"],
-  style: ["normal", "italic"],
-  display: "swap",
-})
-
-const sans = IBM_Plex_Sans({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  display: "swap",
-})
-
-const mono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  display: "swap",
-})
 
 const SCOPE_LINES = [
   {
@@ -77,112 +58,109 @@ const BEFORE_AFTER = [
 export default function HeroSection() {
   return (
     <section
-      className={`${sans.className} relative overflow-hidden border-b border-[#c8b89a] bg-[#efe4cf] text-[#1a1612]`}
+      className="relative overflow-hidden bg-gradient-to-b from-stone-900 via-slate-900 to-stone-950 py-16 text-white md:py-24"
       aria-labelledby="home-hero-heading"
     >
-      <div className="relative mx-auto grid max-w-6xl gap-10 px-4 py-12 md:px-6 md:py-16 lg:grid-cols-12 lg:items-start lg:gap-12 lg:py-20">
-        <div className="lg:col-span-7">
-          <p className={`${mono.className} text-[11px] font-medium uppercase tracking-[0.22em] text-[#6b4a2a]`}>
-            Scope of works · Australian home reno
-          </p>
+      <div className="absolute inset-0 bg-[url('/images/hero-renos101.jpg')] bg-cover bg-center opacity-25" aria-hidden="true" />
+      <div
+        className="pointer-events-none absolute inset-0 opacity-15"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px)
+          `,
+          backgroundSize: "40px 40px",
+        }}
+        aria-hidden="true"
+      />
+      <div className="pointer-events-none absolute -top-24 left-1/4 h-96 w-96 rounded-full bg-amber-500/15 blur-[120px]" />
+      <div className="pointer-events-none absolute bottom-0 right-10 h-80 w-80 rounded-full bg-orange-600/15 blur-[100px]" />
 
-          <h1
-            id="home-hero-heading"
-            className={`${display.className} mt-4 max-w-xl text-left text-[2.15rem] font-semibold leading-[1.12] tracking-[-0.02em] text-[#1a1612] sm:text-5xl lg:text-[3.35rem]`}
-          >
-            The quote came in 40% over.{" "}
-            <span className="italic text-[#7a3416]">Here is how you read it before you sign.</span>
-          </h1>
+      <div className="container relative z-10 mx-auto px-4 md:px-6">
+        <div className="grid items-start gap-12 lg:grid-cols-12">
+          <div className="space-y-6 lg:col-span-7">
+            <h1
+              id="home-hero-heading"
+              className="max-w-2xl text-left text-4xl font-extrabold leading-[1.1] tracking-tight text-white sm:text-5xl lg:text-6xl"
+            >
+              The quote came in 40% over.{" "}
+              <span className="bg-gradient-to-r from-amber-400 via-orange-400 to-amber-200 bg-clip-text text-transparent">
+                Here is how you read it before you sign.
+              </span>
+            </h1>
 
-          <p className="mt-5 max-w-xl text-[1.05rem] leading-relaxed text-[#3a332b]">
-            Costing, sequencing, and the lines that do the damage. Not a pep talk. Not a live AI tool in the hallway.
-            Sixteen stages on the site — start with a free lesson and learn which bits of the paper are real.
-          </p>
+            <p className="max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg md:text-xl">
+              Costing, sequencing, and the lines that do the damage. Not a pep talk. Not a live AI tool in the hallway.
+              Sixteen stages on the site — start with a free lesson and learn which bits of the paper are real.
+            </p>
 
-          <div className="mt-7 flex flex-col items-stretch gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-            <Link
-              href="/stages/planning"
-              className={`${mono.className} inline-flex items-center justify-center bg-[#7a3416] px-5 py-3 text-sm font-medium tracking-wide text-[#f6eedd] hover:bg-[#5c2610]`}
-            >
-              Start free lesson
-            </Link>
-            <Link
-              href="#stages"
-              className={`${mono.className} inline-flex items-center justify-center border border-[#1a1612] bg-transparent px-5 py-3 text-sm font-medium tracking-wide text-[#1a1612] hover:bg-[#1a1612] hover:text-[#f6eedd]`}
-            >
-              Browse topics
-            </Link>
-            <Link
-              href="#subscribe"
-              className={`${mono.className} inline-flex items-center justify-center px-2 py-3 text-sm font-medium tracking-wide text-[#7a3416] underline decoration-[#7a3416]/40 underline-offset-4 hover:decoration-[#7a3416]`}
-            >
-              Join the waitlist
-            </Link>
+            <div className="flex flex-wrap items-center gap-4 pt-2">
+              <Button
+                asChild
+                size="lg"
+                className="rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 px-7 py-6 text-base font-bold text-slate-950 shadow-lg shadow-amber-500/20 hover:from-amber-400 hover:to-orange-500"
+              >
+                <Link href="/stages/planning">
+                  Start free lesson
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="rounded-xl border-slate-700 bg-slate-800/80 px-6 py-6 text-base text-slate-200 hover:bg-slate-700 hover:text-white"
+              >
+                <Link href="#stages">Browse topics</Link>
+              </Button>
+              <Button asChild size="lg" variant="ghost" className="rounded-xl px-4 py-6 text-base text-amber-300 hover:bg-slate-800 hover:text-amber-200">
+                <Link href="#subscribe">Join the waitlist</Link>
+              </Button>
+            </div>
+
+            <ol className="space-y-2 pt-2">
+              {SCOPE_LINES.map((item) => (
+                <li
+                  key={item.code}
+                  className="grid gap-2 rounded-2xl border border-slate-800 bg-slate-900/60 p-4 backdrop-blur sm:grid-cols-[2.5rem_minmax(0,11rem)_1fr] sm:items-start sm:gap-4"
+                >
+                  <span className="grid h-9 w-9 place-items-center rounded-lg bg-amber-500/10 text-sm font-bold text-amber-400">
+                    {item.code}
+                  </span>
+                  <span className="font-semibold text-white">{item.line}</span>
+                  <span className="text-sm leading-relaxed text-slate-400">{item.note}</span>
+                </li>
+              ))}
+            </ol>
+
+            <p className="text-xs font-medium text-slate-400">
+              {TOTAL_STAGES} stages on the site. That is the lot.
+            </p>
           </div>
 
-          <ol className="mt-10 border-t border-[#1a1612]">
-            {SCOPE_LINES.map((item) => (
-              <li
-                key={item.code}
-                className="grid grid-cols-[3.25rem_1fr] gap-3 border-b border-[#1a1612]/20 py-3 sm:grid-cols-[3.5rem_minmax(0,11rem)_1fr] sm:gap-5"
-              >
-                <span className={`${mono.className} pt-0.5 text-xs font-medium text-[#7a3416]`}>{item.code}</span>
-                <span className={`${display.className} text-lg font-semibold leading-snug text-[#1a1612]`}>
-                  {item.line}
-                </span>
-                <span className="col-span-2 text-sm leading-relaxed text-[#3f382f] sm:col-span-1">{item.note}</span>
-              </li>
-            ))}
-          </ol>
-
-          <p className={`${mono.className} mt-4 text-[11px] uppercase tracking-[0.16em] text-[#6b4a2a]`}>
-            {TOTAL_STAGES} stages on the site. That is the lot.
-          </p>
-        </div>
-
-        <div className="lg:col-span-5">
-          <p className={`${mono.className} mb-3 text-[11px] font-medium uppercase tracking-[0.2em] text-[#6b4a2a]`}>
-            Product still · room inspector
-          </p>
-          <div className="relative h-[28rem] overflow-hidden border border-[#1a1612] bg-[#111827] sm:h-[32rem]">
-            <div className="hero-inspector-still pointer-events-none absolute -left-[8%] -top-[10%] w-[124%] origin-top-left" aria-hidden="true">
-              <InspectorStill />
+          <div className="lg:col-span-5">
+            <div className="relative h-[28rem] overflow-hidden rounded-3xl border border-amber-500/30 bg-slate-900/90 shadow-2xl sm:h-[32rem]">
+              <div className="hero-inspector-still pointer-events-none absolute -left-[8%] -top-[10%] w-[124%] origin-top-left" aria-hidden="true">
+                <InspectorStill />
+              </div>
             </div>
           </div>
-          <p className={`${mono.className} mt-2 text-[11px] leading-relaxed text-[#5c5348]`}>
-            Still of the Renos inspector already on this site. No clip. Motion is a slow pan; it holds if you prefer less movement.
-          </p>
         </div>
-      </div>
 
-      <div className="border-t border-[#1a1612] bg-[#e7d8b8]">
-        <div className="mx-auto grid max-w-6xl md:grid-cols-2">
-          <div className="border-b border-[#1a1612]/20 px-4 py-5 md:border-b-0 md:border-r md:px-6">
-            <p className={`${mono.className} text-[11px] font-medium uppercase tracking-[0.2em] text-[#7a3416]`}>
-              What the quote says
-            </p>
+        <div className="mt-12 rounded-2xl border border-slate-800 bg-slate-900/60 p-4 backdrop-blur md:p-6">
+          <div className="grid gap-3 md:grid-cols-2">
+            <p className="text-xs font-semibold uppercase tracking-wider text-amber-300">What the quote says</p>
+            <p className="text-xs font-semibold uppercase tracking-wider text-slate-300">What you check before you sign</p>
           </div>
-          <div className="px-4 py-5 md:px-6">
-            <p className={`${mono.className} text-[11px] font-medium uppercase tracking-[0.2em] text-[#1a1612]`}>
-              What you check before you sign
-            </p>
-          </div>
+          <ul className="mt-4 space-y-3">
+            {BEFORE_AFTER.map((row) => (
+              <li key={row.before} className="grid gap-3 rounded-xl border border-slate-800 bg-slate-950/60 p-4 md:grid-cols-2 md:items-center">
+                <p className="text-sm font-medium text-slate-300">{row.before}</p>
+                <p className="text-sm leading-relaxed text-slate-200">{row.after}</p>
+              </li>
+            ))}
+          </ul>
         </div>
-        <ul className="mx-auto max-w-6xl border-t border-[#1a1612]/20">
-          {BEFORE_AFTER.map((row) => (
-            <li
-              key={row.before}
-              className="grid border-b border-[#1a1612]/15 last:border-b-0 md:grid-cols-2"
-            >
-              <p className={`${display.className} border-b border-[#1a1612]/10 px-4 py-4 text-lg font-medium italic text-[#3a332b] md:border-b-0 md:border-r md:border-[#1a1612]/15 md:px-6`}>
-                {row.before}
-              </p>
-              <p className="px-4 py-4 text-sm leading-relaxed text-[#1a1612] md:px-6 md:text-base">
-                {row.after}
-              </p>
-            </li>
-          ))}
-        </ul>
       </div>
     </section>
   )
