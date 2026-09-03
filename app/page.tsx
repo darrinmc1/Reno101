@@ -22,27 +22,6 @@ export default function Home() {
       <HeroSection />
       <WhatsNew />
 
-      {/* ============ HOW IT WORKS ============ */}
-      <section className="border-t border-border/70 bg-background/40">
-        <div className="container grid gap-6 px-4 py-12 sm:grid-cols-3 md:px-6">
-          <HowCard
-            n={1}
-            title="Find the stage you're actually up to"
-            body="Click into any of the 16 stages. Each one shows the steps, the materials, and a colour telling you whether this is a Sunday job or a licensed-tradie job."
-          />
-          <HowCard
-            n={2}
-            title="Grab the resources"
-            body="Ebooks, templates, checklists and tools, all tagged to the stage that needs them. No forum crawling. No man named Gary explaining grout."
-          />
-          <HowCard
-            n={3}
-            title="Reno without the overwhelm"
-            body="Know what's DIY, what needs a pro, and what to ask before the quote arrives looking legally offensive."
-          />
-        </div>
-      </section>
-
       {/* ============ STAGE DASHBOARD ============ */}
       <section id="stages" className="container px-4 py-16 md:px-6">
         <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
@@ -199,16 +178,6 @@ function JourneyStep({ stage, index }: { stage: (typeof STAGES)[number]; index: 
         <ArrowRight className="ml-2 h-4 w-4 flex-shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary" />
       </Link>
     </li>
-  )
-}
-
-function HowCard({ n, title, body }: { n: number; title: string; body: string }) {
-  return (
-    <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-      <div className="mb-3 grid h-10 w-10 place-items-center rounded-lg bg-primary/10 font-bold text-primary">{n}</div>
-      <h3 className="font-semibold">{title}</h3>
-      <p className="mt-1 text-sm text-muted-foreground">{body}</p>
-    </div>
   )
 }
 

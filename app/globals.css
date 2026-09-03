@@ -104,3 +104,24 @@
     color: hsl(var(--foreground));
   }
 }
+
+/* Home hero motion lock: still of the real inspector, slow pan only. No video/GIF. */
+@keyframes hero-inspector-still-pan {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.04) translate(-3.5%, -2.5%);
+  }
+}
+
+.hero-inspector-still {
+  animation: hero-inspector-still-pan 32s ease-in-out infinite alternate;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-inspector-still {
+    animation: none;
+    transform: none;
+  }
+}
