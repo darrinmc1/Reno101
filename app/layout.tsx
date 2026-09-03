@@ -4,11 +4,8 @@ import { ClerkProvider } from "@clerk/nextjs"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import Navbar from "@/components/navbar"
-import { AuthNav } from "@/components/auth-nav"
 import Footer from "@/components/footer"
-import { FeedbackWidget } from "@/components/feedback-widget"
 import { TooltipProvider } from "@/components/ui/tooltip"
-import { WaitlistPopup } from "@/components/waitlist-popup"
 
 
 export const metadata: Metadata = {
@@ -58,16 +55,10 @@ export default function RootLayout({
           >
             <TooltipProvider delayDuration={150}>
               <div className="flex min-h-screen flex-col">
-                {/* Auth utility bar */}
-                <div className="flex justify-end border-b border-white/20 bg-background/50 px-4 py-1">
-                  <AuthNav />
-                </div>
                 <Navbar />
                 <div className="flex-1">{children}</div>
                 <Footer />
-                <FeedbackWidget />
               </div>
-              <WaitlistPopup />
             </TooltipProvider>
           </ThemeProvider>
         </ClerkProvider>
