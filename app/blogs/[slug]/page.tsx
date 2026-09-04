@@ -6,6 +6,16 @@ import { ArrowLeft, Bookmark, Clock, Share2, ThumbsUp } from "lucide-react"
 import Link from "next/link"
 import { notFound } from "next/navigation"
 
+function humorTagFor(category: string): string {
+  const key = category.toLowerCase()
+  if (key.includes("kitchen")) return "kitchen"
+  if (key.includes("bathroom")) return "bathroom"
+  if (key.includes("paint") || key.includes("finish") || key.includes("design")) return "painting"
+  if (key.includes("floor")) return "flooring"
+  if (key.includes("plan") || key.includes("diy")) return "planning"
+  return "general"
+}
+
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const post = getBlogPost(slug)
@@ -57,7 +67,7 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
           {post.content.map((paragraph, i) => (
             <div key={paragraph}>
               <p>{paragraph}</p>
-              {i === 1 && <HumorBreak tag="general" />}
+              {i === 1 && <HumorBreak tag={humorTagFor(post.category)} />}
             </div>
           ))}
         </div>
@@ -99,17 +109,18 @@ export default async function BlogPostPage({ params }: { params: Promise<{ slug:
 
         <div className="rounded-lg bg-gray-50 p-8">
           <div className="mb-6 text-center">
-            <h2 className="mb-2 text-2xl font-bold">Build Out This Content System</h2>
+            <h2 className="mb-2 text-2xl font-bold">Continue the lesson</h2>
             <p className="text-muted-foreground">
-              The route now resolves real starter data. The next step is moving posts into a proper editor or CMS.
+              Stage pages are the course sequence. Room guides are the start-to-finish walkthroughs.
+              This article is planning support — not trade licensing advice.
             </p>
           </div>
           <div className="flex justify-center gap-4">
-            <Link href="/blogs">
-              <Button variant="outline">More Articles</Button>
+            <Link href="/learn">
+              <Button>Stage lessons</Button>
             </Link>
-            <Link href="/research">
-              <Button>Plan Content Workflow</Button>
+            <Link href="/guides">
+              <Button variant="outline">Room guides</Button>
             </Link>
           </div>
         </div>
