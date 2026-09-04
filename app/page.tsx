@@ -5,6 +5,9 @@ import { Badge } from "@/components/ui/badge"
 import { EmailCapture } from "@/components/email-capture"
 import FeaturedBlogs from "@/components/featured-blogs"
 import HeroSection from "@/components/hero-section"
+import { Reveal } from "@/components/home/reveal"
+import { ScopeRail } from "@/components/home/scope-rail"
+import { WhatYouGet } from "@/components/home/what-you-get"
 import { RenoWisdom } from "@/components/reno-wisdom"
 import { WaitlistPricingSection } from "@/components/waitlist-pricing"
 import { STAGES, PHASES, PHASE_META, DIFFICULTY_META, getStagesByPhase, getResourceCounts } from "@/lib/stages"
@@ -20,17 +23,19 @@ export default function Home() {
     <main className="flex-1">
       {/* ============ HERO ============ */}
       <HeroSection />
+      <ScopeRail />
+      <WhatYouGet />
       <WhatsNew />
 
       {/* ============ STAGE DASHBOARD ============ */}
       <section id="stages" className="container px-4 py-16 md:px-6">
         <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-          <div>
+          <Reveal>
             <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">The 16 stages of a renovation</h2>
             <p className="mt-2 max-w-2xl text-muted-foreground">
               Every card is a full guide with steps, materials, hints &amp; tips, and the resources that actually help. The dot tells you how DIY-friendly the stage is — green is "go for it", red is "let someone with a licence do that".
             </p>
-          </div>
+          </Reveal>
           <div className="flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
             {(Object.keys(DIFFICULTY_META) as Array<keyof typeof DIFFICULTY_META>).map((key) => {
               const meta = DIFFICULTY_META[key]

@@ -125,3 +125,97 @@
     transform: none;
   }
 }
+
+@layer utilities {
+  .reveal-up {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-up[data-visible="true"] {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .reveal-left {
+    opacity: 0;
+    transform: translateX(-32px);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-left[data-visible="true"] {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .reveal-right {
+    opacity: 0;
+    transform: translateX(32px);
+    transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-right[data-visible="true"] {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .reveal-scale {
+    opacity: 0;
+    transform: scale(0.93);
+    transition: opacity 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.55s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .reveal-scale[data-visible="true"] {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  .reveal-group[data-visible="true"] .reveal-up,
+  .reveal-group[data-visible="true"] .reveal-left,
+  .reveal-group[data-visible="true"] .reveal-right,
+  .reveal-group[data-visible="true"] .reveal-scale {
+    opacity: 1;
+    transform: none;
+  }
+
+  .stagger-1 { transition-delay: 0ms; }
+  .stagger-2 { transition-delay: 80ms; }
+  .stagger-3 { transition-delay: 160ms; }
+  .stagger-4 { transition-delay: 240ms; }
+  .stagger-5 { transition-delay: 320ms; }
+}
+
+.stack-slot {
+  min-height: auto;
+}
+.stack-card {
+  position: relative;
+}
+@media (min-width: 768px) {
+  .stack-slot {
+    min-height: 58vh;
+  }
+  .stack-card {
+    position: sticky;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stack-card {
+    position: relative;
+    top: auto !important;
+  }
+  .stack-slot {
+    min-height: auto;
+  }
+
+  .reveal-up,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
