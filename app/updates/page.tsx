@@ -67,7 +67,7 @@ export default function UpdatesPage() {
             up with monthly entries — what was added, what was rewritten, what's coming next.
           </p>
           <div className="mt-6 grid gap-3 text-left sm:grid-cols-2">
-            <PreviewCard month="Now" items={["14 how-to stage lessons + Party finale", "4 written room guides", "22 planning articles", "Stage resource list (ebooks/templates/checklists/tips)"]} />
+            <PreviewCard month="Now" items={["14 how-to stage lessons + Party finale", "4 written room guides", "28 planning articles", "32 listed stage resources (ebooks/templates/checklists/tools/tips)"]} />
             <PreviewCard month="Coming Soon" items={["PDF template downloads", "Style quiz / quote comparison / paint coverage", "Design tools (styler, mood boards, floor planner)", "Stage 15 — not invented to fill the number"]} />
           </div>
           <div className="mt-7">
