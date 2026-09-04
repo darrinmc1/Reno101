@@ -74,8 +74,14 @@ export default function Navbar() {
                     <ListItem href="/blogs" title="Sustainability">
                       Better materials, smarter upgrades, and greener choices that do not feel punitive.
                     </ListItem>
-                    <ListItem href="/blogs" title="All Guides">
-                      Read the full collection without pretending you only came for one article.
+                    <ListItem href="/learn" title="Stage lessons">
+                      The published course sequence — 14 how-to stages plus Party. Honest counts.
+                    </ListItem>
+                    <ListItem href="/guides" title="Room guides">
+                      Four start-to-finish walkthroughs: bathroom, kitchen, painting, flooring.
+                    </ListItem>
+                    <ListItem href="/blogs" title="All articles">
+                      Read the full planning collection without pretending you only came for one piece.
                     </ListItem>
                   </ul>
                 </NavigationMenuContent>
@@ -163,7 +169,9 @@ export default function Navbar() {
                   </div>
                 </div>
                 <nav className="flex flex-col gap-3 py-6">
-                  <NavButton href="/blogs" label="Read The Guides" sublabel="Advice with fewer beige opinions" onClick={() => setIsOpen(false)} />
+                  <NavButton href="/learn" label="Stage Lessons" sublabel="Published course sequence — honest counts" onClick={() => setIsOpen(false)} />
+                  <NavButton href="/guides" label="Room Guides" sublabel="Four start-to-finish walkthroughs" onClick={() => setIsOpen(false)} />
+                  <NavButton href="/blogs" label="Planning Articles" sublabel="Advice with fewer beige opinions" onClick={() => setIsOpen(false)} />
                   <NavButton href="/design-tools" label="Use The Tools" sublabel="Mood boards and planning surfaces" onClick={() => setIsOpen(false)} />
                   <NavButton href="/resources" label="Resources Library" sublabel="Ebooks, templates, checklists, tools, tips" onClick={() => setIsOpen(false)} />
                   <NavButton href="/research" label="Ask Research" sublabel="For suspicious walls and pricing mysteries" onClick={() => setIsOpen(false)} />

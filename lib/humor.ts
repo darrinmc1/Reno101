@@ -90,6 +90,44 @@ export const humorBank: Record<string, HumorItem[]> = {
       punchline: "That's how you know they're good. And how you know you're waiting.",
     },
   ],
+  kitchen: [
+    {
+      setup: "The island looked generous on the elevation.",
+      punchline: "In the room it is a peninsula for hips and a monument to a clearance you did not measure.",
+    },
+    {
+      setup: "You can choose the tapware after the cabinets are in.",
+      punchline: "You can also choose a sequel. Peel Boss picks appliances before anyone owns a tape.",
+    },
+  ],
+  bathroom: [
+    {
+      setup: "The feature tile was the personality.",
+      punchline: "The membrane was the character. Only one of them gets a certificate.",
+    },
+    {
+      setup: "Moving the toilet 200 mm felt like a small request.",
+      punchline: "The floor, the waste, and the quote all filed a longer report.",
+    },
+  ],
+  painting: [
+    {
+      setup: "Two coats should do it.",
+      punchline: "The wall heard 'two' and asked for primer, a wash, and the honesty of a third.",
+    },
+  ],
+  flooring: [
+    {
+      setup: "The floor is the finish people notice.",
+      punchline: "The subfloor is the finish people hear. Moisture tests are not a vibe.",
+    },
+  ],
+  planning: [
+    {
+      setup: "A verbal quote is faster.",
+      punchline: "A written quote is a document. Intel Academy does not brief from a handshake.",
+    },
+  ],
   "diy": [
     {
       setup: "I watched a YouTube video and thought 'I can do that.'",

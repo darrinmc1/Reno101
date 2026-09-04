@@ -77,14 +77,19 @@ export default function BlogsPage() {
 
       <div className="mt-12 rounded-[2rem] border border-white/50 bg-[linear-gradient(135deg,rgba(255,250,242,0.92),rgba(235,242,236,0.82))] p-8 shadow-sm">
         <div className="mx-auto max-w-3xl text-center">
-          <h2 className="mb-4 text-2xl font-bold">Content Foundation</h2>
+          <h2 className="mb-4 text-2xl font-bold">{blogPosts.length} planning articles, published</h2>
           <p className="mb-6 text-muted-foreground">
-            These posts live in `lib/content.ts` for now. That keeps routing stable while you decide whether to move
-            into MDX, a headless CMS, or a database-backed authoring flow with stronger editorial control.
+            Honest count. These sit beside the stage lessons and the four room guides. Educational
+            reno planning only — not a licence, and not a substitute for local rules.
           </p>
-          <div className="flex justify-center">
-            <Link href="/research">
-              <Button className="rounded-full">Plan the Next Feature</Button>
+          <div className="flex justify-center gap-3">
+            <Link href="/learn">
+              <Button className="rounded-full">Stage lessons</Button>
+            </Link>
+            <Link href="/guides">
+              <Button variant="outline" className="rounded-full">
+                Room guides
+              </Button>
             </Link>
           </div>
         </div>
