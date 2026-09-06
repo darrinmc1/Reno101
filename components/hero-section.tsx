@@ -10,7 +10,6 @@ export default function HeroSection() {
   const washRef = useParallax<HTMLDivElement>(0.16)
   const gridRef = useParallax<HTMLDivElement>(0.09)
   const artefactRef = useParallax<HTMLDivElement>(0.06)
-  const stillRef = useParallax<HTMLDivElement>(0.03)
 
   return (
     <section
@@ -101,7 +100,7 @@ export default function HeroSection() {
             </p>
           </div>
 
-          <div ref={stillRef} className="lg:col-span-5">
+          <div className="lg:col-span-5">
             <InspectorStillFrame />
           </div>
         </div>
