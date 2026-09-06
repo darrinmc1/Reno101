@@ -54,7 +54,7 @@ export default function HeroSection() {
         <div className="grid items-start gap-12 lg:grid-cols-12">
           <div className="space-y-6 lg:col-span-7">
             <p className="text-sm font-semibold uppercase tracking-wider text-amber-300">
-              Renovation training
+              Read the quote
             </p>
             <h1
               id="home-hero-heading"
@@ -67,8 +67,8 @@ export default function HeroSection() {
             </h1>
 
             <p className="max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg md:text-xl">
-              Costing, sequencing, and the lines that do the damage. Not a pep talk. Not a live AI tool in the hallway.
-              Sixteen stages on the site — start with a free lesson and learn which bits of the paper are real.
+              They priced a house they have not crawled under. TBA, exclusions, the tap you will never pick.
+              The free Planning lesson is how you catch those lines before you sign.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -96,7 +96,7 @@ export default function HeroSection() {
             </div>
 
             <p className="text-xs font-medium text-slate-400">
-              Free written lesson: Planning. {TOTAL_STAGES} stages on the site. That is the lot.
+              Free written lesson: Planning. {TOTAL_STAGES} stages on the site.
             </p>
           </div>
 
@@ -182,7 +182,7 @@ function InspectorStill() {
         <div className="flex items-center gap-2">
           <Ruler className="h-5 w-5 text-amber-400" />
           <span className="text-sm font-bold uppercase tracking-wider text-slate-200">
-            Interactive Reno Inspector
+            Reno Inspector
           </span>
         </div>
         <span className="rounded border border-amber-500/20 bg-amber-400/10 px-2 py-0.5 font-mono text-xs text-amber-400">

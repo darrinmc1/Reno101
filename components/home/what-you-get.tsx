@@ -14,7 +14,7 @@ const CARDS = [
   },
   {
     kicker: "02",
-    title: `${TOTAL_STAGES} written stages. That is the lot.`,
+    title: `${TOTAL_STAGES} written stages, ideas through the party.`,
     body: "Ideas through punch list and the party. Each card is a guide with steps, materials, and whether this is a Sunday job or a licensed-tradie job.",
     href: "#stages",
     cta: "Browse topics",
@@ -35,7 +35,7 @@ export function WhatYouGet() {
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-wider text-amber-300">What you get</p>
           <h2 className="mt-2 max-w-xl text-3xl font-extrabold tracking-tight sm:text-4xl">
-            A renovation course, not a slogan stack.
+            Written stages and a kitchen inspector still. Start with Planning.
           </h2>
         </Reveal>
       </div>

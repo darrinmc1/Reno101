@@ -60,8 +60,8 @@ export function ScopeRail() {
             The quote is a scope list. Treat it like one.
           </h2>
           <p className="mt-3 max-w-xl text-slate-400">
-            Provisional sums, exclusions, PC items, variations. Not a pep talk.
-            Open a written stage and learn which bits of the paper are real.
+            Provisional sums, exclusions, PC items, variations.
+            Open a written stage. That is where those lines get translated.
           </p>
         </Reveal>
 
