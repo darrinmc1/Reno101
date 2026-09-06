@@ -150,7 +150,7 @@ function QuoteArtefact() {
 
 function InspectorStillFrame() {
   return (
-    <div className="relative">
+    <div className="reno-inspector-stage relative">
       <div
         className="reno-ghost-tilt pointer-events-none absolute -right-5 top-10 hidden h-[82%] w-full rounded-3xl border border-amber-500/20 bg-slate-900/50 shadow-2xl lg:block"
         aria-hidden="true"
@@ -159,16 +159,18 @@ function InspectorStillFrame() {
         className="pointer-events-none absolute -inset-10 -z-10 rounded-full bg-amber-500/15 blur-[90px]"
         aria-hidden="true"
       />
-      <figure className="reno-inspector-tilt relative overflow-hidden rounded-3xl border border-amber-500/30 bg-slate-900/90 shadow-2xl">
-        <figcaption className="border-b border-slate-800 px-5 py-2.5 text-xs font-medium uppercase tracking-wider text-slate-400">
-          Still · Kitchen inspector
-        </figcaption>
-        <div className="relative h-[26rem] overflow-hidden sm:h-[30rem]">
-          <div className="pointer-events-none absolute -left-[8%] -top-[6%] w-[124%] origin-top-left" aria-hidden="true">
-            <InspectorStill />
+      <div className="reno-inspector-tilt">
+        <figure className="relative overflow-hidden rounded-3xl border border-amber-500/30 bg-slate-900/90 shadow-2xl">
+          <figcaption className="border-b border-slate-800 px-5 py-2.5 text-xs font-medium uppercase tracking-wider text-slate-400">
+            Still · Kitchen inspector
+          </figcaption>
+          <div className="relative h-[26rem] overflow-hidden sm:h-[30rem]">
+            <div className="pointer-events-none absolute -left-[8%] -top-[6%] w-[124%] origin-top-left" aria-hidden="true">
+              <InspectorStill />
+            </div>
           </div>
-        </div>
-      </figure>
+        </figure>
+      </div>
     </div>
   )
 }
