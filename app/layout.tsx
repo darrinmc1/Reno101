@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { ClerkProvider } from "@clerk/nextjs"
 import "./globals.css"
+import Analytics from "./components/Analytics"
 import { ThemeProvider } from "@/components/theme-provider"
 import Navbar from "@/components/navbar"
 import { AuthNav } from "@/components/auth-nav"
@@ -71,6 +72,7 @@ export default function RootLayout({
             </TooltipProvider>
           </ThemeProvider>
         </ClerkProvider>
+        <Analytics />
       </body>
     </html>
   )
