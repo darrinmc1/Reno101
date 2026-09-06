@@ -54,7 +54,7 @@ export default function HeroSection() {
         <div className="grid items-start gap-12 lg:grid-cols-12">
           <div className="space-y-6 lg:col-span-7">
             <p className="text-sm font-semibold uppercase tracking-wider text-amber-300">
-              Read the quote
+              Written renovation training
             </p>
             <h1
               id="home-hero-heading"
@@ -67,8 +67,8 @@ export default function HeroSection() {
             </h1>
 
             <p className="max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg md:text-xl">
-              They priced a house they have not crawled under. TBA, exclusions, the tap you will never pick.
-              The free Planning lesson is how you catch those lines before you sign.
+              Sixteen written stages, ideas through the party. TBA, exclusions, the tap you will never pick —
+              the free Planning lesson is how you learn to read those lines before you sign.
             </p>
 
             <div className="flex flex-wrap items-center gap-4 pt-2">
@@ -78,7 +78,7 @@ export default function HeroSection() {
                 className="rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 px-7 py-6 text-base font-bold text-slate-950 shadow-lg shadow-amber-500/20 hover:from-amber-400 hover:to-orange-500"
               >
                 <Link href="/stages/planning">
-                  Start free lesson
+                  Start the Planning lesson
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
@@ -88,7 +88,7 @@ export default function HeroSection() {
                 variant="outline"
                 className="rounded-xl border-slate-700 bg-slate-800/80 px-6 py-6 text-base text-slate-200 hover:bg-slate-700 hover:text-white"
               >
-                <Link href="#stages">Browse topics</Link>
+                <Link href="#stages">Browse the {TOTAL_STAGES} stages</Link>
               </Button>
               <Button asChild size="lg" variant="ghost" className="rounded-xl px-4 py-6 text-base text-amber-300 hover:bg-slate-800 hover:text-amber-200">
                 <Link href="#subscribe">Join the waitlist</Link>
@@ -96,7 +96,7 @@ export default function HeroSection() {
             </div>
 
             <p className="text-xs font-medium text-slate-400">
-              Free written lesson: Planning. {TOTAL_STAGES} stages on the site.
+              Written lessons. Free first: Planning. {TOTAL_STAGES} stages on the site.
             </p>
           </div>
 
