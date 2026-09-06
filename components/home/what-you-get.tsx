@@ -10,14 +10,14 @@ const CARDS = [
     title: "How you read the quote before you sign.",
     body: "Subject to site inspection means they priced a house they have not crawled under. TBA is not a figure. The free Planning lesson is where that translation starts.",
     href: "/stages/planning",
-    cta: "Start free lesson",
+    cta: "Start the Planning lesson",
   },
   {
     kicker: "02",
     title: `${TOTAL_STAGES} written stages, ideas through the party.`,
-    body: "Ideas through punch list and the party. Each card is a guide with steps, materials, and whether this is a Sunday job or a licensed-tradie job.",
+    body: "Ideas through punch list and the party. Each card is a written lesson with steps, materials, and whether this is a Sunday job or a licensed-tradie job.",
     href: "#stages",
-    cta: "Browse topics",
+    cta: `Browse the ${TOTAL_STAGES} stages`,
   },
   {
     kicker: "03",
@@ -33,9 +33,9 @@ export function WhatYouGet() {
     <section className="border-b border-slate-800 bg-gradient-to-b from-stone-950 via-slate-950 to-stone-950 text-white">
       <div className="container px-4 py-16 md:px-6 md:py-20">
         <Reveal>
-          <p className="text-sm font-semibold uppercase tracking-wider text-amber-300">What you get</p>
+          <p className="text-sm font-semibold uppercase tracking-wider text-amber-300">What this site is</p>
           <h2 className="mt-2 max-w-xl text-3xl font-extrabold tracking-tight sm:text-4xl">
-            Written stages and a kitchen inspector still. Start with Planning.
+            Written renovation training. Sixteen stages. Start with Planning.
           </h2>
         </Reveal>
       </div>
