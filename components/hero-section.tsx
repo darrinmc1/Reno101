@@ -30,18 +30,19 @@ export default function HeroSection() {
         className="pointer-events-none absolute bottom-0 right-10 h-80 w-80 rounded-full bg-orange-600/20 blur-[100px]"
         aria-hidden="true"
       />
-      <div
-        ref={gridRef}
-        className="pointer-events-none absolute inset-0 opacity-20 will-change-transform"
-        style={{
-          backgroundImage: `
-            linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px)
-          `,
-          backgroundSize: "40px 40px",
-        }}
-        aria-hidden="true"
-      />
+      <div ref={gridRef} className="pointer-events-none absolute inset-0 will-change-transform" aria-hidden="true">
+        <div
+          className="absolute inset-0 opacity-20"
+          style={{
+            backgroundImage: `
+              linear-gradient(to right, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(255, 255, 255, 0.1) 1px, transparent 1px)
+            `,
+            backgroundSize: "40px 40px",
+          }}
+        />
+        <ScopeLineOverlay />
+      </div>
       <div
         ref={artefactRef}
         className="pointer-events-none absolute right-[3%] top-20 hidden w-[22rem] opacity-[0.16] will-change-transform lg:block"
@@ -109,6 +110,24 @@ export default function HeroSection() {
   )
 }
 
+/** Frozen kitchen footprint on the blueprint — slow amber draw, not a charter/chip/flip. */
+function ScopeLineOverlay() {
+  return (
+    <svg
+      className="absolute inset-0 h-full w-full"
+      viewBox="0 0 1600 900"
+      preserveAspectRatio="xMidYMid slice"
+    >
+      <path
+        className="reno-scope-line"
+        pathLength="1"
+        d="M 160 150 H 980 V 400 H 1320 V 720 H 160 Z"
+      />
+      <line className="reno-scope-line reno-scope-line--measure" pathLength="1" x1="200" y1="430" x2="920" y2="430" />
+    </svg>
+  )
+}
+
 function QuoteArtefact() {
   return (
     <svg viewBox="0 0 280 360" className="h-auto w-full text-amber-300">
@@ -133,19 +152,19 @@ function InspectorStillFrame() {
   return (
     <div className="relative">
       <div
-        className="pointer-events-none absolute -right-5 top-10 hidden h-[82%] w-full rotate-3 rounded-3xl border border-amber-500/20 bg-slate-900/50 shadow-2xl lg:block"
+        className="reno-ghost-tilt pointer-events-none absolute -right-5 top-10 hidden h-[82%] w-full rounded-3xl border border-amber-500/20 bg-slate-900/50 shadow-2xl lg:block"
         aria-hidden="true"
       />
       <div
         className="pointer-events-none absolute -inset-10 -z-10 rounded-full bg-amber-500/15 blur-[90px]"
         aria-hidden="true"
       />
-      <figure className="relative overflow-hidden rounded-3xl border border-amber-500/30 bg-slate-900/90 shadow-2xl">
+      <figure className="reno-inspector-tilt relative overflow-hidden rounded-3xl border border-amber-500/30 bg-slate-900/90 shadow-2xl">
         <figcaption className="border-b border-slate-800 px-5 py-2.5 text-xs font-medium uppercase tracking-wider text-slate-400">
           Still · Kitchen inspector
         </figcaption>
         <div className="relative h-[26rem] overflow-hidden sm:h-[30rem]">
-          <div className="hero-inspector-still pointer-events-none absolute -left-[8%] -top-[6%] w-[124%] origin-top-left" aria-hidden="true">
+          <div className="pointer-events-none absolute -left-[8%] -top-[6%] w-[124%] origin-top-left" aria-hidden="true">
             <InspectorStill />
           </div>
         </div>
