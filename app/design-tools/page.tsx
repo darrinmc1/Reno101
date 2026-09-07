@@ -11,8 +11,8 @@ export default function DesignToolsPage() {
       <div className="mx-auto mb-12 max-w-3xl text-center">
         <h1 className="mb-4 text-4xl font-bold tracking-tight">Renovation Design Tools</h1>
         <p className="text-xl text-muted-foreground">
-          Keep this section as a stable landing page while you design real room styling, mood board, and planning
-          tools.
+          Four design tools are scoped here. None of them are live yet. Coming Soon — not a fake
+          editor, and not a checkout.
         </p>
       </div>
 
@@ -26,53 +26,53 @@ export default function DesignToolsPage() {
         <TabsContent value="roomstyler" className="pt-6">
           <ToolPanel
             title="Room Styler"
-            description="Use this placeholder to scope image uploads, room segmentation, styling presets, and saved concepts."
+            description="Coming Soon. Room photos, finish trials, and saved concepts — not built yet."
             points={[
               "Upload photos of your current space",
               "Try different wall colors and finishes",
               "Experiment with flooring options",
               "Visualize furniture and fixtures",
             ]}
-            ctaLabel="Plan Room Styler"
+            ctaLabel="Coming Soon — read the lessons"
           />
         </TabsContent>
         <TabsContent value="moodboards" className="pt-6">
           <ToolPanel
             title="Mood Boards"
-            description="Use this section to define asset uploads, collections, annotations, and shareable project boards."
+            description="Coming Soon. Uploads, palettes, and shareable boards — not built yet."
             points={[
               "Upload your own inspiration images",
               "Create colour palettes for your project",
               "Add material and texture samples",
               "Share your mood boards with contractors",
             ]}
-            ctaLabel="Plan Mood Boards"
+            ctaLabel="Coming Soon — read the lessons"
           />
         </TabsContent>
         <TabsContent value="colorpicker" className="pt-6">
           <ToolPanel
             title="Color Picker"
-            description="Keep this route in place while you decide how to store palettes, sample rooms, and brand integrations."
+            description="Coming Soon. Palettes and sample-room previews — not built yet."
             points={[
               "Browse curated colour collections",
               "Generate complementary colour schemes",
               "See colours applied to sample rooms",
               "Save and share favourite combinations",
             ]}
-            ctaLabel="Plan Color Picker"
+            ctaLabel="Coming Soon — read the lessons"
           />
         </TabsContent>
         <TabsContent value="floorplanner" className="pt-6">
           <ToolPanel
             title="Floor Planner"
-            description="Use the placeholder to map measurements, drag-and-drop layout editing, and export requirements."
+            description="Coming Soon. Measured plans and furniture layout — not built yet."
             points={[
               "Create precise floor plans with measurements",
               "Drag and drop furniture and fixtures",
               "Switch between 2D and 3D views",
               "Export and share your designs with contractors",
             ]}
-            ctaLabel="Plan Floor Planner"
+            ctaLabel="Coming Soon — read the lessons"
           />
         </TabsContent>
       </Tabs>
@@ -137,18 +137,18 @@ export default function DesignToolsPage() {
       </div>
 
       <div className="text-center">
-        <h2 className="mb-4 text-2xl font-bold">Ready to Design Your Dream Space?</h2>
+        <h2 className="mb-4 text-2xl font-bold">The writing is live. These four tools are not.</h2>
         <p className="mx-auto mb-8 max-w-2xl text-muted-foreground">
-          This section is now safe to extend. Add real tool routes one at a time instead of exposing unfinished pages
-          in navigation.
+          Use the stage lessons, room guides, and planning articles until a real styler ships. We
+          will not pretend a placeholder screenshot is a product.
         </p>
         <div className="flex flex-col justify-center gap-4 sm:flex-row">
-          <Link href="/pricing">
-            <Button size="lg">Get Started</Button>
+          <Link href="/learn">
+            <Button size="lg">Open the lessons</Button>
           </Link>
-          <Link href="/research">
+          <Link href="/guides">
             <Button variant="outline" size="lg">
-              Plan Your Project
+              Room guides
             </Button>
           </Link>
         </div>
@@ -188,7 +188,7 @@ function ToolPanel({
             </li>
           ))}
         </ul>
-        <Link href="/research">
+        <Link href="/learn">
           <Button>
             {ctaLabel} <ArrowRight className="ml-2 h-4 w-4" />
           </Button>

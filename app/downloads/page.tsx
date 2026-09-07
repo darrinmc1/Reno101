@@ -142,8 +142,9 @@ export default function DownloadsPage() {
               </span>
             </h1>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-              Professional PDF templates to plan, budget, and manage your renovation from first
-              idea to final punch list. Print them, share them, bring them to every meeting.
+              Ten templates are specified. The PDF files are not on the server yet, so the download
+              buttons say Coming Soon instead of 404. Use the stage lessons and written guides in
+              the meantime — those are live.
             </p>
           </div>
         </div>
@@ -173,14 +174,15 @@ export default function DownloadsPage() {
                     <Badge variant="outline" className="text-xs">
                       {t.fields} fields
                     </Badge>
+                    <Badge className="bg-amber-100 text-xs text-amber-800 hover:bg-amber-100">
+                      Coming Soon
+                    </Badge>
                   </div>
                 </CardContent>
                 <CardFooter>
-                  <Button asChild className="w-full rounded-xl">
-                    <a href={`/downloads/${t.slug}`} download>
-                      <Download className="mr-2 h-4 w-4" />
-                      Download PDF
-                    </a>
+                  <Button disabled className="w-full rounded-xl">
+                    <Download className="mr-2 h-4 w-4" />
+                    Coming Soon
                   </Button>
                 </CardFooter>
               </Card>
@@ -197,20 +199,20 @@ export default function DownloadsPage() {
             Need the full suite?
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-            These templates are a taste. The Complete Renovation Guide includes every template,
-            checklist, and calculator in editable formats — plus 16 stages of expert guidance
-            from Ideas to Punch List.
+            When the files land they will match these titles — no surprise SKUs and no checkout
+            invented for this page. Until then, the {TEMPLATES.length} cards below are a catalogue,
+            not a download library. The stage lessons and room guides are the usable writing.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Button asChild size="lg" className="rounded-xl">
-              <Link href="/pricing">
-                See the full guide
+              <Link href="/learn">
+                Open the lesson catalogue
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
             <Button asChild size="lg" variant="outline" className="rounded-xl">
-              <Link href="/design-tools">
-                Browse all tools
+              <Link href="/tools">
+                See live tools
               </Link>
             </Button>
           </div>

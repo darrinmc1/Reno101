@@ -43,6 +43,7 @@ import {
 } from "@/lib/stages"
 import { EmailCapture } from "@/components/email-capture"
 import { PriceDisclaimer } from "@/components/price-disclaimer"
+import HumorBreak from "@/components/humor-break"
 
 export function generateStaticParams() {
   return STAGES.map((s) => ({ slug: s.slug }))
@@ -248,7 +249,7 @@ export default async function StagePage({ params }: { params: Promise<{ slug: st
                   </div>
                   <h2 className="mt-1 text-3xl font-extrabold tracking-tight">Subtopics &amp; components</h2>
                   <p className="mt-2 max-w-2xl text-sm text-muted-foreground">
-                    Click any subtopic to expand. Every component carries a skill-level indicator so you know which bits are DIY-friendly and which are best handed to a licensed tradie.
+                    Click any subtopic to expand. Every component carries a skill-level indicator so you know which bits are DIY-friendly and which are best handed to a licensed tradie. Educational planning only — not trade licensing advice.
                   </p>
                 </div>
                 <div className="flex flex-wrap items-center gap-2 rounded-xl border border-border bg-card px-3 py-2 text-xs font-semibold">
@@ -260,6 +261,8 @@ export default async function StagePage({ params }: { params: Promise<{ slug: st
                   ))}
                 </div>
               </div>
+
+              <HumorBreak tag={stage.phase === "plan" ? "planning" : "general"} />
 
               <Accordion type="multiple" className="space-y-3">
                 {stage.steps!.map((step, i) => (

@@ -98,7 +98,7 @@ export const STAGES: Stage[] = [
     hero: "from-cyan-500 via-sky-600 to-blue-700",
     tagline: "Research, mood boards, samples, open homes.",
     summary:
-      "Before a single hammer swings, the Ideas stage is where you figure out what you actually want — not what Instagram wants, not what your sister-in-law wants, and not what a single dramatic magazine cover wants. Collect inspiration, pressure-test your taste, and talk to people who've survived a reno recently.",
+      "Before a single hammer swings, Ideas is where you figure out what you actually want — not what Instagram wants, not what your sister-in-law wants, and not what a single dramatic magazine cover wants. Collect inspiration, pressure-test your taste against the house you own, and talk to people who have survived a reno recently. A mood board is a hypothesis. A sample in the real light is evidence. Peel Boss does not pick a style in the checkout line.",
     resourceCount: 9,
     steps: [
       {
@@ -135,9 +135,9 @@ export const STAGES: Stage[] = [
         emoji: "💬",
         components: [
           { label: "Ask what worked and what didn't", hint: "The 'didn't' list is the gold. Most people love telling it.", skill: "Basic" },
-          { label: "What they would do differently", skill: "Basic" },
+          { label: "What they would do differently", hint: "Ask for the one decision they would unwind. That answer is usually worth more than their favourite tile.", skill: "Basic" },
           { label: "References — contractors & materials", hint: "A referred tradie beats a Google-reviewed one eight times out of ten.", skill: "Basic" },
-          { label: "Recommendations", skill: "Basic" },
+          { label: "Recommendations", hint: "Write names, what they did, and whether the referrer would hire them again. 'They're great' is not a reference. It is a vibe.", skill: "Basic" },
         ],
       },
       {
@@ -145,7 +145,7 @@ export const STAGES: Stage[] = [
         emoji: "🏠",
         components: [
           { label: "Take lots of photos", hint: "Of finishes, not floor plans. Finishes are what you're hunting.", skill: "Basic" },
-          { label: "Look for ideas", skill: "Basic" },
+          { label: "Look for ideas", hint: "Hunt junctions, storage, and how the light actually hits a bench — not the styling props someone will take home at 4 p.m.", skill: "Basic" },
           { label: "Identify what you like", hint: "And, more importantly, what you actively don't. You will meet 200 different kitchen splashbacks. You will love 4.", skill: "Basic" },
         ],
       },
@@ -174,7 +174,7 @@ export const STAGES: Stage[] = [
     hero: "from-blue-500 via-indigo-600 to-violet-700",
     tagline: "Costs, contractors, quotes, permits, materials.",
     summary:
-      "The unsexy stage where the project is actually won or lost. Going over-time and over-budget is almost inevitable — but how badly is almost entirely decided here. Most of this is paperwork, phone calls, and asking awkward questions before they become expensive ones.",
+      "The unsexy stage where the project is actually won or lost. Going over-time and over-budget is almost inevitable — how badly is decided here. Write the scope, the out-of-scope, the contingency, and the questions you will ask every tradie. Most of this is paperwork, phone calls, and asking awkward things while they are still cheap. Intel Academy bar: a verbal quote is a story. A written quote is a document.",
     resourceCount: 12,
     steps: [
       {
@@ -182,7 +182,7 @@ export const STAGES: Stage[] = [
         emoji: "📝",
         components: [
           { label: "Define the end goal", hint: "Write a single sentence describing what 'done' looks like. If you can't, the scope will keep expanding on its own.", skill: "Basic" },
-          { label: "Rooms / areas IN scope", skill: "Basic" },
+          { label: "Rooms / areas IN scope", hint: "List rooms, not vibes. 'The kitchen and the hallway it dumps into' is a scope. 'Making the house nicer' is a trap.", skill: "Basic" },
           { label: "Rooms / areas OUT of scope", hint: "Write this down. It's the thing you'll quietly argue with yourself about in month three.", skill: "Basic" },
           { label: "Must-haves vs nice-to-haves", hint: "Separate lists. The nice-to-have list is where the budget goes to die.", skill: "Basic" },
           { label: "Agree priorities with everyone living there", hint: "A 20-minute conversation now prevents a 20-week stand-off later.", skill: "Basic" },
@@ -227,7 +227,7 @@ export const STAGES: Stage[] = [
         components: [
           { label: "Check council requirements", hint: "A quick call to your local council saves weeks later. Every council interprets the rules slightly differently.", skill: "Intermediate" },
           { label: "Development Application (DA) if needed", hint: "Required for most structural changes, extensions, and anything visible from the street. 4–12 weeks typical.", skill: "Advanced" },
-          { label: "Building permits / construction certificates", skill: "Advanced" },
+          { label: "Building permits / construction certificates", hint: "The certifier is not a vibe check. Ask what inspections they need and when. Missing one is how the plasterer waits while you wait.", skill: "Advanced" },
           { label: "Plumbing & electrical Certificates of Compliance", hint: "Your licensed tradie organises these. Keep copies — the next buyer's conveyancer will ask.", skill: "Intermediate" },
           { label: "Strata / heritage / bushfire approvals", hint: "If any of these apply, start earlier than you think. Heritage approvals in particular are not rapid.", skill: "Advanced" },
         ],
@@ -237,7 +237,7 @@ export const STAGES: Stage[] = [
         emoji: "📦",
         components: [
           { label: "Place orders with lead-time in mind", hint: "Tapware, tiles and custom joinery are the usual culprits. 'In stock' on the website doesn't always mean in stock in your state.", skill: "Basic" },
-          { label: "Arrange delivery or pickup", skill: "Basic" },
+          { label: "Arrange delivery or pickup", hint: "Someone has to be home, the driveway has to cope, and 'leave it at the side' is how tiles meet rain. Write the access notes on the order.", skill: "Basic" },
           { label: "Check deliveries on arrival", hint: "Count boxes, open a sample, photograph any damage. Disputes in week 8 over week-2 deliveries rarely go in your favour.", skill: "Basic" },
           { label: "Secure storage", hint: "Tiles crack. Doors warp. Timber twists. Anything expensive needs to be indoors, flat, and away from water.", skill: "Intermediate" },
           { label: "Keep every receipt and warranty", hint: "A labelled folder (physical or digital) beats hunting through four inboxes when the dishwasher leaks in month two.", materials: "Folder / cloud storage", skill: "Basic" },
@@ -270,7 +270,8 @@ export const STAGES: Stage[] = [
     accent: "bg-purple-100 text-purple-700",
     hero: "from-purple-500 via-violet-600 to-fuchsia-700",
     tagline: "Tear down the old, make room for the new — and dispose of it properly.",
-    summary: "Before you build, you un-build. Make the site safe, save what's worth saving, then strip it back with more discipline than enthusiasm. Demolition feels destructive, but it's also where most asbestos, structural and insurance surprises surface.",
+    summary:
+      "Before you build, you un-build. Make the site safe, save what is worth saving, then strip it back with more discipline than enthusiasm. Demolition feels like progress. It is also where asbestos, live services, and insurance surprises like to introduce themselves. Photograph everything. Isolate power, water, and gas properly. Enthusiasm is not a method of isolation. Pre-1990 fabric gets tested before it gets smashed.",
     resourceCount: 14,
     steps: [
       {
@@ -326,7 +327,8 @@ export const STAGES: Stage[] = [
     accent: "bg-emerald-100 text-emerald-700",
     hero: "from-green-500 via-emerald-600 to-teal-700",
     tagline: "Trees, excavation, paving, planting, grass.",
-    summary: "Outside first — it's much easier to run machinery before the external walls are pretty. Anything that needs an excavator, a stump grinder, or a Bobcat happens now.",
+    summary:
+      "Outside first — it is much easier to run machinery before the external walls are pretty. Trees, levels, drainage, and anything that needs an excavator, a stump grinder, or a Bobcat happen now. Fall away from the house. Dial Before You Dig is free and has saved more buckets than optimism. A pretty courtyard that ponds after rain is a water feature you did not order.",
     resourceCount: 11,
     steps: [
       {
@@ -353,7 +355,7 @@ export const STAGES: Stage[] = [
         components: [
           { label: "Compacted base", hint: "Whatever the surface, the base does the work. Skimping here is the most common landscaping regret.", materials: "Road base, plate compactor", skill: "Intermediate" },
           { label: "Drainage falls", hint: "Build drainage in from the start. Retrofitting is the most expensive water lesson there is.", skill: "Advanced" },
-          { label: "Pavers, concrete, or pebble", skill: "Intermediate" },
+          { label: "Pavers, concrete, or pebble", hint: "Pick the surface for the messiest day, not the photoshoot. Pebble hides dirt and eats furniture. Concrete cracks if the joints are a rumour. Pavers need a base that was taken seriously.", skill: "Intermediate" },
           { label: "Retaining walls (over 1m: engineer required)", hint: "Anything over 1m typically needs an engineered design and council approval. Don't ask the landscaper to certify it.", skill: "Mastery" },
         ],
       },
@@ -380,7 +382,8 @@ export const STAGES: Stage[] = [
     accent: "bg-emerald-100 text-emerald-800",
     hero: "from-emerald-700 via-green-800 to-emerald-900",
     tagline: "Roofing, gutters, drainage, foundations, cladding.",
-    summary: "The weather-tight envelope. Mostly a call-a-pro stage — the mistakes here leak for years and find you in bed at 3am.",
+    summary:
+      "The weather-tight envelope: roof, gutters, drainage, and the skin of the house. Mostly a call-a-pro stage. The mistakes here leak for years and find you in bed at 3 a.m. If the roof is off, sark and insulate — the next time it is off is in a generation. Patched gutters look fine until the first proper storm. Rising damp gets fixed before new cladding, or you have wrapped the problem.",
     resourceCount: 16,
     steps: [
       {
@@ -433,7 +436,8 @@ export const STAGES: Stage[] = [
     accent: "bg-stone-100 text-stone-700",
     hero: "from-stone-500 via-amber-700 to-stone-800",
     tagline: "Repairs, framing, windows, doors, stairs.",
-    summary: "Putting the skeleton back together. The part that makes the site look like progress is finally being made — but it's also where engineering, certifications, and order-lead-times start ruling your week.",
+    summary:
+      "Putting the skeleton back together. This is the week the site finally looks like progress — and also the week engineering, certificates, and window lead times start ruling the diary. Termite and rot get treated, not decorated. Anything spanning a serious load needs an engineer, not a gut feel. Custom windows are often 6–12 weeks. A carpenter waiting is on your tab.",
     resourceCount: 13,
     steps: [
       {
@@ -484,7 +488,8 @@ export const STAGES: Stage[] = [
     accent: "bg-slate-100 text-slate-700",
     hero: "from-slate-600 via-zinc-700 to-stone-800",
     tagline: "Plumbing, electrics, gas, HVAC, drainage, insulation.",
-    summary: "Everything that hides behind the walls. Licensed trades only — doing this yourself voids your insurance and possibly your marriage. The decisions made here are the ones you can't easily reverse later.",
+    summary:
+      "Everything that hides behind the walls: water, waste, power, gas, data, HVAC, insulation. Licensed trades only for the regulated parts — this is educational planning, not a licence. The decisions made here are the ones you cannot easily reverse later. Pressure-test before plaster. Run the extra data cable now. A lighting plan sketched after the sheets are up is archaeology.",
     resourceCount: 22,
     steps: [
       {
@@ -555,7 +560,8 @@ export const STAGES: Stage[] = [
     accent: "bg-amber-50 text-amber-700",
     hero: "from-amber-400 via-orange-500 to-amber-600",
     tagline: "Sheeting, plaster, cornice, sanding, patching, prime.",
-    summary: "Where the walls stop looking like a construction site and start looking like walls. Harder than the internet makes it look — Level 4 finishing is the difference between 'painted' and 'professional'.",
+    summary:
+      "Where the walls stop looking like a construction site and start looking like walls. Harder than the internet makes it look. Level 4 finishing is the difference between 'painted' and 'professional.' Wet-area board in wet rooms. Stagger the joints. Inspect under a raking light before anyone opens a paint tin — the paint will showcase whatever you skip.",
     resourceCount: 9,
     steps: [
       {
@@ -612,7 +618,8 @@ export const STAGES: Stage[] = [
     accent: "bg-amber-100 text-amber-800",
     hero: "from-amber-600 via-orange-700 to-amber-800",
     tagline: "Prep, waterproofing, tile, carpet, timber.",
-    summary: "Underfoot choices — the thing you'll literally feel every day. Prep badly and you'll hear about it every time someone walks across the room.",
+    summary:
+      "Underfoot choices — the thing you will literally feel every day. Prep badly and you will hear about it every time someone walks across the room. Flatness, moisture, and the wet-area membrane come before the pretty finish. Acclimatise timber. Leave the expansion gap. Waterproofing wants a certificate, not a vibe. Choose the floor for the worst day in that room, not the photoshoot.",
     resourceCount: 15,
     steps: [
       {
@@ -648,7 +655,7 @@ export const STAGES: Stage[] = [
         components: [
           { label: "Acclimatise the boards", hint: "48–72 hours in the room. Skipping this is why floors cup or gap a month later.", skill: "Basic" },
           { label: "Expansion gap at perimeter", hint: "10–12mm around every wall. Skirting covers it. Without the gap, the floor buckles in summer.", skill: "Intermediate" },
-          { label: "Stagger joints, click-lock or glue-down", skill: "Intermediate" },
+          { label: "Stagger joints, click-lock or glue-down", hint: "Stagger end joints by at least 300 mm. Floating floors need the gap. Glue-down needs a slab that passed the moisture test. Do not mix methods because a leftover pack 'should be fine'.", skill: "Intermediate" },
         ],
       },
       {
@@ -672,7 +679,8 @@ export const STAGES: Stage[] = [
     accent: "bg-amber-100 text-amber-900",
     hero: "from-amber-700 via-orange-800 to-amber-900",
     tagline: "Doors, skirting, architraves, trim.",
-    summary: "The detail work that tells a room it's almost done. The difference between 'renovated' and 'rented-looking' lives here — in the mitres, the gap-fill, and the time spent fitting hardware properly.",
+    summary:
+      "The detail work that tells a room it is almost done. The difference between 'renovated' and 'rented-looking' lives here — in the mitres, the gap-fill, and the time spent fitting hardware properly. Plumb the jamb before you hang the door. Profile-match the era of the house, not the year of the reno. A door that swings itself shut is a jamb that was in a hurry.",
     resourceCount: 12,
     steps: [
       {
@@ -715,7 +723,7 @@ export const STAGES: Stage[] = [
     hero: "from-orange-500 via-red-500 to-rose-700",
     tagline: "Prep, ceilings, walls, trims, staining, outside.",
     summary:
-      "The most DIY-able finishing stage — if you have the patience for masking tape and the honesty to do three coats when you wanted to do one. 80% of a good paint job happens before the paint goes on the wall.",
+      "The most DIY-able finishing stage — if you have the patience for masking tape and the honesty to do three coats when you wanted to do one. Eighty percent of a good paint job happens before the paint goes on the wall. Wash, fill, sand, prime where the wall asks, then cut in and keep a wet edge. Ceilings first. Exterior paint has a weather window. Peel Boss does not pick a hero colour under a fluorescent aisle light.",
     resourceCount: 11,
     steps: [
       {
@@ -811,7 +819,8 @@ export const STAGES: Stage[] = [
     accent: "bg-orange-100 text-orange-800",
     hero: "from-orange-600 via-red-600 to-rose-700",
     tagline: "Kitchens, vanities, appliances, robes, mirrors.",
-    summary: "The big-ticket items that make a room feel finished, and where the budget finally stops pretending. Most of this stage is somebody else's lead time becoming your scheduling problem.",
+    summary:
+      "The big-ticket items that make a room feel finished, and where the budget finally stops pretending. Most of this stage is somebody else's lead time becoming your scheduling problem. Level the base cabinets before the bench arrives. Confirm the plumber's rough-in matches the vanity before you order it. Stone gets templated after the cabinets are final — not after you have already booked the holiday.",
     resourceCount: 19,
     steps: [
       {
@@ -862,7 +871,8 @@ export const STAGES: Stage[] = [
     accent: "bg-rose-100 text-rose-700",
     hero: "from-rose-500 via-red-600 to-orange-700",
     tagline: "Plumbing, electrical, AC, fixtures, fire alarms.",
-    summary: "Final connections. Licensed trades return for sign-off and Certificates of Compliance — keep the paperwork, the next buyer's conveyancer will ask.",
+    summary:
+      "Final connections. Licensed trades return for sign-off and Certificates of Compliance — keep the paperwork. The next buyer's conveyancer will ask, smiling. New washers, hand-tight cistern bolts, Teflon on the shower arm, and a 15-minute pressure run before anyone caulks the last gap. Hard-wired smoke alarms for new work in most states. DIY refrigerant is not a personality.",
     resourceCount: 14,
     steps: [
       {
@@ -914,7 +924,8 @@ export const STAGES: Stage[] = [
     accent: "bg-red-50 text-red-700",
     hero: "from-red-500 via-rose-600 to-pink-700",
     tagline: "Clean up and final checks across every trade.",
-    summary: "The nitpicking pass — the unglamorous difference between 'nearly finished' and 'actually finished'. Bring a torch, a pad of sticky notes, and the willingness to be that person.",
+    summary:
+      "The nitpicking pass — the unglamorous difference between 'nearly finished' and 'actually finished.' Bring a torch, a pad of sticky notes, and the willingness to be that person. Open every door, tap, and drawer. Photograph defects with a note in the frame. Group the list by trade and book one return day. The 'fixed' column only ticks when you have seen it, not when someone promised it from the van.",
     resourceCount: 8,
     steps: [
       {
@@ -965,7 +976,8 @@ export const STAGES: Stage[] = [
     accent: "bg-gradient-to-br from-red-500 to-primary text-white",
     hero: "from-fuchsia-500 via-pink-500 to-rose-500",
     tagline: "You made it. Throw the housewarming you earned.",
-    summary: "The most important stage. Invite the people who believed in your project when the site was a hole in the ground. Quietly don't invite the ones who said it would never happen.",
+    summary:
+      "The most important stage. Invite the people who believed in your project when the site was a hole in the ground. Quietly do not invite the ones who said it would never happen. Photograph the rooms before they get lived in. Thank the tradies by name. Then stop renovating the same house in conversation. You are allowed to sit down.",
     resourceCount: 1,
   },
 ]

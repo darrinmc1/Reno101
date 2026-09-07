@@ -175,12 +175,10 @@ export default function ToolsPage() {
             <div className="flex items-start gap-3">
               <Sparkles className="mt-0.5 h-5 w-5 flex-shrink-0 text-amber-500" />
               <div className="text-sm text-muted-foreground">
-                <span className="font-medium text-foreground">Free trial:</span> One free
-                generation with Gemini Flash.{" "}
-                <Link href="/pricing" className="font-medium text-primary underline underline-offset-2">
-                  Upgrade to Pro
-                </Link>{" "}
-                for unlimited access to advanced AI models.
+                <span className="font-medium text-foreground">Trial UI:</span> These three
+                generators exist as a form. They need a configured model key to produce a
+                document. If generation fails, treat the page as Coming Soon — we are not
+                inventing a paid unlimited tier on this screen.
               </div>
             </div>
           </div>
@@ -201,6 +199,23 @@ export default function ToolsPage() {
           </div>
 
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <Card className="border-dashed border-primary/20 bg-secondary/20 shadow-sm">
+              <CardHeader>
+                <div className="mb-2 flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
+                  <Wrench className="h-6 w-6 text-primary" />
+                </div>
+                <CardTitle className="text-lg">Style quiz, quote comparison, paint coverage</CardTitle>
+                <CardDescription>
+                  Named on the Ideas, Planning, and Painting stages. Not built. Coming Soon — the
+                  cards do not 404.
+                </CardDescription>
+              </CardHeader>
+              <CardFooter>
+                <Button disabled variant="outline" className="w-full">
+                  Coming Soon
+                </Button>
+              </CardFooter>
+            </Card>
             {/* Material Tracker (existing) */}
             <Card className="border-primary/10 shadow-sm transition-shadow hover:shadow-md">
               <CardHeader>
