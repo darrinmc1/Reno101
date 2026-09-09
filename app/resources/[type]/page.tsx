@@ -44,7 +44,7 @@ const TYPE_META: Record<ResourceKind, TypeMeta> = {
     plural: "ebooks",
     blurb: "Deep-dive guides. Fewer words than a forum, more words than a tweet.",
     longBlurb:
-      "Self-contained reads on the parts of a reno you wish someone had warned you about. Most are AU$9.90 individually, or bundled into a project pack for less.",
+      "Self-contained reads on the parts of a reno you wish someone had warned you about. Starter Pack is free. Paid packs are waitlist only until checkout is live.",
     heroImage:
       "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=2000&q=70",
     imageCredit: "Photo: Patrick Tomasso / Unsplash",
@@ -60,7 +60,7 @@ const TYPE_META: Record<ResourceKind, TypeMeta> = {
     blurb:
       "Quote comparisons, budgets, scope docs. Pre-filled so you're not staring at a blank cell.",
     longBlurb:
-      "Spreadsheets and printables you can drop your own numbers into. Most are AU$4.90 individually, or bundled with related ebooks and checklists.",
+      "Spreadsheets and printables you can drop your own numbers into. Starter Pack ones are free with email. Paid bundles are on the waitlist.",
     heroImage:
       "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=2000&q=70",
     imageCredit: "Photo: Carlos Muza / Unsplash",
@@ -75,7 +75,7 @@ const TYPE_META: Record<ResourceKind, TypeMeta> = {
     plural: "checklists",
     blurb: "Print, tick, panic slightly less. One per stage, plus the edge cases.",
     longBlurb:
-      "Single-sheet things to take on site, or to a quote, or to your kitchen designer. Most are AU$9.90 individually — Starter Pack ones are free with email signup.",
+      "Single-sheet things to take on site, or to a quote, or to your kitchen designer. Starter Pack ones are free with email signup.",
     heroImage:
       "https://images.unsplash.com/photo-1517842645767-c639042777db?auto=format&fit=crop&w=2000&q=70",
     imageCredit: "Photo: Aaron Burden / Unsplash",
@@ -106,7 +106,7 @@ const TYPE_META: Record<ResourceKind, TypeMeta> = {
     plural: "tips",
     blurb: "The stuff tradies say once and then assume you heard. Save time, save money.",
     longBlurb:
-      "Short, actionable advice — usually a single page or a 20-tip cheat-sheet for a specific trade. Most are free; the trade-by-trade collections are AU$4.90.",
+      "Short, actionable advice — usually a single page or a 20-tip cheat-sheet for a specific trade. Most are free. Paid collections wait until checkout is live.",
     heroImage:
       "https://images.unsplash.com/photo-1507413245164-6160d8298b31?auto=format&fit=crop&w=2000&q=70",
     imageCredit: "Photo: Riccardo Annandale / Unsplash",

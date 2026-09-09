@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { ArrowRight, BookOpen, Clock, FileText, Search } from "lucide-react"
 import Link from "next/link"
+import { purchasesOpen } from "@/lib/purchases"
 
 export default function DashboardPage() {
   return (
@@ -36,17 +37,23 @@ export default function DashboardPage() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle>Subscription</CardTitle>
-                <CardDescription>Standard Plan, respectable and alert</CardDescription>
+                <CardTitle>Paid packs</CardTitle>
+                <CardDescription>
+                  {purchasesOpen() ? "Standard Plan, respectable and alert" : "Waitlist only — checkout is not live"}
+                </CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">10 / 10</div>
-                <p className="text-sm text-muted-foreground">Guides remaining this week before you become unstoppable</p>
+                <div className="text-2xl font-bold">{purchasesOpen() ? "10 / 10" : "Free first"}</div>
+                <p className="text-sm text-muted-foreground">
+                  {purchasesOpen()
+                    ? "Guides remaining this week before you become unstoppable"
+                    : "Starter Pack now. AU$49 / AU$149 when Stripe checkout exists."}
+                </p>
               </CardContent>
               <CardFooter>
-                <Link href="/subscription">
+                <Link href={purchasesOpen() ? "/subscription" : "/pricing#bundles"}>
                   <Button variant="ghost" size="sm" className="gap-1">
-                    Manage Plan <ArrowRight className="h-4 w-4" />
+                    {purchasesOpen() ? "Manage Plan" : "See waitlist packs"} <ArrowRight className="h-4 w-4" />
                   </Button>
                 </Link>
               </CardFooter>

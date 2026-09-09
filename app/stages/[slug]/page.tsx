@@ -338,7 +338,7 @@ export default async function StagePage({ params }: { params: Promise<{ slug: st
               <div>
                 <h2 className="text-2xl font-extrabold tracking-tight">Resources for this stage</h2>
                 <p className="mt-1 max-w-xl text-sm text-muted-foreground">
-                  Pay per item, or get the whole {bundleName ?? "bundle"} in one go. Starter Pack items free with email signup.
+                  Starter Pack items are free with email signup. Paid packs are on the waitlist — no checkout today.
                 </p>
               </div>
               <div className="flex flex-wrap items-center gap-3">
@@ -346,7 +346,7 @@ export default async function StagePage({ params }: { params: Promise<{ slug: st
                   <Button asChild variant="default" className="rounded-xl">
                     <Link href="/pricing#bundles">
                       <Package className="mr-2 h-4 w-4" />
-                      Get the {bundleName} — AU$49
+                      Join the waitlist for {bundleName}
                     </Link>
                   </Button>
                 )}
@@ -523,7 +523,7 @@ function ResourceRow({ r }: { r: StageResource }) {
 
   return (
     <Link
-      href={r.href ?? "/pricing"}
+      href={r.href ?? "/pricing#bundles"}
       className="group flex items-center gap-3 rounded-xl border border-border bg-card p-4 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
     >
       <div className={`grid h-9 w-9 flex-shrink-0 place-items-center rounded-lg text-white ${resourceTint[r.kind]}`}>

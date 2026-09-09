@@ -177,10 +177,10 @@ export default function ToolsPage() {
               <div className="text-sm text-muted-foreground">
                 <span className="font-medium text-foreground">Free trial:</span> One free
                 generation with Gemini Flash.{" "}
-                <Link href="/pricing" className="font-medium text-primary underline underline-offset-2">
-                  Upgrade to Pro
+                <Link href="/pricing#bundles" className="font-medium text-primary underline underline-offset-2">
+                  Join the waitlist
                 </Link>{" "}
-                for unlimited access to advanced AI models.
+                when paid packs are actually buyable.
               </div>
             </div>
           </div>

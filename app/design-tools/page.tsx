@@ -89,9 +89,9 @@ export default function DesignToolsPage() {
             <FeatureRow icon={<Palette className="h-4 w-4 text-primary" />} text="High-resolution exports" />
           </CardContent>
           <CardFooter>
-            <Link href="/pricing">
+            <Link href="/pricing#bundles">
               <Button variant="outline" className="w-full">
-                View Plans
+                See waitlist packs
               </Button>
             </Link>
           </CardFooter>
@@ -143,8 +143,8 @@ export default function DesignToolsPage() {
           in navigation.
         </p>
         <div className="flex flex-col justify-center gap-4 sm:flex-row">
-          <Link href="/pricing">
-            <Button size="lg">Get Started</Button>
+          <Link href="/pricing#bundles">
+            <Button size="lg">See waitlist packs</Button>
           </Link>
           <Link href="/research">
             <Button variant="outline" size="lg">
