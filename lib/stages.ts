@@ -2,6 +2,8 @@
 // Used by the homepage dashboard and every stage detail page.
 // All prices in AUD — matches the existing Reno Ready catalogue on site123.
 
+import { purchasesOpen } from "@/lib/purchases"
+
 export type Difficulty = "basic" | "intermediate" | "advanced" | "mastery"
 export type Phase = "plan" | "structure" | "finish"
 export type SkillLevel = "Basic" | "Intermediate" | "Advanced" | "Mastery"
@@ -995,10 +997,13 @@ export function getPrevStage(slug: string): Stage | undefined {
   return STAGES[idx - 1]
 }
 
-/** Formatted price string e.g. "AU$4.90" or "Free" */
+/** Formatted price string e.g. "AU$4.90" or "Free". Paid amounts stay parked until purchasesOpen(). */
 export function formatPrice(r: StageResource): string {
   if (r.free) return "Free"
-  if (typeof r.priceAUD === "number") return `AU$${r.priceAUD.toFixed(2)}`
+  if (typeof r.priceAUD === "number") {
+    if (purchasesOpen()) return `AU$${r.priceAUD.toFixed(2)}`
+    return "Waitlist"
+  }
   return ""
 }
 

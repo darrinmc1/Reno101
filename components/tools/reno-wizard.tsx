@@ -14,6 +14,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@/components/ui/label"
+import { purchasesOpen } from "@/lib/purchases"
 import {
   ArrowLeft,
   ArrowRight,
@@ -78,10 +79,13 @@ function SubscribeWall({ onBack }: { onBack: () => void }) {
           <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
             <Lock className="h-8 w-8 text-primary" />
           </div>
-          <CardTitle className="text-2xl">Unlock unlimited AI renovation tools</CardTitle>
+          <CardTitle className="text-2xl">
+            {purchasesOpen() ? "Unlock unlimited AI renovation tools" : "Free generation used — waitlist only"}
+          </CardTitle>
           <CardDescription className="mt-2 text-base">
-            Get AI-powered renovation briefs, material estimates, and design briefs —
-            generated in seconds.
+            {purchasesOpen()
+              ? "Get AI-powered renovation briefs, material estimates, and design briefs — generated in seconds."
+              : "Checkout isn't live. Join the waitlist for paid packs when Stripe can actually take a payment."}
           </CardDescription>
         </CardHeader>
         <CardContent className="space-y-4">
@@ -94,21 +98,23 @@ function SubscribeWall({ onBack }: { onBack: () => void }) {
               One free generation with Gemini Flash — try it out before you commit.
             </p>
           </div>
-          <div className="rounded-xl border border-primary/10 bg-primary/[0.03] p-4">
-            <h4 className="mb-2 flex items-center gap-2 text-sm font-semibold">
-              <Sparkles className="h-4 w-4 text-primary" />
-              Pro subscription
-            </h4>
-            <p className="text-sm text-muted-foreground">
-              Unlocks advanced AI models for detailed material estimates and design briefs
-              — unlimited generations.
-            </p>
-          </div>
+          {purchasesOpen() && (
+            <div className="rounded-xl border border-primary/10 bg-primary/[0.03] p-4">
+              <h4 className="mb-2 flex items-center gap-2 text-sm font-semibold">
+                <Sparkles className="h-4 w-4 text-primary" />
+                Pro subscription
+              </h4>
+              <p className="text-sm text-muted-foreground">
+                Unlocks advanced AI models for detailed material estimates and design briefs
+                — unlimited generations.
+              </p>
+            </div>
+          )}
         </CardContent>
         <CardFooter className="flex-col gap-3">
           <Button asChild className="w-full" size="lg">
-            <Link href="/pricing">
-              View Pro Plans
+            <Link href={purchasesOpen() ? "/pricing" : "/pricing#bundles"}>
+              {purchasesOpen() ? "View Pro Plans" : "Join the waitlist"}
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
@@ -378,7 +384,7 @@ export function RenoWizard({ tool }: RenoWizardProps) {
             </Link>
           </Button>
           <Button onClick={handleStart} size="lg">
-            {freeLeft > 0 ? "Get Started" : "Upgrade to Continue"}
+            {freeLeft > 0 ? "Get Started" : purchasesOpen() ? "Upgrade to Continue" : "Join the waitlist"}
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </CardFooter>
@@ -499,12 +505,13 @@ export function RenoWizard({ tool }: RenoWizardProps) {
               <div>
                 <p className="font-medium text-amber-900">Free trial used up</p>
                 <p className="mt-1 text-sm text-amber-700">
-                  Upgrade to Pro for unlimited AI-powered renovation documents with advanced
-                  models.
+                  {purchasesOpen()
+                    ? "Upgrade to Pro for unlimited AI-powered renovation documents with advanced models."
+                    : "Paid packs are on the waitlist. We'll email when checkout is actually live."}
                 </p>
                 <Button asChild variant="outline" size="sm" className="mt-3 rounded-full">
-                  <Link href="/pricing">
-                    View Plans
+                  <Link href={purchasesOpen() ? "/pricing" : "/pricing#bundles"}>
+                    {purchasesOpen() ? "View Plans" : "Join the waitlist"}
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>

@@ -1,4 +1,6 @@
-// Single source of truth for Reno101 pricing.
+// Parked catalog for the Stripe flip. Not mounted while purchasesOpen() is false.
+// Live public map is WAITLIST_PACKS (AU$49 / AU$149). Do not delete this file.
+//
 // One-time purchase model — no subscriptions.
 //
 // Three tier types: whole_house | room_guide | phase_bundle

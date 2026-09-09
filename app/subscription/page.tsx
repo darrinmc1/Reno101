@@ -1,6 +1,8 @@
 import Link from "next/link"
 import { Check, ArrowRight, Sparkles, Users, Building2 } from "lucide-react"
+import { purchasesOpen } from "@/lib/purchases"
 
+/** Parked membership map. Hidden until NEXT_PUBLIC_PURCHASES_OPEN=true. */
 const PLANS = [
   {
     name: "Free",
@@ -38,6 +40,36 @@ const PLANS = [
 ]
 
 export default function SubscriptionPage() {
+  if (!purchasesOpen()) {
+    return (
+      <div className="container mx-auto max-w-3xl px-4 py-16">
+        <p className="text-sm font-medium uppercase tracking-[0.2em] text-amber-600">Waitlist</p>
+        <h1 className="mt-4 text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
+          Checkout isn&apos;t live yet
+        </h1>
+        <p className="mt-4 max-w-2xl text-lg text-slate-600">
+          Paid packs are on the waitlist — AU$49 Project Bundle and AU$149 All-Access when
+          Stripe checkout actually exists. No Go Pro. No charge today.
+        </p>
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Link
+            href="/pricing#bundles"
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-amber-600 px-5 py-3 text-sm font-semibold text-white shadow-lg hover:bg-amber-700"
+          >
+            See waitlist packs
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+          <Link
+            href="/#subscribe"
+            className="inline-flex items-center justify-center gap-2 rounded-xl border border-slate-300 px-5 py-3 text-sm font-semibold text-slate-700 hover:bg-slate-50"
+          >
+            Join the waitlist
+          </Link>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="container mx-auto max-w-5xl px-4 py-16">
       <div className="text-center">

@@ -278,11 +278,10 @@ export default function MaterialTrackerPage() {
                       <div className="flex items-center justify-center p-8 text-center">
                         <div>
                           <p className="mb-4 text-muted-foreground">
-                            Price history is for Premium subscribers, because apparently spreadsheets can also have a
-                            luxury tier.
+                            Price history is not live yet. Join the waitlist if you want it when paid packs actually exist.
                           </p>
-                          <Link href="/pricing">
-                            <Button variant="outline" className="rounded-full">Upgrade to Premium</Button>
+                          <Link href="/pricing#bundles">
+                            <Button variant="outline" className="rounded-full">Join the waitlist</Button>
                           </Link>
                         </div>
                       </div>
@@ -294,11 +293,10 @@ export default function MaterialTrackerPage() {
                             <Bell className="h-6 w-6 text-primary" />
                           </div>
                           <p className="mb-4 text-muted-foreground">
-                            Price alerts are available for Standard and Premium plans, which is helpful when tapware
-                            keeps behaving like crypto.
+                            Price alerts are not live yet. Join the waitlist if you want them when checkout lands.
                           </p>
-                          <Link href="/pricing">
-                            <Button variant="outline" className="rounded-full">Upgrade Your Plan</Button>
+                          <Link href="/pricing#bundles">
+                            <Button variant="outline" className="rounded-full">Join the waitlist</Button>
                           </Link>
                         </div>
                       </div>
