@@ -24,7 +24,7 @@ export default function BlogsPage() {
           <div className="relative w-full md:max-w-md">
             <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
-              placeholder="Search will be wired up when content moves into a CMS or API."
+              placeholder="Search guides by topic or keyword..."
               className="rounded-2xl border-white/70 bg-white/85 pl-10"
               disabled
             />
@@ -54,40 +54,23 @@ export default function BlogsPage() {
                 />
               </div>
               <CardHeader className="pb-2">
-                <div className="mb-2 flex items-center justify-between gap-3">
-                  <div className="inline-flex rounded-full bg-secondary px-3 py-1 text-xs font-medium text-foreground/80">
-                    {blog.category}
-                  </div>
-                  <div className="text-xs text-muted-foreground">{blog.date}</div>
+                <div className="mb-1 flex items-center justify-between">
+                  <span className="text-xs font-medium text-primary">{blog.category}</span>
+                  <span className="text-xs text-muted-foreground">{blog.readTime}</span>
                 </div>
-                <CardTitle className="line-clamp-2 text-xl">{blog.title}</CardTitle>
+                <CardTitle className="line-clamp-2 text-lg leading-snug">{blog.title}</CardTitle>
               </CardHeader>
-              <CardContent>
-                <p className="line-clamp-3 text-muted-foreground">{blog.excerpt}</p>
+              <CardContent className="pb-2">
+                <p className="line-clamp-3 text-sm text-muted-foreground">{blog.excerpt}</p>
               </CardContent>
-              <CardFooter>
-                <div className="inline-flex items-center gap-1 font-medium text-primary">
-                  Read More <ArrowRight className="h-4 w-4 transition group-hover:translate-x-1" />
-                </div>
+              <CardFooter className="pt-2">
+                <span className="inline-flex items-center text-sm font-medium text-primary group-hover:underline">
+                  Read the full guide <ArrowRight className="ml-1 h-4 w-4" />
+                </span>
               </CardFooter>
             </Card>
           </Link>
         ))}
-      </div>
-
-      <div className="mt-12 rounded-[2rem] border border-white/50 bg-[linear-gradient(135deg,rgba(255,250,242,0.92),rgba(235,242,236,0.82))] p-8 shadow-sm">
-        <div className="mx-auto max-w-3xl text-center">
-          <h2 className="mb-4 text-2xl font-bold">Content Foundation</h2>
-          <p className="mb-6 text-muted-foreground">
-            These posts live in `lib/content.ts` for now. That keeps routing stable while you decide whether to move
-            into MDX, a headless CMS, or a database-backed authoring flow with stronger editorial control.
-          </p>
-          <div className="flex justify-center">
-            <Link href="/research">
-              <Button className="rounded-full">Plan the Next Feature</Button>
-            </Link>
-          </div>
-        </div>
       </div>
     </div>
   )
