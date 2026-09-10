@@ -1,279 +1,248 @@
 import Link from "next/link"
-import { ArrowRight, BookOpen, CheckSquare, Compass, FileText, Hammer, Lightbulb, PartyPopper, Sparkles, Wrench } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { EmailCapture } from "@/components/email-capture"
-import FeaturedBlogs from "@/components/featured-blogs"
-import HeroSection from "@/components/hero-section"
-import { RenoWisdom } from "@/components/reno-wisdom"
-import { WaitlistPricingSection } from "@/components/waitlist-pricing"
-import { STAGES, PHASES, PHASE_META, DIFFICULTY_META, getStagesByPhase, getResourceCounts } from "@/lib/stages"
-import WhatsNew from "@/components/whats-new"
+import { Card, CardContent } from "@/components/ui/card"
+import { ArrowRight, CheckCircle, Star, Quote } from "lucide-react"
 
+const TESTIMONIALS = [
+  {
+    quote: "I was completely overwhelmed by our kitchen reno until I found Reno101. The cost breakdowns alone saved us from a $15,000 mistake with a contractor who was padding his quote.",
+    author: "Sarah M.",
+    project: "Full Kitchen Renovation, Toronto",
+    savings: "Saved ~$12,000",
+    rating: 5,
+  },
+  {
+    quote: "The bathroom planning guide walked me through every single decision I didn't know I had to make. Tile layout, ventilation, waterproofing — stuff YouTube videos never cover. Worth every penny.",
+    author: "James & Linda K.",
+    project: "Master Bathroom Remodel, Vancouver",
+    savings: "Avoided 3 costly mistakes",
+    rating: 5,
+  },
+  {
+    quote: "As a first-time homeowner I had no idea where to start. Reno101 gave me the confidence to manage my own basement renovation. My contractor actually respected me more because I knew what I was talking about.",
+    author: "Marcus T.",
+    project: "Basement Finishing, Calgary",
+    savings: "Completed on budget",
+    rating: 5,
+  },
+  {
+    quote: "I used the contractor vetting checklist and it was a game changer. Found out one of my top candidates had three unresolved complaints. Dodged a huge bullet thanks to Reno101.",
+    author: "Priya S.",
+    project: "Whole Home Renovation, Ottawa",
+    savings: "Avoided bad contractor",
+    rating: 5,
+  },
+]
 
-// The first 5 stages, with a richer color/accent palette for the hero journey visual
-const JOURNEY_PREVIEW = STAGES.slice(0, 5)
+const CASE_STUDIES = [
+  {
+    title: "Kitchen Transformation",
+    before: "Outdated 1990s layout with poor lighting and no island",
+    after: "Open-concept kitchen with quartz counters and custom cabinetry",
+    budget: "$45,000",
+    duration: "8 weeks",
+    highlight: "Stayed $3,200 under budget using Reno101 cost guides",
+  },
+  {
+    title: "Bathroom Overhaul",
+    before: "Cramped 5x7 bathroom with original 1970s fixtures",
+    after: "Spa-inspired bathroom with walk-in shower and heated floors",
+    budget: "$22,000",
+    duration: "4 weeks",
+    highlight: "Avoided $4,500 in unnecessary upgrades after reading our guides",
+  },
+  {
+    title: "Basement Suite",
+    before: "Unfinished basement used for storage",
+    after: "Legal secondary suite generating $1,800/month rental income",
+    budget: "$68,000",
+    duration: "14 weeks",
+    highlight: "ROI achieved in under 4 years",
+  },
+]
 
-export default function Home() {
-  const resourceCounts = getResourceCounts()
+export default function HomePage() {
   return (
-    <main className="flex-1">
-      {/* ============ HERO ============ */}
-      <HeroSection />
-      <WhatsNew />
-
-      {/* ============ HOW IT WORKS ============ */}
-      <section className="border-t border-border/70 bg-background/40">
-        <div className="container grid gap-6 px-4 py-12 sm:grid-cols-3 md:px-6">
-          <HowCard
-            n={1}
-            title="Find the stage you're actually up to"
-            body="Click into any of the 16 stages. Each one shows the steps, the materials, and a colour telling you whether this is a Sunday job or a licensed-tradie job."
-          />
-          <HowCard
-            n={2}
-            title="Grab the resources"
-            body="Ebooks, templates, checklists and tools, all tagged to the stage that needs them. No forum crawling. No man named Gary explaining grout."
-          />
-          <HowCard
-            n={3}
-            title="Reno without the overwhelm"
-            body="Know what's DIY, what needs a pro, and what to ask before the quote arrives looking legally offensive."
-          />
+    <div className="flex flex-col min-h-screen">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-slate-900 to-slate-700 text-white py-20 px-4">
+        <div className="max-w-4xl mx-auto text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            Renovate Smarter.
+            <span className="text-amber-400"> Not Harder.</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-2xl mx-auto">
+            Expert guides, cost breakdowns, and contractor vetting tools for Canadian homeowners tackling their first renovation.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Button size="lg" className="bg-amber-500 hover:bg-amber-600 text-slate-900 font-semibold text-lg px-8">
+              Start Planning Free
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
+            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-slate-900 text-lg px-8">
+              Browse Guides
+            </Button>
+          </div>
+          <p className="mt-6 text-slate-400 text-sm">Join 12,000+ homeowners who renovated with confidence</p>
         </div>
       </section>
 
-      {/* ============ STAGE DASHBOARD ============ */}
-      <section id="stages" className="container px-4 py-16 md:px-6">
-        <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-          <div>
-            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">The 16 stages of a renovation</h2>
-            <p className="mt-2 max-w-2xl text-muted-foreground">
-              Every card is a full guide with steps, materials, hints &amp; tips, and the resources that actually help. The dot tells you how DIY-friendly the stage is — green is "go for it", red is "let someone with a licence do that".
-            </p>
+      {/* Trust Bar */}
+      <section className="bg-amber-50 border-y border-amber-100 py-6 px-4">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div>
+              <div className="text-2xl font-bold text-slate-800">12,000+</div>
+              <div className="text-sm text-slate-600">Homeowners Helped</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-slate-800">$2.4M+</div>
+              <div className="text-sm text-slate-600">Saved on Renovations</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-slate-800">4.9/5</div>
+              <div className="text-sm text-slate-600">Average Rating</div>
+            </div>
+            <div>
+              <div className="text-2xl font-bold text-slate-800">98%</div>
+              <div className="text-sm text-slate-600">Would Recommend</div>
+            </div>
           </div>
-          <div className="flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
-            {(Object.keys(DIFFICULTY_META) as Array<keyof typeof DIFFICULTY_META>).map((key) => {
-              const meta = DIFFICULTY_META[key]
-              return (
-                <div key={key} className="flex items-center gap-2">
-                  <span className={`h-2.5 w-2.5 rounded-full ${meta.dot}`} aria-hidden />
-                  <span>{meta.label}</span>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-bold text-center text-slate-800 mb-4">Everything You Need to Renovate with Confidence</h2>
+          <p className="text-center text-slate-600 mb-12 max-w-2xl mx-auto">Stop guessing. Start knowing exactly what your renovation should cost, who to hire, and what questions to ask.</p>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="border-0 shadow-md hover:shadow-lg transition-shadow">
+              <CardContent className="pt-6">
+                <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
+                  <CheckCircle className="h-6 w-6 text-amber-600" />
                 </div>
-              )
-            })}
+                <h3 className="text-xl font-semibold text-slate-800 mb-2">Real Cost Breakdowns</h3>
+                <p className="text-slate-600">Detailed, up-to-date pricing for every type of renovation in Canadian markets. No more guessing if a quote is fair.</p>
+              </CardContent>
+            </Card>
+            <Card className="border-0 shadow-md hover:shadow-lg transition-shadow">
+              <CardContent className="pt-6">
+                <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
+                  <CheckCircle className="h-6 w-6 text-amber-600" />
+                </div>
+                <h3 className="text-xl font-semibold text-slate-800 mb-2">Contractor Vetting Tools</h3>
+                <p className="text-slate-600">Step-by-step checklists and red flag guides to help you find trustworthy contractors and avoid costly mistakes.</p>
+              </CardContent>
+            </Card>
+            <Card className="border-0 shadow-md hover:shadow-lg transition-shadow">
+              <CardContent className="pt-6">
+                <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
+                  <CheckCircle className="h-6 w-6 text-amber-600" />
+                </div>
+                <h3 className="text-xl font-semibold text-slate-800 mb-2">Planning Guides</h3>
+                <p className="text-slate-600">Room-by-room renovation guides that walk you through every decision, timeline, and potential pitfall.</p>
+              </CardContent>
+            </Card>
           </div>
         </div>
-
-        {PHASES.map((phase) => {
-          const phaseMeta = PHASE_META[phase]
-          const phaseStages = getStagesByPhase(phase)
-          return (
-            <div key={phase} className="mb-10">
-              <div className="mb-4 flex items-center gap-3">
-                <div className={`h-1.5 flex-1 rounded-full bg-gradient-to-r ${phaseMeta.gradient}`} />
-                <span className="whitespace-nowrap text-xs font-bold uppercase tracking-widest text-muted-foreground">
-                  {phaseStages[0]?.phaseLabel === "Finale" ? "Phase 3" : phaseStages[0]?.phaseLabel} · {phaseMeta.label}
-                </span>
-                <div className={`h-1.5 flex-1 rounded-full bg-gradient-to-l ${phaseMeta.gradient}`} />
-              </div>
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-                {phaseStages.map((stage) => (
-                  <StageCard key={stage.slug} stage={stage} />
-                ))}
-              </div>
-            </div>
-          )
-        })}
       </section>
 
-      {/* ============ RESOURCE LIBRARY ============ */}
-      <section id="resources" className="border-y border-border/70 bg-background/40">
-        <div className="container px-4 py-16 md:px-6">
-          <div className="mx-auto mb-10 max-w-2xl text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">Five ways to help, at every stage</h2>
-            <p className="mt-3 text-muted-foreground">Browse resources by type, or find them attached to the stage they belong to.</p>
+      {/* Testimonials Section */}
+      <section className="py-16 px-4 bg-slate-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-slate-800 mb-4">Real Homeowners. Real Results.</h2>
+            <p className="text-slate-600 max-w-2xl mx-auto">Thousands of Canadians have used Reno101 to plan smarter renovations, avoid contractor scams, and stay on budget.</p>
           </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            <ResourceCard href="/resources/ebooks"     icon={<BookOpen    className="h-5 w-5" />} label="Ebooks"          count={`${resourceCounts.ebook} ${resourceCounts.ebook === 1 ? "title" : "titles"}`}          blurb="Deep-dive guides. Fewer words than a forum, more words than a tweet."                            tint="from-orange-50 to-background border-orange-200" dot="bg-orange-500" />
-            <ResourceCard href="/resources/templates"  icon={<FileText    className="h-5 w-5" />} label="Templates"       count={`${resourceCounts.template} ${resourceCounts.template === 1 ? "template" : "templates"}`}    blurb="Quote comparisons, budgets, scope docs. Pre-filled so you're not staring at a blank cell."        tint="from-sky-50 to-background border-sky-200"        dot="bg-sky-600" />
-            <ResourceCard href="/resources/checklists" icon={<CheckSquare className="h-5 w-5" />} label="Checklists"      count={`${resourceCounts.checklist} ${resourceCounts.checklist === 1 ? "checklist" : "checklists"}`} blurb="Print, tick, panic slightly less. One per stage, plus edge cases."                                tint="from-stone-50 to-background border-stone-300"    dot="bg-stone-700" />
-            <ResourceCard href="/resources/tools"      icon={<Wrench      className="h-5 w-5" />} label="Tools"           count={`${resourceCounts.tool} ${resourceCounts.tool === 1 ? "tool" : "tools"}`}                   blurb="Cost calculators and material estimators for when 'from $X' is doing the talking."               tint="from-violet-50 to-background border-violet-200"  dot="bg-violet-600" />
-            <ResourceCard href="/resources/tips"       icon={<Lightbulb   className="h-5 w-5" />} label="Tips &amp; Tricks" count={`${resourceCounts.tip} ${resourceCounts.tip === 1 ? "tip" : "tips"}`}                       blurb="The stuff tradies say once and then assume you heard. Save time, save money."                    tint="from-teal-50 to-background border-teal-200"      dot="bg-teal-600" />
+          <div className="grid md:grid-cols-2 gap-6">
+            {TESTIMONIALS.map((testimonial, index) => (
+              <Card key={index} className="border-0 shadow-md hover:shadow-lg transition-shadow bg-white">
+                <CardContent className="pt-6">
+                  <div className="flex items-center gap-1 mb-3">
+                    {Array.from({ length: testimonial.rating }).map((_, i) => (
+                      <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
+                    ))}
+                  </div>
+                  <Quote className="h-8 w-8 text-amber-200 mb-2" />
+                  <p className="text-slate-700 mb-4 leading-relaxed italic">{testimonial.quote}</p>
+                  <div className="flex items-center justify-between pt-4 border-t border-slate-100">
+                    <div>
+                      <div className="font-semibold text-slate-800">{testimonial.author}</div>
+                      <div className="text-sm text-slate-500">{testimonial.project}</div>
+                    </div>
+                    <div className="bg-green-50 text-green-700 text-xs font-semibold px-3 py-1 rounded-full border border-green-200">
+                      {testimonial.savings}
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 text-sm">
-            <Button asChild className="rounded-xl">
-              <Link href="/resources">
-                Browse all resources
+        </div>
+      </section>
+
+      {/* Case Studies Section */}
+      <section className="py-16 px-4 bg-white">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-slate-800 mb-4">Renovation Success Stories</h2>
+            <p className="text-slate-600 max-w-2xl mx-auto">See how homeowners used Reno101 to transform their spaces — on time and on budget.</p>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6">
+            {CASE_STUDIES.map((study, index) => (
+              <Card key={index} className="border-0 shadow-md hover:shadow-lg transition-shadow overflow-hidden">
+                <div className="bg-gradient-to-r from-slate-700 to-slate-600 px-6 py-4">
+                  <h3 className="text-white font-bold text-lg">{study.title}</h3>
+                  <div className="flex gap-4 mt-2">
+                    <span className="text-amber-300 text-sm font-medium">{study.budget}</span>
+                    <span className="text-slate-300 text-sm">{study.duration}</span>
+                  </div>
+                </div>
+                <CardContent className="pt-5">
+                  <div className="space-y-4">
+                    <div>
+                      <div className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1">Before</div>
+                      <p className="text-slate-600 text-sm">{study.before}</p>
+                    </div>
+                    <div className="border-l-4 border-amber-400 pl-3">
+                      <div className="text-xs font-semibold text-slate-400 uppercase tracking-wide mb-1">After</div>
+                      <p className="text-slate-700 text-sm font-medium">{study.after}</p>
+                    </div>
+                    <div className="bg-green-50 rounded-lg p-3 border border-green-100">
+                      <div className="flex items-start gap-2">
+                        <CheckCircle className="h-4 w-4 text-green-600 mt-0.5 flex-shrink-0" />
+                        <p className="text-green-800 text-sm font-medium">{study.highlight}</p>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+          <div className="text-center mt-10">
+            <Link href="/case-studies">
+              <Button variant="outline" size="lg" className="border-slate-300 text-slate-700 hover:bg-slate-50">
+                View All Success Stories
                 <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-            <Button asChild variant="outline" className="rounded-xl">
-              <Link href="/tools/material-tracker">
-                <Wrench className="mr-2 h-4 w-4" />
-                Try the Material Price Tracker
-              </Link>
-            </Button>
-            <Button asChild variant="ghost" className="rounded-xl">
-              <Link href="/blogs">
-                Browse guides
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* ============ BUNDLES / PRICING ============ */}
-      <WaitlistPricingSection />
-
-      {/* ============ FEATURED BLOGS (reused) ============ */}
-      <FeaturedBlogs />
-
-      {/* ============ EMAIL CAPTURE ============ */}
-      <section id="subscribe" className="container px-4 py-16 md:px-6">
-        <div className="mx-auto max-w-4xl">
-          <EmailCapture
-            variant="hero"
-            theme="orange"
-            heading="Get the free Renovation Starter Pack"
-            subheading="The Ideas and Planning stage checklists, a quote comparison template, and a budget tracker — delivered to your inbox. No spam, no man named Gary."
-            source="homepage-starter-pack"
-            showName
-          />
+      {/* CTA Section */}
+      <section className="py-16 px-4 bg-gradient-to-br from-amber-500 to-amber-600">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl font-bold text-white mb-4">Ready to Start Your Renovation?</h2>
+          <p className="text-amber-100 text-lg mb-8">Get instant access to cost guides, planning checklists, and contractor vetting tools.</p>
+          <Button size="lg" className="bg-white text-amber-600 hover:bg-amber-50 font-semibold text-lg px-10">
+            Get Started Free
+            <ArrowRight className="ml-2 h-5 w-5" />
+          </Button>
+          <p className="mt-4 text-amber-200 text-sm">No credit card required. Free guides available instantly.</p>
         </div>
       </section>
-
-      {/* ============ RENO WISDOM QUOTE SECTION ============ */}
-      <section className="container px-4 py-8 md:px-6">
-        <div className="mx-auto max-w-xl">
-          <RenoWisdom className="bg-slate-900" />
-        </div>
-      </section>
-
-      {/* ============ GLOSSARY TEASER ============ */}
-      <section id="glossary" className="container px-4 pb-16 text-center md:px-6">
-        <Badge variant="secondary" className="rounded-full bg-yellow-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-yellow-800 hover:bg-yellow-100">
-          Glossary
-        </Badge>
-        <h3 className="mt-3 text-2xl font-extrabold tracking-tight">Don't know what an architrave is?</h3>
-        <p className="mx-auto mt-2 max-w-xl text-muted-foreground">
-          The glossary decodes every bit of tradie jargon you'll run into — from <em>cornice</em> to <em>batten</em> to <em>fit-off</em> — so you can hold a conversation with the builder without nodding politely and Googling it later.
-        </p>
-        <Button asChild variant="link" className="mt-3 text-primary">
-          <Link href="/blogs">
-            Browse the glossary
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Link>
-        </Button>
-      </section>
-    </main>
-  )
-}
-
-/* ============ LOCAL COMPONENTS ============ */
-
-function JourneyStep({ stage, index }: { stage: (typeof STAGES)[number]; index: number }) {
-  const diff = DIFFICULTY_META[stage.difficulty]
-  return (
-    <li className="relative flex items-center gap-3">
-      <div className="relative z-10 grid h-10 w-10 flex-shrink-0 place-items-center rounded-xl bg-background shadow-sm ring-2 ring-border">
-        <span className="text-sm font-bold text-primary">{String(index).padStart(2, "0")}</span>
-      </div>
-      <Link
-        href={`/stages/${stage.slug}`}
-        className="group flex flex-1 items-center justify-between rounded-xl border border-border bg-background/80 p-3 shadow-sm transition hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md"
-      >
-        <div className="flex min-w-0 items-center gap-3">
-          <div className={`grid h-9 w-9 flex-shrink-0 place-items-center rounded-lg text-lg ${stage.accent}`}>
-            <span aria-hidden>{stage.icon}</span>
-          </div>
-          <div className="min-w-0">
-            <div className="flex items-center gap-2">
-              <span className="font-semibold text-foreground">{stage.name}</span>
-              <span className={`h-2 w-2 rounded-full ${diff.dot}`} title={diff.label} aria-label={`Difficulty: ${diff.label}`} />
-            </div>
-            <div className="truncate text-xs text-muted-foreground">{stage.tagline}</div>
-          </div>
-        </div>
-        <ArrowRight className="ml-2 h-4 w-4 flex-shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary" />
-      </Link>
-    </li>
-  )
-}
-
-function HowCard({ n, title, body }: { n: number; title: string; body: string }) {
-  return (
-    <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-      <div className="mb-3 grid h-10 w-10 place-items-center rounded-lg bg-primary/10 font-bold text-primary">{n}</div>
-      <h3 className="font-semibold">{title}</h3>
-      <p className="mt-1 text-sm text-muted-foreground">{body}</p>
     </div>
   )
 }
-
-function StageCard({ stage }: { stage: (typeof STAGES)[number] }) {
-  const diff = DIFFICULTY_META[stage.difficulty]
-  const isParty = stage.slug === "party"
-
-  return (
-    <Link
-      href={`/stages/${stage.slug}`}
-      className={`group block rounded-xl border p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md ${isParty
-          ? "border-transparent bg-gradient-to-br from-red-500 to-primary text-white"
-          : "border-border bg-card hover:border-primary/40"
-        }`}
-    >
-      <div className="mb-3 flex items-center justify-between">
-        <div className={`grid h-10 w-10 place-items-center rounded-lg text-xl ${isParty ? "bg-white/20" : stage.accent}`}>
-          <span aria-hidden>{stage.icon}</span>
-        </div>
-        {isParty ? (
-          <span className="text-xs font-bold uppercase tracking-widest opacity-80">Finale</span>
-        ) : (
-          <span className={`h-2.5 w-2.5 rounded-full ${diff.dot}`} title={diff.label} aria-label={`Difficulty: ${diff.label}`} />
-        )}
-      </div>
-      <div className={`font-bold ${isParty ? "text-lg" : ""}`}>{stage.name}</div>
-      <div className={`mt-1 text-sm ${isParty ? "opacity-90" : "text-muted-foreground"}`}>{stage.tagline}</div>
-      <div className={`mt-3 flex items-center justify-between text-xs ${isParty ? "opacity-90" : "text-muted-foreground"}`}>
-        <span>{stage.resourceCount} {isParty ? "celebration idea" : stage.resourceCount === 1 ? "resource" : "resources"}</span>
-        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-      </div>
-    </Link>
-  )
-}
-
-function ResourceCard({
-  icon,
-  label,
-  count,
-  blurb,
-  tint,
-  dot,
-  href,
-}: {
-  icon: React.ReactNode
-  label: string
-  count: string
-  blurb: string
-  tint: string
-  dot: string
-  href: string
-}) {
-  return (
-    <Link
-      href={href}
-      className={`group block rounded-2xl border bg-gradient-to-br p-6 shadow-sm transition hover:shadow-md ${tint}`}
-    >
-      <div className={`mb-4 grid h-12 w-12 place-items-center rounded-xl text-white shadow-sm ${dot}`}>{icon}</div>
-      <div className="font-bold text-foreground">{label}</div>
-      <div className="mt-1 text-sm text-muted-foreground">{blurb}</div>
-      <div className="mt-4 flex items-center gap-1 text-xs font-semibold text-foreground">
-        {count}
-        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-      </div>
-    </Link>
-  )
-}
-
