@@ -1,8 +1,7 @@
-// Single source of truth for Reno101 pricing.
-// One-time purchase model — no subscriptions.
-//
-// Three tier types: whole_house | room_guide | phase_bundle
-// Plus add-on packages bought separately.
+// PARKED catalogue — not the public price map.
+// Live surfaces (home + /pricing) use lib/waitlist-packs.ts only:
+//   Free Starter Pack · AU$49 Project Bundle · AU$149 All-Access.
+// Do not mount PricingCard / AddOnPackage until checkout is actually live.
 //
 // Discount logic:
 //   - Launch window: 25% off, auto-applied for the first 90 days after LAUNCH_DATE
