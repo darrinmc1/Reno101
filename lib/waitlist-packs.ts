@@ -1,7 +1,8 @@
 /**
- * Single public price map for Renos101.
- * Waitlist only — checkout is not live. Do not add SKUs here that are not
- * already shown on the homepage bundles section.
+ * Canonical public price map for Renos101.
+ * Home (`/#bundles`) and `/pricing` both render WAITLIST_PACKS via
+ * WaitlistPricingSection. Waitlist only — checkout is not live.
+ * Do not add SKUs here that are not shown on both surfaces.
  */
 export type WaitlistPack = {
   kind: string

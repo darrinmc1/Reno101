@@ -278,11 +278,11 @@ export default function MaterialTrackerPage() {
                       <div className="flex items-center justify-center p-8 text-center">
                         <div>
                           <p className="mb-4 text-muted-foreground">
-                            Price history is for Premium subscribers, because apparently spreadsheets can also have a
-                            luxury tier.
+                            Price history is on the waitlist with the rest of checkout — we are not selling a Premium
+                            spreadsheet membership for $24/mo.
                           </p>
                           <Link href="/pricing">
-                            <Button variant="outline" className="rounded-full">Upgrade to Premium</Button>
+                            <Button variant="outline" className="rounded-full">Join the waitlist</Button>
                           </Link>
                         </div>
                       </div>
@@ -294,11 +294,11 @@ export default function MaterialTrackerPage() {
                             <Bell className="h-6 w-6 text-primary" />
                           </div>
                           <p className="mb-4 text-muted-foreground">
-                            Price alerts are available for Standard and Premium plans, which is helpful when tapware
-                            keeps behaving like crypto.
+                            Price alerts will land with the paid packs (AU$49 / AU$149) — helpful when tapware
+                            keeps behaving like crypto. No Standard/Premium membership in the meantime.
                           </p>
                           <Link href="/pricing">
-                            <Button variant="outline" className="rounded-full">Upgrade Your Plan</Button>
+                            <Button variant="outline" className="rounded-full">See waitlist packs</Button>
                           </Link>
                         </div>
                       </div>
