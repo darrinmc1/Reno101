@@ -26,7 +26,7 @@ export const renovationGuides: Guide[] = [
     steps: [
       {
         title: "Plan and Design",
-        description: "Before touching anything, know what you are doing. This sounds obvious. It is surprising how often it gets skipped.",
+        description: "Before touching anything, know what you are doing. This sounds obvious. It is surprising how often it gets skipped. Measure the room, freeze the layout, and order the long-lead items while the bathroom is still a bathroom. A plan on paper is cheaper than a plan invented mid-demo.",
         tips: [
           "Measure three times. The tape measure does not judge.",
           "Get plumbing and electrical plans drawn before demo.",
@@ -40,7 +40,7 @@ export const renovationGuides: Guide[] = [
       },
       {
         title: "Demo the Old Bathroom",
-        description: "The cathartic destruction phase. Take photos before you start. You will want them later.",
+        description: "The cathartic destruction phase. Take photos before you start — for insurance, for the plumber, and for the version of you who cannot remember where the waste landed. Isolate water and power. Test. Then strip with more discipline than enthusiasm. Pre-1990 fabric gets checked for asbestos before it meets a bar.",
         tips: [
           "Turn off water at the main. Then turn it off again. Trust no shuts.",
           "Remove fixtures carefully if you are donating. Habitat for Humanity ReStore loves usable toilets.",
@@ -55,7 +55,7 @@ export const renovationGuides: Guide[] = [
       },
       {
         title: "Rough-In Plumbing and Electrical",
-        description: "The work that goes behind the walls. This is where bathrooms get their systems right or permanently wrong.",
+        description: "The work that goes behind the walls. This is where bathrooms get their systems right or permanently wrong. Licensed plumbing and electrical belong here. Extra GPOs, a fan that actually leaves the building, and waste falls you will never see again are decided now. Pressure-test before anyone hangs a sheet.",
         tips: [
           "Move drain lines before tiling. After tiling is expensive and sad.",
           "Add extra electrical outlets. You will want them. Trust.",
@@ -70,7 +70,7 @@ export const renovationGuides: Guide[] = [
       },
       {
         title: "Install Insulation and Moisture Barriers",
-        description: "The unsexy phase that prevents mold and keeps bathrooms warm in ways that matter.",
+        description: "The unsexy phase that prevents mould and keeps bathrooms from feeling like a tiled fridge. Wet-area board in the splash zones, insulation in exterior walls, and seals around every penetration. Moisture barriers go on the warm side. Get that backwards and the wall becomes a swamp with a paint finish.",
         tips: [
           "Use moisture-resistant drywall in shower areas. Green board is a minimum. Cement board is better.",
           "Insulate exterior walls. Bathrooms are cold in ways that feel personal.",
@@ -83,7 +83,7 @@ export const renovationGuides: Guide[] = [
       },
       {
         title: "Tile Installation",
-        description: "The skill phase. Tiling well takes practice. Tiling badly takes one afternoon and a lot of regret.",
+        description: "The skill phase. Tiling well takes practice. Tiling badly takes one afternoon and a lot of regret. Set the room out from the centre, keep cuts over 50 mm, and do not grout a bed that is still moving. A laser level is cheaper than a crooked feature wall you will photograph by accident for years.",
         tips: [
           "Start with the shower. It is hardest and you will be tired by the time you get to the visible floor.",
           "Use a laser level. Eye-balling tiles makes crooked people of us all.",
@@ -98,7 +98,7 @@ export const renovationGuides: Guide[] = [
       },
       {
         title: "Install Fixtures and Trim",
-        description: "The payoff phase. Fixtures go in, and the bathroom starts looking like a bathroom.",
+        description: "The payoff phase. Fixtures go in, and the bathroom starts looking like a bathroom. Tapware before the toilet if you like elbows. Plumber's putty and tape are not interchangeable. Run every fitting before you declare victory — a drip found after silicone is a personality test.",
         tips: [
           "Install faucets before the toilet. Easier access.",
           "Use plumber's putty for drains. Teflon tape for threaded connections. Knowing the difference is the difference between leaking and not leaking.",
@@ -123,7 +123,7 @@ export const renovationGuides: Guide[] = [
     steps: [
       {
         title: "Pre-Planning",
-        description: "The investment that determines whether this goes smoothly or becomes a life chapter.",
+        description: "The investment that determines whether this goes smoothly or becomes a life chapter. Must-haves versus nice-to-haves, three written quotes, appliances locked before anyone measures a cabinet, and a contingency that assumes the wall has a hobby. Scope creep is not a surprise. It is what happens when this step is a conversation instead of a list.",
         tips: [
           "Define your must-haves versus nice-to-haves. Budget forces this conversation.",
           "Get three contractor quotes. One is a lonely data point. Three is a pattern.",
@@ -137,7 +137,7 @@ export const renovationGuides: Guide[] = [
       },
       {
         title: "Design Development",
-        description: "The work that looks like procrastination but is actually preventing expensive mistakes.",
+        description: "The work that looks like procrastination but is actually preventing expensive mistakes. Work triangle, bench height, outlets on the island, and a lighting plan with more than one tired downlight. Electrical and rangehood ducting discovered mid-build are how a kitchen grows a second quote.",
         tips: [
           "The work triangle still matters. Sink, stove, refrigerator. Keep it efficient.",
           "Counter height: 36 inches is standard. Adjust for your height.",
@@ -151,7 +151,7 @@ export const renovationGuides: Guide[] = [
       },
       {
         title: "Demolition",
-        description: "The destruction that feels productive and occasionally is.",
+        description: "The destruction that feels productive and occasionally is. Isolate utilities, verify with a second person, and size the skip up from your estimate. Salvage what is honest. Load-bearing walls need temporary support, not optimism. Mould stops the job until it is dealt with — budget the possibility.",
         tips: [
           "Shut off utilities properly. Water, gas, electric. Verify with a second person.",
           "Rent dumpsters sized up from your estimate. Full containers cost as much as slightly too small ones.",
@@ -164,7 +164,7 @@ export const renovationGuides: Guide[] = [
       },
       {
         title: "Rough Trades",
-        description: "The phase where systems get installed inside walls before walls close.",
+        description: "The phase where systems get installed inside walls before walls close. Coordinate plumber and electrician so they overlap on purpose. Run data and USB while the cavity is a cavity. Inspections happen before sheeting. Covering uninspected work is how you open the wall twice.",
         tips: [
           "Coordinate electrician and plumber schedules. They need to overlap at points.",
           "Run low-voltage wiring while walls are open. Ethernet, speaker wire, USB charging locations.",
@@ -177,7 +177,7 @@ export const renovationGuides: Guide[] = [
       },
       {
         title: "Finishing",
-        description: "The phase where the kitchen starts existing as a room again.",
+        description: "The phase where the kitchen starts existing as a room again. Paint before the floor if you can. Cabinets get levelled, not hoped. The benchtop template comes after the cabinets are final. Undermount sinks need support — a full sink is not a light snack. Test plumbing before the last bead of silicone.",
         tips: [
           "Paint before flooring goes in. Easier to fix paint mistakes than flooring damage.",
           "Cabinet installation: Check level, shim as needed. Cabinets are built to tolerances that assume imperfect walls.",
@@ -191,7 +191,7 @@ export const renovationGuides: Guide[] = [
       },
       {
         title: "Final Steps",
-        description: "The punch list phase. Small items that feel minor but matter for function.",
+        description: "The punch list phase. Small items that feel minor but matter for function. Caulk the wet junctions, hang hardware last, and do a full functional test of every drawer, door, outlet, and tap before anyone signs off. Construction dust will be in places physics should not allow. Look anyway.",
         tips: [
           "Caulk all seams where tile meets countertop. Water gets everywhere.",
           "Install cabinet hardware last. Fingerprints from installation come out easily at this stage.",
@@ -200,7 +200,7 @@ export const renovationGuides: Guide[] = [
         ],
         warnings: [
           "Do a full functional test before signing off. Every drawer, every door, every outlet, every fixture.",
-          "Keep care instructions for all finishes.石材,木材,金属 all have different needs.",
+          "Keep care instructions for all finishes. Stone, timber, and metal all have different needs — and different ways of telling you that you guessed.",
         ],
       },
     ],
@@ -216,7 +216,7 @@ export const renovationGuides: Guide[] = [
     steps: [
       {
         title: "Preparation",
-        description: "The phase that determines whether the painting looks professional or 'my teenager did this.'",
+        description: "The phase that determines whether the painting looks professional or 'my teenager did this.' Fill, sand, wash, mask, and prime the walls that ask for it. Eighty percent of the result lives here. Cheap tape and skipped primer are how a weekend becomes a sequel.",
         tips: [
           "Fill all holes with spackle. Let it dry. Sand flat. Repeat. The wall is not ready until it feels smooth.",
           "Use painter's tape on trim. Press edges firmly. Pain goes under tape. It always does.",
@@ -230,7 +230,7 @@ export const renovationGuides: Guide[] = [
       },
       {
         title: "Cutting In",
-        description: "The skill that separates painters from people who own brushes. 'Cutting in' means painting edges that rollers cannot reach.",
+        description: "The skill that separates painters from people who own brushes. Cutting in means painting the edges a roller cannot reach — a 50 mm band, wet, so the roller can land in it. Slow is accurate. Fast is a second-day correction with a tiny brush and new feelings.",
         tips: [
           "Load the brush about one-third of the way up the bristles. Tap, do not wipe.",
           "Go slowly around edges. Accuracy matters more than speed.",
@@ -244,7 +244,7 @@ export const renovationGuides: Guide[] = [
       },
       {
         title: "Rolling",
-        description: "The phase that fills the space and makes the room actually colored.",
+        description: "The phase that fills the space and makes the room actually coloured. Right nap, even load, W pattern, and a wet edge. Finish a wall before you stop. A cold start in the middle of a field is how lap marks become a feature you did not specify.",
         tips: [
           "Use the right nap thickness. Smooth walls: 3/8 inch. Textured walls: 1/2 inch or more.",
           "Load the roller evenly. Roll in a W pattern, then fill in.",
@@ -258,7 +258,7 @@ export const renovationGuides: Guide[] = [
       },
       {
         title: "Finishing",
-        description: "The details that complete the professional look.",
+        description: "The details that complete the professional look. Peel tape at 45 degrees before the paint fully cures. Touch the misses. Put the hardware back. Clean the brushes like they cost more than the leftover paint — because they do.",
         tips: [
           "Peel tape off at a 45-degree angle. Slow and steady. Painter's tape removal is not a race.",
           "Touch up any missed spots with a small brush. They always exist.",
@@ -283,7 +283,7 @@ export const renovationGuides: Guide[] = [
     steps: [
       {
         title: "Choose Your Flooring",
-        description: "Each flooring type has personality. Match it to your lifestyle and your patience for instructions.",
+        description: "Each flooring type has a personality. Match it to moisture, traffic, and your household's proven commitment to walking indoors like decorative buffalo. The showroom is a brochure. The worst day in that room is the exam.",
         tips: [
           "Hardwood: Beautiful, expensive, requires maintenance. Adds value. Shows scratches.",
           "Laminate: Affordable, durable, water-resistant varieties exist. Does not refinish.",
@@ -297,7 +297,7 @@ export const renovationGuides: Guide[] = [
       },
       {
         title: "Prepare the Subfloor",
-        description: "The floor rests on the subfloor. The subfloor matters. This is not optional respect.",
+        description: "The floor rests on the subfloor. The subfloor matters. This is not optional respect. Clean, dry, flat, and quiet. Moisture meters exist for slabs. Squeaks do not retire on their own. Hardwood needs time in the room before it is asked to behave.",
         tips: [
           "Clean thoroughly. No debris. No moisture. No protrusions.",
           "Check for level. Gaps over 3/16 inch in ten feet need filling.",
@@ -311,7 +311,7 @@ export const renovationGuides: Guide[] = [
       },
       {
         title: "Installation",
-        description: "The actual work. Different floors install differently. Know your floor before you start.",
+        description: "The actual work. Different floors install differently. Know your floor before you start. Floating floors must move. Tile wants a dry layout. Do not nail through a floor that is supposed to float. Underlayment is not a suggestion when the manufacturer wrote it down.",
         tips: [
           "Hardwood: Nail or staple. Leave expansion gaps. Stagger joints. Follow manufacturer patterns.",
           "Laminate: Click together. Underlayment underneath. Expansion gaps around edges.",
@@ -326,7 +326,7 @@ export const renovationGuides: Guide[] = [
       },
       {
         title: "Finishing",
-        description: "The details that complete the installation and make it look intentional.",
+        description: "The details that complete the installation and make it look intentional. Transitions, skirting over the expansion gap, sealed grout, and a walk-through before the furniture comes back. Felt pads are cheaper than a dent you will narrate for a decade.",
         tips: [
           "Transition strips where flooring meets other types. They exist to make the meeting intentional.",
           "Baseboards cover expansion gaps. Install them. They also cover amateur edges.",
