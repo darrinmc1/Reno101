@@ -1,279 +1,156 @@
 import Link from "next/link"
-import { ArrowRight, BookOpen, CheckSquare, Compass, FileText, Hammer, Lightbulb, PartyPopper, Sparkles, Wrench } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { EmailCapture } from "@/components/email-capture"
-import FeaturedBlogs from "@/components/featured-blogs"
-import HeroSection from "@/components/hero-section"
-import { RenoWisdom } from "@/components/reno-wisdom"
-import { WaitlistPricingSection } from "@/components/waitlist-pricing"
-import { STAGES, PHASES, PHASE_META, DIFFICULTY_META, getStagesByPhase, getResourceCounts } from "@/lib/stages"
-import WhatsNew from "@/components/whats-new"
+import { ArrowRight, CheckCircle, Shield, TrendingUp } from "lucide-react"
 
+const STAGES = [
+  { num: 1, label: "Vision & Goals" },
+  { num: 2, label: "Budget Planning" },
+  { num: 3, label: "Permits & Approvals" },
+  { num: 4, label: "Contractor Selection" },
+  { num: 5, label: "Design & Layout" },
+  { num: 6, label: "Demolition" },
+  { num: 7, label: "Structural Work" },
+  { num: 8, label: "Rough Plumbing" },
+  { num: 9, label: "Electrical Rough-In" },
+  { num: 10, label: "Insulation & Drywall" },
+  { num: 11, label: "Flooring" },
+  { num: 12, label: "Cabinetry & Millwork" },
+  { num: 13, label: "Finish Plumbing" },
+  { num: 14, label: "Painting & Trim" },
+  { num: 15, label: "Final Inspections" },
+  { num: 16, label: "Project Closeout" },
+]
 
-// The first 5 stages, with a richer color/accent palette for the hero journey visual
-const JOURNEY_PREVIEW = STAGES.slice(0, 5)
-
-export default function Home() {
-  const resourceCounts = getResourceCounts()
+export default function HomePage() {
   return (
-    <main className="flex-1">
-      {/* ============ HERO ============ */}
-      <HeroSection />
-      <WhatsNew />
+    <main className="min-h-screen bg-white">
+      {/* Hero Section */}
+      <section className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
+        <div className="max-w-6xl mx-auto px-4 py-16 sm:py-24">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 bg-amber-500/20 border border-amber-500/40 rounded-full px-4 py-1.5 text-amber-300 text-sm font-medium mb-6">
+              <Shield className="w-4 h-4" />
+              Avoid $10,000+ in Costly Renovation Mistakes
+            </div>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight mb-6 leading-tight">
+              Your Complete{" "}
+              <span className="text-amber-400">Renovation Roadmap</span>
+              <br />From Dream to Done
+            </h1>
+            <p className="text-lg sm:text-xl text-slate-300 max-w-2xl mx-auto mb-8">
+              Renos101 guides you through all 16 stages of your home renovation — so you know exactly what to do, when to do it, and how to avoid the mistakes that cost homeowners thousands.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link href="/signup">
+                <Button size="lg" className="bg-amber-500 hover:bg-amber-400 text-slate-900 font-bold px-8 py-4 text-lg w-full sm:w-auto">
+                  Start Your Free Roadmap
+                  <ArrowRight className="ml-2 w-5 h-5" />
+                </Button>
+              </Link>
+              <Link href="/how-it-works">
+                <Button size="lg" variant="outline" className="border-slate-500 text-white hover:bg-slate-700 px-8 py-4 text-lg w-full sm:w-auto">
+                  See How It Works
+                </Button>
+              </Link>
+            </div>
+            <p className="text-slate-400 text-sm mt-4">Free to start — no credit card required</p>
+          </div>
 
-      {/* ============ HOW IT WORKS ============ */}
-      <section className="border-t border-border/70 bg-background/40">
-        <div className="container grid gap-6 px-4 py-12 sm:grid-cols-3 md:px-6">
-          <HowCard
-            n={1}
-            title="Find the stage you're actually up to"
-            body="Click into any of the 16 stages. Each one shows the steps, the materials, and a colour telling you whether this is a Sunday job or a licensed-tradie job."
-          />
-          <HowCard
-            n={2}
-            title="Grab the resources"
-            body="Ebooks, templates, checklists and tools, all tagged to the stage that needs them. No forum crawling. No man named Gary explaining grout."
-          />
-          <HowCard
-            n={3}
-            title="Reno without the overwhelm"
-            body="Know what's DIY, what needs a pro, and what to ask before the quote arrives looking legally offensive."
-          />
+          {/* 16-Stage Roadmap Visual */}
+          <div className="bg-slate-800/50 border border-slate-700 rounded-2xl p-6 sm:p-8">
+            <div className="flex items-center justify-between mb-6">
+              <h2 className="text-lg font-semibold text-slate-200">The 16-Stage Renovation Journey</h2>
+              <span className="text-xs text-slate-400 bg-slate-700 px-3 py-1 rounded-full">Your progress tracked here</span>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2">
+              {STAGES.map((stage, index) => (
+                <div
+                  key={stage.num}
+                  className={`relative flex flex-col items-center text-center p-2 rounded-lg border transition-all ${
+                    index < 3
+                      ? "bg-amber-500/20 border-amber-500/50 text-amber-300"
+                      : "bg-slate-700/40 border-slate-600/50 text-slate-400"
+                  }`}
+                >
+                  <div
+                    className={`w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold mb-1.5 ${
+                      index < 3
+                        ? "bg-amber-500 text-slate-900"
+                        : "bg-slate-600 text-slate-300"
+                    }`}
+                  >
+                    {index < 3 ? <CheckCircle className="w-4 h-4" /> : stage.num}
+                  </div>
+                  <span className="text-xs leading-tight font-medium">{stage.label}</span>
+                </div>
+              ))}
+            </div>
+            <div className="mt-4 flex items-center gap-4 text-xs text-slate-400">
+              <span className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
+                Completed stages
+              </span>
+              <span className="flex items-center gap-1.5">
+                <span className="w-3 h-3 rounded-full bg-slate-600 inline-block"></span>
+                Upcoming stages
+              </span>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* ============ STAGE DASHBOARD ============ */}
-      <section id="stages" className="container px-4 py-16 md:px-6">
-        <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-          <div>
-            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">The 16 stages of a renovation</h2>
-            <p className="mt-2 max-w-2xl text-muted-foreground">
-              Every card is a full guide with steps, materials, hints &amp; tips, and the resources that actually help. The dot tells you how DIY-friendly the stage is — green is "go for it", red is "let someone with a licence do that".
-            </p>
-          </div>
-          <div className="flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
-            {(Object.keys(DIFFICULTY_META) as Array<keyof typeof DIFFICULTY_META>).map((key) => {
-              const meta = DIFFICULTY_META[key]
-              return (
-                <div key={key} className="flex items-center gap-2">
-                  <span className={`h-2.5 w-2.5 rounded-full ${meta.dot}`} aria-hidden />
-                  <span>{meta.label}</span>
-                </div>
-              )
-            })}
-          </div>
-        </div>
-
-        {PHASES.map((phase) => {
-          const phaseMeta = PHASE_META[phase]
-          const phaseStages = getStagesByPhase(phase)
-          return (
-            <div key={phase} className="mb-10">
-              <div className="mb-4 flex items-center gap-3">
-                <div className={`h-1.5 flex-1 rounded-full bg-gradient-to-r ${phaseMeta.gradient}`} />
-                <span className="whitespace-nowrap text-xs font-bold uppercase tracking-widest text-muted-foreground">
-                  {phaseStages[0]?.phaseLabel === "Finale" ? "Phase 3" : phaseStages[0]?.phaseLabel} · {phaseMeta.label}
-                </span>
-                <div className={`h-1.5 flex-1 rounded-full bg-gradient-to-l ${phaseMeta.gradient}`} />
+      {/* Value Props */}
+      <section className="bg-slate-50 border-b border-slate-200">
+        <div className="max-w-6xl mx-auto px-4 py-12">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+            <div className="flex gap-4">
+              <div className="flex-shrink-0 w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                <CheckCircle className="w-5 h-5 text-green-600" />
               </div>
-              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-                {phaseStages.map((stage) => (
-                  <StageCard key={stage.slug} stage={stage} />
-                ))}
+              <div>
+                <h3 className="font-semibold text-slate-900 mb-1">Step-by-Step Guidance</h3>
+                <p className="text-sm text-slate-600">Know exactly what to do at every stage — from first idea to final walkthrough.</p>
               </div>
             </div>
-          )
-        })}
-      </section>
-
-      {/* ============ RESOURCE LIBRARY ============ */}
-      <section id="resources" className="border-y border-border/70 bg-background/40">
-        <div className="container px-4 py-16 md:px-6">
-          <div className="mx-auto mb-10 max-w-2xl text-center">
-            <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">Five ways to help, at every stage</h2>
-            <p className="mt-3 text-muted-foreground">Browse resources by type, or find them attached to the stage they belong to.</p>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
-            <ResourceCard href="/resources/ebooks"     icon={<BookOpen    className="h-5 w-5" />} label="Ebooks"          count={`${resourceCounts.ebook} ${resourceCounts.ebook === 1 ? "title" : "titles"}`}          blurb="Deep-dive guides. Fewer words than a forum, more words than a tweet."                            tint="from-orange-50 to-background border-orange-200" dot="bg-orange-500" />
-            <ResourceCard href="/resources/templates"  icon={<FileText    className="h-5 w-5" />} label="Templates"       count={`${resourceCounts.template} ${resourceCounts.template === 1 ? "template" : "templates"}`}    blurb="Quote comparisons, budgets, scope docs. Pre-filled so you're not staring at a blank cell."        tint="from-sky-50 to-background border-sky-200"        dot="bg-sky-600" />
-            <ResourceCard href="/resources/checklists" icon={<CheckSquare className="h-5 w-5" />} label="Checklists"      count={`${resourceCounts.checklist} ${resourceCounts.checklist === 1 ? "checklist" : "checklists"}`} blurb="Print, tick, panic slightly less. One per stage, plus edge cases."                                tint="from-stone-50 to-background border-stone-300"    dot="bg-stone-700" />
-            <ResourceCard href="/resources/tools"      icon={<Wrench      className="h-5 w-5" />} label="Tools"           count={`${resourceCounts.tool} ${resourceCounts.tool === 1 ? "tool" : "tools"}`}                   blurb="Cost calculators and material estimators for when 'from $X' is doing the talking."               tint="from-violet-50 to-background border-violet-200"  dot="bg-violet-600" />
-            <ResourceCard href="/resources/tips"       icon={<Lightbulb   className="h-5 w-5" />} label="Tips &amp; Tricks" count={`${resourceCounts.tip} ${resourceCounts.tip === 1 ? "tip" : "tips"}`}                       blurb="The stuff tradies say once and then assume you heard. Save time, save money."                    tint="from-teal-50 to-background border-teal-200"      dot="bg-teal-600" />
-          </div>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 text-sm">
-            <Button asChild className="rounded-xl">
-              <Link href="/resources">
-                Browse all resources
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
-            <Button asChild variant="outline" className="rounded-xl">
-              <Link href="/tools/material-tracker">
-                <Wrench className="mr-2 h-4 w-4" />
-                Try the Material Price Tracker
-              </Link>
-            </Button>
-            <Button asChild variant="ghost" className="rounded-xl">
-              <Link href="/blogs">
-                Browse guides
-                <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </Button>
+            <div className="flex gap-4">
+              <div className="flex-shrink-0 w-10 h-10 bg-amber-100 rounded-lg flex items-center justify-center">
+                <Shield className="w-5 h-5 text-amber-600" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-slate-900 mb-1">Avoid Costly Mistakes</h3>
+                <p className="text-sm text-slate-600">Our checklists and warnings help you sidestep the errors that cost homeowners $10K+.</p>
+              </div>
+            </div>
+            <div className="flex gap-4">
+              <div className="flex-shrink-0 w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                <TrendingUp className="w-5 h-5 text-blue-600" />
+              </div>
+              <div>
+                <h3 className="font-semibold text-slate-900 mb-1">Track Your Progress</h3>
+                <p className="text-sm text-slate-600">Stay organized with a personal dashboard that tracks every task, document, and decision.</p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ============ BUNDLES / PRICING ============ */}
-      <WaitlistPricingSection />
-
-      {/* ============ FEATURED BLOGS (reused) ============ */}
-      <FeaturedBlogs />
-
-      {/* ============ EMAIL CAPTURE ============ */}
-      <section id="subscribe" className="container px-4 py-16 md:px-6">
-        <div className="mx-auto max-w-4xl">
-          <EmailCapture
-            variant="hero"
-            theme="orange"
-            heading="Get the free Renovation Starter Pack"
-            subheading="The Ideas and Planning stage checklists, a quote comparison template, and a budget tracker — delivered to your inbox. No spam, no man named Gary."
-            source="homepage-starter-pack"
-            showName
-          />
-        </div>
-      </section>
-
-      {/* ============ RENO WISDOM QUOTE SECTION ============ */}
-      <section className="container px-4 py-8 md:px-6">
-        <div className="mx-auto max-w-xl">
-          <RenoWisdom className="bg-slate-900" />
-        </div>
-      </section>
-
-      {/* ============ GLOSSARY TEASER ============ */}
-      <section id="glossary" className="container px-4 pb-16 text-center md:px-6">
-        <Badge variant="secondary" className="rounded-full bg-yellow-100 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-yellow-800 hover:bg-yellow-100">
-          Glossary
-        </Badge>
-        <h3 className="mt-3 text-2xl font-extrabold tracking-tight">Don't know what an architrave is?</h3>
-        <p className="mx-auto mt-2 max-w-xl text-muted-foreground">
-          The glossary decodes every bit of tradie jargon you'll run into — from <em>cornice</em> to <em>batten</em> to <em>fit-off</em> — so you can hold a conversation with the builder without nodding politely and Googling it later.
-        </p>
-        <Button asChild variant="link" className="mt-3 text-primary">
-          <Link href="/blogs">
-            Browse the glossary
-            <ArrowRight className="ml-2 h-4 w-4" />
+      {/* CTA Banner */}
+      <section className="bg-amber-500">
+        <div className="max-w-4xl mx-auto px-4 py-10 text-center">
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 mb-3">
+            Ready to renovate with confidence?
+          </h2>
+          <p className="text-slate-800 mb-6 text-lg">
+            Join thousands of homeowners who used Renos101 to complete their renovations on time and on budget.
+          </p>
+          <Link href="/signup">
+            <Button size="lg" className="bg-slate-900 hover:bg-slate-800 text-white font-bold px-10 py-4 text-lg">
+              Get Your Free Roadmap
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Button>
           </Link>
-        </Button>
+        </div>
       </section>
     </main>
   )
 }
-
-/* ============ LOCAL COMPONENTS ============ */
-
-function JourneyStep({ stage, index }: { stage: (typeof STAGES)[number]; index: number }) {
-  const diff = DIFFICULTY_META[stage.difficulty]
-  return (
-    <li className="relative flex items-center gap-3">
-      <div className="relative z-10 grid h-10 w-10 flex-shrink-0 place-items-center rounded-xl bg-background shadow-sm ring-2 ring-border">
-        <span className="text-sm font-bold text-primary">{String(index).padStart(2, "0")}</span>
-      </div>
-      <Link
-        href={`/stages/${stage.slug}`}
-        className="group flex flex-1 items-center justify-between rounded-xl border border-border bg-background/80 p-3 shadow-sm transition hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md"
-      >
-        <div className="flex min-w-0 items-center gap-3">
-          <div className={`grid h-9 w-9 flex-shrink-0 place-items-center rounded-lg text-lg ${stage.accent}`}>
-            <span aria-hidden>{stage.icon}</span>
-          </div>
-          <div className="min-w-0">
-            <div className="flex items-center gap-2">
-              <span className="font-semibold text-foreground">{stage.name}</span>
-              <span className={`h-2 w-2 rounded-full ${diff.dot}`} title={diff.label} aria-label={`Difficulty: ${diff.label}`} />
-            </div>
-            <div className="truncate text-xs text-muted-foreground">{stage.tagline}</div>
-          </div>
-        </div>
-        <ArrowRight className="ml-2 h-4 w-4 flex-shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary" />
-      </Link>
-    </li>
-  )
-}
-
-function HowCard({ n, title, body }: { n: number; title: string; body: string }) {
-  return (
-    <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-      <div className="mb-3 grid h-10 w-10 place-items-center rounded-lg bg-primary/10 font-bold text-primary">{n}</div>
-      <h3 className="font-semibold">{title}</h3>
-      <p className="mt-1 text-sm text-muted-foreground">{body}</p>
-    </div>
-  )
-}
-
-function StageCard({ stage }: { stage: (typeof STAGES)[number] }) {
-  const diff = DIFFICULTY_META[stage.difficulty]
-  const isParty = stage.slug === "party"
-
-  return (
-    <Link
-      href={`/stages/${stage.slug}`}
-      className={`group block rounded-xl border p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md ${isParty
-          ? "border-transparent bg-gradient-to-br from-red-500 to-primary text-white"
-          : "border-border bg-card hover:border-primary/40"
-        }`}
-    >
-      <div className="mb-3 flex items-center justify-between">
-        <div className={`grid h-10 w-10 place-items-center rounded-lg text-xl ${isParty ? "bg-white/20" : stage.accent}`}>
-          <span aria-hidden>{stage.icon}</span>
-        </div>
-        {isParty ? (
-          <span className="text-xs font-bold uppercase tracking-widest opacity-80">Finale</span>
-        ) : (
-          <span className={`h-2.5 w-2.5 rounded-full ${diff.dot}`} title={diff.label} aria-label={`Difficulty: ${diff.label}`} />
-        )}
-      </div>
-      <div className={`font-bold ${isParty ? "text-lg" : ""}`}>{stage.name}</div>
-      <div className={`mt-1 text-sm ${isParty ? "opacity-90" : "text-muted-foreground"}`}>{stage.tagline}</div>
-      <div className={`mt-3 flex items-center justify-between text-xs ${isParty ? "opacity-90" : "text-muted-foreground"}`}>
-        <span>{stage.resourceCount} {isParty ? "celebration idea" : stage.resourceCount === 1 ? "resource" : "resources"}</span>
-        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-      </div>
-    </Link>
-  )
-}
-
-function ResourceCard({
-  icon,
-  label,
-  count,
-  blurb,
-  tint,
-  dot,
-  href,
-}: {
-  icon: React.ReactNode
-  label: string
-  count: string
-  blurb: string
-  tint: string
-  dot: string
-  href: string
-}) {
-  return (
-    <Link
-      href={href}
-      className={`group block rounded-2xl border bg-gradient-to-br p-6 shadow-sm transition hover:shadow-md ${tint}`}
-    >
-      <div className={`mb-4 grid h-12 w-12 place-items-center rounded-xl text-white shadow-sm ${dot}`}>{icon}</div>
-      <div className="font-bold text-foreground">{label}</div>
-      <div className="mt-1 text-sm text-muted-foreground">{blurb}</div>
-      <div className="mt-4 flex items-center gap-1 text-xs font-semibold text-foreground">
-        {count}
-        <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-      </div>
-    </Link>
-  )
-}
-
