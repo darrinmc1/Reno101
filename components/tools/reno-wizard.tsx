@@ -97,18 +97,17 @@ function SubscribeWall({ onBack }: { onBack: () => void }) {
           <div className="rounded-xl border border-primary/10 bg-primary/[0.03] p-4">
             <h4 className="mb-2 flex items-center gap-2 text-sm font-semibold">
               <Sparkles className="h-4 w-4 text-primary" />
-              Pro subscription
+              Paid packs (waitlist)
             </h4>
             <p className="text-sm text-muted-foreground">
-              Unlocks advanced AI models for detailed material estimates and design briefs
-              — unlimited generations.
+              Unlocks the AU$49 / AU$149 packs when checkout lands — not a $9/mo Pro membership we invented for this card.
             </p>
           </div>
         </CardContent>
         <CardFooter className="flex-col gap-3">
           <Button asChild className="w-full" size="lg">
             <Link href="/pricing">
-              View Pro Plans
+              See waitlist packs
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
@@ -497,14 +496,13 @@ export function RenoWizard({ tool }: RenoWizardProps) {
             <div className="flex items-start gap-3">
               <Lock className="mt-0.5 h-5 w-5 flex-shrink-0 text-amber-600" />
               <div>
-                <p className="font-medium text-amber-900">Free trial used up</p>
+                <p className="font-medium text-amber-900">Free generation used up</p>
                 <p className="mt-1 text-sm text-amber-700">
-                  Upgrade to Pro for unlimited AI-powered renovation documents with advanced
-                  models.
+                  Paid packs are on the waitlist (AU$49 Project Bundle / AU$149 All-Access). No fake Pro checkout while Stripe is still a rumour.
                 </p>
                 <Button asChild variant="outline" size="sm" className="mt-3 rounded-full">
                   <Link href="/pricing">
-                    View Plans
+                    Join the waitlist
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>

@@ -16,6 +16,12 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  async redirects() {
+    return [
+      // Leftover membership SKU page (Free / $9 / $29). Public price map is waitlist packs.
+      { source: "/subscription", destination: "/pricing", permanent: false },
+    ]
+  },
 }
 
 if (userConfig) {

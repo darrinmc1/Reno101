@@ -206,9 +206,9 @@ export default function NewResearchRequestPage() {
                           <SelectValue placeholder="Select urgency level" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="normal">Normal (24 hours)</SelectItem>
-                          <SelectItem value="urgent">Urgent (12 hours, Premium only)</SelectItem>
-                          <SelectItem value="rush">Rush (6 hours, Premium only)</SelectItem>
+                          <SelectItem value="normal">Normal (whenever we get to it)</SelectItem>
+                          <SelectItem value="urgent">Sooner would be nice (waitlist — no Premium SKU)</SelectItem>
+                          <SelectItem value="rush">The wall is making a noise (still waitlist)</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>

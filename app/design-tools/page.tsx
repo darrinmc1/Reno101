@@ -80,8 +80,8 @@ export default function DesignToolsPage() {
       <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-3">
         <Card>
           <CardHeader>
-            <CardTitle>Premium Design Features</CardTitle>
-            <CardDescription>Good candidates for a paid plan boundary</CardDescription>
+            <CardTitle>Coming with All-Access</CardTitle>
+            <CardDescription>Waitlist packs, not a fake Premium membership</CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">
             <FeatureRow icon={<Image className="h-4 w-4 text-primary" />} text="AI-powered design suggestions" />
@@ -91,7 +91,7 @@ export default function DesignToolsPage() {
           <CardFooter>
             <Link href="/pricing">
               <Button variant="outline" className="w-full">
-                View Plans
+                See waitlist packs
               </Button>
             </Link>
           </CardFooter>
