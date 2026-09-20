@@ -5,6 +5,9 @@ import { Badge } from "@/components/ui/badge"
 import { EmailCapture } from "@/components/email-capture"
 import FeaturedBlogs from "@/components/featured-blogs"
 import HeroSection from "@/components/hero-section"
+import { Reveal } from "@/components/home/reveal"
+import { ScopeRail } from "@/components/home/scope-rail"
+import { WhatYouGet } from "@/components/home/what-you-get"
 import { RenoWisdom } from "@/components/reno-wisdom"
 import { WaitlistPricingSection } from "@/components/waitlist-pricing"
 import { STAGES, PHASES, PHASE_META, DIFFICULTY_META, getStagesByPhase, getResourceCounts } from "@/lib/stages"
@@ -20,38 +23,19 @@ export default function Home() {
     <main className="flex-1">
       {/* ============ HERO ============ */}
       <HeroSection />
+      <ScopeRail />
+      <WhatYouGet />
       <WhatsNew />
-
-      {/* ============ HOW IT WORKS ============ */}
-      <section className="border-t border-border/70 bg-background/40">
-        <div className="container grid gap-6 px-4 py-12 sm:grid-cols-3 md:px-6">
-          <HowCard
-            n={1}
-            title="Find the stage you're actually up to"
-            body="Click into any of the 16 stages. Each one shows the steps, the materials, and a colour telling you whether this is a Sunday job or a licensed-tradie job."
-          />
-          <HowCard
-            n={2}
-            title="Grab the resources"
-            body="Ebooks, templates, checklists and tools, all tagged to the stage that needs them. No forum crawling. No man named Gary explaining grout."
-          />
-          <HowCard
-            n={3}
-            title="Reno without the overwhelm"
-            body="Know what's DIY, what needs a pro, and what to ask before the quote arrives looking legally offensive."
-          />
-        </div>
-      </section>
 
       {/* ============ STAGE DASHBOARD ============ */}
       <section id="stages" className="container px-4 py-16 md:px-6">
         <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-          <div>
+          <Reveal>
             <h2 className="text-3xl font-extrabold tracking-tight sm:text-4xl">The 16 stages of a renovation</h2>
             <p className="mt-2 max-w-2xl text-muted-foreground">
               Every card is a full guide with steps, materials, hints &amp; tips, and the resources that actually help. The dot tells you how DIY-friendly the stage is — green is "go for it", red is "let someone with a licence do that".
             </p>
-          </div>
+          </Reveal>
           <div className="flex flex-wrap items-center gap-4 text-xs text-muted-foreground">
             {(Object.keys(DIFFICULTY_META) as Array<keyof typeof DIFFICULTY_META>).map((key) => {
               const meta = DIFFICULTY_META[key]
@@ -199,16 +183,6 @@ function JourneyStep({ stage, index }: { stage: (typeof STAGES)[number]; index: 
         <ArrowRight className="ml-2 h-4 w-4 flex-shrink-0 text-muted-foreground transition-transform group-hover:translate-x-1 group-hover:text-primary" />
       </Link>
     </li>
-  )
-}
-
-function HowCard({ n, title, body }: { n: number; title: string; body: string }) {
-  return (
-    <div className="rounded-2xl border border-border bg-card p-6 shadow-sm">
-      <div className="mb-3 grid h-10 w-10 place-items-center rounded-lg bg-primary/10 font-bold text-primary">{n}</div>
-      <h3 className="font-semibold">{title}</h3>
-      <p className="mt-1 text-sm text-muted-foreground">{body}</p>
-    </div>
   )
 }
 
