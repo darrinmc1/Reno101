@@ -2,6 +2,7 @@ import Link from "next/link"
 import { ArrowRight, Check, Hammer, Wrench } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
+import { MerchantOfRecordDisclosure } from "@/components/merchant-of-record"
 
 const availableNow = [
   "16-stage renovation roadmap",
@@ -70,6 +71,8 @@ export function WaitlistPricingSection({
           </Button>
         </div>
       </div>
+
+      <MerchantOfRecordDisclosure className="mx-auto mt-8 max-w-2xl text-center text-xs text-muted-foreground" />
     </section>
   )
 }
