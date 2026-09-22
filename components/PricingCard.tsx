@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { DiscountBadge } from "@/components/DiscountBadge"
+import { MerchantOfRecordDisclosure } from "@/components/merchant-of-record"
 import {
   formatAUD,
   priceFor,
@@ -98,6 +99,7 @@ export function PricingCard({
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
         </Button>
+        <MerchantOfRecordDisclosure className="mt-3 text-center text-[11px] leading-snug text-muted-foreground" />
       </div>
     </article>
   )

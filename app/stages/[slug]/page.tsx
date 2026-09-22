@@ -42,6 +42,7 @@ import {
   type StageResource,
 } from "@/lib/stages"
 import { EmailCapture } from "@/components/email-capture"
+import { MerchantOfRecordDisclosure } from "@/components/merchant-of-record"
 import { PriceDisclaimer } from "@/components/price-disclaimer"
 
 export function generateStaticParams() {
@@ -341,21 +342,26 @@ export default async function StagePage({ params }: { params: Promise<{ slug: st
                   Pay per item, or get the whole {bundleName ?? "bundle"} in one go. Starter Pack items free with email signup.
                 </p>
               </div>
-              <div className="flex flex-wrap items-center gap-3">
-                {bundleName && (
-                  <Button asChild variant="default" className="rounded-xl">
-                    <Link href="/pricing#bundles">
-                      <Package className="mr-2 h-4 w-4" />
-                      Get the {bundleName} — AU$49
+              <div className="flex flex-col items-start gap-2">
+                <div className="flex flex-wrap items-center gap-3">
+                  {bundleName && (
+                    <Button asChild variant="default" className="rounded-xl">
+                      <Link href="/pricing#bundles">
+                        <Package className="mr-2 h-4 w-4" />
+                        Get the {bundleName} — AU$49
+                      </Link>
+                    </Button>
+                  )}
+                  <Button asChild variant="ghost" className="rounded-xl">
+                    <Link href="/resources">
+                      All resource types
+                      <ArrowRight className="ml-1 h-4 w-4" />
                     </Link>
                   </Button>
+                </div>
+                {bundleName && (
+                  <MerchantOfRecordDisclosure className="max-w-md text-[11px] leading-snug text-muted-foreground" />
                 )}
-                <Button asChild variant="ghost" className="rounded-xl">
-                  <Link href="/resources">
-                    All resource types
-                    <ArrowRight className="ml-1 h-4 w-4" />
-                  </Link>
-                </Button>
               </div>
             </div>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">

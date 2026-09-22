@@ -2,6 +2,7 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Facebook, Instagram, Twitter, Youtube } from "lucide-react"
+import { MerchantOfRecordDisclosure } from "@/components/merchant-of-record"
 
 export default function Footer() {
   return (
@@ -72,24 +73,27 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border/60 pt-8 md:flex-row">
-          <p className="text-sm text-muted-foreground">
-            (c) {new Date().getFullYear()} Reno101. Built for ambitious plans and cautious measurements.
-          </p>
-          <div className="flex flex-wrap items-center gap-4">
-            <Link href="/terms" className="text-sm text-muted-foreground transition hover:text-primary">
-              Terms
-            </Link>
-            <Link href="/privacy" className="text-sm text-muted-foreground transition hover:text-primary">
-              Privacy
-            </Link>
-            <Link href="/cookies" className="text-sm text-muted-foreground transition hover:text-primary">
-              Cookies
-            </Link>
-            <Link href="/contact" className="text-sm text-muted-foreground transition hover:text-primary">
-              Contact
-            </Link>
+        <div className="mt-12 space-y-4 border-t border-border/60 pt-8">
+          <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+            <p className="text-sm text-muted-foreground">
+              (c) {new Date().getFullYear()} Reno101. Built for ambitious plans and cautious measurements.
+            </p>
+            <div className="flex flex-wrap items-center gap-4">
+              <Link href="/terms" className="text-sm text-muted-foreground transition hover:text-primary">
+                Terms
+              </Link>
+              <Link href="/privacy" className="text-sm text-muted-foreground transition hover:text-primary">
+                Privacy
+              </Link>
+              <Link href="/cookies" className="text-sm text-muted-foreground transition hover:text-primary">
+                Cookies
+              </Link>
+              <Link href="/contact" className="text-sm text-muted-foreground transition hover:text-primary">
+                Contact
+              </Link>
+            </div>
           </div>
+          <MerchantOfRecordDisclosure className="max-w-3xl text-center text-xs text-muted-foreground md:text-left" />
         </div>
       </div>
     </footer>
