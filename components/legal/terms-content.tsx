@@ -3,11 +3,10 @@ import Link from "next/link"
 interface TermsPageProps {
   siteName: string
   domain: string
-  supportEmail?: string
   companyName?: string
 }
 
-export function TermsPage({ siteName, domain, supportEmail = "admin@" + domain, companyName = siteName }: TermsPageProps) {
+export function TermsPage({ siteName, domain, companyName = siteName }: TermsPageProps) {
   const lastUpdated = "July 29, 2026"
 
   return (
@@ -107,7 +106,7 @@ export function TermsPage({ siteName, domain, supportEmail = "admin@" + domain, 
               <li><strong>Billing errors:</strong> Duplicate or incorrect charges will be refunded in full upon verification.</li>
             </ul>
             <p className="text-slate-700">
-              To request a refund, contact <a href={`mailto:${supportEmail}`} className="text-blue-600 underline">{supportEmail}</a>.
+              To request a refund, use the <Link href="/contact" className="text-blue-600 underline">contact form</Link>.
             </p>
           </section>
 
@@ -137,7 +136,7 @@ export function TermsPage({ siteName, domain, supportEmail = "admin@" + domain, 
               <li>Use our content to train AI models or for similar machine-learning purposes</li>
             </ul>
             <p className="text-slate-700">
-              If you believe your intellectual property has been infringed, contact us at {supportEmail}.
+              If you believe your intellectual property has been infringed, use the <Link href="/contact" className="text-blue-600 underline">contact form</Link>.
             </p>
           </section>
 
@@ -230,8 +229,7 @@ export function TermsPage({ siteName, domain, supportEmail = "admin@" + domain, 
               If you have any questions about these Terms, please contact us:
             </p>
             <ul className="list-disc pl-6 mt-2 text-slate-700 space-y-1">
-              <li>Email: <a href={`mailto:${supportEmail}`} className="text-blue-600 underline">{supportEmail}</a></li>
-              <li>Website: <Link href={`https://${domain}/contact`} className="text-blue-600 underline">{domain}/contact</Link></li>
+              <li>Contact form: <Link href="/contact" className="text-blue-600 underline">{domain}/contact</Link></li>
             </ul>
           </section>
         </div>

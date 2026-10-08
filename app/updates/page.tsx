@@ -1,12 +1,13 @@
 import Link from "next/link"
+import { pageMetadata } from "@/lib/seo"
 import { ArrowLeft, ArrowRight, Bell, RefreshCw, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Monthly updates",
-  description:
-    "What's new in your Reno101 guide each month — ebooks, templates, pricing refreshes, real-reno case studies.",
-}
+  description: "What gets added to the Reno101 guides: ebooks, templates, and notes from finished jobs.",
+  path: "/updates",
+})
 
 export default function UpdatesPage() {
   return (

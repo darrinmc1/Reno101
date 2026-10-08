@@ -1,4 +1,11 @@
 import Link from "next/link"
+import { pageMetadata } from "@/lib/seo"
+
+export const metadata = pageMetadata({
+  title: "Coming soon",
+  description: "Payment checkout is not live yet. The free guides and the contact form are.",
+  path: "/improvements",
+})
 import { Construction, ArrowLeft } from "lucide-react"
 
 export default function ImprovementsPage() {

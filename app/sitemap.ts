@@ -1,12 +1,40 @@
 import type { MetadataRoute } from "next"
- 
+import { blogPosts } from "@/lib/content"
+import { RESOURCE_KIND_SLUGS, STAGES } from "@/lib/stages"
+
+const ORIGIN = "https://renos101.com"
+
+const STATIC_PATHS = [
+  "/",
+  "/about",
+  "/blogs",
+  "/contact",
+  "/cookies",
+  "/design-tools",
+  "/downloads",
+  "/faq",
+  "/glossary",
+  "/pricing",
+  "/privacy",
+  "/research",
+  "/resources",
+  "/terms",
+  "/tools",
+]
+
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    { url: "https://reno101.com", lastModified: new Date(), changeFrequency: "weekly", priority: 1 },
-    { url: "https://reno101.com/learn", lastModified: new Date(), changeFrequency: "weekly", priority: 0.9 },
-    { url: "https://reno101.com/pricing", lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: "https://reno101.com/about", lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
-    { url: "https://reno101.com/terms", lastModified: new Date(), changeFrequency: "monthly", priority: 0.3 },
-    { url: "https://reno101.com/privacy", lastModified: new Date(), changeFrequency: "monthly", priority: 0.3 },
+  const lastModified = new Date()
+  const paths = [
+    ...STATIC_PATHS,
+    ...STAGES.map((stage) => `/stages/${stage.slug}`),
+    ...blogPosts.map((post) => `/blogs/${post.slug}`),
+    ...Object.values(RESOURCE_KIND_SLUGS).map((type) => `/resources/${type}`),
   ]
+
+  return paths.map((path) => ({
+    url: path === "/" ? ORIGIN : `${ORIGIN}${path}`,
+    lastModified,
+    changeFrequency: path === "/" || path.startsWith("/blogs") ? "weekly" : "monthly",
+    priority: path === "/" ? 1 : 0.7,
+  }))
 }

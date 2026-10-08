@@ -43,6 +43,9 @@ import {
 } from "@/lib/stages"
 import { EmailCapture } from "@/components/email-capture"
 import { PriceDisclaimer } from "@/components/price-disclaimer"
+import { pageMetadata } from "@/lib/seo"
+
+export const dynamicParams = false
 
 export function generateStaticParams() {
   return STAGES.map((s) => ({ slug: s.slug }))
@@ -51,11 +54,12 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
   const stage = getStage(slug)
-  if (!stage) return { title: "Stage not found" }
-  return {
+  if (!stage) notFound()
+  return pageMetadata({
     title: stage.name,
     description: stage.summary,
-  }
+    path: `/stages/${stage.slug}`,
+  })
 }
 
 const SKILL_COLUMNS: SkillLevel[] = ["Basic", "Intermediate", "Advanced", "Mastery"]

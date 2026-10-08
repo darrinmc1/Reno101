@@ -1,4 +1,11 @@
 import type React from "react"
+import { pageMetadata } from "@/lib/seo"
+
+export const metadata = pageMetadata({
+  title: "Design tools",
+  description: "A landing page for room styling, mood boards, colour picks, and floor planning.",
+  path: "/design-tools",
+})
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"

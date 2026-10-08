@@ -1,4 +1,5 @@
 import { blogPosts } from "@/lib/content"
+import Image from "next/image"
 import Link from "next/link"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -31,11 +32,13 @@ export default function FeaturedBlogs() {
             {blogs.map((blog) => (
               <Link key={blog.slug} href={`/blogs/${blog.slug}`} className="group">
                 <Card className="h-full overflow-hidden rounded-[1.5rem] border-white/70 bg-white/80 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
-                  <div className="aspect-video overflow-hidden">
-                    <img
+                  <div className="relative aspect-video overflow-hidden">
+                    <Image
                       src={blog.image}
                       alt={blog.title}
-                      className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
                     />
                   </div>
                   <CardHeader className="pb-2">

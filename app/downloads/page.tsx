@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo"
 import {
   FileText,
   Calculator,
@@ -100,11 +101,12 @@ const TEMPLATES = [
   },
 ]
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Downloads",
   description:
-    "Download free Renos101 renovation planning templates — renovation brief, material estimator, contractor comparison, timeline, budget tracker, permit checklist, room planner, quote comparison, warranty tracker, and emergency contact sheet.",
-}
+    "Renovation planning templates: brief, material estimator, contractor comparison, timeline, budget tracker, permit checklist, room planner, quote comparison, warranty tracker, and emergency contacts.",
+  path: "/downloads",
+})
 
 export default function DownloadsPage() {
   return (

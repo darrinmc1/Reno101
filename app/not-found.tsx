@@ -4,6 +4,8 @@ import { Compass, Home } from "lucide-react"
 
 export const metadata = {
   title: "Page not found",
+  description: "That page is not on Reno101. The guides and the home page still are.",
+  robots: { index: false, follow: false },
 }
 
 export default function NotFound() {

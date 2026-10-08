@@ -13,6 +13,6 @@ export default function robots(): MetadataRoute.Robots {
       { userAgent: "cohere-ai", disallow: "/" },
       { userAgent: "PerplexityBot", disallow: "/" },
     ],
-    sitemap: "https://reno101.com/sitemap.xml",
+    sitemap: "https://renos101.com/sitemap.xml",
   }
 }

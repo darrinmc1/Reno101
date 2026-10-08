@@ -1,4 +1,11 @@
 import Link from "next/link"
+import { pageMetadata } from "@/lib/seo"
+
+export const metadata = pageMetadata({
+  title: "Subscription",
+  description: "Reno101 membership plans for a single refresh or a longer renovation.",
+  path: "/subscription",
+})
 import { Check, ArrowRight, Sparkles, Users, Building2 } from "lucide-react"
 
 const PLANS = [

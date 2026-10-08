@@ -1,4 +1,12 @@
 import { blogPosts } from "@/lib/content"
+import { pageMetadata } from "@/lib/seo"
+
+export const metadata = pageMetadata({
+  title: "Guides",
+  description:
+    "Renovation guides for kitchens, bathrooms, budgets, and the decisions that usually go sideways.",
+  path: "/blogs",
+})
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"

@@ -17,7 +17,7 @@ export const blogPosts: BlogPost[] = [
     category: "Bathroom",
     date: "August 8, 2026",
     readTime: "8 min read",
-    image: "/images/bathroom-budget.png",
+    image: "/images/bathroom-budget.jpg",
     content: [
       "Ask five renovators how much a bathroom costs and you will get five answers, none of which will match the quote you eventually receive. That is not incompetence. It is the industry's way of preparing you for the fact that a bathroom is a small room with the financial appetite of a yacht.",
       "Labor is where the money actually goes, and it is not close. Waterproofing, tiling, plumbing, and the electrician's cameo appearance all add up faster than the fixtures. The tiles you fell in love with are a rounding error compared to the person who has to cut them around a pipe at 7 a.m.",
@@ -36,7 +36,7 @@ export const blogPosts: BlogPost[] = [
     category: "Sustainability",
     date: "August 6, 2026",
     readTime: "7 min read",
-    image: "/images/eco-friendly.png",
+    image: "/images/eco-friendly.jpg",
     content: [
       "Sustainable renovation has an image problem. It sounds like something that costs more, takes longer, and results in a house that looks like a very principled cardboard box. The truth is the opposite: the most eco-friendly upgrades are usually the ones that pay you back first.",
       "Insulation is the heavyweight champion of green renovations. It keeps heat in during winter and out during summer, which means your heating and cooling systems get to work less and retire later. Nobody photographs insulation for Instagram, but it is the gift that keeps giving on every single bill.",
@@ -54,7 +54,7 @@ export const blogPosts: BlogPost[] = [
     category: "Kitchen",
     date: "August 4, 2026",
     readTime: "7 min read",
-    image: "/images/kitchen-mistakes.png",
+    image: "/images/kitchen-mistakes.jpg",
     content: [
       "The kitchen island is the most requested feature in renovation history and the most misunderstood. In magazines it hosts beautiful people sipping coffee. In real life it hosts the mail, the homework, the takeaway containers, and one very tired parent leaning on it.",
       "The first question is not 'do I want an island' but 'does my kitchen have the space for one.' The rule of thumb is about 900 to 1200 millimeters of clearance on every side. If you cannot achieve that, the island stops being a feature and becomes an obstacle course.",
@@ -108,7 +108,7 @@ export const blogPosts: BlogPost[] = [
     category: "Kitchen",
     date: "April 2, 2025",
     readTime: "8 min read",
-    image: "/images/kitchen-mistakes.png",
+    image: "/images/kitchen-mistakes.jpg",
     content: [
       "Kitchen renovations are popular because everybody wants a beautiful kitchen. They are terrifying because the kitchen is also where the coffee lives, and removing the coffee zone turns ordinary adults into Victorian ghosts by day three.",
       "Mistake one is setting a fantasy budget. If your spreadsheet assumes nothing hidden is broken behind the wall, your spreadsheet is not a plan. It is historical fiction.",
@@ -124,7 +124,7 @@ export const blogPosts: BlogPost[] = [
     category: "Bathroom",
     date: "March 28, 2025",
     readTime: "6 min read",
-    image: "/images/bathroom-budget.png",
+    image: "/images/bathroom-budget.jpg",
     content: [
       "A tight bathroom budget does not mean the room has to feel sad. It does mean every decision should work hard, because bathrooms are tiny spaces with the financial appetite of a much larger building.",
       "Keeping the plumbing layout in place is still the biggest saver. Moving a toilet sounds simple until you realize the floor, the waste line, and your bank account all have strong feelings about it.",
@@ -139,7 +139,7 @@ export const blogPosts: BlogPost[] = [
     category: "Sustainability",
     date: "March 25, 2025",
     readTime: "7 min read",
-    image: "/images/eco-friendly.png",
+    image: "/images/eco-friendly.jpg",
     content: [
       "Sustainable renovation starts with keeping good things out of the skip. The greenest cabinet is often the one you did not unnecessarily replace because it lacked 'main character energy.'",
       "The biggest wins usually come from insulation, sealing drafts, improving glazing, and upgrading heating or cooling. These are less glamorous than artisanal tiles, but they keep paying rent long after the tiles stop being exciting.",

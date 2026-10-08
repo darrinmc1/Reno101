@@ -1,4 +1,12 @@
 import type React from "react"
+import { pageMetadata } from "@/lib/seo"
+
+export const metadata = pageMetadata({
+  title: "Dashboard",
+  description: "Saved renovation ideas, research requests, and the gentle illusion that everything is under control.",
+  path: "/dashboard",
+  index: false,
+})
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"

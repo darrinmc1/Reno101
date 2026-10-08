@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { pageMetadata } from "@/lib/seo"
 import { Button } from "@/components/ui/button"
 import {
   Card,
@@ -18,11 +19,11 @@ import {
   Wrench,
 } from "lucide-react"
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Tools",
-  description:
-    "Renovation tools — material price tracker, AI document generators, and more to help you plan your project.",
-}
+  description: "Renovation tools: a material price tracker and document generators for briefs, estimates, and design notes.",
+  path: "/tools",
+})
 
 export default function ToolsPage() {
   return (

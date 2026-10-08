@@ -15,6 +15,7 @@ import { Badge } from "@/components/ui/badge"
 import { Separator } from "@/components/ui/separator"
 import { ResourceList } from "@/components/ResourceList"
 import { PriceDisclaimer } from "@/components/price-disclaimer"
+import { pageMetadata } from "@/lib/seo"
 import {
   RESOURCE_KIND_SLUGS,
   getResourcesByKind,
@@ -118,6 +119,8 @@ const TYPE_META: Record<ResourceKind, TypeMeta> = {
   },
 }
 
+export const dynamicParams = false
+
 export function generateStaticParams() {
   return Object.values(RESOURCE_KIND_SLUGS).map((type) => ({ type }))
 }
@@ -129,12 +132,13 @@ export async function generateMetadata({
 }) {
   const { type } = await params
   const kind = kindFromSlug(type)
-  if (!kind) return { title: "Resource type not found" }
+  if (!kind) notFound()
   const meta = TYPE_META[kind]
-  return {
+  return pageMetadata({
     title: meta.title,
     description: meta.longBlurb,
-  }
+    path: `/resources/${type}`,
+  })
 }
 
 export default async function ResourceTypePage({

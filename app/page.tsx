@@ -1,4 +1,13 @@
 import Link from "next/link"
+import { pageMetadata } from "@/lib/seo"
+
+export const metadata = pageMetadata({
+  title: "Renos101 — renovation guides and cost tools",
+  description:
+    "Step-by-step checklists, budget templates, and AUD cost guides for every phase, so you never cut a load-bearing wall or panic over grout colors at 11 PM.",
+  path: "/",
+  absolute: true,
+})
 import { ArrowRight, BookOpen, Check, CheckSquare, Compass, FileText, Hammer, Lightbulb, PartyPopper, Sparkles, Wrench } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
