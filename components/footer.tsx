@@ -1,6 +1,5 @@
 import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import { FooterNewsletterForm } from "@/components/footer-newsletter-form"
 import { Facebook, Instagram, Twitter, Youtube } from "lucide-react"
 
 export default function Footer() {
@@ -61,14 +60,7 @@ export default function Footer() {
             <p className="mt-2 text-sm text-muted-foreground">
               Useful renovation tips, tasteful opinions, and occasional protection from expensive impulses.
             </p>
-            <form className="mt-4 space-y-3">
-              <Input
-                type="email"
-                placeholder="Your email"
-                className="rounded-2xl border-white/70 bg-white/85"
-              />
-              <Button className="w-full rounded-full">Join The List</Button>
-            </form>
+            <FooterNewsletterForm />
           </div>
         </div>
 
