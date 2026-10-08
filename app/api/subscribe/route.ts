@@ -1,5 +1,6 @@
 ﻿import { NextResponse } from "next/server"
 import { Resend } from "resend"
+import { saveToHq } from "@/lib/hq-subscribe"
 
 const resendApiKey = process.env.RESEND_API_KEY
 const resend = resendApiKey ? new Resend(resendApiKey) : null
@@ -12,7 +13,7 @@ const AUDIENCE_ID = process.env.RESEND_AUDIENCE_ID
 
 export async function POST(request: Request) {
   try {
-    const { email, firstName, lastName } = await request.json()
+    const { email, firstName, lastName, source } = await request.json()
 
     if (!email) {
       return NextResponse.json(
@@ -30,7 +31,11 @@ export async function POST(request: Request) {
       )
     }
 
-    // If Resend is configured, add to audience
+    // Always copy the signup to the shared HQ subscribers list.
+    const hqSaved = await saveToHq("renos101", email, typeof source === "string" ? source : "website")
+
+    // If Resend is configured, also add to the Resend audience
+    let audienceSaved = false
     if (resend && AUDIENCE_ID) {
       const { error } = await resend.contacts.create({
         email,
@@ -41,10 +46,17 @@ export async function POST(request: Request) {
 
       if (error) {
         console.error("[subscribe] Resend contact error:", error)
-        return NextResponse.json({ error: error.message }, { status: 500 })
+      } else {
+        audienceSaved = true
       }
-    } else if (!AUDIENCE_ID) {
-      console.warn("[subscribe] RESEND_AUDIENCE_ID is not set. Contact not added to audience.")
+    }
+
+    // Never tell the visitor they're subscribed if the email wasn't stored anywhere.
+    if (!hqSaved && !audienceSaved) {
+      return NextResponse.json(
+        { error: "We couldn't save your email just now. Please try again." },
+        { status: 502 },
+      )
     }
 
     // Send confirmation email if Resend is configured
