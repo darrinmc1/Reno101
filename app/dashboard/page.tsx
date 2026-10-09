@@ -1,4 +1,12 @@
 import type React from "react"
+import { pageMetadata } from "@/lib/seo"
+
+export const metadata = pageMetadata({
+  title: "Dashboard",
+  description: "Saved renovation ideas, research requests, and the gentle illusion that everything is under control.",
+  path: "/dashboard",
+  index: false,
+})
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -36,17 +44,17 @@ export default function DashboardPage() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle>Subscription</CardTitle>
-                <CardDescription>Standard Plan, respectable and alert</CardDescription>
+                <CardTitle>Email list</CardTitle>
+                <CardDescription>Hear when new guides are ready</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">10 / 10</div>
-                <p className="text-sm text-muted-foreground">Guides remaining this week before you become unstoppable</p>
+                <div className="text-2xl font-bold">Coming soon</div>
+                <p className="text-sm text-muted-foreground">Saved guides stay here while you wait</p>
               </CardContent>
               <CardFooter>
-                <Link href="/subscription">
+                <Link href="/pricing">
                   <Button variant="ghost" size="sm" className="gap-1">
-                    Manage Plan <ArrowRight className="h-4 w-4" />
+                    Join the list <ArrowRight className="h-4 w-4" />
                   </Button>
                 </Link>
               </CardFooter>

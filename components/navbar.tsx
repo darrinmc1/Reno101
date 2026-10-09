@@ -111,7 +111,7 @@ export default function Navbar() {
               </NavigationMenuItem>
               <NavigationMenuItem>
                 <Link href="/pricing" legacyBehavior passHref>
-                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>Pricing</NavigationMenuLink>
+                  <NavigationMenuLink className={navigationMenuTriggerStyle()}>Coming soon</NavigationMenuLink>
                 </Link>
               </NavigationMenuItem>
             </NavigationMenuList>
@@ -128,7 +128,7 @@ export default function Navbar() {
               </SignInButton>
               <SignUpButton mode="modal">
                 <Button className="rounded-full bg-primary px-5 text-primary-foreground shadow-sm hover:bg-primary/90">
-                  Start Free Trial
+                  Sign up
                 </Button>
               </SignUpButton>
             </Show>
@@ -167,7 +167,7 @@ export default function Navbar() {
                   <NavButton href="/design-tools" label="Use The Tools" sublabel="Mood boards and planning surfaces" onClick={() => setIsOpen(false)} />
                   <NavButton href="/resources" label="Resources Library" sublabel="Ebooks, templates, checklists, tools, tips" onClick={() => setIsOpen(false)} />
                   <NavButton href="/research" label="Ask Research" sublabel="For suspicious walls and pricing mysteries" onClick={() => setIsOpen(false)} />
-                  <NavButton href="/pricing" label="See Pricing" sublabel="Choose your level of renovation supervision" onClick={() => setIsOpen(false)} />
+                  <NavButton href="/pricing" label="Coming soon" sublabel="Join the list" onClick={() => setIsOpen(false)} />
                 </nav>
                 <div className="mt-auto rounded-3xl border border-primary/15 bg-white/70 p-4 shadow-sm">
                   <p className="text-sm text-muted-foreground">
@@ -182,7 +182,7 @@ export default function Navbar() {
                       </SignInButton>
                       <SignUpButton mode="modal">
                         <Button className="w-full rounded-full" onClick={() => setIsOpen(false)}>
-                          Start Free Trial
+                          Sign up
                         </Button>
                       </SignUpButton>
                     </Show>

@@ -4,7 +4,7 @@ import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 
-export function FooterNewsletterForm() {
+export function FooterNewsletterForm({ source = "footer" }: { source?: string }) {
   const [email, setEmail] = useState("")
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
 
@@ -15,7 +15,7 @@ export function FooterNewsletterForm() {
       const res = await fetch("/api/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, source: "footer" }),
+        body: JSON.stringify({ email, source }),
       })
       setStatus(res.ok ? "success" : "error")
     } catch {

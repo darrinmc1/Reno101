@@ -20,10 +20,9 @@ import {
   CheckCircle2,
   FileText,
   Loader2,
-  Lock,
   Sparkles,
-  Star,
 } from "lucide-react"
+import { ComingSoonList } from "@/components/coming-soon-list"
 
 /* ------------------------------------------------------------------ */
 /*  Types                                                             */
@@ -72,52 +71,14 @@ function markFreeUse(): void {
 
 function SubscribeWall({ onBack }: { onBack: () => void }) {
   return (
-    <div className="flex min-h-[400px] items-center justify-center p-6">
-      <Card className="mx-auto max-w-lg border-primary/20 shadow-lg">
-        <CardHeader className="text-center">
-          <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-primary/10">
-            <Lock className="h-8 w-8 text-primary" />
-          </div>
-          <CardTitle className="text-2xl">Unlock unlimited AI renovation tools</CardTitle>
-          <CardDescription className="mt-2 text-base">
-            Get AI-powered renovation briefs, material estimates, and design briefs —
-            generated in seconds.
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <div className="rounded-xl border border-primary/10 bg-primary/[0.03] p-4">
-            <h4 className="mb-2 flex items-center gap-2 text-sm font-semibold">
-              <Star className="h-4 w-4 text-amber-500" />
-              Free tier
-            </h4>
-            <p className="text-sm text-muted-foreground">
-              One free generation with Gemini Flash — try it out before you commit.
-            </p>
-          </div>
-          <div className="rounded-xl border border-primary/10 bg-primary/[0.03] p-4">
-            <h4 className="mb-2 flex items-center gap-2 text-sm font-semibold">
-              <Sparkles className="h-4 w-4 text-primary" />
-              Pro subscription
-            </h4>
-            <p className="text-sm text-muted-foreground">
-              Unlocks advanced AI models for detailed material estimates and design briefs
-              — unlimited generations.
-            </p>
-          </div>
-        </CardContent>
-        <CardFooter className="flex-col gap-3">
-          <Button asChild className="w-full" size="lg">
-            <Link href="/pricing">
-              View Pro Plans
-              <ArrowRight className="ml-2 h-4 w-4" />
-            </Link>
-          </Button>
-          <Button variant="ghost" size="sm" onClick={onBack}>
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to tools
-          </Button>
-        </CardFooter>
-      </Card>
+    <div className="mx-auto max-w-lg p-6">
+      <ComingSoonList source="tools-coming-soon" />
+      <div className="mt-4 text-center">
+        <Button variant="ghost" size="sm" onClick={onBack}>
+          <ArrowLeft className="mr-2 h-4 w-4" />
+          Back to tools
+        </Button>
+      </div>
     </div>
   )
 }
@@ -364,9 +325,8 @@ export function RenoWizard({ tool }: RenoWizardProps) {
               {freeLeft} free generation{freeLeft !== 1 ? "s" : ""} remaining
             </div>
           ) : (
-            <div className="inline-flex items-center gap-2 rounded-full bg-amber-50 px-4 py-2 text-sm font-medium text-amber-700">
-              <Lock className="h-4 w-4" />
-              Free trial used — upgrade for unlimited access
+            <div className="inline-flex items-center gap-2 rounded-full bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700">
+              Coming soon
             </div>
           )}
         </CardContent>
@@ -378,7 +338,7 @@ export function RenoWizard({ tool }: RenoWizardProps) {
             </Link>
           </Button>
           <Button onClick={handleStart} size="lg">
-            {freeLeft > 0 ? "Get Started" : "Upgrade to Continue"}
+            {freeLeft > 0 ? "Get Started" : "Join the list"}
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
         </CardFooter>
@@ -493,23 +453,8 @@ export function RenoWizard({ tool }: RenoWizardProps) {
         </div>
 
         {freeLeft <= 0 && (
-          <div className="mt-4 rounded-xl border border-amber-200 bg-amber-50 p-4">
-            <div className="flex items-start gap-3">
-              <Lock className="mt-0.5 h-5 w-5 flex-shrink-0 text-amber-600" />
-              <div>
-                <p className="font-medium text-amber-900">Free trial used up</p>
-                <p className="mt-1 text-sm text-amber-700">
-                  Upgrade to Pro for unlimited AI-powered renovation documents with advanced
-                  models.
-                </p>
-                <Button asChild variant="outline" size="sm" className="mt-3 rounded-full">
-                  <Link href="/pricing">
-                    View Plans
-                    <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-              </div>
-            </div>
+          <div className="mt-4">
+            <ComingSoonList source="tools-coming-soon" />
           </div>
         )}
       </CardContent>

@@ -1,12 +1,13 @@
 import Link from "next/link"
-import { ArrowLeft, ArrowRight, Bell, RefreshCw, Sparkles } from "lucide-react"
+import { pageMetadata } from "@/lib/seo"
+import { ArrowRight, Bell, RefreshCw, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Monthly updates",
-  description:
-    "What's new in your Reno101 guide each month — ebooks, templates, pricing refreshes, real-reno case studies.",
-}
+  description: "What gets added to the Reno101 guides: ebooks, templates, and notes from finished jobs.",
+  path: "/updates",
+})
 
 export default function UpdatesPage() {
   return (
@@ -16,8 +17,6 @@ export default function UpdatesPage() {
         <div className="container px-4 py-4 md:px-6">
           <nav className="flex items-center gap-2 text-sm text-muted-foreground">
             <Link href="/" className="hover:text-foreground">Home</Link>
-            <span aria-hidden>/</span>
-            <Link href="/pricing" className="hover:text-foreground">Pricing</Link>
             <span aria-hidden>/</span>
             <span className="font-medium text-foreground">Updates</span>
           </nav>
@@ -35,8 +34,7 @@ export default function UpdatesPage() {
             What's new in your guide
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-            Every month we add new ebooks, templates, pricing refreshes and case studies. If you
-            already own the guide, every update is free — just re-download from the same link.
+            Every month we add new ebooks, templates, pricing refreshes and case studies.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Button asChild className="rounded-xl">
@@ -47,8 +45,7 @@ export default function UpdatesPage() {
             </Button>
             <Button asChild variant="outline" className="rounded-xl">
               <Link href="/pricing">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to pricing
+                Join the list
               </Link>
             </Button>
           </div>
@@ -73,7 +70,7 @@ export default function UpdatesPage() {
           <div className="mt-7">
             <Button asChild variant="ghost" className="rounded-xl">
               <Link href="/pricing">
-                See pricing options
+                Join the list
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>

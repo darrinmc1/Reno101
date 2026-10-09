@@ -1,10 +1,28 @@
 import { blogPosts, getBlogPost } from "@/lib/content"
 import HumorBreak from "@/components/humor-break"
+import { pageMetadata } from "@/lib/seo"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ArrowLeft, Bookmark, Clock, Share2, ThumbsUp } from "lucide-react"
 import Link from "next/link"
 import { notFound } from "next/navigation"
+
+export const dynamicParams = false
+
+export function generateStaticParams() {
+  return blogPosts.map((post) => ({ slug: post.slug }))
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const post = getBlogPost(slug)
+  if (!post) notFound()
+  return pageMetadata({
+    title: post.title,
+    description: post.excerpt,
+    path: `/blogs/${post.slug}`,
+  })
+}
 
 export default async function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params

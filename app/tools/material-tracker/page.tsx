@@ -7,8 +7,8 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ArrowUpDown, Bell, ExternalLink, Filter, Search, Sparkles, Star } from "lucide-react"
-import Link from "next/link"
+import { ArrowUpDown, ExternalLink, Filter, Search, Sparkles, Star } from "lucide-react"
+import { ComingSoonList } from "@/components/coming-soon-list"
 
 export default function MaterialTrackerPage() {
   const [searchTerm, setSearchTerm] = useState("")
@@ -275,32 +275,13 @@ export default function MaterialTrackerPage() {
                       </div>
                     </TabsContent>
                     <TabsContent value="history">
-                      <div className="flex items-center justify-center p-8 text-center">
-                        <div>
-                          <p className="mb-4 text-muted-foreground">
-                            Price history is for Premium subscribers, because apparently spreadsheets can also have a
-                            luxury tier.
-                          </p>
-                          <Link href="/pricing">
-                            <Button variant="outline" className="rounded-full">Upgrade to Premium</Button>
-                          </Link>
-                        </div>
+                      <div className="p-8">
+                        <ComingSoonList source="material-tracker-history" />
                       </div>
                     </TabsContent>
                     <TabsContent value="alerts">
-                      <div className="flex items-center justify-center p-8 text-center">
-                        <div>
-                          <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
-                            <Bell className="h-6 w-6 text-primary" />
-                          </div>
-                          <p className="mb-4 text-muted-foreground">
-                            Price alerts are available for Standard and Premium plans, which is helpful when tapware
-                            keeps behaving like crypto.
-                          </p>
-                          <Link href="/pricing">
-                            <Button variant="outline" className="rounded-full">Upgrade Your Plan</Button>
-                          </Link>
-                        </div>
+                      <div className="p-8">
+                        <ComingSoonList source="material-tracker-alerts" />
                       </div>
                     </TabsContent>
                   </Tabs>

@@ -5,7 +5,7 @@ import { Mail, MessageSquare, Clock, ArrowRight } from "lucide-react"
 import Link from "next/link"
 
 const CONTACT_METHODS = [
-  { icon: Mail, label: "Email us", value: "hello@renos101.com", desc: "We reply within 24 hours, unless we're up to our elbows in drywall compound." },
+  { icon: Mail, label: "Write to us", value: "Use the form below", desc: "We reply within 24 hours, unless we're up to our elbows in drywall compound." },
   { icon: MessageSquare, label: "Live chat", value: "Available 9am–5pm AEST", desc: "For quick questions like 'is this wall load-bearing?' or 'should I panic about this crack?'" },
   { icon: Clock, label: "Office hours", value: "Mon–Fri, 9am–5pm", desc: "We spend the rest of our time measuring things three times and cutting once." },
 ]
@@ -93,7 +93,7 @@ export default function ContactPage() {
           </div>
           <input type="text" name="website" tabIndex={-1} autoComplete="off" aria-hidden="true" className="hidden" />
           {status === "sent" && <p className="text-sm font-medium text-green-700">Thanks — your message is on its way. We&apos;ll reply by email.</p>}
-          {status === "error" && <p className="text-sm font-medium text-red-600">Sorry, that didn&apos;t send. Please try again or email hello@renos101.com.</p>}
+          {status === "error" && <p className="text-sm font-medium text-red-600">Sorry, that didn&apos;t send. Please try again in a minute.</p>}
           <button type="submit" disabled={status === "sending"} className="inline-flex items-center gap-2 rounded-xl bg-amber-600 disabled:opacity-60 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:bg-amber-700">
             {status === "sending" ? "Sending..." : "Send message"}
             <ArrowRight className="h-4 w-4" />

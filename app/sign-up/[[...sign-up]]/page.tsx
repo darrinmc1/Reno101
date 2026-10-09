@@ -1,4 +1,12 @@
 import { SignUp } from "@clerk/nextjs"
+import { pageMetadata } from "@/lib/seo"
+
+export const metadata = pageMetadata({
+  title: "Sign up",
+  description: "Create a Reno101 account.",
+  path: "/sign-up",
+  index: false,
+})
 
 export default function SignUpPage() {
   return (

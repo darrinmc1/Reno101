@@ -1,6 +1,7 @@
 // app/tools/[tool]/page.tsx — Dynamic tool page for AI document generators
 
 import { notFound } from "next/navigation"
+import { pageMetadata } from "@/lib/seo"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { FileText, Ruler, Palette, ArrowLeft } from "lucide-react"
@@ -172,6 +173,12 @@ const tools: Record<string, ToolConfig> = {
 /*  Metadata generation                                                */
 /* ------------------------------------------------------------------ */
 
+export const dynamicParams = false
+
+export function generateStaticParams() {
+  return Object.keys(tools).map((tool) => ({ tool }))
+}
+
 export async function generateMetadata({
   params,
 }: {
@@ -180,14 +187,13 @@ export async function generateMetadata({
   const { tool: slug } = await params
   const config = tools[slug]
 
-  if (!config) {
-    return { title: "Tool Not Found" }
-  }
+  if (!config) notFound()
 
-  return {
+  return pageMetadata({
     title: config.title,
     description: config.description,
-  }
+    path: `/tools/${slug}`,
+  })
 }
 
 /* ------------------------------------------------------------------ */

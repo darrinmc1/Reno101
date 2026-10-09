@@ -1,4 +1,11 @@
 import Link from "next/link"
+import { pageMetadata } from "@/lib/seo"
+
+export const metadata = pageMetadata({
+  title: "FAQ",
+  description: "The fast version of what most people want to know before a renovation starts mutating.",
+  path: "/faq",
+})
 import { ArrowRight, HelpCircle } from "lucide-react"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"

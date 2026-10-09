@@ -1,4 +1,12 @@
 import { SignUp } from "@clerk/nextjs"
+import { pageMetadata } from "@/lib/seo"
+
+export const metadata = pageMetadata({
+  title: "Sign up",
+  description: "Create a Reno101 account for saved progress and downloadable checklists.",
+  path: "/signup",
+  index: false,
+})
 import Link from "next/link"
 import { Hammer, ArrowLeft, CheckCircle2 } from "lucide-react"
 

@@ -14,10 +14,11 @@ import { WaitlistPopup } from "@/components/waitlist-popup"
 export const metadata: Metadata = {
   metadataBase: new URL("https://renos101.com"),
   title: {
-    default: "Renos101",
+    default: "Renos101 — renovation guides and cost tools",
     template: "%s | Renos101",
   },
-  description: "Plans, prices, fewer regrets — guides, tools, and templates for every stage of your renovation.",
+  description:
+    "Step-by-step renovation guides, checklists, and AUD cost tools for every stage, including the grout panic at 11 PM.",
   generator: "Renos101",
   icons: {
     icon: [
@@ -28,11 +29,17 @@ export const metadata: Metadata = {
     apple: "/favicon.svg",
   },
   openGraph: {
-    title: "Renos101",
-    description: "From first idea to finished — 16 stages of renovation, mapped.",
+    title: "Renos101 — renovation guides and cost tools",
+    description:
+      "Step-by-step renovation guides, checklists, and AUD cost tools for every stage, including the grout panic at 11 PM.",
     url: "https://renos101.com",
     siteName: "Renos101",
     type: "website",
+    images: [{ url: "/og.jpg", width: 1200, height: 630, alt: "Renos101 renovation guides" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["/og.jpg"],
   },
 }
 

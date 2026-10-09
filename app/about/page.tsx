@@ -1,4 +1,12 @@
 import { Hammer, Users, Lightbulb, Sparkles } from "lucide-react"
+import { pageMetadata } from "@/lib/seo"
+
+export const metadata = pageMetadata({
+  title: "About",
+  description:
+    "Renos101 is for people who start a small weekend update and end up comparing grout colors like a hostage negotiator.",
+  path: "/about",
+})
 
 const VALUES = [
   { icon: Hammer, title: "Practical over pretty", desc: "We care about what works, not what looks good on Instagram. Your renovation should survive real life — muddy boots, spilled wine, and all." },

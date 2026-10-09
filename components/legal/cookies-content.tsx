@@ -3,13 +3,11 @@ import Link from "next/link"
 interface CookiesPageProps {
   siteName: string
   domain: string
-  supportEmail?: string
 }
 
 export function CookiesPage({
   siteName,
   domain,
-  supportEmail = "admin@" + domain,
 }: CookiesPageProps) {
   const lastUpdated = "July 29, 2026"
 
@@ -144,7 +142,7 @@ export function CookiesPage({
             <ul className="list-disc pl-6 mb-4 text-slate-700 space-y-1">
               <li><strong>Clerk</strong> — authentication cookies (essential)</li>
               <li><strong>Vercel Analytics</strong> — performance and usage analytics</li>
-              <li><strong>Stripe</strong> — may set cookies during checkout for fraud detection</li>
+              <li><strong>Stripe</strong> — may set cookies for fraud detection if a payment is processed</li>
             </ul>
             <p className="text-slate-700">
               We do not control these third-party cookies. Refer to each provider&apos;s cookie policy for more
@@ -168,7 +166,7 @@ export function CookiesPage({
               For questions about our use of cookies:
             </p>
             <ul className="list-disc pl-6 mt-2 text-slate-700 space-y-1">
-              <li>Email: <a href={`mailto:${supportEmail}`} className="text-blue-600 underline">{supportEmail}</a></li>
+              <li>Contact form: <Link href="/contact" className="text-blue-600 underline">{domain}/contact</Link></li>
               <li>Privacy Policy: <Link href="/privacy" className="text-blue-600 underline">{domain}/privacy</Link></li>
             </ul>
           </section>

@@ -3,11 +3,10 @@ import Link from "next/link"
 interface TermsPageProps {
   siteName: string
   domain: string
-  supportEmail?: string
   companyName?: string
 }
 
-export function TermsPage({ siteName, domain, supportEmail = "admin@" + domain, companyName = siteName }: TermsPageProps) {
+export function TermsPage({ siteName, domain, companyName = siteName }: TermsPageProps) {
   const lastUpdated = "July 29, 2026"
 
   return (
@@ -63,17 +62,9 @@ export function TermsPage({ siteName, domain, supportEmail = "admin@" + domain, 
               &ldquo;as is&rdquo; without warranty, and we may modify or discontinue any free offering at any time without notice.
             </p>
             <h3 className="text-lg font-semibold mb-2">2.2 Paid Content &amp; Subscriptions</h3>
-            <p className="text-slate-700 mb-3">
-              Certain content, features, courses, and tools require payment. Paid offerings include:
-            </p>
-            <ul className="list-disc pl-6 mb-4 text-slate-700 space-y-1">
-              <li><strong>One-time purchases</strong> — individual courses, templates, or tools</li>
-              <li><strong>Subscription plans</strong> — recurring access to premium content, billed monthly or annually</li>
-              <li><strong>Professional services</strong> — consulting, coaching, or custom work (governed by separate agreement)</li>
-            </ul>
             <p className="text-slate-700">
-              All prices are listed in US Dollars (USD) unless otherwise stated. We reserve the right to change prices
-              at any time, but changes will not affect active subscriptions until the next billing period.
+              Payments are not available on the site yet. No prices are offered until payments are set up.
+              When paid plans are offered, these terms will state the currency and billing terms.
             </p>
           </section>
 
@@ -81,7 +72,7 @@ export function TermsPage({ siteName, domain, supportEmail = "admin@" + domain, 
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4">3. Payments &amp; Billing</h2>
             <p className="text-slate-700 mb-3">
-              Payments are processed securely through third-party payment processors (e.g., Stripe). We do not store
+              This section applies only once payments are offered. Payments are processed securely through third-party payment processors (e.g., Stripe). We do not store
               full credit card numbers on our servers. By providing payment information, you represent that you are
               authorized to use the payment method and authorize us to charge the applicable fees.
             </p>
@@ -107,7 +98,7 @@ export function TermsPage({ siteName, domain, supportEmail = "admin@" + domain, 
               <li><strong>Billing errors:</strong> Duplicate or incorrect charges will be refunded in full upon verification.</li>
             </ul>
             <p className="text-slate-700">
-              To request a refund, contact <a href={`mailto:${supportEmail}`} className="text-blue-600 underline">{supportEmail}</a>.
+              To request a refund, use the <Link href="/contact" className="text-blue-600 underline">contact form</Link>.
             </p>
           </section>
 
@@ -137,7 +128,7 @@ export function TermsPage({ siteName, domain, supportEmail = "admin@" + domain, 
               <li>Use our content to train AI models or for similar machine-learning purposes</li>
             </ul>
             <p className="text-slate-700">
-              If you believe your intellectual property has been infringed, contact us at {supportEmail}.
+              If you believe your intellectual property has been infringed, use the <Link href="/contact" className="text-blue-600 underline">contact form</Link>.
             </p>
           </section>
 
@@ -230,8 +221,7 @@ export function TermsPage({ siteName, domain, supportEmail = "admin@" + domain, 
               If you have any questions about these Terms, please contact us:
             </p>
             <ul className="list-disc pl-6 mt-2 text-slate-700 space-y-1">
-              <li>Email: <a href={`mailto:${supportEmail}`} className="text-blue-600 underline">{supportEmail}</a></li>
-              <li>Website: <Link href={`https://${domain}/contact`} className="text-blue-600 underline">{domain}/contact</Link></li>
+              <li>Contact form: <Link href="/contact" className="text-blue-600 underline">{domain}/contact</Link></li>
             </ul>
           </section>
         </div>

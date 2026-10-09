@@ -1,4 +1,12 @@
 import { SignIn } from "@clerk/nextjs"
+import { pageMetadata } from "@/lib/seo"
+
+export const metadata = pageMetadata({
+  title: "Sign in",
+  description: "Sign in to Reno101.",
+  path: "/sign-in",
+  index: false,
+})
 
 export default function SignInPage() {
   return (

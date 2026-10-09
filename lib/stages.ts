@@ -995,10 +995,12 @@ export function getPrevStage(slug: string): Stage | undefined {
   return STAGES[idx - 1]
 }
 
-/** Formatted price string e.g. "AU$4.90" or "Free" */
+/**
+ * Visitor-facing label. Paid catalogue amounts stay on `priceAUD` and are not
+ * rendered until payments are set up. Free items still say "Free".
+ */
 export function formatPrice(r: StageResource): string {
   if (r.free) return "Free"
-  if (typeof r.priceAUD === "number") return `AU$${r.priceAUD.toFixed(2)}`
   return ""
 }
 

@@ -1,4 +1,11 @@
 import type React from "react"
+import { pageMetadata } from "@/lib/seo"
+
+export const metadata = pageMetadata({
+  title: "Design tools",
+  description: "A landing page for room styling, mood boards, colour picks, and floor planning.",
+  path: "/design-tools",
+})
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
@@ -80,8 +87,8 @@ export default function DesignToolsPage() {
       <div className="mb-16 grid grid-cols-1 gap-6 md:grid-cols-3">
         <Card>
           <CardHeader>
-            <CardTitle>Premium Design Features</CardTitle>
-            <CardDescription>Good candidates for a paid plan boundary</CardDescription>
+            <CardTitle>More design features</CardTitle>
+            <CardDescription>These are not available yet</CardDescription>
           </CardHeader>
           <CardContent className="space-y-2">
             <FeatureRow icon={<Image className="h-4 w-4 text-primary" />} text="AI-powered design suggestions" />
@@ -91,7 +98,7 @@ export default function DesignToolsPage() {
           <CardFooter>
             <Link href="/pricing">
               <Button variant="outline" className="w-full">
-                View Plans
+                Join the list
               </Button>
             </Link>
           </CardFooter>
@@ -144,7 +151,7 @@ export default function DesignToolsPage() {
         </p>
         <div className="flex flex-col justify-center gap-4 sm:flex-row">
           <Link href="/pricing">
-            <Button size="lg">Get Started</Button>
+            <Button size="lg">Join the list</Button>
           </Link>
           <Link href="/research">
             <Button variant="outline" size="lg">

@@ -1,4 +1,12 @@
 import { SignIn } from "@clerk/nextjs"
+import { pageMetadata } from "@/lib/seo"
+
+export const metadata = pageMetadata({
+  title: "Sign in",
+  description: "Sign in to your Reno101 dashboard, saved guides, and project notes.",
+  path: "/login",
+  index: false,
+})
 import Link from "next/link"
 import { Hammer, Lock, ArrowLeft, CheckCircle2 } from "lucide-react"
 

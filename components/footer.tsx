@@ -39,7 +39,7 @@ export default function Footer() {
               { href: "/blogs", label: "Renovation Guides" },
               { href: "/design-tools", label: "Design Tools" },
               { href: "/research", label: "Research Service" },
-              { href: "/pricing", label: "Pricing" },
+              { href: "/pricing", label: "Coming soon" },
               { href: "/about", label: "About Us" },
             ]}
           />

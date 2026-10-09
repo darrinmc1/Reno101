@@ -1,3 +1,4 @@
+import { pageMetadata } from "@/lib/seo"
 import {
   FileText,
   Calculator,
@@ -100,11 +101,12 @@ const TEMPLATES = [
   },
 ]
 
-export const metadata = {
+export const metadata = pageMetadata({
   title: "Downloads",
   description:
-    "Download free Renos101 renovation planning templates — renovation brief, material estimator, contractor comparison, timeline, budget tracker, permit checklist, room planner, quote comparison, warranty tracker, and emergency contact sheet.",
-}
+    "Renovation planning templates: brief, material estimator, contractor comparison, timeline, budget tracker, permit checklist, room planner, quote comparison, warranty tracker, and emergency contacts.",
+  path: "/downloads",
+})
 
 export default function DownloadsPage() {
   return (
@@ -194,17 +196,15 @@ export default function DownloadsPage() {
         <div className="rounded-3xl border-2 border-primary/40 bg-primary/5 p-8 text-center md:p-12">
           <Wallet className="mx-auto h-8 w-8 text-primary" />
           <h2 className="mt-4 text-3xl font-extrabold tracking-tight md:text-4xl">
-            Need the full suite?
+            Coming soon
           </h2>
           <p className="mx-auto mt-3 max-w-2xl text-muted-foreground">
-            These templates are a taste. The Complete Renovation Guide includes every template,
-            checklist, and calculator in editable formats — plus 16 stages of expert guidance
-            from Ideas to Punch List.
+            These templates are free to download. Join the list to hear when more are ready.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Button asChild size="lg" className="rounded-xl">
               <Link href="/pricing">
-                See the full guide
+                Join the list
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>

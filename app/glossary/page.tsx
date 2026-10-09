@@ -1,4 +1,11 @@
 import { Badge } from "@/components/ui/badge"
+import { pageMetadata } from "@/lib/seo"
+
+export const metadata = pageMetadata({
+  title: "Glossary",
+  description: "Renovation terms translated into normal human language, from architrave to waterproofing.",
+  path: "/glossary",
+})
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 
 const terms = [
