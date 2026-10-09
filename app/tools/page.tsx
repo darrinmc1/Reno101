@@ -172,19 +172,6 @@ export default function ToolsPage() {
             </Card>
           </div>
 
-          <div className="mt-6 rounded-xl border border-primary/10 bg-primary/[0.03] p-4">
-            <div className="flex items-start gap-3">
-              <Sparkles className="mt-0.5 h-5 w-5 flex-shrink-0 text-amber-500" />
-              <div className="text-sm text-muted-foreground">
-                <span className="font-medium text-foreground">Free trial:</span> One free
-                generation with Gemini Flash.{" "}
-                <Link href="/pricing" className="font-medium text-primary underline underline-offset-2">
-                  Upgrade to Pro
-                </Link>{" "}
-                for unlimited access to advanced AI models.
-              </div>
-            </div>
-          </div>
         </section>
 
         {/* ============ Other Tools ============ */}

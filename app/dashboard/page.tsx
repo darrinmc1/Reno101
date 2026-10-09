@@ -44,17 +44,17 @@ export default function DashboardPage() {
           <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
             <Card>
               <CardHeader className="pb-2">
-                <CardTitle>Subscription</CardTitle>
-                <CardDescription>Standard Plan, respectable and alert</CardDescription>
+                <CardTitle>Email list</CardTitle>
+                <CardDescription>Hear when new guides are ready</CardDescription>
               </CardHeader>
               <CardContent>
-                <div className="text-2xl font-bold">10 / 10</div>
-                <p className="text-sm text-muted-foreground">Guides remaining this week before you become unstoppable</p>
+                <div className="text-2xl font-bold">Coming soon</div>
+                <p className="text-sm text-muted-foreground">Saved guides stay here while you wait</p>
               </CardContent>
               <CardFooter>
-                <Link href="/subscription">
+                <Link href="/pricing">
                   <Button variant="ghost" size="sm" className="gap-1">
-                    Manage Plan <ArrowRight className="h-4 w-4" />
+                    Join the list <ArrowRight className="h-4 w-4" />
                   </Button>
                 </Link>
               </CardFooter>

@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { pageMetadata } from "@/lib/seo"
-import { ArrowLeft, ArrowRight, Bell, RefreshCw, Sparkles } from "lucide-react"
+import { ArrowRight, Bell, RefreshCw, Sparkles } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export const metadata = pageMetadata({
@@ -18,8 +18,6 @@ export default function UpdatesPage() {
           <nav className="flex items-center gap-2 text-sm text-muted-foreground">
             <Link href="/" className="hover:text-foreground">Home</Link>
             <span aria-hidden>/</span>
-            <Link href="/pricing" className="hover:text-foreground">Pricing</Link>
-            <span aria-hidden>/</span>
             <span className="font-medium text-foreground">Updates</span>
           </nav>
         </div>
@@ -36,8 +34,7 @@ export default function UpdatesPage() {
             What's new in your guide
           </h1>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
-            Every month we add new ebooks, templates, pricing refreshes and case studies. If you
-            already own the guide, every update is free — just re-download from the same link.
+            Every month we add new ebooks, templates, pricing refreshes and case studies.
           </p>
           <div className="mt-6 flex flex-wrap justify-center gap-3">
             <Button asChild className="rounded-xl">
@@ -48,8 +45,7 @@ export default function UpdatesPage() {
             </Button>
             <Button asChild variant="outline" className="rounded-xl">
               <Link href="/pricing">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to pricing
+                Join the list
               </Link>
             </Button>
           </div>
@@ -74,7 +70,7 @@ export default function UpdatesPage() {
           <div className="mt-7">
             <Button asChild variant="ghost" className="rounded-xl">
               <Link href="/pricing">
-                See pricing options
+                Join the list
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>

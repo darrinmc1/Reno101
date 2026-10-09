@@ -166,7 +166,7 @@ export function ResourceCard({ r }: { r: ResourceWithStage }) {
                   {r.bundle}
                 </span>
               </TooltipTrigger>
-              <TooltipContent>Included free when you buy the {r.bundle}.</TooltipContent>
+              <TooltipContent>Included in the {r.bundle}.</TooltipContent>
             </Tooltip>
           )}
           <Tooltip>

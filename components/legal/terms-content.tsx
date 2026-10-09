@@ -62,17 +62,9 @@ export function TermsPage({ siteName, domain, companyName = siteName }: TermsPag
               &ldquo;as is&rdquo; without warranty, and we may modify or discontinue any free offering at any time without notice.
             </p>
             <h3 className="text-lg font-semibold mb-2">2.2 Paid Content &amp; Subscriptions</h3>
-            <p className="text-slate-700 mb-3">
-              Certain content, features, courses, and tools require payment. Paid offerings include:
-            </p>
-            <ul className="list-disc pl-6 mb-4 text-slate-700 space-y-1">
-              <li><strong>One-time purchases</strong> — individual courses, templates, or tools</li>
-              <li><strong>Subscription plans</strong> — recurring access to premium content, billed monthly or annually</li>
-              <li><strong>Professional services</strong> — consulting, coaching, or custom work (governed by separate agreement)</li>
-            </ul>
             <p className="text-slate-700">
-              All prices are listed in US Dollars (USD) unless otherwise stated. We reserve the right to change prices
-              at any time, but changes will not affect active subscriptions until the next billing period.
+              Payments are not available on the site yet. No prices are offered until payments are set up.
+              When paid plans are offered, these terms will state the currency and billing terms.
             </p>
           </section>
 
@@ -80,7 +72,7 @@ export function TermsPage({ siteName, domain, companyName = siteName }: TermsPag
           <section className="mb-10">
             <h2 className="text-2xl font-bold mb-4">3. Payments &amp; Billing</h2>
             <p className="text-slate-700 mb-3">
-              Payments are processed securely through third-party payment processors (e.g., Stripe). We do not store
+              This section applies only once payments are offered. Payments are processed securely through third-party payment processors (e.g., Stripe). We do not store
               full credit card numbers on our servers. By providing payment information, you represent that you are
               authorized to use the payment method and authorize us to charge the applicable fees.
             </p>

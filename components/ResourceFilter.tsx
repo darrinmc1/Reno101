@@ -25,7 +25,6 @@ const ACCESS_OPTIONS: { value: AccessFilter; label: string }[] = [
   { value: "all", label: "All" },
   { value: "free", label: "Free" },
   { value: "bundle", label: "In a bundle" },
-  { value: "paid", label: "Paid only" },
 ]
 
 export function ResourceFilter({

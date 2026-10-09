@@ -14,7 +14,6 @@ const STATIC_PATHS = [
   "/downloads",
   "/faq",
   "/glossary",
-  "/pricing",
   "/privacy",
   "/research",
   "/resources",
