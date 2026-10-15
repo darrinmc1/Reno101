@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 export const metadata = {
   title: "Monthly updates",
   description:
-    "What's new in your Reno101 guide each month — ebooks, templates, pricing refreshes, real-reno case studies.",
+    "What's new in your Renos101 guide each month — ebooks, templates, pricing refreshes, real-reno case studies.",
 }
 
 export default function UpdatesPage() {
@@ -63,7 +63,7 @@ export default function UpdatesPage() {
             Updates log starts when we launch
           </h2>
           <p className="mx-auto mt-2 max-w-xl text-sm text-muted-foreground">
-            We're still finalising launch content. As soon as Reno101 ships, this page will fill
+            We're still finalising launch content. As soon as Renos101 ships, this page will fill
             up with monthly entries — what was added, what was rewritten, what's coming next.
           </p>
           <div className="mt-6 grid gap-3 text-left sm:grid-cols-2">

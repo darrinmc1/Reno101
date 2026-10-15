@@ -955,6 +955,65 @@ export const STAGES: Stage[] = [
     ],
   },
   {
+    slug: "move-in",
+    name: "Move-In",
+    phase: "finish",
+    phaseLabel: "Phase 3",
+    order: 15,
+    difficulty: "basic",
+    icon: "📦",
+    accent: "bg-amber-100 text-amber-800",
+    hero: "from-amber-500 via-orange-500 to-rose-600",
+    tagline: "Furniture back, filters new, first night in the finished house.",
+    summary:
+      "The punch list is ticked and the tradies have gone. This is the week you put life back in the house: window furnishings, the furniture that does not fit the stair turn, and a systems check before anyone is invited over.",
+    resourceCount: 3,
+    steps: [
+      {
+        title: "Before the truck arrives",
+        emoji: "🚚",
+        components: [
+          { label: "Measure the stair turn and the tight door", hint: "The sofa that left easily often comes back after the new architraves. Measure the actual opening, not the one you remember.", skill: "Basic" },
+          { label: "Wait until the paint is dry", hint: "Enamel on doors and skirting needs longer than the tin suggests. A removalist blanket against tacky paint becomes a permanent souvenir.", skill: "Basic" },
+          { label: "Protect the new floors", hint: "Drop sheets on timber and tile for the move, not after the first scratch. Felt pads go on before the furniture comes inside.", materials: "Drop sheets, felt pads", skill: "Basic" },
+        ],
+      },
+      {
+        title: "Window furnishings",
+        emoji: "🪟",
+        components: [
+          { label: "Hang curtains and blinds after painting", hint: "Brackets installed before the last coat leave a halo. Paint first, then drill.", skill: "Basic" },
+          { label: "Find the stud or use a rated anchor", hint: "Fresh plaster does not hold a curtain rod on hope. A loaded pair of drapes is heavier than it looks.", materials: "Stud finder, cavity anchors", skill: "Basic" },
+          { label: "Check the drop in daylight", hint: "Hem curtains so they clear the new skirting. A hem that brushes the floor collects the first week's dust.", skill: "Basic" },
+        ],
+      },
+      {
+        title: "Day-one systems check",
+        emoji: "🔌",
+        components: [
+          { label: "Replace filters before you unpack", hint: "Construction dust is still in the return air, the rangehood, and the dryer. New filters on day one, not after the first load of towels.", materials: "AC filter, rangehood filter", skill: "Basic" },
+          { label: "Test smoke alarms and hot water", hint: "Press the alarm test button and run the hot tap until it is actually hot. Both are easier to fix before the house is full of boxes.", skill: "Basic" },
+          { label: "Photograph the meters", hint: "Gas, electricity, and water, on the day you take the house back. The photo settles the argument about whose usage that was.", skill: "Basic" },
+          { label: "Label the switchboard", hint: "If the electrician left 'light 3' and 'GPO 2', write the room names on the card while you still remember which switch does what.", skill: "Basic" },
+        ],
+      },
+      {
+        title: "The first week",
+        emoji: "🛏️",
+        components: [
+          { label: "Live in it before you host", hint: "A few ordinary nights show the door that rubs, the tap that drips, and the light switch you cannot find in the dark.", skill: "Basic" },
+          { label: "Write down what only shows up in use", hint: "Add it to the punch-list sheet. A note on day three is cheaper than discovering it at the housewarming.", skill: "Basic" },
+          { label: "Keep the tradie list where you can find it", hint: "The contact group from handover is the whole point of that stage. The dripping tap in month two will not care that you meant to save the number.", skill: "Basic" },
+        ],
+      },
+    ],
+    resources: [
+      { kind: "checklist", title: "First-week move-in checklist", free: true },
+      { kind: "tip", title: "Change the filters before you unpack the good towels", free: true },
+      { kind: "tip", title: "Photograph the meters on the day you move back in", free: true },
+    ],
+  },
+  {
     slug: "party",
     name: "Party!",
     phase: "finish",

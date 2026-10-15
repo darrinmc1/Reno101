@@ -13,7 +13,7 @@ export default function AboutPage() {
       <div className="text-center">
         <p className="text-sm font-medium uppercase tracking-[0.2em] text-amber-600">Who We Are</p>
         <h1 className="mt-4 text-4xl font-bold tracking-tight text-slate-900 md:text-5xl">
-          Reno101
+          Renos101
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-lg text-slate-600">
           We exist for people who begin a &ldquo;small weekend update&rdquo; and three hours later are
