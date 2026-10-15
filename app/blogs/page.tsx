@@ -5,7 +5,27 @@ import { Input } from "@/components/ui/input"
 import { ArrowRight, Search } from "lucide-react"
 import Link from "next/link"
 
-export default function BlogsPage() {
+function categoryParam(value: string | string[] | undefined) {
+  const raw = Array.isArray(value) ? value[0] : value
+  const trimmed = raw?.trim()
+  return trimmed || undefined
+}
+
+export default async function BlogsPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ category?: string | string[] }>
+}) {
+  const { category: categoryQuery } = await searchParams
+  const requested = categoryParam(categoryQuery)
+  const canonical = requested
+    ? blogPosts.find((post) => post.category.toLowerCase() === requested.toLowerCase())?.category
+    : undefined
+  const visiblePosts = canonical
+    ? blogPosts.filter((post) => post.category === canonical)
+    : requested
+      ? []
+      : blogPosts
   const categories = Array.from(new Set(blogPosts.map((blog) => blog.category)))
 
   return (
@@ -30,20 +50,39 @@ export default function BlogsPage() {
             />
           </div>
           <div className="flex flex-wrap gap-2">
-            {categories.map((category) => (
-              <span
-                key={category}
-                className="rounded-full border border-white/60 bg-white/70 px-3 py-1 text-sm text-muted-foreground shadow-sm"
-              >
-                {category}
-              </span>
-            ))}
+            {categories.map((category) => {
+              const active = canonical === category
+              return (
+                <Link
+                  key={category}
+                  href={`/blogs?category=${encodeURIComponent(category)}`}
+                  className={`rounded-full border px-3 py-1 text-sm shadow-sm ${
+                    active
+                      ? "border-primary bg-primary text-primary-foreground"
+                      : "border-white/60 bg-white/70 text-muted-foreground"
+                  }`}
+                >
+                  {category}
+                </Link>
+              )
+            })}
           </div>
         </div>
       </div>
 
+      {requested && (
+        <p className="mt-8 text-sm text-muted-foreground">
+          {canonical
+            ? `${visiblePosts.length} ${visiblePosts.length === 1 ? "guide" : "guides"} in ${canonical}.`
+            : `No guides filed under ${requested}.`}{" "}
+          <Link href="/blogs" className="underline">
+            All guides
+          </Link>
+        </p>
+      )}
+
       <div className="mt-10 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-        {blogPosts.map((blog) => (
+        {visiblePosts.map((blog) => (
           <Link key={blog.slug} href={`/blogs/${blog.slug}`} className="group">
             <Card className="h-full overflow-hidden rounded-[1.5rem] border-white/60 bg-white/80 shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg">
               <div className="aspect-video overflow-hidden">

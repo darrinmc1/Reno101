@@ -62,17 +62,17 @@ export async function POST(request: Request) {
     // Send confirmation email if Resend is configured
     if (resend) {
       const { error: emailError } = await resend.emails.send({
-        from: "Reno101 <noreply@renos101.com>",
+        from: "Renos101 <noreply@renos101.com>",
         to: email,
-        subject: "Welcome to Reno101!",
+        subject: "Welcome to Renos101!",
         html: `
           <div style="font-family: sans-serif; max-width: 480px; margin: 0 auto;">
-            <h1 style="color: #1a1a2e;">Welcome to Reno101</h1>
+            <h1 style="color: #1a1a2e;">Welcome to Renos101</h1>
             <p>Thanks for subscribing${firstName ? `, ${firstName}` : ""}!</p>
             <p>You'll receive renovation tips, guides, and tools straight to your inbox.</p>
             <hr style="border: none; border-top: 1px solid #e2e8f0; margin: 24px 0;" />
             <p style="color: #64748b; font-size: 12px;">
-              Reno101 &middot; renos101.com<br/>
+              Renos101 &middot; renos101.com<br/>
               <a href="*|UNSUB|*" style="color: #64748b;">Unsubscribe</a>
             </p>
           </div>

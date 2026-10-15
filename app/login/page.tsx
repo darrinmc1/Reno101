@@ -13,7 +13,7 @@ export default function LoginPage() {
           className="inline-flex items-center gap-2 text-sm text-slate-400 hover:text-amber-400 transition-colors"
         >
           <ArrowLeft className="h-4 w-4" />
-          Back to Reno101
+          Back to Renos101
         </Link>
       </div>
 
@@ -23,7 +23,7 @@ export default function LoginPage() {
         </div>
         
         <h1 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-          Sign in to Reno101
+          Sign in to Renos101
         </h1>
         
         <p className="text-sm text-slate-300 max-w-sm mx-auto">

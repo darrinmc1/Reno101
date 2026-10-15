@@ -238,7 +238,7 @@ export default function Home() {
           The glossary decodes every bit of tradie jargon you'll run into — from <em>cornice</em> to <em>batten</em> to <em>fit-off</em> — so you can hold a conversation with the builder without nodding politely and Googling it later.
         </p>
         <Button asChild variant="link" className="mt-3 text-primary">
-          <Link href="/blogs">
+          <Link href="/glossary">
             Browse the glossary
             <ArrowRight className="ml-2 h-4 w-4" />
           </Link>
@@ -302,8 +302,13 @@ function StageCard({ stage }: { stage: (typeof STAGES)[number] }) {
         }`}
     >
       <div className="mb-3 flex items-center justify-between">
-        <div className={`grid h-10 w-10 place-items-center rounded-lg text-xl ${isParty ? "bg-white/20" : stage.accent}`}>
-          <span aria-hidden>{stage.icon}</span>
+        <div className="flex items-center gap-2">
+          <span className={`text-xs font-bold tabular-nums tracking-widest ${isParty ? "text-white/80" : "text-muted-foreground"}`}>
+            {String(stage.order).padStart(2, "0")}
+          </span>
+          <div className={`grid h-10 w-10 place-items-center rounded-lg text-xl ${isParty ? "bg-white/20" : stage.accent}`}>
+            <span aria-hidden>{stage.icon}</span>
+          </div>
         </div>
         {isParty ? (
           <span className="text-xs font-bold uppercase tracking-widest opacity-80">Finale</span>

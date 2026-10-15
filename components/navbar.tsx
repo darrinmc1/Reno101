@@ -30,13 +30,13 @@ export default function Navbar() {
             <div className="relative h-10 w-10 overflow-hidden rounded-2xl bg-primary/10 p-1 shadow-sm">
               <Image
                 src="/logo.png"
-                alt="Reno101 Logo"
+                alt="Renos101 Logo"
                 fill
                 className="object-contain"
               />
             </div>
             <div className="leading-tight">
-              <div className="text-lg font-black tracking-tight text-foreground">Reno101</div>
+              <div className="text-lg font-black tracking-tight text-foreground">Renos101</div>
               <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Plans, prices, fewer regrets</div>
             </div>
           </Link>
@@ -153,7 +153,7 @@ export default function Navbar() {
                         <PaintBucket className="h-5 w-5" />
                       </span>
                       <div className="leading-tight">
-                        <div className="font-black tracking-tight">Reno101</div>
+                        <div className="font-black tracking-tight">Renos101</div>
                         <div className="text-xs uppercase tracking-[0.18em] text-muted-foreground">Tools with taste</div>
                       </div>
                     </Link>

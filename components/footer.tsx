@@ -1,6 +1,5 @@
 import Link from "next/link"
 import { FooterNewsletterForm } from "@/components/footer-newsletter-form"
-import { Facebook, Instagram, Twitter, Youtube } from "lucide-react"
 
 export default function Footer() {
   return (
@@ -9,27 +8,10 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
           <div className="space-y-4">
             <div>
-              <h3 className="text-lg font-semibold">Reno101</h3>
+              <h3 className="text-lg font-semibold">Renos101</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 Warm advice, better tools, and fewer renovation decisions made while standing in fluorescent lighting.
               </p>
-            </div>
-            <div className="flex gap-3">
-              {[
-                { href: "#", label: "Facebook", icon: Facebook },
-                { href: "#", label: "Twitter", icon: Twitter },
-                { href: "#", label: "Instagram", icon: Instagram },
-                { href: "#", label: "YouTube", icon: Youtube },
-              ].map(({ href, label, icon: Icon }) => (
-                <Link
-                  key={label}
-                  href={href}
-                  aria-label={label}
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-2xl border border-white/60 bg-white/75 text-muted-foreground shadow-sm transition hover:border-primary/25 hover:bg-white hover:text-primary"
-                >
-                  <Icon className="h-4 w-4" />
-                </Link>
-              ))}
             </div>
           </div>
 
@@ -47,11 +29,11 @@ export default function Footer() {
           <FooterList
             title="Popular Reads"
             links={[
-              { href: "/blogs", label: "Kitchen Renovations" },
-              { href: "/blogs", label: "Bathroom Remodeling" },
-              { href: "/blogs", label: "DIY Reality Checks" },
-              { href: "/blogs", label: "Budget-Friendly Tips" },
-              { href: "/blogs", label: "Sustainability Without Sadness" },
+              { href: "/blogs?category=Kitchen", label: "Kitchen Renovations" },
+              { href: "/blogs?category=Bathroom", label: "Bathroom Remodeling" },
+              { href: "/blogs?category=DIY", label: "DIY Reality Checks" },
+              { href: "/blogs/eco-friendly-renovations-save-money", label: "Budget-Friendly Tips" },
+              { href: "/blogs?category=Sustainability", label: "Sustainability Without Sadness" },
             ]}
           />
 
@@ -66,7 +48,7 @@ export default function Footer() {
 
         <div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border/60 pt-8 md:flex-row">
           <p className="text-sm text-muted-foreground">
-            (c) {new Date().getFullYear()} Reno101. Built for ambitious plans and cautious measurements.
+            (c) {new Date().getFullYear()} Renos101. Built for ambitious plans and cautious measurements.
           </p>
           <div className="flex flex-wrap items-center gap-4">
             <Link href="/terms" className="text-sm text-muted-foreground transition hover:text-primary">
